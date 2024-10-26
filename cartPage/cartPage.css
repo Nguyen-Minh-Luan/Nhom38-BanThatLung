@@ -7,12 +7,26 @@ body {
   font-size: 16px;
   color: #333;
 }
+.header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.128);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.125);
+}
 .header_container {
   display: flex;
   justify-content: space-between;
 }
-.header_container_navbar {
+.header_container_navbar-left {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 75px;
+}
+.header_container_navbar-left h1 {
+  color: #000000;
+  font-family: "Instrument Serif";
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 10px;
 }
 .header_container_navbar-center {
   display: flex;
@@ -24,12 +38,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 75px;
 }
 .header_container_navbar-center li {
   list-style: none;
   margin: 0 40px;
   font-size: 22px;
-  font-weight: 300;
+  font-weight: 325;
 }
 .header_container_navbar-center a {
   text-decoration: none;
@@ -37,9 +52,31 @@ body {
 }
 .header_container_navbar-right li {
   list-style: none;
-  margin: 0 20px;
   font-size: 22px;
-  font-weight: 300;
+  vertical-align: top;
+  text-align: center;
 }
-.header_container_navbar-right li img {
+
+.header_container_navbar-right img {
+  width: 30px;
+  height: 30px;
+  margin: 0 7px;
+}
+.header_container_navbar--notify {
+  position: relative;
+}
+.header_container_navbar--notify span {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  width: 7px;
+  height: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 12px;
 }

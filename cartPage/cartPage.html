@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thomas Shop</title>
     <link rel="stylesheet" href="cartPage.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header class="header">
       <div class="header_container">
-        <h1 class="header_container--Title">Thomas Shop</h1>
+        <div class="header_container_navbar-left">
+          <h1 class="header_container--Title">Thomas</h1>
+        </div>
 
         <ul class="header_container_navbar-center">
           <li><a href="../index.html">Home</a></li>
@@ -19,9 +27,19 @@
         </ul>
         <ul class="header_container_navbar-right">
           <li><img src="../assets/icons/search.svg" /></li>
-          <li><img src="../assets//icons/favorite.svg"</li>
-          <li><img src="../assets//icons/user.svg"</li>
-          <li><img src="../assets//icons/shop.svg"</li>
+          <li>
+            <div class="header_container_navbar--notify">
+              <img src="../assets//icons/favorite.svg" />
+              <span>0</span>
+            </div>
+          </li>
+          <li><img src="../assets//icons/user.svg" /></li>
+          <li>
+            <div class="header_container_navbar--notify">
+              <img src="../assets//icons/shop.svg" />
+              <span>0</span>
+            </div>
+          </li>
         </ul>
       </div>
     </header>
