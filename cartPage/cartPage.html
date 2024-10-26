@@ -44,10 +44,51 @@
       </div>
     </header>
     <main>
-      <section id="cart-items">
-        <h2>Your Items</h2>
-        <!-- Cart items will be dynamically inserted here -->
-      </section>
+      <h2 class="cart--header">Your Items</h2>
+      <div class="cart__container">
+        <div class="cart__item">
+          <div class="cart__item cart__item--info">
+            <div class="cart__item cart__item--view">
+              <div class="cart__item cart_item__image">
+                <img src="../assets/images/Frame 2.png" alt="product" />
+              </div>
+              <div class="cart__item cart__item--description">
+                <h3 class="cart__item--title">Product Name</h3>
+                <div class="cart__item--tag">
+                  <span>Tag</span>
+                  <span>Tag</span>
+                </div>
+
+                <p class="cart__item--state">In 46 carts with 41 views</p>
+                <div class="cart__item cart__item--choose">
+                  <div class="cart__item cart__item_select">
+                    <select>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                  <div class="cart__item cart__item--action">
+                    <p>Edit</p>
+                  </div>
+                  <div class="cart__item cart__item--action">
+                    <p>Remove</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cart__item cart__item--price">
+              <p class="cart__price">662.875đ</p>
+            </div>
+          </div>
+          <div class="cart__item cart__item--extra">
+            <p>Shipping:</p>
+            <p>424.132đ (Get it by Nov 5 -25)</p>
+          </div>
+        </div>
+      </div>
       <section id="cart-summary">
         <h2>Summary</h2>
         <p>Total Items: <span id="total-items">0</span></p>

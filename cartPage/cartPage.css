@@ -7,6 +7,7 @@ body {
   font-size: 16px;
   color: #333;
 }
+
 .header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.128);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.125);
@@ -79,4 +80,109 @@ body {
   border-radius: 50%;
   padding: 5px;
   font-size: 12px;
+}
+.cart--header {
+  margin-left: 75px;
+}
+.cart__container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 75px;
+  width: 929px;
+  height: 182px;
+}
+.cart__item--view {
+  display: flex;
+  margin-left: 21px;
+  margin-top: 21px;
+}
+.cart__item--extra {
+  display: flex;
+  border: 1px solid #b0b0b0;
+  width: 929px;
+  height: 56px;
+}
+.cart__item--info {
+  display: flex;
+  flex: 1.7;
+  border: 1px solid #b0b0b0;
+  border-bottom: none;
+  justify-content: space-between;
+  width: 929px;
+  height: 182px;
+}
+.cart__item--title {
+  margin: 0px;
+}
+.cart__item--description {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.cart__item--tag {
+  display: flex;
+  justify-content: left;
+}
+.cart__item--tag span {
+  margin-top: 5px;
+  margin-right: 10px;
+  font-size: 7px;
+  background-color: #b0b0b0;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-radius: 50px;
+}
+.cart__item--state {
+  font-size: 11px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #d00739;
+}
+
+.cart__item--choose {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart__item_select {
+  margin-top: 8px;
+  width: 71px;
+  height: 29px;
+}
+.cart__item_select select {
+  padding-right: 10px;
+  width: 71px;
+  height: 29px;
+  background-color: white;
+  border: 1px solid #a1a1a1;
+  border-radius: 3px;
+}
+.cart__item--action {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.cart__item--action p {
+  font-size: 9px;
+  text-decoration: underline;
+}
+.cart__item--price {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-right: 29px;
+  margin-top: 21px;
+  font-weight: bold;
+}
+.cart__item--extra {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.cart__item--extra p:first-of-type {
+  margin-left: 21px;
+  font-weight: bold;
+  padding-right: 3px;
 }
