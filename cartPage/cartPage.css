@@ -11,61 +11,61 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.128);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.125);
 }
-.header_container {
+.header__container {
   display: flex;
   justify-content: space-between;
 }
-.header_container_navbar-left {
+.header__navbar--left {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 75px;
 }
-.header_container_navbar-left h1 {
+.header__title {
   color: #000000;
   font-family: "Instrument Serif";
   font-weight: 400;
   text-align: center;
   letter-spacing: 10px;
 }
-.header_container_navbar-center {
+.header__navbar--center {
   display: flex;
   justify-content: center;
   align-items: center;
   list-style: none;
 }
-.header_container_navbar-right {
+.header__navbar--right {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 75px;
 }
-.header_container_navbar-center li {
+.header__navbar--center li {
   list-style: none;
   margin: 0 40px;
   font-size: 22px;
   font-weight: 325;
 }
-.header_container_navbar-center a {
+.header__navbar--center a {
   text-decoration: none;
   color: #000000;
 }
-.header_container_navbar-right li {
+.header__navbar--right li {
   list-style: none;
   font-size: 22px;
   vertical-align: top;
   text-align: center;
 }
 
-.header_container_navbar-right img {
+.header__navbar--right img {
   width: 30px;
   height: 30px;
   margin: 0 7px;
 }
-.header_container_navbar--notify {
+.header__notify {
   position: relative;
 }
-.header_container_navbar--notify span {
+.header__count {
   position: absolute;
   top: 0;
   right: 0px;
