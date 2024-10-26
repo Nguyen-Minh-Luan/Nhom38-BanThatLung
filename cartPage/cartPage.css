@@ -1,0 +1,45 @@
+html,
+p,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Ibm plex sans Condensed", sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+.header_container {
+  display: flex;
+  justify-content: space-between;
+}
+.header_container_navbar {
+  display: flex;
+}
+.header_container_navbar-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+.header_container_navbar-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header_container_navbar-center li {
+  list-style: none;
+  margin: 0 40px;
+  font-size: 22px;
+  font-weight: 300;
+}
+.header_container_navbar-center a {
+  text-decoration: none;
+  color: #000000;
+}
+.header_container_navbar-right li {
+  list-style: none;
+  margin: 0 20px;
+  font-size: 22px;
+  font-weight: 300;
+}
+.header_container_navbar-right li img {
+}
