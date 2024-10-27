@@ -123,7 +123,6 @@ body {
 }
 .cart__item--info {
   display: flex;
-  flex: 1.7;
   border: 1px solid #b0b0b0;
   border-bottom: none;
   justify-content: space-between;
@@ -253,10 +252,15 @@ body {
   width: 100%;
   font-size: var(--font-size-standard);
   background-color: black;
-  color: white;
   padding-top: 10px;
   padding-bottom: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  text-align: center;
 }
+
+
 .cart__container--method {
   margin-top: 20px;
 }
