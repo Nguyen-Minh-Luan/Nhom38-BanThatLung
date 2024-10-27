@@ -4,6 +4,14 @@
   font-family: "IBM Plex Sans Condensed", sans-serif;
 }
 
+:root {
+  --margin-left-standard: 145px;
+  --margin-bottom-small: 6px;
+  --margin-left-medium: 75px;
+  --font-size-standard: 20px;
+  --width-big: 929px;
+}
+
 html,
 p,
 body {
@@ -12,7 +20,9 @@ body {
   font-size: 16px;
   color: #333;
 }
-
+body {
+  width: 1920px;
+}
 .header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.128);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.125);
@@ -25,7 +35,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 75px;
+  margin-left: var(--margin-left-medium);
 }
 .header__title {
   color: #000000;
@@ -40,12 +50,13 @@ body {
   justify-content: center;
   align-items: center;
   list-style: none;
+  margin-left: 98px;
 }
 .header__navbar--right {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 75px;
+  margin-right: 175px;
 }
 .header__navbar--center li {
   list-style: none;
@@ -88,14 +99,15 @@ body {
   font-size: 12px;
 }
 .cart--header {
-  margin-left: 145px;
+  margin-left: var(--margin-left-standard);
   font-size: 48px;
 }
 .cart__container {
   display: flex;
   flex-direction: column;
-  margin-left: 75px;
-  width: 929px;
+  margin-left: var(--margin-left-medium);
+
+  width: var(--width-big);
   height: 182px;
 }
 .cart__item--view {
@@ -106,7 +118,7 @@ body {
 .cart__item--extra {
   display: flex;
   border: 1px solid #b0b0b0;
-  width: 929px;
+  width: var(--width-big);
   height: 56px;
 }
 .cart__item--info {
@@ -115,7 +127,7 @@ body {
   border: 1px solid #b0b0b0;
   border-bottom: none;
   justify-content: space-between;
-  width: 929px;
+  width: var(--width-big);
   height: 182px;
 }
 .cart__item--title {
@@ -134,7 +146,7 @@ body {
   margin-top: 5px;
   margin-right: 10px;
   font-size: 10px;
-  background-color: #DFDFDF;
+  background-color: #dfdfdf;
   padding-left: 12px;
   padding-right: 12px;
   padding-top: 3px;
@@ -202,28 +214,19 @@ body {
 .cart__container--content {
   display: flex;
   height: 579px;
-  margin-left: 75px;
+  margin-left: var(--margin-left-medium);
 }
 .cart__item1 {
   margin-bottom: 70px;
 }
 .cart--summary {
   width: 30%;
-  font-size: 20px;
+  font-size: var(--font-size-standard);
   color: #000;
   margin-left: 102px;
   margin-top: 10px;
 }
-/* .cart__container_pay {
-  display: flex;
-  flex: 1;
-  margin-top: 15px;
-  justify-content: space-around;
-  text-align: center;
-}
-.cart--summary p {
-  font-size: 20px;
-} */
+
 .cart__container_pay {
   display: flex;
   flex: 1;
@@ -248,7 +251,7 @@ body {
 }
 .btn__pay--black {
   width: 100%;
-  font-size: 20px;
+  font-size: var(--font-size-standard);
   background-color: black;
   color: white;
   padding-top: 10px;
@@ -277,7 +280,7 @@ body {
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 20px;
-  font-size: 20px;
+  font-size: var(--font-size-standard);
 }
 .cart--submitCoupon {
   height: 100%;
@@ -290,10 +293,11 @@ body {
   border: none;
   border-left: 1px solid black;
   cursor: pointer;
-  font-size: 20px;
+  font-size: var(--font-size-standard);
 }
 .cart__related--title {
-  margin-left: 145px;
+  margin-left: var(--margin-left-standard);
+
   margin-top: 50px;
   font-size: 32px;
 }
@@ -303,19 +307,19 @@ body {
   justify-content: space-between;
   width: 1700px;
   height: 512px;
-  margin-left: 145px;
+  margin-left: var(--margin-left-standard);
 }
 .cart__item--related {
   margin-right: 87px;
 }
 .cart__item--related h3 {
   margin-top: 6px;
-  margin-bottom: 6px;
+  margin-bottom: var(--margin-bottom-small);
   font-size: 24px;
 }
 
 .cart__item--related p {
-  margin-bottom: 6px;
+  margin-bottom: var(--margin-bottom-small);
   font-size: 22px;
 }
 .cart__item--related button {
@@ -327,8 +331,7 @@ body {
   cursor: pointer;
 }
 
-
-.cart__item--related button:hover{
+.cart__item--related button:hover {
   background-color: black;
   color: white;
 }
@@ -355,7 +358,8 @@ body {
 }
 
 .footer--section p {
-  font-size: 20px;
+  font-size: var(--font-size-standard);
+
   color: #555;
   line-height: 51px;
 }
@@ -375,7 +379,7 @@ body {
   width: 241px;
   height: 138px;
 }
-.cart_item__image img{
+.cart_item__image img {
   width: 100%;
   height: 100%;
   object-fit: contain;
