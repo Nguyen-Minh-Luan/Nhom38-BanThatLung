@@ -1,9 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap");
+* {
+  font-family: "IBM Plex Sans Condensed", sans-serif;
+}
+
 html,
 p,
 body {
   margin: 0;
   padding: 0;
-  font-family: "Ibm plex sans Condensed", sans-serif;
   font-size: 16px;
   color: #333;
 }
@@ -24,10 +29,11 @@ body {
 }
 .header__title {
   color: #000000;
-  font-family: "Instrument Serif";
+  font-family: "Instrument Serif", sans-serif;
   font-weight: 400;
   text-align: center;
   letter-spacing: 10px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .header__navbar--center {
   display: flex;
@@ -174,7 +180,6 @@ body {
   text-align: center;
   margin-right: 29px;
   margin-top: 21px;
-  font-weight: bold;
 }
 .cart__item--extra {
   display: flex;
@@ -185,4 +190,103 @@ body {
   margin-left: 21px;
   font-weight: bold;
   padding-right: 3px;
+}
+
+.cart__container--items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 21px;
+}
+.cart__container--content {
+  display: flex;
+}
+.cart__item1 {
+  margin-bottom: 70px;
+}
+.cart--summary {
+  width: 30%;
+  font-size: 20px;
+  color: #000;
+  margin-left: 102px;
+  margin-top: 10px;
+}
+/* .cart__container_pay {
+  display: flex;
+  flex: 1;
+  margin-top: 15px;
+  justify-content: space-around;
+  text-align: center;
+}
+.cart--summary p {
+  font-size: 20px;
+} */
+.cart__container_pay {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+.cart__container_pay--seperator {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.cart--description {
+  margin: 0;
+}
+
+.cart__container_pay p {
+  margin: 0;
+}
+.cart__container_pay--payment {
+  margin-top: 20px;
+  justify-content: center;
+}
+.btn__pay--black {
+  width: 100%;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.cart__container--method {
+  margin-top: 20px;
+}
+.cart__container--coupon {
+  justify-content: flex-start;
+}
+.cart__coupon--padding2px {
+  padding-left: 5px;
+}
+.cart__container_coupon--submit {
+  justify-content: flex-start;
+  border: 1px solid black;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 0px;
+  height: 50px;
+}
+.cart--inputCoupon {
+  width: 70%;
+  border: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  font-size: 20px;
+}
+.cart--submitCoupon {
+  height: 100%;
+  margin: 0;
+  padding-left: 50px;
+  background-color: white;
+  color: black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: none;
+  border-left: 1px solid black;
+  cursor: pointer;
+  font-size: 20px;
 }

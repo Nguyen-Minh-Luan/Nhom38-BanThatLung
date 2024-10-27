@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thomas Shop</title>
     <link rel="stylesheet" href="cartPage.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <header class="header">
@@ -45,56 +39,141 @@
     </header>
     <main>
       <h2 class="cart--header">Your Items</h2>
-      <div class="cart__container">
-        <div class="cart__item">
-          <div class="cart__item cart__item--info">
-            <div class="cart__item cart__item--view">
-              <div class="cart__item cart_item__image">
-                <img src="../assets/images/Frame 2.png" alt="product" />
-              </div>
-              <div class="cart__item cart__item--description">
-                <h3 class="cart__item--title">Product Name</h3>
-                <div class="cart__item--tag">
-                  <span>Tag</span>
-                  <span>Tag</span>
+      <div class="cart__container--content">
+        <div class="cart__container cart__container--items">
+          <div class="cart__item cart__item1">
+            <div class="cart__item cart__item--info">
+              <div class="cart__item cart__item--view">
+                <div class="cart__item cart_item__image">
+                  <img src="../assets/images/Frame 2.png" alt="product" />
                 </div>
+                <div class="cart__item cart__item--description">
+                  <h3 class="cart__item--title">Product Name</h3>
+                  <div class="cart__item--tag">
+                    <span>Tag</span>
+                    <span>Tag</span>
+                  </div>
 
-                <p class="cart__item--state">In 46 carts with 41 views</p>
-                <div class="cart__item cart__item--choose">
-                  <div class="cart__item cart__item_select">
-                    <select>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                    </select>
-                  </div>
-                  <div class="cart__item cart__item--action">
-                    <p>Edit</p>
-                  </div>
-                  <div class="cart__item cart__item--action">
-                    <p>Remove</p>
+                  <p class="cart__item--state">In 46 carts with 41 views</p>
+                  <div class="cart__item cart__item--choose">
+                    <div class="cart__item cart__item_select">
+                      <select>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
+                    <div class="cart__item cart__item--action">
+                      <p>Edit</p>
+                    </div>
+                    <div class="cart__item cart__item--action">
+                      <p>Remove</p>
+                    </div>
                   </div>
                 </div>
+              </div>
+              <div class="cart__item cart__item--price">
+                <p class="cart__price">662.875đ</p>
               </div>
             </div>
-            <div class="cart__item cart__item--price">
-              <p class="cart__price">662.875đ</p>
+            <div class="cart__item cart__item--extra">
+              <p>Shipping:</p>
+              <p>424.132đ (Get it by Nov 5 -25)</p>
             </div>
           </div>
-          <div class="cart__item cart__item--extra">
-            <p>Shipping:</p>
-            <p>424.132đ (Get it by Nov 5 -25)</p>
+          <div class="cart__item cart__item2">
+            <div class="cart__item cart__item--info">
+              <div class="cart__item cart__item--view">
+                <div class="cart__item cart_item__image">
+                  <img src="../assets/images/Frame 2.png" alt="product" />
+                </div>
+                <div class="cart__item cart__item--description">
+                  <h3 class="cart__item--title">Product Name</h3>
+                  <div class="cart__item--tag">
+                    <span>Tag</span>
+                    <span>Tag</span>
+                  </div>
+
+                  <p class="cart__item--state">In 46 carts with 41 views</p>
+                  <div class="cart__item cart__item--choose">
+                    <div class="cart__item cart__item_select">
+                      <select>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
+                    <div class="cart__item cart__item--action">
+                      <p>Edit</p>
+                    </div>
+                    <div class="cart__item cart__item--action">
+                      <p>Remove</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart__item cart__item--price">
+                <p class="cart__price">662.875đ</p>
+              </div>
+            </div>
+            <div class="cart__item cart__item--extra">
+              <p>Shipping:</p>
+              <p>424.132đ (Get it by Nov 5 -25)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart--summary">
+          <div class="cart__container_pay">
+            <div>
+              <p class="cart--description">Item(s) total</p>
+            </div>
+            <div><p>2.120.220đ</p></div>
+          </div>
+          <div class="cart__container_pay cart__container_pay--seperator">
+            <div>
+              <p class="cart--description">Discount</p>
+            </div>
+            <div><p>-662.864đ</p></div>
+          </div>
+          <div class="cart__container_pay">
+            <div>
+              <p class="cart--description">Subtotal</p>
+            </div>
+            <div><p>1,457,296₫</p></div>
+          </div>
+          <div class="cart__container_pay cart__container_pay--seperator">
+            <div>
+              <p class="cart--description">Shipping</p>
+            </div>
+            <div><p>1,405,570₫</p></div>
+          </div>
+          <div class="cart__container_pay cart__container_pay--seperator">
+            <div>
+              <p class="cart--description">Total(2 items)</p>
+            </div>
+            <div><p>2,862,866₫</p></div>
+          </div>
+          <div class="cart__container_pay cart__container_pay--payment">
+            <button class="btn btn__pay--black">Proceed to checkout</button>
+          </div>
+          <div class="cart__container_pay cart__container--method">
+            <img src="../assets/icons/footer_trustbadge 1.svg" />
+          </div>
+          <div class="cart__container_pay cart__container--coupon">
+            <img src="../assets/icons/coupon.svg" />
+            <p class="cart__coupon--padding2px">Apply coupon code</p>
+          </div>
+          <div class="cart__container_pay cart__container_coupon--submit">
+            <input class="cart--inputCoupon" type="text" placeholder="Enter coupon">
+            <input class="cart--submitCoupon" type="submit" value="Apply">
           </div>
         </div>
       </div>
-      <section id="cart-summary">
-        <h2>Summary</h2>
-        <p>Total Items: <span id="total-items">0</span></p>
-        <p>Total Price: $<span id="total-price">0.00</span></p>
-        <button id="checkout-button">Proceed to Checkout</button>
-      </section>
     </main>
     <footer>
       <p>&copy; 2023 Your Company Name</p>
