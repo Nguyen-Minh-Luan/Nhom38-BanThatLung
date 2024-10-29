@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In Page</title>
+    <link rel="stylesheet" href="signInPage.css" />
+  </head>
+  <body>
+    <header>
+      <h1>THOMAS</h1>
+    </header>
+    <div class="container">
+      <form action="/submit" method="post">
+        <div class="action">
+          <span>Sign In</span>
+          <button class="register">Register</button>
+        </div>
+        <div class="container__field__form">
+          <p>Emai address</p>
+          <input
+            class="textfield"
+            type="text"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+
+        <div class="container__field__form">
+          <p>Password</p>
+          <input
+            class="textfield"
+            type="password"
+            id="password"
+            name="password"
+            required
+          />
+        </div>
+        <div class="container__checkbox_resetpass">
+          <div class="checkbox--left">
+            <input type="checkbox" id="remember" name="remember" />
+            <label for="remember">Stay signed in</label>
+          </div>
+          <p class="container__checkbox--forgot">Forgot your password?</p>
+        </div>
+        <div class="btn btn__signIn--bigBlack">
+          <button class="btn--bigBlack">Sign In</button>
+        </div>
+      </form>
+    </div>
+    <div class="footer">
+      <div class="footer--section">
+        <h3>About us</h3>
+        <p>How we work</p>
+        <p>Investors</p>
+        <p>Careers</p>
+        <p>Press</p>
+        <p>Impact</p>
+        <p>Legal imprint</p>
+      </div>
+      <div class="footer--section">
+        <h3>Support</h3>
+        <p>Become an Investor</p>
+        <p>Your opinion</p>
+        <p>Donate</p>
+        <p>Survey</p>
+      </div>
+      <div class="footer--section">
+        <h3>Terms and Conditions</h3>
+        <p>Privacy Terms</p>
+        <p>Term of use</p>
+        <p>Ontellectual property</p>
+        <p>Shippng policy</p>
+        <p>Comunity standard</p>
+      </div>
+      <div class="footer--section">
+        <h3>Contact us</h3>
+        <p>Thomas@contact.tm.com</p>
+        <div class="social-icons">
+          <span class="icon"
+            ><img src="../assets/icons/Facebook.svg" alt="facebook"
+          /></span>
+          <span class="icon"
+            ><img src="../assets/icons/Instagram.svg" alt="Instagram"
+          /></span>
+          <span class="icon"
+            ><img src="../assets/icons/TwitterX.svg" alt="TwitterX"
+          /></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
