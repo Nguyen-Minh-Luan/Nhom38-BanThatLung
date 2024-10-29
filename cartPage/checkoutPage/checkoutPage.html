@@ -40,97 +40,81 @@
         </ul>
       </div>
     </header>
-    <div class="header_back">
-      <a href="../cartPage.html"><img src="../../assets/icons/back.svg" /></a>
-      <h2 class="header__title">THOMAS</h2>
-    </div>
 
-    <div class="cart__container--content">
-      <div class="cart__container cart__container--items">
-        <div class="cart__item cart__item1">
-          <div class="cart__item cart__item--info cart_user--info">
-            <div class="checkout--content">
-              <div class="checkout-title">
-                <p>Payment infomation</p>
+    <div class="cart__content">
+      <div class="header_back">
+        <a href="../cartPage.html"><img src="../../assets/icons/back.svg" /></a>
+        <h2 class="header__title">THOMAS</h2>
+      </div>
+      <div class="cart__container--content">
+        <div class="cart__container--items">
+          <div class="cart__item cart__item1">
+            <div class="cart__item cart__item--info cart_user--info">
+              <div class="checkout--content">
+                <div class="checkout-title">
+                  <p>Payment infomation</p>
+                </div>
+                <div class="checkout--info">
+                  <p>huynhminhthang</p>
+                  <p>e123123123@gmail.com</p>
+                  <p>+84356176054</p>
+                  <p>123123123123123, Phường Phúc Xá, Quận Ba Đình, Hà Nội</p>
+                  <div class="checkout--info">
+                    <button class="btn--change">Change</button>
+                  </div>
+                </div>
               </div>
-              <div class="checkout--info">
-                <p>huynhminhthang</p>
-                <p>e123123123@gmail.com</p>
-                <p>+84356176054</p>
-                <p>123123123123123, Phường Phúc Xá, Quận Ba Đình, Hà Nội</p>
+              <div class="checkout--content--bottoms">
+                <div class="checkout-title">
+                  <p>Payment method</p>
+                </div>
+                <div class="checkout--img">
+                  <img src="../../assets/icons/gPay.svg" alt="googlepay" />
+                </div>
+                <div class="checkout--info">
+                  <button class="btn--change">Change</button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="cart__item cart__item--extra">
-            <p>Payment shipping method:</p>
-            <p>Fast Delivery - Receive in 2 -4 days</p>
-          </div>
         </div>
-      </div>
 
-      <div class="cart--summary">
-        <div class="cart__container_pay">
-          <div>
-            <p class="cart--description">Item(s) total</p>
+        <div class="cart--summary">
+          <div class="cart__container_pay">
+            <div>
+              <p class="cart--description">Item(s) total</p>
+            </div>
+            <div><p>2.120.220đ</p></div>
           </div>
-          <div><p>2.120.220đ</p></div>
-        </div>
-        <div class="cart__container_pay cart__container_pay--seperator">
-          <div>
-            <p class="cart--description">Discount</p>
+          <div class="cart__container_pay cart__container_pay--seperator">
+            <div>
+              <p class="cart--description">Discount</p>
+            </div>
+            <div><p>-662.864đ</p></div>
           </div>
-          <div><p>-662.864đ</p></div>
-        </div>
-        <div class="cart__container_pay">
-          <div>
-            <p class="cart--description">Subtotal</p>
+          <div class="cart__container_pay">
+            <div>
+              <p class="cart--description">Subtotal</p>
+            </div>
+            <div><p>1,457,296₫</p></div>
           </div>
-          <div><p>1,457,296₫</p></div>
-        </div>
-        <div class="cart__container_pay cart__container_pay--seperator">
-          <div>
-            <p class="cart--description">Shipping</p>
+          <div class="cart__container_pay cart__container_pay--seperator">
+            <div>
+              <p class="cart--description">Shipping</p>
+            </div>
+            <div><p>1,405,570₫</p></div>
           </div>
-          <div><p>1,405,570₫</p></div>
-        </div>
-        <div class="cart__container_pay cart__container_pay--seperator">
-          <div>
-            <p class="cart--description">Total</p>
+          <div class="cart__container_pay cart__container_pay--seperator">
+            <div>
+              <p class="cart--description">Total</p>
+            </div>
+            <div><p>2,862,866₫</p></div>
           </div>
-          <div><p>2,862,866₫</p></div>
+          <div class="cart__container_pay cart__container_pay--payment">
+            <button class="btn btn__pay--blue">Pay</button>
+          </div>
         </div>
-        <div class="cart__container_pay cart__container_pay--payment">
-          <button class="btn btn__pay--blue">Pay</button>
-        </div>
       </div>
-    </div>
-    <h1 class="checkout--choose">Choose another payment method</h1>
-    <div class="cart__item cart__item--extra cart--method">
-      <div class="checkout__checkbox">
-        <input class="checkout--checkbox" type="radio" />
-        <p>Pay through VNPAY</p>
-      </div>
-      <div class="cart__method__img">
-        <img src="../../assets/icons/vnpay_icon 1.svg" alt="vnpay" />
-      </div>
-    </div>
-    <div class="cart__item cart__item--extra cart--method">
-      <div class="checkout__checkbox">
-        <input class="checkout--checkbox" type="radio" />
-        <p>Pay through momo</p>
-      </div>
-      <div class="cart__method__img">
-        <img src="../../assets/icons/momo.svg" alt="momo" />
-      </div>
-    </div>
-    <div class="cart__item cart__item--extra cart--method">
-      <div class="checkout__checkbox">
-        <input class="checkout--checkbox" type="radio" />
-        <p>Pay through bank</p>
-      </div>
-      <div class="cart__method__img"></div>
-    </div>
-    <div class="checkout_cart--middle">
       <div class="checkout_cart--item" id="#item1">
         <div class="checkout_cart_item--left">
           <div class="checkout_cart--itemdesc">
@@ -145,10 +129,11 @@
                 <p class="checkout__cart__item--title">
                   Black both sides leather belt with turn around buckles
                 </p>
-                <div class="checkout_cart_item checkout_cart_item-tag">
-                  <span>Color: black</span>
-                  <span>White lock</span>
-                </div>
+                <ul class="cart__list_tag">
+                  <li class="cart_tag">Color: black</li>
+                  <li class="cart_tag">White lock</li>
+                </ul>
+
                 <p class="checkout_cart_item--state">
                   In 46 carts with 41 views
                 </p>
@@ -193,7 +178,7 @@
           <div class="checkout_optional__textarea">
             <textarea
               class="checkout_optional--textarea"
-              rows="5"
+              rows=""
               cols="80"
               name="Add a message for the seller(optional)"
               placeholder="Add a message for the seller(optional)"
@@ -229,14 +214,14 @@
             </div>
             <div class="cart__container_pay cart__container_pay--seperator">
               <div>
-                <p class="cart--description">Total(2 items)</p>
+                <p class="cart--description">Subtotal:</p>
               </div>
               <div><p>2,862,866₫</p></div>
             </div>
           </div>
         </div>
       </div>
-      <div class="checkout_cart--item" id="#item2">
+      <div class="checkout_cart--item item2" id="#item2">
         <div class="checkout_cart_item--left">
           <div class="checkout_cart--itemdesc">
             <div class="checkout_cart_item--info">
@@ -298,7 +283,7 @@
           <div class="checkout_optional__textarea">
             <textarea
               class="checkout_optional--textarea"
-              rows="5"
+              rows=""
               cols="80"
               name="Add a message for the seller(optional)"
               placeholder="Add a message for the seller(optional)"
@@ -334,7 +319,7 @@
             </div>
             <div class="cart__container_pay cart__container_pay--seperator">
               <div>
-                <p class="cart--description">Total</p>
+                <p class="cart--description">Subtotal:</p>
               </div>
               <div><p>2,862,866₫</p></div>
             </div>
@@ -342,6 +327,7 @@
         </div>
       </div>
     </div>
+
     <div class="footer">
       <div class="footer--section">
         <h3>About us</h3>
