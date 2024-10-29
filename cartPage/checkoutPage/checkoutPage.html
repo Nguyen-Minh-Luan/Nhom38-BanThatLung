@@ -42,10 +42,8 @@
     </header>
 
     <div class="cart__content">
-      <div class="header_back">
-        <a href="../cartPage.html"><img src="../../assets/icons/back.svg" /></a>
-        <h2 class="header__title">THOMAS</h2>
-      </div>
+      <p class="cart__header--confirm">Please confirm and submit your order</p>
+      <p class="cart__header--details">Shipping and payment</p>
       <div class="cart__container--content">
         <div class="cart__container--items">
           <div class="cart__item cart__item1">
@@ -110,8 +108,28 @@
             </div>
             <div><p>2,862,866₫</p></div>
           </div>
+          <div class="cart__terms">
+            <p>
+              By clicking the Google Pay button, you agree to Thomas's
+              <strong>Terms of Use and Privacy Policy.</strong>
+            </p>
+          </div>
           <div class="cart__container_pay cart__container_pay--payment">
-            <button class="btn btn__pay--blue">Pay</button>
+            <button class="btn btn__pay--blue">Buy with Google pay</button>
+          </div>
+          <div class="cart__taxes">Local taxes included (where applicable)</div>
+          <div class="cart__email">
+            <div class="cart__email--send">
+              <input type="checkbox" /><label>
+                Send me personalized offers, unique gift ideas, and expert tips
+                for shopping on Thomas.
+              </label>
+            </div>
+            <div class="cart__description">
+              You can opt out of receiving the email subscriptions anytime in
+              your account settings or by clicking the unsubscribe link in
+              emails you receive.
+            </div>
           </div>
         </div>
       </div>
@@ -235,10 +253,10 @@
                 <p class="checkout__cart__item--title">
                   Black belt with white stitch
                 </p>
-                <div class="checkout_cart_item checkout_cart_item-tag">
-                  <span>Color: black</span>
-                  <span>White lock</span>
-                </div>
+                <ul class="cart__list_tag">
+                  <li class="cart_tag">Color: black</li>
+                  <li class="cart_tag">White lock</li>
+                </ul>
                 <p class="checkout_cart_item--state">
                   In 46 carts with 41 views
                 </p>
