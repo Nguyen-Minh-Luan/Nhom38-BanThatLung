@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./userInfo.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <div class="header__navbar header__navbar--left">
+          <h1 class="header__title">THOMAS</h1>
+        </div>
+
+        <ul class="header__navbar header__navbar--center">
+          <li><a href="../index.html">Home</a></li>
+          <li>
+            <a href="../productsPage/productsPage.html">Collections</a>
+          </li>
+          <li><a href="../cartPage/cartPage.html">Men</a></li>
+          <li><a href="../cartPage/cartPage.html">Woman</a></li>
+        </ul>
+        <ul class="header__navbar header__navbar--right">
+          <li><img src="../assets/icons/search.svg" alt="search-icon" /></li>
+          <li>
+            <div class="header__notify">
+              <img src="../assets/icons/favorite.svg" alt="favorite-icon" />
+              <span class="header__count">0</span>
+            </div>
+          </li>
+          <li><img src="../assets//icons/user.svg" alt="user-icon" /></li>
+          <li>
+            <div class="header__notify">
+              <img src="../assets//icons/shop.svg" alt="shop-icon" />
+              <span class="header__count">0</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="container__userInfo--center">
+      <div class="container_userInfo__nav_section">
+        <ul class="container__userInfo__navigate--big">
+          <li class="nav--item">
+            <button class="container__userInfo__navigate--borderbottom">
+              Account
+            </button>
+          </li>
+          <li class="nav--item">
+            <button class="container__userInfo__navigate--borderbottom">
+              Public Profile
+            </button>
+          </li>
+          <li class="nav--item">
+            <button class="container__userInfo__navigate--borderbottom">
+              Address
+            </button>
+          </li>
+          <li class="nav--item">
+            <button class="container__userInfo__navigate--borderbottom">
+              Privacy
+            </button>
+          </li>
+          <li class="nav--item">
+            <button class="container__userInfo__navigate--borderbottom">
+              Emails
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="userInfo__content--middle">
+        <div class="userInfo--aboutyou">
+          <h2 class="Aboutyou">About you</h2>
+          <div class="userInfoAll">
+            <div class="userInfo--element">
+              <h3 class="userInfo__aboutyou--smalltext">Name</h3>
+              <p class="userInfo__aboutyou--name">Huynh Thang</p>
+            </div>
+            <div class="userInfo--elements">
+              <h3 class="userInfo__aboutyou--smalltext">Member since</h3>
+              <p class="userInfo__aboutyou--name">November 26,2023</p>
+            </div>
+            <div class="userInfo--element">
+              <a href="../publicProfile"
+                ><button>Edit public profile</button></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="userInfo--aboutyou userInfo--aboutyou--location">
+          <div class="userInfo__location--desc">
+            <h2>Location Settings</h2>
+            <p>
+              Set where you live, what language you speak, and the currency you
+              use. <span>Learn more. </span>
+            </p>
+          </div>
+          <div class="userInfo--element userInfo--element--select">
+            <h3>Province</h3>
+            <div class="select__province">
+              <select class="province" name="province" id="province">
+                <option value="">-- Chọn tỉnh/thành phố --</option>
+                <option value="An Giang">An Giang</option>
+                <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option>
+                <option value="Bạc Liêu">Bạc Liêu</option>
+                <option value="Bắc Kạn">Bắc Kạn</option>
+                <option value="Bắc Giang">Bắc Giang</option>
+                <option value="Bắc Ninh">Bắc Ninh</option>
+                <option value="Bến Tre">Bến Tre</option>
+                <option value="Bình Dương">Bình Dương</option>
+                <option value="Bình Định">Bình Định</option>
+                <option value="Bình Phước">Bình Phước</option>
+                <option value="Bình Thuận">Bình Thuận</option>
+                <option value="Cà Mau">Cà Mau</option>
+                <option value="Cao Bằng">Cao Bằng</option>
+                <option value="Cần Thơ">Cần Thơ</option>
+                <option value="Đà Nẵng">Đà Nẵng</option>
+                <option value="Đắk Lắk">Đắk Lắk</option>
+                <option value="Đắk Nông">Đắk Nông</option>
+                <option value="Điện Biên">Điện Biên</option>
+                <option value="Đồng Nai">Đồng Nai</option>
+                <option value="Đồng Tháp">Đồng Tháp</option>
+                <option value="Gia Lai">Gia Lai</option>
+                <option value="Hà Giang">Hà Giang</option>
+                <option value="Hà Nam">Hà Nam</option>
+                <option value="Hà Nội">Hà Nội</option>
+                <option value="Hà Tĩnh">Hà Tĩnh</option>
+                <option value="Hải Dương">Hải Dương</option>
+                <option value="Hải Phòng">Hải Phòng</option>
+                <option value="Hậu Giang">Hậu Giang</option>
+                <option value="Hòa Bình">Hòa Bình</option>
+                <option value="Hưng Yên">Hưng Yên</option>
+                <option value="Khánh Hòa">Khánh Hòa</option>
+                <option value="Kiên Giang">Kiên Giang</option>
+                <option value="Kon Tum">Kon Tum</option>
+                <option value="Lai Châu">Lai Châu</option>
+                <option value="Lạng Sơn">Lạng Sơn</option>
+                <option value="Lào Cai">Lào Cai</option>
+                <option value="Lâm Đồng">Lâm Đồng</option>
+                <option value="Long An">Long An</option>
+                <option value="Nam Định">Nam Định</option>
+                <option value="Nghệ An">Nghệ An</option>
+                <option value="Ninh Bình">Ninh Bình</option>
+                <option value="Ninh Thuận">Ninh Thuận</option>
+                <option value="Phú Thọ">Phú Thọ</option>
+                <option value="Phú Yên">Phú Yên</option>
+                <option value="Quảng Bình">Quảng Bình</option>
+                <option value="Quảng Nam">Quảng Nam</option>
+                <option value="Quảng Ngãi">Quảng Ngãi</option>
+                <option value="Quảng Ninh">Quảng Ninh</option>
+                <option value="Quảng Trị">Quảng Trị</option>
+                <option value="Sóc Trăng">Sóc Trăng</option>
+                <option value="Sơn La">Sơn La</option>
+                <option value="Tây Ninh">Tây Ninh</option>
+                <option value="Thái Bình">Thái Bình</option>
+                <option value="Thái Nguyên">Thái Nguyên</option>
+                <option value="Thanh Hóa">Thanh Hóa</option>
+                <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+                <option value="Tiền Giang">Tiền Giang</option>
+                <option value="TP Hồ Chí Minh">TP Hồ Chí Minh</option>
+                <option value="Trà Vinh">Trà Vinh</option>
+                <option value="Tuyên Quang">Tuyên Quang</option>
+                <option value="Vĩnh Long">Vĩnh Long</option>
+                <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                <option value="Yên Bái">Yên Bái</option>
+              </select>
+            </div>
+          </div>
+          <div class="userInfo--element userInfo--element--select">
+            <h3>Language</h3>
+            <div class="select__province">
+              <select class="province" name="province" id="province">
+                <option value="">Choose language</option>
+                <option value="English">English</option>
+                <option value="Vietnamese">Vietnam</option>
+              </select>
+            </div>
+          </div>
+          <div class="btn btn-black">
+            <button>Save settings</button>
+          </div>
+        </div>
+        <div class="userInfo--aboutyou userInfo--aboutyou--password">
+          <div class="userInfo__location--desc">
+            <h2>Password</h2>
+          </div>
+          <div
+            class="userInfo--element userInfo--element--select userInfo--password"
+          >
+            <h3>Current Password</h3>
+            <div class="select__province">
+              <input
+                class="province"
+                type="password"
+                name="currentPassword"
+                id="currentPassword"
+              />
+            </div>
+          </div>
+          <div
+            class="userInfo--element userInfo--element--select userInfo--password"
+          >
+            <h3>New Password</h3>
+            <div class="select__province">
+              <input
+                class="province"
+                type="password"
+                name="currentPassword"
+                id="currentPassword"
+              />
+            </div>
+          </div>
+          <div
+            class="userInfo--element userInfo--element--select userInfo--password"
+          >
+            <h3>Confirm Your Password</h3>
+            <div class="select__province">
+              <input
+                class="province"
+                type="password"
+                name="currentPassword"
+                id="currentPassword"
+              />
+            </div>
+          </div>
+          <div class="btn btn-black">
+            <button>Change password</button>
+          </div>
+        </div>
+        <div class="userInfo--aboutyou userInfo--aboutyou--password">
+          <div class="userInfo__Email_desc">
+            <h2>Email</h2>
+            <h3>Current Email</h3>
+            <p>huynhminhthang246@gmail.com</p>
+            <h3>Status</h3>
+            <p class="userInf__Email--paddingbottom">Confirmed</p>
+          </div>
+          <h2>Change your email</h2>
+          <div
+            class="userInfo--element userInfo--element--select userInfo--password"
+          >
+            <h3>New Email</h3>
+            <div class="select__province">
+              <input
+                class="province"
+                type="email"
+                name="Newtemail"
+                id="Newemail"
+              />
+            </div>
+          </div>
+          <div
+            class="userInfo--element userInfo--element--select userInfo--password"
+          >
+            <h3>Confirm New email</h3>
+            <div class="select__province">
+              <input
+                class="province"
+                type="email"
+                name="ConfirmNewEmail"
+                id="ConfirmNewEmail"
+              />
+            </div>
+          </div>
+          <div
+            class="userInfo--element userInfo--element--select userInfo--password"
+          >
+            <h3>Your Password</h3>
+            <div class="select__province">
+              <input
+                class="province"
+                type="password"
+                name="currentPassword"
+                id="currentPassword"
+              />
+            </div>
+          </div>
+          <div class="btn btn-black">
+            <button>Change email</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
