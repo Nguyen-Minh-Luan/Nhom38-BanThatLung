@@ -109,7 +109,7 @@ body {
 }
 .container__userInfo__navigate--big {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   list-style: none;
   align-items: center;
 }
