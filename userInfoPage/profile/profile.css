@@ -110,6 +110,7 @@ body {
 }
 .nav--item {
   border-bottom: 1px solid white;
+  text-decoration: none;
 }
 .nav--item:hover {
   border-bottom: 1px solid black;
@@ -128,6 +129,8 @@ body {
   border: none;
   transition: border-bottom 0.1s step-start;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 .userInfo--picture {
   padding: 24px;

@@ -129,6 +129,8 @@ body {
   border: none;
   transition: border-bottom 0.1s step-start;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 .userInfo--address {
   padding: 24px;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./address.css" />
+    <link rel="stylesheet" href="./email.css" />
   </head>
   <body>
     <header class="header">
@@ -86,28 +86,43 @@
         </ul>
       </div>
       <div class="userInfo__content--middle">
-        <div class="userInfo--address">
-          <div class="userInfo--address--choose">
-            <p class="address-title">Your shipping address</p>
+        <p
+          style="
+            font-size: 32px;
+            margin-bottom: 20px;
+            margin-top: 50px;
+            font-weight: 100;
+          "
+        >
+          Email settings for huynhminhthang246@gmail.com
+        </p>
+        <div class="userInfo--aboutyou">
+          <h2 class="Aboutyou">Your notifications</h2>
+          <h3>Email me when</h3>
+          <div class="checkbox__option">
+            <input type="checkbox" /><label>Someone sends me a Message</label>
           </div>
-          <div class="userInfo--address--display">
-            <button class="btn btn--address">Add a new address</button>
+          <div class="checkbox__option">
+            <input type="checkbox" /><label>I send a message</label>
           </div>
-          <div class="address__info">
-            <span class="address__info--default">default</span>
-            <p>huynh minh thang</p>
-            <p>ktx khu b</p>
-            <p>HO CHI MINH CITY</p>
-            <p>+84356176054</p>
-            <div class="address__info__action">
-              <button class="btn btn--action">
-                <img src="../../assets/icons/edit.svg" />Edit
-              </button>
-              <button class="btn btn--action">
-                <img src="../../assets/icons/delete.svg" />Remove
-              </button>
-            </div>
+        </div>
+        <div class="userInfo--aboutyou userInfo--aboutyou--location">
+          <div class="userInfo__location--desc">
+            <h2>Your Subscriptions</h2>
+            <h3>General</h3>
           </div>
+          <div class="checkbox__option">
+            <input type="checkbox" /><label> New and Notable </label>
+          </div>
+          <div class="checkbox__option">
+            <input type="checkbox" /><label> Feedback </label>
+          </div>
+          <div class="checkbox__option">
+            <input type="checkbox" /><label> Coupons and Promotions </label>
+          </div>
+        </div>
+        <div class="btn btn-black">
+          <button>Save settings</button>
         </div>
       </div>
     </div>
