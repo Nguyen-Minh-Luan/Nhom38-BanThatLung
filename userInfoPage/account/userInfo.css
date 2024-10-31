@@ -128,9 +128,6 @@ body {
   transition: border-bottom 0.1s step-start;
   cursor: pointer;
 }
-.container__userInfo__navigate--borderbottom:active {
-  border-bottom: 1px solid black;
-}
 
 .userInfo--aboutyou {
   padding: 24px;
