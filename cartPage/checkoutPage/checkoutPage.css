@@ -217,8 +217,8 @@ body {
   padding: 30px;
 }
 .checkout_optional__textarea {
-  margin-left: 21px;
-  margin-top: 21px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 .checkout_cart_item--image {
   width: 241px;
@@ -300,7 +300,7 @@ body {
   display: flex;
   justify-content: center;
   color: #a1a1a1;
-  font-size: 14px;
+  font-size: 12px;
 }
 .cart__terms {
   display: flex;
@@ -314,29 +314,78 @@ body {
 }
 .cart__terms p {
   color: #a1a1a1;
+  font-size: 12px;
 }
 .cart__terms p strong {
   color: rgb(96, 96, 96);
   text-decoration: underline;
 }
-.cart__email{
+.cart__email {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border:1px solid #0e0e0e2e;
+  border: 1px solid #0e0e0e2e;
   font-size: 12.99px;
   border-radius: 10px;
   margin-top: 10px;
 }
-.cart__email--send{
+.cart__email--send {
   padding-left: 24px;
   padding-top: 10px;
   padding-right: 24px;
 }
-.cart__description{
+.cart__description {
   padding-left: 24px;
   padding-top: 5px;
   padding-right: 24px;
   padding-bottom: 10px;
   color: #595959;
+}
+.cart__container--coupon {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.cart__container_coupon--submit {
+  margin-left: 20px;
+}
+.cart__container_coupon--submit {
+  max-height: 0;
+  transition: max-height 0.5s ease;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.popup {
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px; 
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

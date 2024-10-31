@@ -58,8 +58,23 @@
                   <p>+84356176054</p>
                   <p>123123123123123, Phường Phúc Xá, Quận Ba Đình, Hà Nội</p>
                   <div class="checkout--info">
-                    <button class="btn--change">Change</button>
+                    <button id="openFormButton" class="btn--change open-popup">
+                      Change
+                    </button>
                   </div>
+                </div>
+              </div>
+              <div id="popupForm" class="popup">
+                <div class="popup-content">
+                  <span class="close" id="closeFormButton">&times;</span>
+                  <h2>Update Text</h2>
+                  <input
+                    type="text"
+                    id="newText"
+                    placeholder="Enter new text"
+                    required
+                  />
+                  <button id="submitButton">Change</button>
                 </div>
               </div>
               <div class="checkout--content--bottoms">
@@ -171,27 +186,21 @@
               </div>
             </div>
           </div>
+
+          <div class="cart__container_pay cart__container--coupon">
+            <img src="../../assets/icons/coupon.svg" alt="coupon" />
+            <p class="cart__coupon--padding2px">Apply coupon code</p>
+          </div>
           <div
-            class="checkout_cart_item_coupon checkout_cart_item_coupon__submit"
+            class="cart__container_pay cart__container_coupon--submit"
+            style="display: none"
           >
-            <div class="checkout_cart_item_coupon">
-              <img src="../../assets/icons/coupon.svg" alt="coupon" />
-              <p>Apply coupon</p>
-            </div>
-            <div
-              class="checkout_cart_item_coupon checkout_cart_item_coupon--submit"
-            >
-              <input
-                class="checkout--inputCoupon"
-                type="text"
-                placeholder="Enter coupon"
-              />
-              <input
-                class="checkout--submitCoupon"
-                type="submit"
-                value="Apply"
-              />
-            </div>
+            <input
+              class="cart--inputCoupon"
+              type="text"
+              placeholder="Enter coupon"
+            />
+            <button class="cart--submitCoupon">Apply</button>
           </div>
           <div class="checkout_optional__textarea">
             <textarea
@@ -276,27 +285,20 @@
               </div>
             </div>
           </div>
+          <div class="cart__container_pay cart__container--coupon">
+            <img src="../../assets/icons/coupon.svg" alt="coupon" />
+            <p class="cart__coupon--padding2px">Apply coupon code</p>
+          </div>
           <div
-            class="checkout_cart_item_coupon checkout_cart_item_coupon__submit"
+            class="cart__container_pay cart__container_coupon--submit"
+            style="display: none"
           >
-            <div class="checkout_cart_item_coupon">
-              <img src="../../assets/icons/coupon.svg" alt="coupon" />
-              <p>Apply coupon</p>
-            </div>
-            <div
-              class="checkout_cart_item_coupon checkout_cart_item_coupon--submit"
-            >
-              <input
-                class="checkout--inputCoupon"
-                type="text"
-                placeholder="Enter coupon"
-              />
-              <input
-                class="checkout--submitCoupon"
-                type="submit"
-                value="Apply"
-              />
-            </div>
+            <input
+              class="cart--inputCoupon"
+              type="text"
+              placeholder="Enter coupon"
+            />
+            <button class="cart--submitCoupon">Apply</button>
           </div>
           <div class="checkout_optional__textarea">
             <textarea
@@ -388,6 +390,6 @@
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="cartPage.js"></script>
+    <script src="checkout.js"></script>
   </body>
 </html>

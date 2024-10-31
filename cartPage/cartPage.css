@@ -137,7 +137,6 @@ body {
   height: 183.683px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-
 }
 .cart__item--title {
   margin: 0px;
@@ -231,7 +230,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  
 }
 .cart__container--content {
   display: flex;
@@ -244,6 +242,7 @@ body {
   font-size: var(--font-size-standard);
   color: #000;
   margin-left: 102px;
+  width: 328.75px;
 }
 .cart--summary p {
   font-weight: bold;
@@ -288,40 +287,66 @@ body {
 }
 .cart__container--coupon {
   justify-content: flex-start;
+  border-radius: 24px;
+  padding-left: 10px;
+  transition: background-color 0.2s ease-out;
+}
+.cart__container--coupon:hover {
+  background-color: #f4f4f4;
 }
 .cart__coupon--padding2px {
   padding-left: 5px;
 }
+
 .cart__container_coupon--submit {
   justify-content: flex-start;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   padding: 0px;
   height: 50px;
+  margin-top: 20px;
 }
 .cart--inputCoupon {
-  height: 100%;
-  width: 70%;
-  border: 1px solid #0e0e0e2e;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 20px;
+  height: 42px;
+  width: 100%;
+  border-style: solid;
+  min-width: 0;
   font-size: var(--font-size-standard);
+  background: 0 0;
+  border-right: 0;
+  border-radius: 24px 0 0 24px;
+  line-height: 1.7;
+  display: block;
+  flex: 1;
+  padding-left: 9px;
+  transition: border 0.2s ease-out, background-color 0.2s ease-out;
+}
+.cart--inputCoupon:hover {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #3b67d9;
+}
+.cart--inputCoupon:focus {
+  border-color: #222;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #3b67d9;
 }
 .cart--submitCoupon {
-  width: 30%;
-  height: inherit;
-  border: 1px solid #0e0e0e2e;
-  margin-left: 0px;
-  border-left: none;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: var(--font-size-standard);
-  background-color: white;
+  color: #222;
   cursor: pointer;
-  height: 62px;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 10;
+  border-style: solid;
+  background: 0 0;
+  border-left: 0;
+  border-radius: 0 24px 24px 0;
+  outline: none;
+  height: 48px;
+  padding: 12px 21px 12px 15px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border 0.2s ease-out, color 0.2s ease-out;
+  position: relative;
+  text-transform: none;
 }
 .cart--submitCoupon:hover {
   background-color: black;
@@ -376,7 +401,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   height: 400px;
 }
 
