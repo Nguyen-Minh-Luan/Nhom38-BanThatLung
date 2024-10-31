@@ -113,6 +113,12 @@ body {
   list-style: none;
   align-items: center;
 }
+.nav--item {
+  border-bottom: 1px solid white;
+}
+.nav--item:hover {
+  border-bottom: 1px solid black;
+}
 .container__userInfo__navigate--borderbottom {
   margin-left: 20px;
   font-size: 24px;
@@ -239,4 +245,44 @@ body {
 }
 .userInf__Email--paddingbottom {
   padding-bottom: 20px;
+}
+
+.footer {
+  margin-top: 100px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f4f4f4;
+  height: 400px;
+}
+
+.footer--section {
+  flex: 1;
+  text-align: center;
+}
+
+.footer--section h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.footer--section p {
+  font-size: var(--font-size-standard);
+
+  color: #555;
+  line-height: 51px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.icon {
+  font-size: 18px;
+  cursor: pointer;
 }

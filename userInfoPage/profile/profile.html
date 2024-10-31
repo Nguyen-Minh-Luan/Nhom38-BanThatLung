@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./profile.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <div class="header__navbar header__navbar--left">
+          <h1 class="header__title">THOMAS</h1>
+        </div>
+
+        <ul class="header__navbar header__navbar--center">
+          <li><a href="../index.html">Home</a></li>
+          <li>
+            <a href="../productsPage/productsPage.html">Collections</a>
+          </li>
+          <li><a href="../cartPage/cartPage.html">Men</a></li>
+          <li><a href="../cartPage/cartPage.html">Woman</a></li>
+        </ul>
+        <ul class="header__navbar header__navbar--right">
+          <li><img src="../../assets/icons/search.svg" alt="search-icon" /></li>
+          <li>
+            <div class="header__notify">
+              <img src="../../assets/icons/favorite.svg" alt="favorite-icon" />
+              <span class="header__count">0</span>
+            </div>
+          </li>
+          <li><img src="../../assets//icons/user.svg" alt="user-icon" /></li>
+          <li>
+            <div class="header__notify">
+              <img src="../../assets//icons/shop.svg" alt="shop-icon" />
+              <span class="header__count">0</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="container__userInfo--center">
+      <div class="container_userInfo__nav_section">
+        <ul class="container__userInfo__navigate--big">
+          <li class="nav--item">
+            <button class="container__userInfo__navigate--borderbottom">
+              Account
+            </button>
+          </li>
+          <li class="nav--item">
+            <button class="container__userInfo__navigate--borderbottom">
+              Public Profile
+            </button>
+          </li>
+          <li class="nav--item">
+            <button class="container__userInfo__navigate--borderbottom">
+              Address
+            </button>
+          </li>
+          <li class="nav--item">
+            <button class="container__userInfo__navigate--borderbottom">
+              Privacy
+            </button>
+          </li>
+          <li class="nav--item">
+            <button class="container__userInfo__navigate--borderbottom">
+              Emails
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="userInfo__content--middle">
+        <div class="userInfo--picture">
+          <div class="userInfo__picture--choose">
+            <h2 class="Aboutyou">Profile picture</h2>
+            <input type="file" id="fileInput" onchange="displayFileName()" />
+          </div>
+          <div class="userInfo__picture--display">
+            <img src="../../assets/images/sampleProfile1.jpg" alt="user" />
+          </div>
+          <p class="userInfo__picture--require">
+            Must be a .jpg, .gif or .png file smaller than 10MB and at least
+            400px by 400px.
+          </p>
+          <div class="userInfo__profile__name">
+            <h4>Your name</h4>
+            <p>Huynh Thang</p>
+            <button>change</button>
+          </div>
+          <hr style="width: 80%; color: #fff; margin-left: 0" />
+          <div class="userInfo__profile__name userInfo__profile__name--gender">
+            <h4>Gender</h4>
+            <input type="radio" /><span>Male</span> <input type="radio" /><span
+              >Female</span
+            >
+          </div>
+          <hr style="width: 80%; color: #fff; margin-left: 0" />
+          <div class="userInfo__profile__name">
+            <h4>Birth day</h4>
+            <select id="daySelect">
+              <!-- Generate days from 1 to 31 -->
+              <option value="">Day</option>
+              <script>
+                const select = document.getElementById("daySelect");
+                for (let day = 1; day <= 31; day++) {
+                  const option = document.createElement("option");
+                  option.value = day;
+                  option.textContent = day;
+                  select.appendChild(option);
+                }
+              </script>
+            </select>
+            <select id="monthSelect">
+              <option value="">Month</option>
+              <script>
+                const months = [
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                ];
+
+                const select1 = document.getElementById("monthSelect");
+                months.forEach((month, index) => {
+                  const option = document.createElement("option");
+                  option.value = index + 1;
+                  option.textContent = month;
+                  select1.appendChild(option);
+                });
+              </script>
+            </select>
+          </div>
+          <hr style="width: 80%; color: #fff; margin-left: 0" />
+          <div
+            class="userInfo__profile__name userInfo__profile__name--textarea"
+          >
+            <h4>About</h4>
+            <textarea
+              cols="100"
+              name="bio"
+              id="bio"
+              class="text text-wide"
+              style="
+                overflow: hidden;
+                overflow-wrap: break-word;
+                resize: none;
+                height: 46px;
+              "
+            ></textarea>
+          </div>
+        </div>
+        <div class="btn btn-black">
+          <button>Save changes</button>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer">
+        <div class="footer--section">
+          <h3>About us</h3>
+          <p>How we work</p>
+          <p>Investors</p>
+          <p>Careers</p>
+          <p>Press</p>
+          <p>Impact</p>
+          <p>Legal imprint</p>
+        </div>
+        <div class="footer--section">
+          <h3>Support</h3>
+          <p>Become an Investor</p>
+          <p>Your opinion</p>
+          <p>Donate</p>
+          <p>Survey</p>
+        </div>
+        <div class="footer--section">
+          <h3>Terms and Conditions</h3>
+          <p>Privacy Terms</p>
+          <p>Term of use</p>
+          <p>Ontellectual property</p>
+          <p>Shippng policy</p>
+          <p>Comunity standard</p>
+        </div>
+        <div class="footer--section">
+          <h3>Contact us</h3>
+          <p>Thomas@contact.tm.com</p>
+          <div class="social-icons">
+            <span class="icon"
+              ><img src="../../assets/icons/Facebook.svg" alt="facebook"
+            /></span>
+            <span class="icon"
+              ><img src="../../assets/icons/Instagram.svg" alt="Instagram"
+            /></span>
+            <span class="icon"
+              ><img src="../../assets/icons/TwitterX.svg" alt="TwitterX"
+            /></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
