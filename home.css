@@ -5,12 +5,172 @@
   font-family: "IBM Plex Sans Condensed", sans-serif;
 }
 
+.cart__content {
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  height: 1392.17px;
+  width: 1400px;
+  margin-top: 50px;
+}
+
+.cart--header {
+  font-size: 27.51px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.cart__container {
+  display: flex;
+  flex-direction: column;
+  margin-left: var(--margin-left-medium);
+
+  width: var(--width-big);
+  height: 182px;
+}
+.cart__item {
+  width: 867.333px;
+}
+.cart__item--view {
+  display: flex;
+  margin-left: 21px;
+  margin-top: 21px;
+}
+.cart__item--info {
+  display: flex;
+  border: 1px solid #0e0e0e2e;
+  border-bottom: none;
+  justify-content: space-between;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.cart__item--title {
+  margin: 0px;
+  font-weight: 400;
+}
+.cart__item--description {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.cart__item--tag {
+  display: flex;
+  justify-content: left;
+}
+.cart__item--tag span {
+  margin-top: 5px;
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 11px;
+  background-color: #dfdfdf;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-radius: 50px;
+}
+.cart__item--state {
+  font-size: 12.99px;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  color: #d00739;
+  font-weight: 400;
+}
+
+.cart__item--choose {
+  display: flex;
+  align-items: center;
+}
+
+.cart__item_select {
+  margin-top: 8px;
+  width: 71px;
+  height: 39px;
+}
+.cart__item_select select {
+  padding-left: 12px;
+  padding-right: 36px;
+  width: 100%;
+  height: 39px;
+  background-color: white;
+  border: 1px solid #0e0e0e2e;
+  border-radius: 5px;
+}
+.cart__item--action {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.cart__item--action p {
+  font-size: 12.99px;
+  font-weight: bold;
+}
+.cart__item--price {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-right: 29px;
+  margin-top: 21px;
+}
+.cart__item--price p {
+  font-size: 19.01px;
+  font-weight: 400;
+}
+
+.cart__item--extra {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #0e0e0e2e;
+  height: 56px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.cart__container--items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart__container--content {
+  display: flex;
+  height: 579px;
+}
+
+.cart--summary {
+  font-size: var(--font-size-standard);
+  color: #000;
+  margin-left: 102px;
+  width: 328.75px;
+}
+.cart--summary p {
+  font-weight: bold;
+}
+
 .cart__container_pay {
   display: flex;
   flex: 1;
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
+}
+.cart__container_pay--seperator {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.cart--description {
+  margin: 0;
+}
+
+.cart__container_pay p {
+  margin: 0;
+}
+.cart__container_pay--payment {
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.cart__container--method {
+  margin-top: 10px;
 }
 .cart__container--coupon {
   justify-content: flex-start;
@@ -23,20 +183,6 @@
 }
 .cart__coupon--padding2px {
   padding-left: 5px;
-}
-.overlay {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  height: 100%;
-  width: 50%;
-  background: white;
-  transition: left 0.5s ease;
-  z-index: 1000;
-}
-
-.overlay.active {
-  left: 0;
 }
 
 .cart__container_coupon--submit {
