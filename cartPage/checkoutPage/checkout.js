@@ -107,6 +107,7 @@ $(document).ready(function () {
     $("#popUpPaymentQR").fadeOut();
   };
 
+  const groupPopup = ["popupForm", "popUpPayment", "popUpPaymentQR"];
   $(".popup--content--submit").click(popUpUpdateInfo());
   $(".cart__container--coupon").click(showApplyCoupon());
   $("#openFormButton").click(showPopUp());
@@ -117,8 +118,10 @@ $(document).ready(function () {
   $(".btn-dark").click(handlePayment());
   $("#closeFormButtonPayment").click(closePopUpPayment);
   $(window).click(function (event) {
-    if ($(event.target).is("#popupForm")) {
-      $("#popupForm").fadeOut();
-    }
+    groupPopup.forEach((popup) => {
+      if (event.target.id == popup) {
+        $("#" + popup).fadeOut();
+      }
+    });
   });
 });
