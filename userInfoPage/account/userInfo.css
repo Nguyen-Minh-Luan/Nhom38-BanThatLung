@@ -1,103 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap");
+@import "../../styles/general.css";
 * {
   font-family: "IBM Plex Sans Condensed", sans-serif;
 }
 
-:root {
-  --margin-left-standard: 145px;
-  --margin-bottom-small: 6px;
-  --margin-left-medium: 75px;
-  --font-size-standard: 20px;
-  --width-big: 929px;
-}
-
-html,
-p,
-body {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  color: #333;
-}
-body {
-  width: 1920px;
-}
-.header {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.128);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.125);
-}
-.header__container {
-  display: flex;
-  justify-content: space-between;
-}
-.header__navbar--left {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: var(--margin-left-medium);
-}
-.header__title {
-  color: #000000;
-  font-family: "Instrument Serif", sans-serif;
-  font-weight: 400;
-  text-align: center;
-  letter-spacing: 10px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-.header__navbar--center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  margin-left: 98px;
-}
-.header__navbar--right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 175px;
-}
-.header__navbar--center li {
-  list-style: none;
-  margin: 0 40px;
-  font-size: 22px;
-  font-weight: 325;
-}
-.header__navbar--center a {
-  text-decoration: none;
-  color: #000000;
-}
-.header__navbar--right li {
-  list-style: none;
-  font-size: 22px;
-  vertical-align: top;
-  text-align: center;
-}
-
-.header__navbar--right img {
-  width: 30px;
-  height: 30px;
-  margin: 0 7px;
-}
-.header__notify {
-  position: relative;
-}
-.header__count {
-  position: absolute;
-  top: 0;
-  right: 0px;
-  width: 7px;
-  height: 7px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  color: white;
-  border-radius: 50%;
-  padding: 5px;
-  font-size: 12px;
-}
 .container__userInfo--center {
   width: 944px;
   margin-left: auto;
@@ -226,6 +133,7 @@ body {
   min-height: 36px;
   min-width: 36px;
   padding: 9px 15px;
+  cursor: pointer;
 }
 .userInfo--aboutyou--location {
   margin-top: 30px;
@@ -245,44 +153,4 @@ body {
 }
 .userInf__Email--paddingbottom {
   padding-bottom: 20px;
-}
-
-.footer {
-  margin-top: 100px;
-  border: 1px solid black;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: #f4f4f4;
-  height: 400px;
-}
-
-.footer--section {
-  flex: 1;
-  text-align: center;
-}
-
-.footer--section h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.footer--section p {
-  font-size: var(--font-size-standard);
-
-  color: #555;
-  line-height: 51px;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 8px;
-}
-
-.icon {
-  font-size: 18px;
-  cursor: pointer;
 }

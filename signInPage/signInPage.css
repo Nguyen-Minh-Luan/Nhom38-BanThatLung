@@ -12,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 100%;
 }
 h1 {
   font-family: "Instrument Serif", sans-serif;
@@ -93,7 +94,7 @@ footer {
   justify-content: space-between;
   padding: 20px;
   background-color: #f4f4f4;
-  height: 400px;
+  height: 467px;
 }
 
 .footer--section {

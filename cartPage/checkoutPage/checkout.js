@@ -56,7 +56,6 @@ $(document).ready(function () {
         .closest(".popup--content--userInfo--action")
         .find(".paymentMethod")
         .text();
-      console.log(paymentMethod);
       if (paymentMethod == "Google Pay") {
         $("#popUpPayment").fadeOut();
       } else if (paymentMethod == "Bank") {
@@ -64,15 +63,14 @@ $(document).ready(function () {
           "src",
           "../../assets/icons/footer_trustbadge 1.svg"
         );
-        $(".btn__pay--blue").text("Pay with Bank");
+        $(".btn-dark").text("Pay with Bank");
         $("#popUpPayment").fadeOut();
       }
     };
   };
   const handlePayment = () =>
     function () {
-      if ($(".btn__pay--blue").text() == "Pay with Bank") {
-        console.log("1");
+      if ($(".btn-dark").text() == "Pay with Bank") {
         $("#popUpPaymentQR").fadeIn();
         handleCountDown();
       }
@@ -104,6 +102,11 @@ $(document).ready(function () {
       }
     }, 1000);
   };
+
+  const closePopUpPayment = () => {
+    $("#popUpPaymentQR").fadeOut();
+  };
+
   $(".popup--content--submit").click(popUpUpdateInfo());
   $(".cart__container--coupon").click(showApplyCoupon());
   $("#openFormButton").click(showPopUp());
@@ -111,7 +114,8 @@ $(document).ready(function () {
   $(".openFormButtonPay").click(showPopUpPay());
   $("#closeFormButtonPay").click(closePopUpPay);
   $(".popup--content--submitPayment").click(handleChoosePayment());
-  $(".btn__pay--blue").click(handlePayment());
+  $(".btn-dark").click(handlePayment());
+  $("#closeFormButtonPayment").click(closePopUpPayment);
   $(window).click(function (event) {
     if ($(event.target).is("#popupForm")) {
       $("#popupForm").fadeOut();

@@ -5,38 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <header class="header">
-      <div class="header__container">
-        <div class="header__navbar header__navbar--left">
-          <h1 class="header__title">THOMAS</h1>
-        </div>
+    <header class="header border-bottom shadow-sm">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <!-- Left Navbar Section -->
+          <div
+            class="col-auto header__navbar header__navbar--left d-flex align-items-center"
+          >
+            <h1 class="header__title">THOMAS</h1>
+          </div>
 
-        <ul class="header__navbar header__navbar--center">
-          <li><a href="../index.html">Home</a></li>
-          <li>
-            <a href="../productsPage/productsPage.html">Collections</a>
-          </li>
-          <li><a href="../cartPage/cartPage.html">Men</a></li>
-          <li><a href="../cartPage/cartPage.html">Woman</a></li>
-        </ul>
-        <ul class="header__navbar header__navbar--right">
-          <li><img src="../../assets/icons/search.svg" alt="search-icon" /></li>
-          <li>
-            <div class="header__notify">
-              <img src="../../assets/icons/favorite.svg" alt="favorite-icon" />
-              <span class="header__count">0</span>
-            </div>
-          </li>
-          <li><img src="../../assets//icons/user.svg" alt="user-icon" /></li>
-          <li>
-            <div class="header__notify">
-              <img src="../../assets//icons/shop.svg" alt="shop-icon" />
-              <span class="header__count">0</span>
-            </div>
-          </li>
-        </ul>
+          <!-- Center Navbar Section -->
+          <div
+            class="col header__navbar header__navbar--center d-flex justify-content-center"
+          >
+            <ul class="navbar-nav d-flex flex-row">
+              <li class="nav-item mx-3">
+                <a href="../index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a href="../productsPage/productsPage.html" class="nav-link"
+                  >Collections</a
+                >
+              </li>
+              <li class="nav-item mx-3">
+                <a href="../cartPage/cartPage.html" class="nav-link">Men</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a href="../cartPage/cartPage.html" class="nav-link">Woman</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right Navbar Section -->
+          <div
+            class="col-auto header__navbar header__navbar--right d-flex align-items-center mr-5"
+          >
+            <ul class="navbar-nav d-flex flex-row align-items-center">
+              <li class="nav-item mx-2">
+                <img
+                  src="../../assets/icons/search.svg"
+                  alt="search-icon"
+                  width="30"
+                  height="30"
+                />
+              </li>
+              <li class="nav-item mx-2">
+                <div class="header__notify position-relative">
+                  <img
+                    src="../../assets/icons/favorite.svg"
+                    alt="favorite-icon"
+                    width="30"
+                    height="30"
+                  />
+                  <span class="header__count">0</span>
+                </div>
+              </li>
+              <li class="nav-item mx-2">
+                <img
+                  src="../../assets/icons/user.svg"
+                  alt="user-icon"
+                  width="30"
+                  height="30"
+                />
+              </li>
+              <li class="nav-item mx-2">
+                <div class="header__notify position-relative">
+                  <img
+                    src="../../assets/icons/shop.svg"
+                    alt="shop-icon"
+                    width="30"
+                    height="30"
+                  />
+                  <span class="header__count">0</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -46,7 +100,7 @@
           <li class="nav--item">
             <a
               href="../account/userinfo.html"
-              class="container__userInfo__navigate--borderbottom"
+              class="container__userInfo__navigate--borderbottom text-decoration-none"
             >
               Account
             </a>
@@ -54,7 +108,7 @@
           <li class="nav--item">
             <a
               href="../profile/profile.html"
-              class="container__userInfo__navigate--borderbottom"
+              class="container__userInfo__navigate--borderbottom text-decoration-none"
             >
               Public Profile
             </a>
@@ -62,7 +116,7 @@
           <li class="nav--item">
             <a
               href="../address/address.html"
-              class="container__userInfo__navigate--borderbottom"
+              class="container__userInfo__navigate--borderbottom text-decoration-none"
             >
               Address
             </a>
@@ -70,7 +124,7 @@
           <li class="nav--item">
             <a
               href="../privacy/privacy.html"
-              class="container__userInfo__navigate--borderbottom"
+              class="container__userInfo__navigate--borderbottom text-decoration-none"
             >
               Privacy
             </a>
@@ -78,7 +132,7 @@
           <li class="nav--item">
             <a
               href="../email/email.html"
-              class="container__userInfo__navigate--borderbottom"
+              class="container__userInfo__navigate--borderbottom text-decoration-none"
             >
               Emails
             </a>
@@ -100,8 +154,21 @@
           </p>
           <div class="userInfo__profile__name">
             <h4>Your name</h4>
-            <p>Huynh Thang</p>
-            <button>change</button>
+            <p class="dynamic__text">Huynh Thang</p>
+            <button id="openFormButton">change</button>
+          </div>
+          <div id="popupForm" class="popup">
+            <div class="popup-content">
+              <span class="close" id="closeFormButton">&times;</span>
+              <h2>Update Name</h2>
+              <input
+                type="text"
+                id="newText"
+                placeholder="Enter new name"
+                required
+              />
+              <button id="submitButton">Change</button>
+            </div>
           </div>
           <hr style="width: 80%; color: #fff; margin-left: 0" />
           <div class="userInfo__profile__name userInfo__profile__name--gender">
@@ -222,4 +289,6 @@
       </div>
     </footer>
   </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./profile.js"></script>
 </html>
