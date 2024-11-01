@@ -53,10 +53,12 @@
                   <p>Payment infomation</p>
                 </div>
                 <div class="checkout--info">
-                  <p>huynhminhthang</p>
+                  <p class="userInfo__name">huynhminhthang</p>
                   <p>e123123123@gmail.com</p>
-                  <p>+84356176054</p>
-                  <p>123123123123123, Phường Phúc Xá, Quận Ba Đình, Hà Nội</p>
+                  <p class="userInfo__number">+84356176054</p>
+                  <p class="userInfo__address">
+                    123123123123123, Phường Phúc Xá, Quận Ba Đình, Hà Nội
+                  </p>
                   <div class="checkout--info">
                     <button id="openFormButton" class="btn--change open-popup">
                       Change
@@ -78,20 +80,16 @@
                     <div class="popup--content--userInfo--action">
                       <div class="popup--content--userdesc">
                         <span>Default</span>
-                        <p>huynhminhthang</p>
-                        <p>ktx khu b</p>
-                        <p>HO CHI MINH CITY</p>
-                        <p>+84356176054s</p>
+                        <p class="name__field1">huynhminhthang</p>
+                        <p class="address__field1">ktx khu b</p>
+                        <p class="city__field1">HO CHI MINH CITY</p>
+                        <p class="number__field1">+84356176054</p>
                       </div>
                       <div class="popup--content--right">
                         <div class="popup--content--button">
-                          <button class="popup--content--submit">
+                          <button class="popup--content--submit" id="submit1">
                             Ship here
                           </button>
-                        </div>
-                        <div class="popup--content--action">
-                          <p>Edit</p>
-                          <p>Remove</p>
                         </div>
                       </div>
                     </div>
@@ -103,20 +101,16 @@
                     <div class="popup--content--userInfo--action">
                       <div class="popup--content--userdesc">
                         <span>Default</span>
-                        <p>huynhminhthang</p>
-                        <p>ktx khu b</p>
-                        <p>HO CHI MINH CITY</p>
-                        <p>+84356176054s</p>
+                        <p class="name__field1">huynhminhthang</p>
+                        <p class="address__field1">ktx khu b</p>
+                        <p class="city__field1">HO CHI MINH CITY</p>
+                        <p class="number__field1">+84356176054s</p>
                       </div>
                       <div class="popup--content--right">
                         <div class="popup--content--button">
-                          <button class="popup--content--submit">
+                          <button class="popup--content--submit" id="submit2">
                             Ship here
                           </button>
-                        </div>
-                        <div class="popup--content--action">
-                          <p>Edit</p>
-                          <p>Remove</p>
                         </div>
                       </div>
                     </div>
@@ -128,10 +122,62 @@
                   <p>Payment method</p>
                 </div>
                 <div class="checkout--img">
-                  <img src="../../assets/icons/gPay.svg" alt="googlepay" />
+                  <img
+                    class="img__paymentMethod"
+                    src="../../assets/icons/gPay.svg"
+                    alt="googlepay"
+                  />
                 </div>
                 <div class="checkout--info">
-                  <button class="btn--change">Change</button>
+                  <button class="openFormButtonPay btn--change">Change</button>
+                </div>
+              </div>
+              <div id="popUpPayment" class="popup">
+                <div class="popup-content">
+                  <span class="close" id="closeFormButton">&times;</span>
+                  <div class="popup-content--desc">
+                    <div class="popup--content--userInfo--action">
+                      <div class="popup--content--userdesc">
+                        <span class="paymentMethod">Google Pay</span>
+                        <img
+                          src="../../assets/icons/gPay.svg"
+                          alt="googlepay"
+                        />
+                      </div>
+                      <div class="popup--content--right">
+                        <div class="popup--content--button">
+                          <button
+                            class="popup--content--submitPayment"
+                            id="submit2"
+                          >
+                            Use
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="popup-content--desc">
+                    <div class="popup--content--userInfo--action">
+                      <div class="popup--content--userdesc">
+                        <span class="paymentMethod">Bank</span>
+                        <img
+                          src="../../assets/icons/footer_trustbadge 1.svg"
+                          alt="googlepay"
+                          style="margin-top: 6px"
+                        />
+                      </div>
+                      <div class="popup--content--right">
+                        <div class="popup--content--button">
+                          <button
+                            class="popup--content--submitPayment"
+                            id="submit2"
+                          >
+                            Use
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -169,14 +215,36 @@
             </div>
             <div><p>2,862,866₫</p></div>
           </div>
+
+          <div class="cart__container_pay cart__container_pay--payment">
+            <button class="btn btn__pay--blue">Buy with Google pay</button>
+          </div>
+          <div id="popUpPaymentQR" class="popup">
+            <div class="popup-content">
+              <span class="close" id="closeFormButton">&times;</span>
+              <div class="popup-content--desc--payment">
+                <div class="popup--content--userInfo--payment--action">
+                  <div class="popup--content--userdesc">
+                    <span
+                      style="text-align: center; font-size: 32px"
+                      id="countdown"
+                      >05:00</span
+                    >
+                    <img
+                      style="width: 100%; height: 100%"
+                      src="../../assets/images/QrPayment.png"
+                      alt="googlepay"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="cart__terms">
             <p>
               By clicking the Google Pay button, you agree to Thomas's
               <strong>Terms of Use and Privacy Policy.</strong>
             </p>
-          </div>
-          <div class="cart__container_pay cart__container_pay--payment">
-            <button class="btn btn__pay--blue">Buy with Google pay</button>
           </div>
           <div class="cart__taxes">Local taxes included (where applicable)</div>
           <div class="cart__email">

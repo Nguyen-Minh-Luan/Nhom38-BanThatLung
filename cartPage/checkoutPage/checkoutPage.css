@@ -31,7 +31,7 @@ body {
   letter-spacing: 0.31238px;
   margin-top: 40px;
   margin-bottom: 20px;
-  font-size: 24.99px;
+  font-size: 32px;
   line-height: 1.6;
 }
 .cart__header--details {
@@ -64,12 +64,15 @@ body {
   outline: none;
   transition: box-shadow 0.3s ease;
   border-radius: 3px;
+  margin-top: 20px;
 }
 .btn__pay--blue:hover {
   box-shadow: 0px 1px 5px 0px #0000004d, 0px 5px 20px 6px #00000026;
-  opacity: 0.7;
+  opacity: 0.8;
 }
-
+.btn__pay--blue:active {
+  opacity: 0.6;
+}
 .cart--summary {
   margin-left: 71px;
 }
@@ -92,6 +95,7 @@ body {
   box-shadow: 0px 0px 10px 0px #0e0e0e2e;
   margin-top: 270px;
   border-radius: 5px;
+  box-shadow: 0px 1px 3px 0px #0000004d, 0px 4px 8px 3px #00000026;
 }
 
 .checkout_cart--itemdesc {
@@ -102,7 +106,7 @@ body {
   display: flex;
   border-bottom: 1px solid #0e0e0e2e;
   width: 700px;
-  height: 214px;
+  height: 186px;
 }
 .checkout_cart_item--desc {
   margin-left: 21px;
@@ -142,6 +146,7 @@ body {
 .checkout_cart_item_action_flex {
   display: flex;
   margin-bottom: 20px;
+  height: 39px;
 }
 .checkout_cart_item--state {
   font-size: 12.99px;
@@ -150,12 +155,13 @@ body {
   color: #d00739;
 }
 .checkout_cart_item--desc select {
+  padding-left: 10px;
   padding-right: 10px;
   width: 71px;
-  height: 29px;
+  height: 100%;
   background-color: white;
   border: 1px solid #a1a1a1;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 .checkout_cart--action {
   margin-left: 10px;
@@ -460,6 +466,24 @@ body {
 .popup--content--submit:hover {
   box-shadow: 0px 1px 5px 0px #0000004d, 0px 5px 20px 6px #00000026;
 }
+.popup--content--submitPayment {
+  border-radius: 24px;
+  outline: none;
+  border: none;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 12px 70px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  transition: box-shadow 0.3s ease;
+}
+.popup--content--submitPayment:hover {
+  box-shadow: 0px 1px 5px 0px #0000004d, 0px 5px 20px 6px #00000026;
+}
 .popup--content--action {
   padding-top: 12px;
   display: flex;
@@ -477,4 +501,20 @@ body {
 }
 .popup--content--action p:hover {
   background-color: #e2e2e2;
+}
+.checkout_optional__textarea textarea {
+  border-radius: 7px;
+  border: 1px solid black;
+  text-align: left;
+  padding: 12px;
+  resize: none;
+}
+.popup-content--desc--payment {
+  display: flex;
+  justify-content: center;
+}
+.popup--content--userInfo--payment--action {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
