@@ -1,128 +1,19 @@
 /* Basic CSS for Sign In Page */
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap");
+@import "../styles/general.css";
 * {
   font-family: "IBM Plex Sans Condensed", sans-serif;
 }
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
+
+@media (min-width: 992px) {
+  .custom-lg-container {
+    max-width: 600px;
+  }
 }
-h1 {
-  font-family: "Instrument Serif", sans-serif;
-  letter-spacing: 10px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-size: 60px;
-}
-.container {
-  width: 438px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #e0e0e0;
-}
-form {
-  width: 80%;
-  height: 90%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-.action {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.register {
-  border: 2px solid black;
-  background-color: white;
-  padding: 6px 12px;
-  text-decoration: none;
-  color: black;
-}
-.container__field__form p {
-  margin-bottom: 11px;
-}
-.textfield {
-  width: 100%;
-  height: 40px;
+.custom_design {
   border: 2.5px solid black;
-  box-shadow: 0 4px 13px rgba(0, 0, 0, 0.08);
 }
-.container__checkbox_resetpass {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.checkbox--left {
-  font-size: 12px;
-}
-.container__checkbox--forgot {
-  font-size: 12px;
-  text-decoration: underline;
-}
-.btn {
-  height: 44px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-}
-.btn--bigBlack {
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  color: white;
-  border: none;
-  font-size: 17px;
-  cursor: pointer;
-}
-footer {
-  width: 100%;
-}
-.footer {
-  width: 100%;
-  margin-top: 30px;
-  border: 1px solid black;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: #f4f4f4;
-  height: 467px;
-}
-
-.footer--section {
-  flex: 1;
-  text-align: center;
-}
-
-.footer--section h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.footer--section p {
-  font-size: var(--font-size-standard);
-
-  color: #555;
-  line-height: 51px;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 8px;
-}
-
-.icon {
-  font-size: 18px;
-  cursor: pointer;
+.custom__btn{
+  box-shadow: 0 4px 13px rgba(41, 40, 40, 0.344);
 }

@@ -24,20 +24,6 @@
 .cart__coupon--padding2px {
   padding-left: 5px;
 }
-.overlay {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  height: 100%;
-  width: 50%;
-  background: white;
-  transition: left 0.5s ease;
-  z-index: 1000;
-}
-
-.overlay.active {
-  left: 0;
-}
 
 .cart__container_coupon--submit {
   justify-content: flex-start;

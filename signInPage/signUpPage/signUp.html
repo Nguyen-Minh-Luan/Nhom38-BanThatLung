@@ -4,136 +4,322 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="signUp.css" />
   </head>
   <body>
-    <header>
-      <h1>THOMAS</h1>
-    </header>
-    <div class="container">
-      <form action="/submit" method="post">
-        <div class="action">
-          <span>Register</span>
+    <header class="header border-bottom shadow-sm">
+      <div
+        class="row align-items-center w-100 d-md-flex justify-content-md-center"
+      >
+        <!-- Left Navbar Section -->
+        <div
+          class="col-sm-4 pl-sm-4 pr-sm-0 col-md-4 justify-content-sm-start d-lg-none d-xl-none col header__navbar header__navbar--center d-flex justify-content-center"
+        >
+          <button id="menuButton" class="btn btn-light h-sm-100">
+            <img src="../../assets/icons/menu.svg" />
+          </button>
         </div>
-        <div class="container__field__form">
-          <p>Emai address</p>
-          <input
-            class="textfield"
-            type="text"
-            id="email"
-            name="email"
-            placeholder="Enter your email"
-            required
-          />
+        <div id="dimmer" class="dimmer"></div>
+
+        <div id="overlay" class="d-sm-flex overlay">
+          <div class="overlay__content w-100">
+            <div
+              class="overlay__header d-flex w-100 justify-content-center align-items-center mt-2"
+            >
+              <h3 class="header__title mb-0">THOMAS</h3>
+              <button id="closeButton" class="btn">
+                <img src="../../assets/icons/close.svg" />
+              </button>
+            </div>
+            <div
+              class="overlay__body d-flex align-items-left justify-content-between"
+              style="height: 500px"
+            >
+              <ul
+                class="navbar-nav d-flex flex-column list-unstyled fs-3 w-100"
+                style="font-size: 1.5rem"
+              >
+                <hr class="w-100 ml-2" />
+                <li class="nav-item mx-3">
+                  <a href="../index.html" class="nav-link text-dark">Home</a>
+                </li>
+                <hr class="w-100 ml-2" />
+                <li class="nav-item mx-3">
+                  <a
+                    href="../productsPage/productsPage.html"
+                    class="nav-link text-dark"
+                    >Collections</a
+                  >
+                </li>
+                <hr class="w-100 ml-2" />
+                <li class="nav-item mx-3">
+                  <a href="../cartPage/cartPage.html" class="nav-link text-dark"
+                    >Men</a
+                  >
+                </li>
+                <hr class="w-100 ml-2" />
+                <li class="nav-item mx-3">
+                  <a href="../cartPage/cartPage.html" class="nav-link text-dark"
+                    >Woman</a
+                  >
+                </li>
+                <hr class="w-100 ml-2" />
+                <li class="nav-item mx-3">
+                  <a
+                    href="../signInPage/signInPage.html"
+                    class="nav-link text-dark"
+                    >Sign In / Sign Up</a
+                  >
+                </li>
+                <hr class="w-100 ml-2" />
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="d-sm-none d-md-none d-lg-flex d-xl-flex col-auto header__navbar header__navbar--left d-flex align-items-center ml-5"
+        >
+          <h1 class="header__title mb-0">THOMAS</h1>
         </div>
 
-        <div class="container__field__form container__field__form--extrawidth">
-          <p>First name / last name</p>
-          <div class="container__name--inline">
-            <input
-              class="textfield firstname"
-              type="text"
-              id="firstname"
-              name="firstname"
-              placeholder="First name"
-              required
-            />
-            <input
-              class="textfield"
-              type="text"
-              id="lastname"
-              name="lastname"
-              placeholder="Last name"
-              required
-            />
-          </div>
+        <!-- Center Navbar Section -->
+        <div
+          class="d-sm-none d-md-none d-lg-flex d-xl-flex col header__navbar header__navbar--center d-flex justify-content-center"
+        >
+          <ul class="navbar-nav d-flex flex-row">
+            <li class="nav-item mx-3">
+              <a href="../index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item mx-3">
+              <a href="../productsPage/productsPage.html" class="nav-link"
+                >Collections</a
+              >
+            </li>
+            <li class="nav-item mx-3">
+              <a href="../cartPage/cartPage.html" class="nav-link">Men</a>
+            </li>
+            <li class="nav-item mx-3">
+              <a href="../cartPage/cartPage.html" class="nav-link">Woman</a>
+            </li>
+          </ul>
         </div>
-        <div class="container__field__form">
-          <p>Phone number</p>
+        <div
+          class="col-sm-4 pl-0 col-md-4 d-lg-none d-xl-none col-auto header__navbar header__navbar--left d-flex align-items-center"
+        >
+          <h1 class="header__title mb-0">THOMAS</h1>
+        </div>
+        <!-- Right Navbar Section -->
+        <div
+          class="d-sm-none d-md-none d-lg-flex d-xl-flex col-auto header__navbar header__navbar--right d-flex align-items-center mr-5"
+        >
+          <ul
+            class="d-sm-none d-md-none d-lg-flex d-xl-flex navbar-nav d-flex flex-row align-items-center"
+          >
+            <li class="nav-item mx-2">
+              <img
+                src="../../assets/icons/search.svg"
+                alt="search-icon"
+                width="30"
+                height="30"
+              />
+            </li>
+            <li class="nav-item mx-2">
+              <div class="header__notify position-relative">
+                <img
+                  src="../../assets/icons/favorite.svg"
+                  alt="favorite-icon"
+                  width="30"
+                  height="30"
+                />
+                <span class="header__count">0</span>
+              </div>
+            </li>
+            <li class="nav-item mx-2">
+              <img
+                src="../../assets/icons/user.svg"
+                alt="user-icon"
+                width="30"
+                height="30"
+              />
+            </li>
+            <li class="nav-item mx-2">
+              <div class="header__notify position-relative">
+                <img
+                  src="../../assets/icons/shop.svg"
+                  alt="shop-icon"
+                  width="30"
+                  height="30"
+                />
+                <span class="header__count">0</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="col-sm-4 col-md-4 d-lg-none d-xl-none col-auto header__navbar header__navbar--right d-flex align-items-center"
+        >
+          <ul class="navbar-nav d-flex flex-row align-items-center">
+            <li class="nav-item mx-2">
+              <img
+                src="../../assets/icons/search.svg"
+                alt="search-icon"
+                width="30"
+                height="30"
+              />
+            </li>
+            <li class="nav-item mx-2">
+              <div class="header__notify position-relative">
+                <img
+                  src="../../assets/icons/favorite.svg"
+                  alt="favorite-icon"
+                  width="30"
+                  height="30"
+                />
+                <span class="header__count">0</span>
+              </div>
+            </li>
+            <li class="nav-item mx-2">
+              <img
+                src="../../assets/icons/user.svg"
+                alt="user-icon"
+                width="30"
+                height="30"
+              />
+            </li>
+            <li class="nav-item mx-2">
+              <div class="header__notify position-relative">
+                <img
+                  src="../../assets/icons/shop.svg"
+                  alt="shop-icon"
+                  width="30"
+                  height="30"
+                />
+                <span class="header__count">0</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="container-sm border mt-3 custom-lg-container">
+      <div class="d-flex justify-content-between align-items-center m-2">
+        <p class="mb-0" style="font-size: 1.75rem;">Register</p>
+      </div>
+      <div class="d-flex flex-column m-2 mt-5">
+        <p class="mb-1" style="font-size: 1.25rem">Email</p>
+        <input
+          type="email"
+          class="form-control form-control-lg custom_design"
+          placeholder="Enter your email"
+        />
+      </div>
+      <div class="d-flex flex-column m-2 mt-3">
+        <p class="mb-1" style="font-size: 1.25rem">First name / last name</p>
+        <div class="d-flex">
           <input
-            class="textfield"
-            type="tel"
-            id="email"
-            name="email"
-            required
+            type="text"
+            class="form-control form-control-lg custom_design flex-grow-2 mr-2"
+            placeholder="First name"
+          />
+          <input
+            type="text"
+            class="form-control form-control-lg custom_design flex-grow-1"
+            placeholder="Last name"
           />
         </div>
-        <div class="container__field__form">
-          <p>Password</p>
-          <input
-            class="textfield"
-            type="password"
-            id="password"
-            name="password"
-            required
-          />
-        </div>
-        <div class="container__field__form">
-          <p>Confirm your password</p>
-          <input
-            class="textfield"
-            type="password"
-            id="password"
-            name="password"
-            required
-          />
-        </div>
-        <div class="container__checkbox_resetpass">
-          <div class="checkbox--left">
-            <input type="checkbox" id="remember" name="remember" />
-            <label for="remember"
-              >By clicking Register you agree to Belt store Term of Use and
-              Privacy Policy</label
-            >
-          </div>
-        </div>
-        <div class="btn btn__signIn--bigBlack">
-          <button class="btn--bigBlack">Register</button>
-        </div>
-        <div class="container__already--signin">
-          <p>Already have an account ? <a href="../signInPage.html">Sign in</a></p>
-        </div>
-      </form>
+      </div>
+      <div class="d-flex flex-column m-2 mt-3">
+        <p class="mb-1" style="font-size: 1.25rem">Phone number</p>
+        <input
+          type="tel"
+          class="form-control form-control-lg custom_design"
+          placeholder="Enter your password"
+        />
+      </div>
+      <div class="d-flex flex-column m-2 mt-3">
+        <p class="mb-1" style="font-size: 1.25rem">Password</p>
+        <input
+          type="password"
+          class="form-control form-control-lg custom_design"
+          placeholder="Enter your password"
+        />
+      </div>
+      <div class="d-flex flex-column m-2 mt-3">
+        <p class="mb-1" style="font-size: 1.25rem">Confirm your password</p>
+        <input
+          type="password"
+          class="form-control form-control-lg custom_design"
+          placeholder="Enter your password"
+        />
+      </div>
+      <div class="d-flex justify-content-between align-items-center m-2 mt-0">
+        <div class="d-flex align-items-center"></div>
+        <input class="mr-2 mt-0" type="checkbox" id="rememberMe" />
+        <p class="mb-0 mt-4">
+          By clicking Register you agree to Belt store Term of Use and Privacy
+          Policy
+        </p>
+      </div>
+      <div class="d-flex justify-content-center align-items-center mt-5 mb-5">
+        <button class="btn btn-dark w-100 p-2 custom__btn">Register</button>
+      </div>
     </div>
-    <footer>
-      <div class="footer">
-        <div class="footer--section">
-          <h3>About us</h3>
-          <p>How we work</p>
-          <p>Investors</p>
-          <p>Careers</p>
-          <p>Press</p>
-          <p>Impact</p>
-          <p>Legal imprint</p>
-        </div>
-        <div class="footer--section">
-          <h3>Support</h3>
-          <p>Become an Investor</p>
-          <p>Your opinion</p>
-          <p>Donate</p>
-          <p>Survey</p>
-        </div>
-        <div class="footer--section">
-          <h3>Terms and Conditions</h3>
-          <p>Privacy Terms</p>
-          <p>Term of use</p>
-          <p>Ontellectual property</p>
-          <p>Shippng policy</p>
-          <p>Comunity standard</p>
-        </div>
-        <div class="footer--section">
-          <h3>Contact us</h3>
-          <p>Thomas@contact.tm.com</p>
-          <div class="social-icons">
-            <span class="icon"
-              ><img src="../assets/icons/Facebook.svg" alt="facebook"
-            /></span>
-            <span class="icon"
-              ><img src="../assets/icons/Instagram.svg" alt="Instagram"
-            /></span>
-            <span class="icon"
-              ><img src="../assets/icons/TwitterX.svg" alt="TwitterX"
-            /></span>
+
+    <footer class="border-top border-dark mt-sm-4">
+      <div class="container">
+        <div class="row d-flex footer mt-sm-4">
+          <div
+            class="col-sm footer--section d-flex flex-column justify-content-center"
+          >
+            <h3>About Us</h3>
+            <p>How we work</p>
+            <p>Investors</p>
+            <p>Careers</p>
+            <p>Press</p>
+            <p>Impact</p>
+            <p>Legal imprint</p>
+          </div>
+          <div
+            class="col-sm footer--section d-flex flex-column justify-content-top"
+          >
+            <h3>Support</h3>
+            <p>Become an Investor</p>
+            <p>Your opinion</p>
+            <p>Donate</p>
+            <p>Survey</p>
+          </div>
+          <div
+            class="col-sm footer--section d-flex flex-column justify-content-center"
+          >
+            <h3>Terms and Conditions</h3>
+            <p>Privacy Terms</p>
+            <p>Terms of Use</p>
+            <p>Intellectual Property</p>
+            <p>Shipping Policy</p>
+            <p>Community Standards</p>
+          </div>
+          <div
+            class="col-sm footer--section d-flex flex-column justify-content-center"
+          >
+            <h3>Contact Us</h3>
+            <p>Thomas@contact.tm.com</p>
+            <div class="social-icons">
+              <span class="icon">
+                <img src="../assets/icons/Facebook.svg" alt="Facebook" />
+              </span>
+              <span class="icon">
+                <img src="../assets/icons/Instagram.svg" alt="Instagram" />
+              </span>
+              <span class="icon">
+                <img src="../assets/icons/TwitterX.svg" alt="TwitterX" />
+              </span>
+            </div>
           </div>
         </div>
       </div>
