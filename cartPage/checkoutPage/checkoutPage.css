@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap");
-@import "../cartPage.css";
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;700&display=swap");
+@import "../cartPage.css";
 
 .popup {
   display: none;
@@ -31,7 +31,7 @@
 .close {
   color: white;
   position: absolute;
-  right: 500px;
+  right: 376px;
   width: 180px;
   height: 243px;
   top: 272px;
@@ -151,7 +151,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-} */
+}
 .custom__boxshadow {
   border-radius: 5px;
   box-shadow: 0px 1px 3px 0px #0000004d, 0px 4px 8px 3px #00000026;
@@ -159,5 +159,24 @@
 .custom__border {
   border-radius: 5px;
   border: 1px solid #0e0e0e2e;
-  border-bottom: none;
+}
+/* Default width for extra-small screens (below 576px) */
+.custom-width {
+  width: 100%;
+}
+
+/* Width for small screens (576px and up) */
+@media (min-width: 600px) {
+  /* Bootstrap's sm breakpoint */
+  .custom-width {
+    width: 100%;
+  }
+}
+
+/* Width for large screens (992px and up) */
+@media (min-width: 992px) {
+  /* Bootstrap's lg breakpoint */
+  .custom-width {
+    width: 65%;
+  }
 }

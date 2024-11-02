@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./profile.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./profile.css" />
   </head>
   <body>
     <header class="header border-bottom shadow-sm">
@@ -27,7 +27,7 @@
         </div>
         <div id="dimmer" class="dimmer"></div>
 
-        <div id="overlay" class="d-sm-flex overlay">
+        <div id="overlay" class="d-sm-flex overlay" style="width: 45%">
           <div class="overlay__content w-100">
             <div
               class="overlay__header d-flex w-100 justify-content-center align-items-center mt-2"
@@ -214,14 +214,14 @@
         style="white-space: nowrap"
       >
         <div class="d-inline-block p-3">
-          <a class="text-dark text-decoration-none" href="userinfo.html"
+          <a
+            class="text-dark text-decoration-none"
+            href="../account/userinfo.html"
             >Accout</a
           >
         </div>
         <div class="d-inline-block p-3">
-          <a
-            class="text-dark text-decoration-none"
-            href="../profile/profile.html"
+          <a class="text-dark text-decoration-none" href="./profile.html"
             >Public Profile</a
           >
         </div>
@@ -229,7 +229,7 @@
           <a
             class="text-dark text-decoration-none"
             href="../address/address.html"
-            >Account</a
+            >Address</a
           >
         </div>
         <div class="d-inline-block p-3">
@@ -343,20 +343,20 @@
             <p>Thomas@contact.tm.com</p>
             <div class="social-icons">
               <span class="icon">
-                <img src="../assets/icons/Facebook.svg" alt="Facebook" />
+                <img src="../../assets/icons/Facebook.svg" alt="Facebook" />
               </span>
               <span class="icon">
-                <img src="../assets/icons/Instagram.svg" alt="Instagram" />
+                <img src="../../assets/icons/Instagram.svg" alt="Instagram" />
               </span>
               <span class="icon">
-                <img src="../assets/icons/TwitterX.svg" alt="TwitterX" />
+                <img src="../../assets/icons/TwitterX.svg" alt="TwitterX" />
               </span>
             </div>
           </div>
         </div>
       </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../styles/general.js"></script>
   </body>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="./profile.js"></script>
 </html>
