@@ -89,6 +89,9 @@ body {
   opacity: 1; /* Fully visible when overlay is active */
   pointer-events: all; /* Block clicks when visible */
 }
+.custom_design {
+  border: 2.5px solid black;
+}
 /* 
 .footer {
   margin-top: 30px;
