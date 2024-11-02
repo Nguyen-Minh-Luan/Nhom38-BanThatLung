@@ -44,3 +44,37 @@
     display: flex;
     gap: 20px;
 }
+.favorite{
+    position: relative;
+    text-decoration: none;
+}
+.favorite__count{
+    position: absolute;
+    top: -1px;
+    right: -6px;
+    font-size: 12px;
+    display: inline-block;
+    color: white;
+    background: black;
+    border-radius: 50%;
+    width: 18px;
+    text-align: center;
+    text-decoration: none;
+}
+.cart{
+    position: relative;
+    text-decoration: none;  
+}
+.cart__count{
+    position: absolute;
+    top: -1px;
+    right: -6px;
+    font-size: 12px;
+    display: inline-block;
+    color: white;
+    background: black;
+    border-radius: 50%;
+    width: 18px;
+    text-align: center;
+    text-decoration: none;
+}
