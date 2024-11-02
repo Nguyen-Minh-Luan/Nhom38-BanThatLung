@@ -177,6 +177,6 @@
 @media (min-width: 992px) {
   /* Bootstrap's lg breakpoint */
   .custom-width {
-    width: 65%;
+    width: 50%;
   }
 }

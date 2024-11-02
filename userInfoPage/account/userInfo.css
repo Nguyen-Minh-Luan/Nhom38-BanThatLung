@@ -8,4 +8,7 @@
   .custom-lg-container {
     max-width: 900px;
   }
+  .custom-lg-input{
+    width:45%;
+  }
 }

@@ -19,44 +19,85 @@ body {
   height: 100%;
 }
 
-.header {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.128);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.125);
-  height: 50px;
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap");
+@import "../styles/general.css";
+
+* {
+  font-family: "IBM Plex Sans Condensed", sans-serif;
 }
-.header__title {
-  color: #000000;
-  font-family: "Instrument Serif", sans-serif;
-  font-weight: 400;
-  letter-spacing: 10px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+#logo {
+  margin-left: 100px;
+  font-size: 40px;
+  font-family: Instrument Serif;
+  letter-spacing: 13px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+  color: black;
 }
-.header__navbar--center .nav-link {
-  color: #000000;
-  font-size: 22px;
-  font-weight: 325;
+.navitem__group a {
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: black;
+}
+.navitem__group {
+  gap: 40px;
+}
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown-menu:hover {
+  display: block;
+}
+
+#search__icon {
+  cursor: pointer;
+}
+
+.nav-icon {
+  margin-top: 6px;
+  width: 30px;
+  height: 30px;
+}
+.navbar_nav {
+}
+.header__icon__group {
+  display: flex;
+  gap: 20px;
+}
+.favorite {
+  position: relative;
   text-decoration: none;
 }
-.header__navbar--center .nav-item {
-  margin: 0 20px;
-}
-.header__notify {
-  position: relative;
-}
-.header__count {
+.favorite__count {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 16px;
-  height: 13px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  color: white;
-  border-radius: 50%;
-  padding: 5px;
+  top: -1px;
+  right: -6px;
   font-size: 12px;
+  display: inline-block;
+  color: white;
+  background: black;
+  border-radius: 50%;
+  width: 18px;
+  text-align: center;
+}
+.cart {
+  position: relative;
+  text-decoration: none;
+}
+.cart__count {
+  position: absolute;
+  top: -1px;
+  right: -6px;
+  font-size: 12px;
+  display: inline-block;
+  color: white;
+  background: black;
+  border-radius: 50%;
+  width: 18px;
+  text-align: center;
+  text-decoration: none;
 }
 .overlay {
   position: fixed;
@@ -79,15 +120,14 @@ body {
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  opacity: 0; /* Hidden by default */
-  transition: opacity 0.5s ease; /* Smooth transition */
-  z-index: 999; /* Below the overlay */
-  pointer-events: none; /* Allow clicks to pass through when hidden */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
 }
 
 .dimmer.active {
-  opacity: 1; /* Fully visible when overlay is active */
-  pointer-events: all; /* Block clicks when visible */
+  opacity: 1;
+  pointer-events: all;
 }
 .custom_design {
   border: 2.5px solid black;

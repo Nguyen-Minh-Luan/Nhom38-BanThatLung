@@ -63,14 +63,14 @@ $(document).ready(function () {
           "src",
           "../../assets/icons/footer_trustbadge 1.svg"
         );
-        $(".btn-dark").text("Pay with Bank");
+        $(".btn-dark").text("Thanh toán bằng Ngân hàng");
         $("#popUpPayment").fadeOut();
       }
     };
   };
   const handlePayment = () =>
     function () {
-      if ($(".btn-dark").text() == "Pay with Bank") {
+      if ($(".btn-dark").text() == "Thanh toán bằng Ngân hàng") {
         $("#popUpPaymentQR").fadeIn();
         handleCountDown();
       }
