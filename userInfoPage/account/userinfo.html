@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="./userInfo.css" />
   </head>
   <body>
-    <nav
+    <header>
+      <nav
       class="navbar navbar-expand shadow-lg p-12 mb-4 bg-white rounded"
       id="navbar"
     >
@@ -93,7 +94,7 @@
 
       <a
         href=""
-        class="navbar-brand d-sm-block ms-5 mr-5 d-md-block d-lg-none"
+        class="navbar-brand d-sm-block ms-sm-3 ms-5 mr-5 d-md-block d-lg-none"
         id="logo"
       >
         THOMAS
@@ -142,31 +143,21 @@
         </li>
         <li class="nav-item"><a href="" class="nav-link">Sản Phẩm</a></li>
       </ul>
-      <div
-        class="header__icon__group col-3 d-sm-block ms-4 d-md-none d-lg-block"
-      >
-        <a class="nav-item"
-          ><img class="nav-icon" src="../../assets/icons/search.svg" alt=""
-        /></a>
-        <a class="nav-item favorite" href="">
-          <img class="nav-icon" src="../../assets/icons/favorite.svg" alt="" />
-          <span class="favorite__count">0</span>
+      <div class="header__icon__group col-3">
+        <a class="nav-item"><img class="nav-icon" src="../../assets/icons/search.svg" alt=""></a>
+        <a class="nav-item favorite" href="#">
+            <img class="nav-icon" src="../../assets/icons/favorite.svg" alt="">
+            <span class="favorite__count">0</span>
         </a>
-        <a class="nav-item" href=""
-          ><img class="nav-icon" src="../../assets/icons/user.svg" alt=""
-        /></a>
-        <a class="nav-item favorite" href="">
-          <img
-            class="nav-icon"
-            src="../../assets/icons/shop.svg"
-            alt=""
-            width="24"
-            height="24"
-          />
-          <span class="nav-item favorite__count">0</span>
+        <a class="nav-item" href="#"><img id="user__icon" class="nav-icon" src="../../assets/icons/user.svg"
+                alt="" style="width: 35px; height: 35px;"></a>
+        <a class="nav-item favorite" href="#">
+            <img class="nav-icon" src="../../assets/icons/cart.svg" alt="" style="width: 26px; height: 26px;">
+            <span class="nav-item favorite__count">0</span>
         </a>
-      </div>
+    </div>
     </nav>
+    </header>
     <div class="container mt-3">
       <div
         class="overflow-auto d-flex justify-content-between fs-3"
