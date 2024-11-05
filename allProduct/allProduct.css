@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap");
+@import "../styles/general.css";
+
+* {
+    font-family: "IBM Plex Sans Condensed", sans-serif;
+}
+
+#logo {
+    color: black;
+    margin-left: 100px;
+    font-size: 40px;
+    font-family: Instrument Serif;
+    letter-spacing: 13px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+}
+
+#navbar {
+}
+
+.navitem__group a {
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: black;
+}
+
+.navitem__group {
+    gap: 40px;
+}
+
+#search__icon {
+    cursor: pointer;
+}
+
+.nav-icon {
+    margin-top: 6px;
+    width: 30px;
+    height: 30px;
+}
+
+.navbar_nav {}
+
+.header__icon__group {
+    display: flex;
+    gap: 20px;
+}
+
+.favorite {
+    position: relative;
+    text-decoration: none;
+}
+
+.favorite__count {
+    position: absolute;
+    top: -1px;
+    right: -6px;
+    font-size: 12px;
+    display: inline-block;
+    color: white;
+    background: black;
+    border-radius: 50%;
+    width: 18px;
+    text-align: center;
+    text-decoration: none;
+}
+/* ------------------------------------------- */
+.allProduct__banner{
+    background-image: url(../assets/images/seeetz-lrYEQiqbuz0-unsplash\ 1.svg);
+    height: 625px;
+    width: 1930px;
+    align-content: center;
+    margin-top: -1.7%;
+}
+.allProduct__banner .title__wrapper{
+}
+.allProduct__banner .title{
+    font-family: "IBM Plex Sans Condensed", sans-serif;
+    text-align: center;
+    color: aliceblue;
+    font-size: 90px;
+    font-weight: 200;
+}
+/* ---------------------------------------------- */
+.function__bar{
+    font-size: 24px;
+}
+.function__bar__row{
+    background-color: aqua;
+
+}
+/* ------------------------------------------------------ */
+.list__product a{
+    text-decoration: none;
+}
+/* Thiết lập Flexbox cho dòng sản phẩm */
+#list__product__row {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các phần tử gói lại khi không đủ không gian */
+}
+
+/* Định dạng cho từng thẻ product */
+.list__product .product {
+    flex: 1 1 21%; /* Đặt chiều rộng tương đối và giúp các phần tử đều nhau */
+    margin: 1rem;
+}
+/* Định dạng cho hình ảnh */
+.product__image img {
+    max-width: 100%;
+    height: auto; /* Giữ tỉ lệ hình ảnh */
+}
+
+/* Định dạng tiêu đề và giá */
+.product__title {
+    margin: 0  ;
+}
+.product .title{
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.product__price {
+    font-size: 23px;
+    font-weight: 400;
+    color: #333;
+}
+
+.product__discount {
+    font-size: 20px;
+    color: red;
+}
+/* --------------------------------------------------------- */
+.Page__navigation__example .paginationWrapper{
+   
+
+}
+.pagination .page-link {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: #007bff; /* Màu sắc */
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Đổi màu khi di chuột */
+.pagination .page-link:hover {
+    color: white;
+    background-color:#007bff;
+}
+
+
