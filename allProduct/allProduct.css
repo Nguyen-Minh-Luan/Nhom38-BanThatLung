@@ -8,8 +8,8 @@
 
 #logo {
     color: black;
-    margin-left: 100px;
-    font-size: 40px;
+    margin-left: 5rem;
+    font-size: 37px;
     font-family: Instrument Serif;
     letter-spacing: 13px;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
@@ -19,7 +19,7 @@
 }
 
 .navitem__group a {
-    font-size: 20px;
+    font-size: 17px;
     letter-spacing: 1px;
     color: black;
 }
@@ -37,9 +37,6 @@
     width: 30px;
     height: 30px;
 }
-
-.navbar_nav {}
-
 .header__icon__group {
     display: flex;
     gap: 20px;
@@ -66,8 +63,7 @@
 /* ------------------------------------------- */
 .allProduct__banner{
     background-image: url(../assets/images/seeetz-lrYEQiqbuz0-unsplash\ 1.svg);
-    height: 625px;
-    width: 1930px;
+    height: 400px;
     align-content: center;
     margin-top: -1.7%;
 }
@@ -77,61 +73,94 @@
     font-family: "IBM Plex Sans Condensed", sans-serif;
     text-align: center;
     color: aliceblue;
-    font-size: 90px;
+    font-size: 50px;
     font-weight: 200;
 }
 /* ---------------------------------------------- */
 .function__bar{
-    font-size: 24px;
+    font-size: 18px;
 }
-.function__bar__row{
-    background-color: aqua;
+.function__bar #filter__column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.function__bar .breadcumb__column{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+.function__bar .sort__column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-}
 /* ------------------------------------------------------ */
 .list__product a{
     text-decoration: none;
 }
+
 /* Thiết lập Flexbox cho dòng sản phẩm */
 #list__product__row {
     display: flex;
-    flex-wrap: wrap; /* Cho phép các phần tử gói lại khi không đủ không gian */
+    flex-wrap: wrap;
+ /* Cho phép các phần tử gói lại khi không đủ không gian */
 }
 
 /* Định dạng cho từng thẻ product */
-.list__product .product {
-    flex: 1 1 21%; /* Đặt chiều rộng tương đối và giúp các phần tử đều nhau */
-    margin: 1rem;
+.list__product{
+    margin-top: 1%;
+}
+#list__product__row{
+    display: flex;
+}
+.list__product .product{
+    opacity: 1;
+    z-index: 1;
+    box-shadow: 0px 1px 3px 0px #0000004d, 0px 4px 8px 3px #00000026;
+    background: #fff;
+    border: 1px dotted #0000;
+    border-radius: 9px;
+    transition: 0.2s cubic-bezier(0.345, 0.115, 0.135, 1.42), opacity 0.15s ease-out, border-color 0.2s ease-out;
+}
+.list__product .favorite__icon{
+
+}
+.list__product .product__image{
+    display: flex;
+    justify-content: center;
 }
 /* Định dạng cho hình ảnh */
 .product__image img {
-    max-width: 100%;
-    height: auto; /* Giữ tỉ lệ hình ảnh */
+    margin-top: 2%; 
+    width: 95%;
 }
-
-/* Định dạng tiêu đề và giá */
 .product__title {
-    margin: 0  ;
+    margin-left: 3%;
 }
 .product .title{
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 300;
 }
 
 .product__price {
-    font-size: 23px;
+    font-size: 16px;
     font-weight: 400;
-    color: #333;
 }
 
 .product__discount {
-    font-size: 20px;
-    color: red;
+    font-size: 15px;
 }
 /* --------------------------------------------------------- */
-.Page__navigation__example .paginationWrapper{
-   
-
+#pagination__bar{
+    margin-top: 3%;
+}
+.paginationWrapper{
+    display: flex;
+    justify-content: center;
 }
 .pagination .page-link {
     display: block;
