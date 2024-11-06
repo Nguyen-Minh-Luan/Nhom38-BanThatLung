@@ -87,50 +87,7 @@
             </div>
           </div>
         </div>
-        <div id="overlay2" class="d-sm-flex overlay2">
-          <div class="overlay__content w-100">
-            <div class="overlay__header d-flex w-100">
-              <h3 class="header__title mb-0 ms-5 mt-3">Chỉnh sửa item</h3>
-              <button id="closeButton2" class="btn">
-                <img src="../assets/icons/close.svg" />
-              </button>
-            </div>
-            <div class="overlay__body d-flex mt-5" style="height: 500px">
-              <div class="d-flex flex-column me-5">
-                <img
-                  class="w-50 h-30 custom_image_container_display img-fluid mx-auto"
-                  src=""
-                  alt="black belt"
-                  style="object-fit: cover"
-                />
-                <h3 class="fs-4 custom_title_container_display ms-3"></h3>
-                <h4 class="fs-5 mt-3 custom_tag_container_display ms-3">
-                  Màu sắc
-                </h4>
-                <select class="form-select ms-3 custom_select_color">
-                  <option value="Đen">Đen</option>
-                  <option value="Trắng">Trắng</option>
-                  <option value="Xanh dương">Xanh dương</option>
-                  <option value="Đỏ">Đỏ</option>
-                  <option value="Vàng">Vàng</option>
-                </select>
-                <h4 class="fs-5 mt-3 custom_tag_container_display ms-3">
-                  Kích cỡ
-                </h4>
-                <select class="form-select ms-3 custom_select_size">
-                  <option value="Nhỏ (S)">Nhỏ (S)</option>
-                  <option value="Vừa (M)">Vừa (M)</option>
-                  <option value="Lớn (L)">Lớn (L)</option>
-                  <option value="Rất lớn (XL)">Rất lớn (XL)</option>
-                  <option value="Rất rất lớn (XXL)">Rất rất lớn (XXL)</option>
-                </select>
-                <button class="btn btn-dark mt-5 ms-3 w-100 custom_update">
-                  Cập nhập
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+
         <a
           href=""
           class="navbar-brand col-3 d-sm-none d-md-none d-lg-block"
@@ -289,7 +246,7 @@
                           Chỉnh sửa
                         </button>
                         <button
-                          class="col-sm-2 btn btn-outline-secondary btn-sm"
+                          class="col-sm-2 btn btn-outline-secondary btn-sm custom_delete"
                         >
                           Xóa
                         </button>
@@ -327,8 +284,54 @@
               </div>
               <div class="col-sm-4 col-md-6 col-lg-12"></div>
             </div>
+            <div id="overlay1" class="d-sm-flex overlay2">
+              <div class="overlay__content w-100">
+                <div class="overlay__header d-flex w-100">
+                  <h3 class="header__title mb-0 ms-5 mt-3">Chỉnh sửa item</h3>
+                  <button id="closeButton2" class="btn">
+                    <img src="../assets/icons/close.svg" />
+                  </button>
+                </div>
+                <div class="overlay__body d-flex mt-5" style="height: 500px">
+                  <div class="d-flex flex-column me-5">
+                    <img
+                      class="w-50 h-30 custom_image_container_display img-fluid mx-auto"
+                      src=""
+                      alt="black belt"
+                      style="object-fit: cover"
+                    />
+                    <h3 class="fs-4 custom_title_container_display ms-3"></h3>
+                    <h4 class="fs-5 mt-3 custom_tag_container_display ms-3">
+                      Màu sắc
+                    </h4>
+                    <select class="form-select ms-3 custom_select_color">
+                      <option value="Đen">Đen</option>
+                      <option value="Trắng">Trắng</option>
+                      <option value="Xanh dương">Xanh dương</option>
+                      <option value="Đỏ">Đỏ</option>
+                      <option value="Vàng">Vàng</option>
+                    </select>
+                    <h4 class="fs-5 mt-3 custom_tag_container_display ms-3">
+                      Kích cỡ
+                    </h4>
+                    <select class="form-select ms-3 custom_select_size">
+                      <option value="Nhỏ (S)">Nhỏ (S)</option>
+                      <option value="Vừa (M)">Vừa (M)</option>
+                      <option value="Lớn (L)">Lớn (L)</option>
+                      <option value="Rất lớn (XL)">Rất lớn (XL)</option>
+                      <option value="Rất rất lớn (XXL)">
+                        Rất rất lớn (XXL)
+                      </option>
+                    </select>
+                    <button class="btn btn-dark mt-5 ms-3 w-100 custom_update">
+                      Cập nhập
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="container ps-sm-0 custom_item mt-5" id="item2">
+          <div class="container ps-sm-0 custom_item mt-5 custom_item" id="item2">
             <div class="row-sm">
               <div class="col-sm col-md-6 col-lg-12 border border-dark">
                 <div class="row-sm d-lg-flex container-fluid pr-sm-0">
@@ -388,7 +391,7 @@
                           Chỉnh sửa
                         </button>
                         <button
-                          class="col-sm-2 btn btn-outline-secondary btn-sm"
+                          class="col-sm-2 btn btn-outline-secondary btn-sm custom_delete"
                         >
                           Xóa
                         </button>
@@ -426,9 +429,55 @@
               </div>
               <div class="col-sm-4 col-md-6 col-lg-12"></div>
             </div>
+            <div id="overlay1" class="d-sm-flex overlay2">
+              <div class="overlay__content w-100">
+                <div class="overlay__header d-flex w-100">
+                  <h3 class="header__title mb-0 ms-5 mt-3">Chỉnh sửa item</h3>
+                  <button id="closeButton2" class="btn">
+                    <img src="../assets/icons/close.svg" />
+                  </button>
+                </div>
+                <div class="overlay__body d-flex mt-5" style="height: 500px">
+                  <div class="d-flex flex-column me-5">
+                    <img
+                      class="w-50 h-30 custom_image_container_display img-fluid mx-auto"
+                      src=""
+                      alt="black belt"
+                      style="object-fit: cover"
+                    />
+                    <h3 class="fs-4 custom_title_container_display ms-3"></h3>
+                    <h4 class="fs-5 mt-3 custom_tag_container_display ms-3">
+                      Màu sắc
+                    </h4>
+                    <select class="form-select ms-3 custom_select_color">
+                      <option value="Đen">Đen</option>
+                      <option value="Trắng">Trắng</option>
+                      <option value="Xanh dương">Xanh dương</option>
+                      <option value="Đỏ">Đỏ</option>
+                      <option value="Vàng">Vàng</option>
+                    </select>
+                    <h4 class="fs-5 mt-3 custom_tag_container_display ms-3">
+                      Kích cỡ
+                    </h4>
+                    <select class="form-select ms-3 custom_select_size">
+                      <option value="Nhỏ (S)">Nhỏ (S)</option>
+                      <option value="Vừa (M)">Vừa (M)</option>
+                      <option value="Lớn (L)">Lớn (L)</option>
+                      <option value="Rất lớn (XL)">Rất lớn (XL)</option>
+                      <option value="Rất rất lớn (XXL)">
+                        Rất rất lớn (XXL)
+                      </option>
+                    </select>
+                    <button class="btn btn-dark mt-5 ms-3 w-100 custom_update">
+                      Cập nhập
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="container mt-5 col-lg-4 mt-lg-0">
+        <div class="container mt-5 col-lg-4 mt-lg-0 custom_height">
           <div class="d-flex flex-column mt-sm-4 mt-lg-0">
             <div class="d-sm-flex justify-content-between mt-sm-2 mt-lg-0 mb-2">
               <p class="font-weight-bold fs-4">
