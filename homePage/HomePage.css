@@ -135,22 +135,17 @@
     display: flex;
     margin-right: auto;
 }
-.collection__component .box{
-}
-.collection__component .collection__row{  
-
+.collection__component .collection__container{  
+    width: 1150px;
 }
 .collection__component .box img{
-    height: 480px;
-    width: 430px;
+    width: 100%;
     display: flex;
+    margin-bottom: 10px;
 }
 
-.collection__component .longbox {
-    height: 432px;
-    width: 1150px;
-    display: flex;
-
+.collection__component .longbox img{
+    width: 100%;
 }
 
 .mostPopular__title {
