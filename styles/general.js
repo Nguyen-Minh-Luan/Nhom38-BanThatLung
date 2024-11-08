@@ -2,7 +2,6 @@ $(document).ready(function () {
   $("#menuButton").on("click", function () {
     $("#dimmer").toggleClass("active");
     $("#overlay").toggleClass("active");
-    console.log("Dimmer class after toggle:", $("#dimmer").attr("class"));
   });
 
   $(document).on("click", function (event) {

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>THOMAS shop</title>
+    <title>Xác nhận đơn hàng</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,6 +16,7 @@
 
   <body>
     <header>
+      <div id="dimmer" class="dimmer"></div>
       <nav
         class="navbar navbar-expand shadow-lg p-12 mb-4 bg-white rounded"
         id="navbar"
@@ -28,7 +29,6 @@
             <img src="../../assets/icons/menu.svg" />
           </button>
         </div>
-        <div id="dimmer" class="dimmer"></div>
 
         <div id="overlay" class="d-sm-flex overlay" style="width: 45%">
           <div class="overlay__content w-100">
@@ -155,11 +155,7 @@
             ><img class="nav-icon" src="../../assets/icons/search.svg" alt=""
           /></a>
           <a class="nav-item favorite" href="#">
-            <img
-              class="nav-icon"
-              src="../../assets/icons/favorite.svg"
-              alt=""
-            />
+            <img class="nav-icon" src="../../assets/icons/favorite.svg" alt="" />
             <span class="favorite__count">0</span>
           </a>
           <a class="nav-item" href="#"
@@ -170,7 +166,7 @@
               alt=""
               style="width: 35px; height: 35px"
           /></a>
-          <a class="nav-item favorite" href="#">
+          <a class="nav-item favorite" href="../../cartPage/cartPage.html">
             <img
               class="nav-icon"
               src="../../assets/icons/cart.svg"
@@ -182,10 +178,10 @@
         </div>
       </nav>
     </header>
-    <div class="container-sm mt-5">
+    <div class="container-sm mt-5 ps-0">
       <h2>Vui lòng xác nhận và gửi đơn đặt hàng của bạn</h2>
-      <h3>Vận chuyển và thanh toán</h3>
-      <div class="row mt-5 mb-5 px-0 py-0">
+      <h4 class="mb-1 mt-5 ms-0 ps-0">Vận chuyển và thanh toán</h4>
+      <div class="row mt-2 mb-5 px-0 py-0 h-50" style="min-height: 550.9px;">
         <div class="row custom-width custom__boxshadow p-0 m-0">
           <div class="col-sm pr-0 mt-4">
             <h4 class="ms-4">Thông tin thanh toán</h4>
@@ -327,7 +323,7 @@
         <div class="container mt-3 col-lg-5 mt-lg-0 me-4">
           <div class="d-flex flex-column mt-sm-4 mt-lg-0">
             <div class="d-sm-flex justify-content-between mt-sm-2">
-              <p class="font-weight-bold fs-4">Tổng số mặt hàng</p>
+              <p class="fw-bold fs-4">Tổng số mặt hàng</p>
               <p class="mr-sm-3 fs-4">10,487,042₫</p>
             </div>
             <div class="d-sm-flex justify-content-between">
@@ -335,7 +331,7 @@
               <p class="mr-sm-3 fs-4">-355,959₫</p>
             </div>
             <div class="d-sm-flex justify-content-between mt-sm-2">
-              <p class="fs-4">Tổng phụ</p>
+              <p class="fw-bold fs-4">Tổng phụ</p>
               <p class="mr-sm-3 fs-4">10,131,083₫</p>
             </div>
             <div class="d-sm-flex justify-content-between mt-sm-2">
@@ -343,7 +339,7 @@
               <p class="mr-sm-3 fs-4">4,737,305₫</p>
             </div>
             <div class="d-sm-flex justify-content-between mt-sm-2">
-              <p class="font-weight-bold fs-4">Tổng cộng (2 mặt hàng)</p>
+              <p class="fw-bold fs-4">Tổng cộng (2 mặt hàng)</p>
               <p class="mr-sm-3 font-weight-bold fs-4">14,868,388₫</p>
             </div>
             <button class="btn btn-dark mt-4 fs-4" id="openFormButtonPayment">
@@ -459,9 +455,9 @@
                     </div>
                   </div>
                   <div
-                    class="container mt-3 col-lg-4 mt-lg-0 me-4 border rounded mb-2"
+                    class="container mt-3 col-lg-4 mt-lg-0 me-4 border border-secondary mb-2 custom_rounded"
                   >
-                    <div class="d-flex flex-column mt-sm-4 mt-lg-0">
+                    <div class="d-flex flex-column mt-sm-4 mt-lg-0 pt-2">
                       <div class="d-sm-flex justify-content-between mt-sm-2">
                         <p class="font-weight-bold fs-6">Tổng mặt hàng</p>
                         <p class="mr-sm-3 fs-6">10,487,042₫</p>
@@ -584,9 +580,9 @@
                     </div>
                   </div>
                   <div
-                    class="container mt-3 col-lg-4 mt-lg-0 me-4 border rounded mb-2"
+                    class="container mt-3 col-lg-4 mt-lg-0 me-4 mb-2 border border-secondary custom_rounded"
                   >
-                    <div class="d-flex flex-column mt-sm-4 mt-lg-0">
+                    <div class="d-flex flex-column mt-sm-4 mt-lg-0 pt-2">
                       <div class="d-sm-flex justify-content-between mt-sm-2">
                         <p class="font-weight-bold fs-6">Tổng mặt hàng</p>
                         <p class="mr-sm-3 fs-6">10,487,042₫</p>
