@@ -8,13 +8,12 @@ $(document).ready(function () {
   $(document).on("click", function (event) {
     if (!$(event.target).closest(".overlay2, .editItem").length) {
       $(".overlay2").removeClass("active");
-      $(".dimmer").removeClass("active");
+      $("#dimmer2").removeClass("active");
     }
   });
 
-  // Open the edit overlay for each item
   $(".editItem").on("click", function () {
-    const $item = $(this).closest(".custom_item"); // Get the closest cart item
+    const $item = $(this).closest(".custom_item");
 
     // Get values from the current item
     const title = $item.find(".title").text();
@@ -34,9 +33,9 @@ $(document).ready(function () {
     $overlay.find(".custom_price_container_display").text(price);
 
     // Show the overlay and dimmer
-    $overlay.addClass("active");
-    $(".dimmer").addClass("active");
-  });
+     $overlay.toggleClass("active");
+     $("#dimmer2").toggleClass("active");
+    });
 
   // Update the cart item when 'Cập nhập' is clicked
   $(".custom_update").on("click", function () {
@@ -52,8 +51,8 @@ $(document).ready(function () {
     $item.find(".tag2").text(tag2);
 
     // Close the overlay and remove dimmer
-    $overlay.removeClass("active");
-    $(".dimmer").removeClass("active");
+    $overlay.toggleClass("active");
+    $("#dimmer2").removeClass("active");
   });
 
   $(".custom_delete").on("click", function () {

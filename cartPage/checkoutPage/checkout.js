@@ -125,7 +125,7 @@ $(document).ready(function () {
     });
   });
   $(".custom_delete").on("click", function () {
-    console.log("1")
+    console.log("1");
     const $item = $(this).closest(".custom_item");
     $item.remove();
   });
