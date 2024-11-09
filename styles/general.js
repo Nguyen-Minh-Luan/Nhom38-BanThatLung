@@ -14,7 +14,4 @@ $(document).ready(function () {
     $("#overlay").removeClass("active");
     $("#dimmer").removeClass("active");
   });
-  $(".product").hover(console.log("hovered"), function () {
-    $(this).toggleClass("active");
-  });
 });
