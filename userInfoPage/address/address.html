@@ -154,7 +154,11 @@
             ><img class="nav-icon" src="../../assets/icons/search.svg" alt=""
           /></a>
           <a class="nav-item favorite" href="#">
-            <img class="nav-icon" src="../../assets/icons/favorite.svg" alt="" />
+            <img
+              class="nav-icon"
+              src="../../assets/icons/favorite.svg"
+              alt=""
+            />
             <span class="favorite__count">0</span>
           </a>
           <a class="nav-item" href="./address.html"
@@ -183,7 +187,9 @@
         style="white-space: nowrap"
       >
         <div class="d-inline-block p-3">
-          <a class="text-dark text-decoration-none" href="../account/userinfo.html"
+          <a
+            class="text-dark text-decoration-none"
+            href="../account/userinfo.html"
             >Tài khoản</a
           >
         </div>
@@ -195,9 +201,7 @@
           >
         </div>
         <div class="d-inline-block p-3">
-          <a
-            class="text-dark text-decoration-none"
-            href=".address.html"
+          <a class="text-dark text-decoration-none" href=".address.html"
             >Địa chỉ</a
           >
         </div>
@@ -218,29 +222,340 @@
 
     <div class="container-sm">
       <div class="d-flex flex-column">
-      <p class="address-title">Địa chỉ giao hàng của bạn</p>
-      <div class="userInfo--address--display">
-        <button class="btn mt-4 border border-3 border-dark">Thêm địa chỉ mới</button>
-      </div>
-      <div class="address__info">
-        <span
-        class="d-flex justify-content-center btn border-3 border-dark rounded-pill text-dark px-3 py-1"
-        style="width: 8%"
-        >Mặc định</span
-        >
-        <p>huynh minh thang</p>
-        <p>ktx khu b</p>
-        <p>THÀNH PHỐ HỒ CHÍ MINH</p>
-        <p>+84356176054</p>
-        <div class="address__info__action mt-4">
-        <button class="btn btn-light rounded-pill">
-          <img src="../../assets/icons/edit.svg" />Chỉnh sửa
-        </button>
-        <button class="btn btn-light rounded-pill">
-          <img src="../../assets/icons/delete.svg" />Xóa
-        </button>
+        <p class="address-title">Địa chỉ giao hàng của bạn</p>
+        <div class="userInfo--address--display">
+          <button class="btn mt-4 border border-3 border-dark custom_add_address">
+            Thêm địa chỉ mới
+          </button>
+          <div id="popUpPayment" class="popup">
+            <div class="popup-content">
+              <span class="fs-1 close" id="closeFormButtonPay"
+                >&times;</span
+              >
+              <div class="d-flex flex-column">
+                <p class="mb-1">Địa chỉ cụ thể</p>
+                <input
+                  type="text"
+                  class="form-control custom_design address_detail"
+                />
+              </div>
+              <div class="d-flex flex-column">
+                <p class="mt-3 mb-1 custom_province">Thành phố</p>
+                <select id="province" class="form-select custom_design">
+                  <option value="An Giang">An Giang</option>
+                  <option value="Bà Rịa - Vũng Tàu">
+                    Bà Rịa - Vũng Tàu
+                  </option>
+                  <option value="Bắc Giang">Bắc Giang</option>
+                  <option value="Bắc Kạn">Bắc Kạn</option>
+                  <option value="Bạc Liêu">Bạc Liêu</option>
+                  <option value="Bắc Ninh">Bắc Ninh</option>
+                  <option value="Bến Tre">Bến Tre</option>
+                  <option value="Bình Định">Bình Định</option>
+                  <option value="Bình Dương">Bình Dương</option>
+                  <option value="Bình Phước">Bình Phước</option>
+                  <option value="Bình Thuận">Bình Thuận</option>
+                  <option value="Cà Mau">Cà Mau</option>
+                  <option value="Cần Thơ">Cần Thơ</option>
+                  <option value="Cao Bằng">Cao Bằng</option>
+                  <option value="Đà Nẵng">Đà Nẵng</option>
+                  <option value="Đắk Lắk">Đắk Lắk</option>
+                  <option value="Đắk Nông">Đắk Nông</option>
+                  <option value="Điện Biên">Điện Biên</option>
+                  <option value="Đồng Nai">Đồng Nai</option>
+                  <option value="Đồng Tháp">Đồng Tháp</option>
+                  <option value="Gia Lai">Gia Lai</option>
+                  <option value="Hà Giang">Hà Giang</option>
+                  <option value="Hà Nam">Hà Nam</option>
+                  <option value="Hà Nội">Hà Nội</option>
+                  <option value="Hà Tĩnh">Hà Tĩnh</option>
+                  <option value="Hải Dương">Hải Dương</option>
+                  <option value="Hải Phòng">Hải Phòng</option>
+                  <option value="Hậu Giang">Hậu Giang</option>
+                  <option value="Hòa Bình">Hòa Bình</option>
+                  <option value="Hưng Yên">Hưng Yên</option>
+                  <option value="Khánh Hòa">Khánh Hòa</option>
+                  <option value="Kiên Giang">Kiên Giang</option>
+                  <option value="Kon Tum">Kon Tum</option>
+                  <option value="Lai Châu">Lai Châu</option>
+                  <option value="Lâm Đồng">Lâm Đồng</option>
+                  <option value="Lạng Sơn">Lạng Sơn</option>
+                  <option value="Lào Cai">Lào Cai</option>
+                  <option value="Long An">Long An</option>
+                  <option value="Nam Định">Nam Định</option>
+                  <option value="Nghệ An">Nghệ An</option>
+                  <option value="Ninh Bình">Ninh Bình</option>
+                  <option value="Ninh Thuận">Ninh Thuận</option>
+                  <option value="Phú Thọ">Phú Thọ</option>
+                  <option value="Phú Yên">Phú Yên</option>
+                  <option value="Quảng Bình">Quảng Bình</option>
+                  <option value="Quảng Nam">Quảng Nam</option>
+                  <option value="Quảng Ngãi">Quảng Ngãi</option>
+                  <option value="Quảng Ninh">Quảng Ninh</option>
+                  <option value="Quảng Trị">Quảng Trị</option>
+                  <option value="Sóc Trăng">Sóc Trăng</option>
+                  <option value="Sơn La">Sơn La</option>
+                  <option value="Tây Ninh">Tây Ninh</option>
+                  <option value="Thái Bình">Thái Bình</option>
+                  <option value="Thái Nguyên">Thái Nguyên</option>
+                  <option value="Thanh Hóa">Thanh Hóa</option>
+                  <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+                  <option value="Tiền Giang">Tiền Giang</option>
+                  <option value="TP Hồ Chí Minh">TP Hồ Chí Minh</option>
+                  <option value="Trà Vinh">Trà Vinh</option>
+                  <option value="Tuyên Quang">Tuyên Quang</option>
+                  <option value="Vĩnh Long">Vĩnh Long</option>
+                  <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                  <option value="Yên Bái">Yên Bái</option>
+                </select>
+              </div>
+              <div class="d-flex flex-column">
+                <p class="mt-3 mb-1">Số điện thoại</p>
+                <input
+                  type="tel"
+                  class="form-control custom_design phoneNumber"
+                />
+              </div>
+              <div class="d-flex flex-column">
+                <button class="btn btn-dark mt-3 custom_save">Thêm</button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+        <div class="d-flex">
+          <div
+            class="address__info d-flex flex-column me-5 custom_hover py-5 ps-2 pe-3"
+          >
+            <span
+              class="d-flex justify-content-center btn border-3 border-dark rounded-pill text-dark px-0 mb-4 w-50 custom_default"
+              >Mặc định</span
+            >
+            <p class="custom_name_display">huynh minh thang</p>
+            <p class="custom_address_detail_display">ktx khu b</p>
+            <p class="custom_address">THÀNH PHỐ HỒ CHÍ MINH</p>
+            <p class="custom_phoneNumber_display">+84356176054</p>
+            <div class="address__info__action mt-4">
+              <button class="btn btn-light rounded-pill fw-bold custom_popup">
+                <img src="../../assets/icons/edit.svg" />Chỉnh sửa
+              </button>
+              <button
+                class="btn btn-light rounded-pill fw-bold custom_delete_address"
+              >
+                <img src="../../assets/icons/delete.svg" />Xóa
+              </button>
+              <div id="popUpPayment" class="popup">
+                <div class="popup-content">
+                  <span class="fs-1 close" id="closeFormButtonPay"
+                    >&times;</span
+                  >
+                  <div class="d-flex flex-column">
+                    <p class="mb-1">Địa chỉ cụ thể</p>
+                    <input
+                      type="text"
+                      class="form-control custom_design address_detail"
+                    />
+                  </div>
+                  <div class="d-flex flex-column">
+                    <p class="mt-3 mb-1 custom_province">Thành phố</p>
+                    <select id="province" class="form-select custom_design">
+                      <option value="An Giang">An Giang</option>
+                      <option value="Bà Rịa - Vũng Tàu">
+                        Bà Rịa - Vũng Tàu
+                      </option>
+                      <option value="Bắc Giang">Bắc Giang</option>
+                      <option value="Bắc Kạn">Bắc Kạn</option>
+                      <option value="Bạc Liêu">Bạc Liêu</option>
+                      <option value="Bắc Ninh">Bắc Ninh</option>
+                      <option value="Bến Tre">Bến Tre</option>
+                      <option value="Bình Định">Bình Định</option>
+                      <option value="Bình Dương">Bình Dương</option>
+                      <option value="Bình Phước">Bình Phước</option>
+                      <option value="Bình Thuận">Bình Thuận</option>
+                      <option value="Cà Mau">Cà Mau</option>
+                      <option value="Cần Thơ">Cần Thơ</option>
+                      <option value="Cao Bằng">Cao Bằng</option>
+                      <option value="Đà Nẵng">Đà Nẵng</option>
+                      <option value="Đắk Lắk">Đắk Lắk</option>
+                      <option value="Đắk Nông">Đắk Nông</option>
+                      <option value="Điện Biên">Điện Biên</option>
+                      <option value="Đồng Nai">Đồng Nai</option>
+                      <option value="Đồng Tháp">Đồng Tháp</option>
+                      <option value="Gia Lai">Gia Lai</option>
+                      <option value="Hà Giang">Hà Giang</option>
+                      <option value="Hà Nam">Hà Nam</option>
+                      <option value="Hà Nội">Hà Nội</option>
+                      <option value="Hà Tĩnh">Hà Tĩnh</option>
+                      <option value="Hải Dương">Hải Dương</option>
+                      <option value="Hải Phòng">Hải Phòng</option>
+                      <option value="Hậu Giang">Hậu Giang</option>
+                      <option value="Hòa Bình">Hòa Bình</option>
+                      <option value="Hưng Yên">Hưng Yên</option>
+                      <option value="Khánh Hòa">Khánh Hòa</option>
+                      <option value="Kiên Giang">Kiên Giang</option>
+                      <option value="Kon Tum">Kon Tum</option>
+                      <option value="Lai Châu">Lai Châu</option>
+                      <option value="Lâm Đồng">Lâm Đồng</option>
+                      <option value="Lạng Sơn">Lạng Sơn</option>
+                      <option value="Lào Cai">Lào Cai</option>
+                      <option value="Long An">Long An</option>
+                      <option value="Nam Định">Nam Định</option>
+                      <option value="Nghệ An">Nghệ An</option>
+                      <option value="Ninh Bình">Ninh Bình</option>
+                      <option value="Ninh Thuận">Ninh Thuận</option>
+                      <option value="Phú Thọ">Phú Thọ</option>
+                      <option value="Phú Yên">Phú Yên</option>
+                      <option value="Quảng Bình">Quảng Bình</option>
+                      <option value="Quảng Nam">Quảng Nam</option>
+                      <option value="Quảng Ngãi">Quảng Ngãi</option>
+                      <option value="Quảng Ninh">Quảng Ninh</option>
+                      <option value="Quảng Trị">Quảng Trị</option>
+                      <option value="Sóc Trăng">Sóc Trăng</option>
+                      <option value="Sơn La">Sơn La</option>
+                      <option value="Tây Ninh">Tây Ninh</option>
+                      <option value="Thái Bình">Thái Bình</option>
+                      <option value="Thái Nguyên">Thái Nguyên</option>
+                      <option value="Thanh Hóa">Thanh Hóa</option>
+                      <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+                      <option value="Tiền Giang">Tiền Giang</option>
+                      <option value="TP Hồ Chí Minh">TP Hồ Chí Minh</option>
+                      <option value="Trà Vinh">Trà Vinh</option>
+                      <option value="Tuyên Quang">Tuyên Quang</option>
+                      <option value="Vĩnh Long">Vĩnh Long</option>
+                      <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                      <option value="Yên Bái">Yên Bái</option>
+                    </select>
+                  </div>
+                  <div class="d-flex flex-column">
+                    <p class="mt-3 mb-1">Số điện thoại</p>
+                    <input
+                      type="tel"
+                      class="form-control custom_design phoneNumber"
+                    />
+                  </div>
+                  <div class="d-flex flex-column">
+                    <button class="btn btn-dark mt-3 custom_save">Lưu</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="address__info d-flex flex-column me-5 custom_hover py-5 ps-2 pe-3"
+          >
+            <span
+              class="d-flex justify-content-center btn border-3 border-dark rounded-pill text-dark px-0 mb-4 w-50 custom_default"
+              >Mặc định</span
+            >
+            <p class="custom_name_display">huynh minh thang</p>
+            <p class="custom_address_detail_display">ktx khu b</p>
+            <p class="custom_address">THÀNH PHỐ HỒ CHÍ MINH</p>
+            <p class="custom_phoneNumber_display">+84356176054</p>
+            <div class="address__info__action mt-4">
+              <button class="btn btn-light rounded-pill fw-bold custom_popup">
+                <img src="../../assets/icons/edit.svg" />Chỉnh sửa
+              </button>
+              <button
+                class="btn btn-light rounded-pill fw-bold custom_delete_address"
+              >
+                <img src="../../assets/icons/delete.svg" />Xóa
+              </button>
+              <div id="popUpPayment" class="popup">
+                <div class="popup-content">
+                  <span class="fs-1 close" id="closeFormButtonPay"
+                    >&times;</span
+                  >
+                  <div class="d-flex flex-column">
+                    <p class="mb-1">Địa chỉ cụ thể</p>
+                    <input
+                      type="text"
+                      class="form-control custom_design address_detail"
+                    />
+                  </div>
+                  <div class="d-flex flex-column">
+                    <p class="mt-3 mb-1 custom_province">Thành phố</p>
+                    <select id="province" class="form-select custom_design">
+                      <option value="An Giang">An Giang</option>
+                      <option value="Bà Rịa - Vũng Tàu">
+                        Bà Rịa - Vũng Tàu
+                      </option>
+                      <option value="Bắc Giang">Bắc Giang</option>
+                      <option value="Bắc Kạn">Bắc Kạn</option>
+                      <option value="Bạc Liêu">Bạc Liêu</option>
+                      <option value="Bắc Ninh">Bắc Ninh</option>
+                      <option value="Bến Tre">Bến Tre</option>
+                      <option value="Bình Định">Bình Định</option>
+                      <option value="Bình Dương">Bình Dương</option>
+                      <option value="Bình Phước">Bình Phước</option>
+                      <option value="Bình Thuận">Bình Thuận</option>
+                      <option value="Cà Mau">Cà Mau</option>
+                      <option value="Cần Thơ">Cần Thơ</option>
+                      <option value="Cao Bằng">Cao Bằng</option>
+                      <option value="Đà Nẵng">Đà Nẵng</option>
+                      <option value="Đắk Lắk">Đắk Lắk</option>
+                      <option value="Đắk Nông">Đắk Nông</option>
+                      <option value="Điện Biên">Điện Biên</option>
+                      <option value="Đồng Nai">Đồng Nai</option>
+                      <option value="Đồng Tháp">Đồng Tháp</option>
+                      <option value="Gia Lai">Gia Lai</option>
+                      <option value="Hà Giang">Hà Giang</option>
+                      <option value="Hà Nam">Hà Nam</option>
+                      <option value="Hà Nội">Hà Nội</option>
+                      <option value="Hà Tĩnh">Hà Tĩnh</option>
+                      <option value="Hải Dương">Hải Dương</option>
+                      <option value="Hải Phòng">Hải Phòng</option>
+                      <option value="Hậu Giang">Hậu Giang</option>
+                      <option value="Hòa Bình">Hòa Bình</option>
+                      <option value="Hưng Yên">Hưng Yên</option>
+                      <option value="Khánh Hòa">Khánh Hòa</option>
+                      <option value="Kiên Giang">Kiên Giang</option>
+                      <option value="Kon Tum">Kon Tum</option>
+                      <option value="Lai Châu">Lai Châu</option>
+                      <option value="Lâm Đồng">Lâm Đồng</option>
+                      <option value="Lạng Sơn">Lạng Sơn</option>
+                      <option value="Lào Cai">Lào Cai</option>
+                      <option value="Long An">Long An</option>
+                      <option value="Nam Định">Nam Định</option>
+                      <option value="Nghệ An">Nghệ An</option>
+                      <option value="Ninh Bình">Ninh Bình</option>
+                      <option value="Ninh Thuận">Ninh Thuận</option>
+                      <option value="Phú Thọ">Phú Thọ</option>
+                      <option value="Phú Yên">Phú Yên</option>
+                      <option value="Quảng Bình">Quảng Bình</option>
+                      <option value="Quảng Nam">Quảng Nam</option>
+                      <option value="Quảng Ngãi">Quảng Ngãi</option>
+                      <option value="Quảng Ninh">Quảng Ninh</option>
+                      <option value="Quảng Trị">Quảng Trị</option>
+                      <option value="Sóc Trăng">Sóc Trăng</option>
+                      <option value="Sơn La">Sơn La</option>
+                      <option value="Tây Ninh">Tây Ninh</option>
+                      <option value="Thái Bình">Thái Bình</option>
+                      <option value="Thái Nguyên">Thái Nguyên</option>
+                      <option value="Thanh Hóa">Thanh Hóa</option>
+                      <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+                      <option value="Tiền Giang">Tiền Giang</option>
+                      <option value="TP Hồ Chí Minh">TP Hồ Chí Minh</option>
+                      <option value="Trà Vinh">Trà Vinh</option>
+                      <option value="Tuyên Quang">Tuyên Quang</option>
+                      <option value="Vĩnh Long">Vĩnh Long</option>
+                      <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                      <option value="Yên Bái">Yên Bái</option>
+                    </select>
+                  </div>
+                  <div class="d-flex flex-column">
+                    <p class="mt-3 mb-1">Số điện thoại</p>
+                    <input
+                      type="tel"
+                      class="form-control custom_design phoneNumber"
+                    />
+                  </div>
+                  <div class="d-flex flex-column">
+                    <button class="btn btn-dark mt-3 custom_save">Lưu</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <section>
@@ -299,8 +614,9 @@
       </footer>
     </section>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../styles/general.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="../../styles/general.js"></script>
+    <script src="./address.js"></script>
   </body>
 </html>
