@@ -18,3 +18,14 @@ $(document).ready(function () {
     $(this).toggleClass("active");
   });
 });
+
+
+function toggleSearch() {
+  const container = document.querySelector(".search-container");
+  container.classList.toggle("active");
+  const input = container.querySelector(".search-input");
+
+  if (container.classList.contains("active")) {
+    input.focus();
+  }
+}

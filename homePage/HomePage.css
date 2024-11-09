@@ -1,278 +1,342 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 :root {
-    --margin-left-standard: 145px;
-    --margin-bottom-small: 6px;
-    --margin-left-medium: 75px;
-    --font-size-standard: 20px;
-    --width-big: 929px;
-  }
+  --margin-left-standard: 145px;
+  --margin-bottom-small: 6px;
+  --margin-left-medium: 75px;
+  --font-size-standard: 20px;
+  --width-big: 929px;
+}
+
 * {
-    font-family: "IBM Plex Sans Condensed", sans-serif;
-  }
-  
-  #logo {
-    color: black;
-    margin-left: 5rem;
-    font-size: 37px;
-    font-family: Instrument Serif;
-    letter-spacing: 13px;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
-  }
-  
-  #navbar {
-  }
-  
-  .navitem__group a {
-    font-size: 17px;
-    letter-spacing: 1px;
-    color: black;
-  }
-  
-  .navitem__group {
-    gap: 40px;
-  }
-  
-  #search__icon {
-    cursor: pointer;
-  }
-  
-  .nav-icon {
-    margin-top: 6px;
-    width: 30px;
-    height: 30px;
-  }
-  .header__icon__group {
-    display: flex;
-    gap: 20px;
-  }
-  .dropdown-menu {
-    display: none;
-  }
-  
-  .dropdown-menu:hover {
-    display: block;
-  }
-  
-  #search__icon {
-    cursor: pointer;
-  }
-  
-  .nav-icon {
-    margin-top: 6px;
-    width: 30px;
-    height: 30px;
-  }
-  .navbar_nav {
-  }
-  .header__icon__group {
-    display: flex;
-    gap: 20px;
-  }
-  .favorite {
-    position: relative;
-    text-decoration: none;
-  }
-  .favorite__count {
-    position: absolute;
-    top: -1px;
-    right: -6px;
-    font-size: 12px;
-    display: inline-block;
-    color: white;
-    background: black;
-    border-radius: 50%;
-    width: 18px;
-    text-align: center;
-  }
-  .cart {
-    position: relative;
-    text-decoration: none;
-  }
-  .cart__count {
-    position: absolute;
-    top: -1px;
-    right: -6px;
-    font-size: 12px;
-    display: inline-block;
-    color: white;
-    background: black;
-    border-radius: 50%;
-    width: 18px;
-    text-align: center;
-    text-decoration: none;
-  }
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    height: 100%;
-    width: 20%;
-    background: white;
-    transition: left 0.5s ease;
-    z-index: 1000;
-  }
-  
-  .overlay.active {
-    left: 0;
-  }
-  .overlay2 {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    height: 100%;
-    width: 45%;
-    background: white;
-    transition: right 0.5s ease;
-    z-index: 1000;
-  }
-  
-  .overlay2.active {
-    right: 0;
-  }
-  .dimmer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
-  }
-  
-  .dimmer.active {
-    opacity: 1;
-    pointer-events: all;
-  }
+  font-family: "IBM Plex Sans Condensed", sans-serif;
+}
+
+header {
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  top: 0;
+}
+
+#logo {
+  color: black;
+  margin-left: 5rem;
+  font-size: 37px;
+  font-family: Instrument Serif;
+  letter-spacing: 13px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+}
+
+.navitem__group a {
+  font-size: 17px;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.navitem__group {
+  gap: 40px;
+  width: 48%;
+}
+
+/* ------------------------------------------- */
+.search-container {
+  position: relative;
+  width: 40px; /* Ban đầu chỉ hiện nút, khi mở sẽ mở rộng */
+  transition: width 0.3s;
+  overflow: hidden;
+  display: flex;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  display: none; /* Ẩn khi chưa kích hoạt */
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Khi mở rộng, hiển thị thanh tìm kiếm */
+.search-container.active {
+  width: 200px;
+}
+
+.search-container.active .search-input {
+  display: inline-block;
+}
+
+
+/* ------------------------------------------- */
+.nav-icon {
+  margin-top: 6px;
+  width: 30px;
+  height: 30px;
+}
+
+.header__icon__group {
+  display: flex;
+  gap: 20px;
+}
+
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown-menu:hover {
+  display: block;
+}
+
+#search__icon {
+  cursor: pointer;
+}
+
+.nav-icon {
+  margin-top: 6px;
+  width: 30px;
+  height: 30px;
+}
+
+.navbar_nav {}
+
+.header__icon__group {
+  display: flex;
+  gap: 20px;
+}
+
+.favorite {
+  position: relative;
+  text-decoration: none;
+}
+
+.favorite__count {
+  position: absolute;
+  top: -1px;
+  right: -6px;
+  font-size: 12px;
+  display: inline-block;
+  color: white;
+  background: black;
+  border-radius: 50%;
+  width: 18px;
+  text-align: center;
+}
+
+.cart {
+  position: relative;
+  text-decoration: none;
+}
+
+.cart__count {
+  position: absolute;
+  top: -1px;
+  right: -6px;
+  font-size: 12px;
+  display: inline-block;
+  color: white;
+  background: black;
+  border-radius: 50%;
+  width: 18px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 20%;
+  background: white;
+  transition: left 0.5s ease;
+  z-index: 1000;
+}
+
+.overlay.active {
+  left: 0;
+}
+
+.overlay2 {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100%;
+  width: 45%;
+  background: white;
+  transition: right 0.5s ease;
+  z-index: 1000;
+}
+
+.overlay2.active {
+  right: 0;
+}
+
+.dimmer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.dimmer.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
 /* ---------------------------------------------------------------- */
 #carouselExampleIndicators {
-    margin-top: 4%;
+  margin-top: 10%;
 }
-.carouselExample{
-    width: 1150px;
+
+.carouselExample {
+  width: 1150px;
 }
+
 .line {
-    background-color: rgb(183, 183, 183);
-    height: 1px;
-    width: 1150px;
-    margin-top: 2%;
-    margin-left: auto;
-    margin-right: auto;
+  background-color: rgb(183, 183, 183);
+  height: 1px;
+  width: 1150px;
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 /* ------------------------------------------------------------------- */
 .button__More {
-    letter-spacing: -1px;
-    display: inline-block;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 300;
-    cursor: pointer;
-    color: black;
-    text-decoration: none;
-    border: 1px black solid;
-    line-height: 2.0;
-    width: 9rem;
+  letter-spacing: -1px;
+  display: inline-block;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  border: 1px black solid;
+  line-height: 2.0;
+  width: 9rem;
 }
 
 #section_newarrival a {
-    text-decoration: none;
+  text-decoration: none;
 }
-#carouselExampleControls2 .carouselInner{
-    /* display: flex;
+
+#carouselExampleControls2 .carouselInner {
+  /* display: flex;
     justify-content: center; */
-    width: 950px;
+  width: 950px;
 }
-#section_newarrival .left__content .title__NewArrival{
-    font-size: 5px;
+
+#section_newarrival .left__content .title__NewArrival {
+  font-size: 5px;
 }
+
 .card-wrapper {
 
-    display: flex;
+  display: flex;
 }
 
 .cardWrapper {
-    gap: 20px;
+  gap: 20px;
 }
 
 .right__content {
-    align-items: center;
+  align-items: center;
 }
 
 .event__banner img {
-    height: 160px;
-    width: 1200px;
-    display: flex;
-    margin-top: 1%;
-    margin-left: auto;
-    margin-right: auto;
+  height: 160px;
+  width: 1200px;
+  display: flex;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ----------------------------------------------- */
 .collection__component .collection__title {
-    font-size: 30px;
-    letter-spacing: 1px;
+  font-size: 30px;
+  letter-spacing: 1px;
 }
 
-.collection__component .column__1{
-    width: 500px;
-    display: flex;
-    margin-right: auto;
-}
-.collection__component .collection__container{  
-    width: 1150px;
-}
-.collection__component .box img{
-    width: 100%;
-    display: flex;
-    margin-bottom: 10px;
+.collection__component .column__1 {
+  width: 500px;
+  display: flex;
+  margin-right: auto;
 }
 
-.collection__component .longbox img{
-    width: 100%;
+.collection__component .collection__container {
+  width: 1150px;
+}
+
+.collection__component .box img {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.collection__component .longbox img {
+  width: 100%;
 }
 
 .mostPopular__title {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    font-size: 30px;
-    letter-spacing: 1px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 30px;
+  letter-spacing: 1px;
 }
-#carouselExampleControls3{
-    width: 1150px;
+
+#carouselExampleControls3 {
+  width: 1150px;
 }
+
 #carouselExampleControls3 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* ------------------------------------------------------------------ */
-.spotlight__component{
-    margin-top: 2%;
-    background-color: rgb(243,243,243);
+.spotlight__component {
+  margin-top: 2%;
+  background-color: rgb(243, 243, 243);
 }
+
 .spotlight__title1 {
-    font-size: 30px;
-    letter-spacing: 1px;
-    text-align: center;
+  font-size: 30px;
+  letter-spacing: 1px;
+  text-align: center;
 }
+
 .spotlight__title2 {
-    margin-top: -1%;
-    font-size: 20px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    text-align: center;
+  margin-top: -1%;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-align: center;
 }
-.spotlight__component .box{
-    height: 310px;
-    background-color: rgb(208, 208, 208);
-    margin-bottom: 2rem;
+
+.spotlight__component .box {
+  height: 310px;
+  background-color: rgb(208, 208, 208);
+  margin-bottom: 2rem;
 }
+
 .event__banner2 img {
-    height: 160px;
-    width: 1200px;
-    display: flex;
-    margin-top: 1%;
-    margin-left: auto;
-    margin-right: auto;
+  height: 160px;
+  width: 1200px;
+  display: flex;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
 }
