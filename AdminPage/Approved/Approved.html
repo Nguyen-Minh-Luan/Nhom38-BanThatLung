@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products</title>
+    <link rel="stylesheet" href="Approved.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="navbar-logo">THOMAS</div>
+    <div class="navbar-links">
+        <a href="#">Home</a>
+        <a href="#">Collection</a>
+        <a href="#">Men</a>
+        <a href="#">Women</a>
+        <a href="#">Product</a>
+    </div>
+    <div class="navbar-icons">
+        <a href="#"><i class="fas fa-search"></i></a>
+        <a href="#"><i class="fas fa-heart"></i><span class="badge">0</span></a>
+        <a href="#"><i class="fas fa-user"></i></a>
+        <a href="#"><i class="fas fa-shopping-bag"></i><span class="badge">0</span></a>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="content">
+    <div class="manage-header">
+        <h1>Manage Products</h1>
+        <p>Modify or delete products created by the Marketplace users.</p>
+    </div>
+
+    <!-- Status Tabs -->
+    <div class="status-tabs">
+        <a href="#" class="tab">PENDING TO REVIEW</a>
+        <a href="#" class="tab active">APPROVED</a>
+        <a href="#" class="tab">ALL</a>
+    </div>
+
+    <!-- Filter and Export Section -->
+    <div class="filter-section">
+        <div class="browse-actions">
+            <p>Browse all the product created or</p>
+            <button class="disabled-btn">Create a New Product</button>
+        </div>
+        <button class="export-btn"><i class="fas fa-upload"></i> Export</button>
+    </div>
+
+    <!-- Filters and Bulk Actions -->
+    <div class="filter-bulk-section">
+        <div class="filters">
+            <input type="text" placeholder="Filter by Name, Date or Category">
+            <button class="filter-btn">Filter</button>
+        </div>
+        <div class="bulk-actions">
+            <select>
+                <option value="">Bulk Actions</option>
+                <option value="approve">Approve Selected</option>
+                <option value="delete">Delete Selected</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Products Table -->
+    <div class="products-table">
+        <div class="table-row table-header">
+            <div class="table-cell">ID</div>
+            <div class="table-cell">Product’s Name</div>
+            <div class="table-cell">Submitted by</div>
+            <div class="table-cell">Date</div>
+            <div class="table-cell">Category</div>
+            <div class="table-cell">Status</div>
+            <div class="table-cell">Actions</div>
+        </div>
+
+        <!-- Example Product Row -->
+        <div class="table-row">
+            <div class="table-cell"><input type="checkbox"> 12345</div>
+            <div class="table-cell">Insert Product’s Name</div>
+            <div class="table-cell">Name</div>
+            <div class="table-cell">##/##/####</div>
+            <div class="table-cell">Category</div>
+            <div class="table-cell">Approved</div>
+            <div class="table-cell">
+                <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                <button class="action-btn approve"><i class="fas fa-check"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        </div>
+
+        <!-- Duplicate for more rows -->
+        <div class="table-row">
+            <div class="table-cell"><input type="checkbox"> 12345</div>
+            <div class="table-cell">Insert Product’s Name</div>
+            <div class="table-cell">Name</div>
+            <div class="table-cell">##/##/####</div>
+            <div class="table-cell">Category</div>
+            <div class="table-cell">Approved</div>
+            <div class="table-cell">
+                <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                <button class="action-btn approve"><i class="fas fa-check"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
