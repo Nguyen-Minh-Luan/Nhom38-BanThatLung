@@ -7,6 +7,13 @@
   font-family: "IBM Plex Sans Condensed", sans-serif;
 }
 
+header {
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  top: 0;
+}
+
 #logo {
   color: black;
   margin-left: 5rem;
@@ -14,9 +21,6 @@
   font-family: Instrument Serif;
   letter-spacing: 13px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
-}
-
-#navbar {
 }
 
 .navitem__group a {
@@ -27,21 +31,56 @@
 
 .navitem__group {
   gap: 40px;
+  width: 48%;
 }
 
-#search__icon {
+/* ------------------------------------------- */
+.search-container {
+  position: relative;
+  width: 40px; /* Ban đầu chỉ hiện nút, khi mở sẽ mở rộng */
+  transition: width 0.3s;
+  overflow: hidden;
+  display: flex;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  display: none; /* Ẩn khi chưa kích hoạt */
+}
+
+.search-btn {
+  background: none;
+  border: none;
   cursor: pointer;
+  font-size: 20px;
 }
 
+/* Khi mở rộng, hiển thị thanh tìm kiếm */
+.search-container.active {
+  width: 200px;
+}
+
+.search-container.active .search-input {
+  display: inline-block;
+}
+
+
+/* ------------------------------------------- */
 .nav-icon {
   margin-top: 6px;
   width: 30px;
   height: 30px;
 }
+
 .header__icon__group {
   display: flex;
   gap: 20px;
 }
+
 .dropdown-menu {
   display: none;
 }
@@ -59,16 +98,19 @@
   width: 30px;
   height: 30px;
 }
-.navbar_nav {
-}
+
+.navbar_nav {}
+
 .header__icon__group {
   display: flex;
   gap: 20px;
 }
+
 .favorite {
   position: relative;
   text-decoration: none;
 }
+
 .favorite__count {
   position: absolute;
   top: -1px;
@@ -81,10 +123,12 @@
   width: 18px;
   text-align: center;
 }
+
 .cart {
   position: relative;
   text-decoration: none;
 }
+
 .cart__count {
   position: absolute;
   top: -1px;
@@ -98,6 +142,7 @@
   text-align: center;
   text-decoration: none;
 }
+
 .overlay {
   position: fixed;
   top: 0;
@@ -112,6 +157,7 @@
 .overlay.active {
   left: 0;
 }
+
 .overlay2 {
   position: fixed;
   top: 0;
@@ -126,6 +172,7 @@
 .overlay2.active {
   right: 0;
 }
+
 .dimmer {
   position: fixed;
   top: 0;
@@ -142,6 +189,8 @@
   opacity: 1;
   pointer-events: all;
 }
+
+/* ---------------------------------------------------------------------------------------------- */
 .dimmer2 {
   position: fixed;
   top: 0;

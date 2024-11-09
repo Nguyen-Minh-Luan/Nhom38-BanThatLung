@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .filter-container {
+            margin-bottom: 10px;
+        }
+
+        #filterInput {
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        #itemList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #itemList li {
+            padding: 8px;
+            border: 1px solid #ddd;
+            margin-top: -1px;
+            /* Loại bỏ đường viền đầu tiên */
+            background-color: #f9f9f9;
+        }
+
+        #itemList li.hidden {
+            display: none;
+            /* Ẩn các mục không khớp */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="filter-container">
+        <input type="text" id="filterInput" placeholder="Lọc danh sách...">
+    </div>
+
+    <ul id="itemList">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+        <li>Date</li>
+        <li>Fig</li>
+        <li>Grape</li>
+    </ul>
+    <script>
+        // Lấy phần tử input và danh sách cần lọc
+        const filterInput = document.getElementById("filterInput");
+        const itemList = document.getElementById("itemList");
+        const items = itemList.getElementsByTagName("li");
+
+        // Lắng nghe sự kiện "input" từ ô nhập liệu
+        filterInput.addEventListener("input", function () {
+            const filterText = filterInput.value.toLowerCase(); // Lấy giá trị nhập và chuyển sang chữ thường
+
+            // Lặp qua từng mục trong danh sách và kiểm tra từ khóa
+            for (let item of items) {
+                const itemText = item.textContent.toLowerCase();
+                if (itemText.includes(filterText)) {
+                    item.classList.remove("hidden"); // Hiển thị mục khớp
+                } else {
+                    item.classList.add("hidden"); // Ẩn mục không khớp
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

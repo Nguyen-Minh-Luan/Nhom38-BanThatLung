@@ -199,6 +199,7 @@
 /* Định dạng cho từng thẻ product */
 .list__product{
     margin-top: 1%;
+    width: 1500px;
 }
 #list__product__row{
     display: flex;
