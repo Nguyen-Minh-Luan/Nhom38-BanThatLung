@@ -257,7 +257,10 @@
     border: 1px solid #ddd;
     border-radius: 4px;
 }
-
+.Page__navigation__example .page__item:active{
+  color: white;
+  background-color:#007bff;
+}
 /* Đổi màu khi di chuột */
 .pagination .page-link:hover {
     color: white;
