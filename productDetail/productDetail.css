@@ -15,10 +15,28 @@
     font-size: 30px;
     letter-spacing: 1px;
   }
-#carouselExampleControls3{
+  .mostPopular__component {
     display: flex;
-    width: 100px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
 }
+
+.carousel.slide {
+    max-width: 50%;
+}
+
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.card {
+    width: 200px;
+    text-align: center;
+}
+
 #carouselExampleControls3 a {
     text-decoration: none;
   }
