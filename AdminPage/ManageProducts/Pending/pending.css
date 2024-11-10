@@ -28,3 +28,9 @@ th{
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+.custom_button{
+  border: 0px;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
