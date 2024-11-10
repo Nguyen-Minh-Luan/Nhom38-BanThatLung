@@ -77,7 +77,7 @@
             </a>
 
             <ul class="navbar-nav col-6 navitem__group d-sm-none d-md-none d-lg-flex">
-                <li class="nav-item"><a href="" class="nav-link">Trang Chủ</a></li>
+                <li class="nav-item"><a href="../homePage/HomePage.html" class="nav-link">Trang Chủ</a></li>
                 <li class="nav-item"><a href="" class="nav-link">Bộ Sưu Tập</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -85,6 +85,7 @@
                         Nam
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../menPage/menPage1.html">Tất cả thắt lưng nam</a></li>
                         <li><a class="dropdown-item" href="#">Thắt Lưng Da</a></li>
                         <li>
                             <a class="dropdown-item" href="#">Thắt Lưng Vải Canvas</a>
@@ -101,6 +102,7 @@
                         Nữ
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../womenPage/womenPage1.html">Tất cả thắt lưng nữ</a></li>
                         <li><a class="dropdown-item" href="#">Thắt Lưng Da</a></li>
                         <li>
                             <a class="dropdown-item" href="#">Thắt Lưng Vải Canvas</a>
@@ -111,7 +113,7 @@
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a href="../allProduct/allProduct.html" class="nav-link">Sản Phẩm</a></li>
+                <li class="nav-item"><a href="../allProduct/allProduct1.html" class="nav-link">Sản Phẩm</a></li>
             </ul>
             <div class="header__icon__group col-3">
 
@@ -145,12 +147,12 @@
     </div>
     <div class="function__bar">
         <div class="container-fluid">
-            <div class="row border function__bar__row" style="height: 2.8rem;">
-                <div class="col-1 border" id="filter__column">
+            <div class="row function__bar__row" style="height: 2.8rem;">
+                <div class="col-1 " id="filter__column">
                     <i class="fa-solid fa-sliders" style="color: #525252;"></i>
                     <buttton class="filter__title">Lọc</buttton>
                 </div>
-                <div class="col-10 border breadcumb__column">
+                <div class="col-10  breadcumb__column">
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="../homePage/HomePage.html"
@@ -159,9 +161,20 @@
                         </ol>
                     </nav>
                 </div>
-                <div class="col-1 border sort__column">
+                <div class="col-1  sort__column">
                     <img src="../assets/icons/sort (1).png" alt="" style="height: 20px;">
-                    <span class="sort__title">Sắp xếp</span>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Sắp Xếp
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="#">Mặc Định</a></li>
+                            <li><a class="dropdown-item" href="#">Giá Tăng Dần</a></li>
+                            <li><a class="dropdown-item" href="#">Giá Giảm Dần</a></li>
+                            <li><a class="dropdown-item" href="#">Bán Chạy Nhất</a></li>
+                        </ul>
+                    </li>
                 </div>
             </div>
         </div>
