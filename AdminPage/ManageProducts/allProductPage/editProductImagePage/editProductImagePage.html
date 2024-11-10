@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="editProductPage.css" />
+    <link rel="stylesheet" href="editProductImagePage.css" />
   </head>
   <body>
     <header>
@@ -28,7 +28,7 @@
           class="col-sm-3 pl-sm-4 pr-sm-0 col-md-4 justify-content-sm-start d-lg-none d-xl-none col header__navbar header__navbar--center d-flex justify-content-center"
         >
           <button id="menuButton" class="btn btn-light h-sm-100 ms-2">
-            <img src="../../../assets/icons/menu.svg" />
+            <img src="../../../../assets/icons/menu.svg" />
           </button>
         </div>
 
@@ -39,7 +39,7 @@
             >
               <h3 class="header__title mb-0">THOMAS</h3>
               <button id="closeButton" class="btn ms-5">
-                <img src="../../../assets/icons/close.svg" />
+                <img src="../../../../assets/icons/close.svg" />
               </button>
             </div>
             <div
@@ -64,7 +64,7 @@
                 </li>
                 <hr class="w-100 ms-2" />
                 <li class="nav-item mx-3">
-                  <a href="../cartPage/cartPage.html" class="nav-link text-dark"
+                  <a href="../../../../cartPage/cartPage.html" class="nav-link text-dark"
                     >Nam</a
                   >
                 </li>
@@ -73,13 +73,13 @@
                   <a
                     href="../../cartPage/cartPage.html"
                     class="nav-link text-dark"
-                    >Nữs</a
+                    >Nữ</a
                   >
                 </li>
                 <hr class="w-100 ms-2" />
                 <li class="nav-item mx-3">
                   <a
-                    href="../signInPage/signInPage.html"
+                    href="../../../../signInPage/signInPage.html"
                     class="nav-link text-dark"
                     >Đăng nhập / Đăng ký</a
                   >
@@ -158,13 +158,13 @@
           <a class="nav-item"
             ><img
               class="nav-icon"
-              src="../../../assets/icons/search.svg"
+              src="../../../../assets/icons/search.svg"
               alt=""
           /></a>
           <a class="nav-item favorite" href="#">
             <img
               class="nav-icon"
-              src="../../../assets/icons/favorite.svg"
+              src="../../../../assets/icons/favorite.svg"
               alt=""
             />
             <span class="favorite__count">0</span>
@@ -173,14 +173,14 @@
             ><img
               id="user__icon"
               class="nav-icon"
-              src="../../../assets/icons/user.svg"
+              src="../../../../assets/icons/user.svg"
               alt=""
               style="width: 35px; height: 35px"
           /></a>
           <a class="nav-item favorite" href="#">
             <img
               class="nav-icon"
-              src="../../../assets/icons/cart.svg"
+              src="../../../../assets/icons/cart.svg"
               alt=""
               style="width: 26px; height: 26px"
             />
@@ -194,26 +194,26 @@
         <h1 class="fw-bold">Chỉnh sửa sản phẩm</h1>
         <h3 class="fs-4">Chỉnh sửa hoặc xóa sản phẩm có sẵn</h3>
         <div
-          class="overflow-auto d-flex justify-content-between fs-3 mt-5"
+          class="overflow-auto d-flex justify-content-left fs-3 mt-5"
           style="white-space: nowrap"
         >
-          <div class="d-inline-block p-3">
-            <a class="text-dark text-decoration-none fs-4" href="userinfo.html"
-              >Tất cả các sản phẩm</a
+          <div class="d-inline-block p-3 ">
+            <a class="text-dark text-decoration-none fs-4" href="../editProductPage/editProductPage.html"
+              >Tổng quan</a
             >
           </div>
-          <div class="d-inline-block p-3 ms-0">
+          <div class="d-inline-block p-3 ms-0 custom_active">
             <a
               class="text-dark text-decoration-none fs-4"
-              href="../profile/profile.html"
-              >Sản phẩm bán chạy</a
+              href="../editProductImagePage/editProductImagePage.html"
+              >Hình ảnh</a
             >
           </div>
           <div class="d-inline-block p-3">
             <a
               class="text-dark text-decoration-none fs-4"
-              href="../address/address.html"
-              >Sản phẩm hết hàng</a
+              href="../editProductQuantityPage/editProductQuanitityPage.html"
+              >Số lượng</a
             >
           </div>
         </div>
@@ -227,88 +227,61 @@
           <p
             class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
           >
-            Ảnh
+            Hình ảnh
           </p>
           <input
             type="file"
             class="col form-control form-control-lg custom_design custom__border"
-            placeholder="Nhập tên sản phẩm"
+            placeholder="Nhập số lượng khách hàng có thể chọn"
           />
         </div>
         <div class="row mb-3">
           <p
             class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
           >
-            Tên
+            Hình ảnh
           </p>
           <input
-            type="text"
+            type="file"
             class="col form-control form-control-lg custom_design custom__border"
-            placeholder="Nhập tên sản phẩm"
+            placeholder="Nhập số lượng khách hàng có thể chọn"
           />
         </div>
         <div class="row mb-3">
           <p
             class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
           >
-            Kích thước
+            Hình ảnh
           </p>
-          <select
+          <input
+            type="file"
             class="col form-control form-control-lg custom_design custom__border"
-            name="size"
-            id="size"
-          >
-            <option value="XS">XS</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-            <option value="XXL">XXL</option>
-          </select>
+            placeholder="Nhập số lượng khách hàng có thể chọn"
+          />
         </div>
         <div class="row mb-3">
           <p
             class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
           >
-            Giới tính
+            Hình ảnh
           </p>
-          <div class="col d-flex align-items-center">
-            <div class="form-check me-4 d-flex align-items-center">
-              <input
-                class="form-check-input me-3 mb-1"
-                type="radio"
-                name="exampleRadios"
-                id="exampleRadios1"
-                value="option1"
-                checked
-              />
-              <label class="form-check-label fs-5" for="exampleRadios1">
-                Nam
-              </label>
-            </div>
-            <div class="form-check me-4 d-flex align-items-center">
-              <input
-                class="form-check-input me-3 mb-1"
-                type="radio"
-                name="exampleRadios"
-                id="exampleRadios2"
-                value="option2"
-              />
-              <label class="form-check-label fs-5" for="exampleRadios2">
-                Nữ
-              </label>
-            </div>
-          </div>
+          <input
+            type="file"
+            class="col form-control form-control-lg custom_design custom__border"
+            placeholder="Nhập số lượng khách hàng có thể chọn"
+          />
         </div>
         <div class="row mb-3">
           <p
-            class="col-3 mb-0 d-flex justify-content-end align-items-top fs-5"
+            class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
           >
-            Mô tả
+            Hình ảnh
           </p>
-          <textarea class="col pt-5 no-resize form-control custom_design custom__border" style="resize: none;" rows="7">
-
-          </textarea>
+          <input
+            type="file"
+            class="col form-control form-control-lg custom_design custom__border"
+            placeholder="Nhập số lượng khách hàng có thể chọn"
+          />
         </div>
         <div class="row d-flex justify-content-end mb-3">
           <button class="btn btn-dark" style="width: 10%; height: 47px;">Lưu lại</button>
@@ -358,19 +331,19 @@
               <div class="social-icons">
                 <span class="icon">
                   <img
-                    src="../../../assets/icons/Facebook.svg"
+                    src="../../../../assets/icons/Facebook.svg"
                     alt="Facebook"
                   />
                 </span>
                 <span class="icon">
                   <img
-                    src="../../../assets/icons/Instagram.svg"
+                    src="../../../../assets/icons/Instagram.svg"
                     alt="Instagram"
                   />
                 </span>
                 <span class="icon">
                   <img
-                    src="../../../assets/icons/TwitterX.svg"
+                    src="../../../../assets/icons/TwitterX.svg"
                     alt="TwitterX"
                   />
                 </span>

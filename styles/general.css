@@ -299,3 +299,19 @@ list__product a {
 .product__discount {
   font-size: 15px;
 }
+.custom_active{
+  border-bottom: 2px solid black;
+}
+.custom_check--black{
+  background-color: white;
+  border-color: black;
+  transition: box-shadow 0.3s ease;
+}
+.custom_check--black:active{
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #303135;
+}
+.custom_check--black:checked{
+  background-color: black;
+  border-color: white;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #303135;
+}
