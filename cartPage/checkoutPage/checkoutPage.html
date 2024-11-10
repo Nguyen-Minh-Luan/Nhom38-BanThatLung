@@ -10,6 +10,11 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="checkout.js"></script>
+    <script src="../../styles/general.js"></script>
     <link rel="stylesheet" href="checkoutPage.css" />
   </head>
 
@@ -326,24 +331,24 @@
         <div class="container mt-3 col-lg-5 mt-lg-0 me-4">
           <div class="d-flex flex-column mt-sm-4 mt-lg-0">
             <div class="d-sm-flex justify-content-between mt-sm-2">
-              <p class="fw-bold fs-4">Tổng số mặt hàng</p>
-              <p class="mr-sm-3 fs-4">10,487,042₫</p>
+              <p class="fw-bold fs-5">Tổng số mặt hàng</p>
+              <p class="mr-sm-3 fs-5">10,487,042₫</p>
             </div>
             <div class="d-sm-flex justify-content-between">
-              <p class="font-weight-bold fs-4">Giảm giá cửa hàng</p>
-              <p class="mr-sm-3 fs-4">-355,959₫</p>
+              <p class="font-weight-bold fs-5">Giảm giá cửa hàng</p>
+              <p class="mr-sm-3 fs-5">-355,959₫</p>
             </div>
             <div class="d-sm-flex justify-content-between mt-sm-2">
-              <p class="fw-bold fs-4">Tổng phụ</p>
-              <p class="mr-sm-3 fs-4">10,131,083₫</p>
+              <p class="fw-bold fs-5">Tổng phụ</p>
+              <p class="mr-sm-3 fs-5">10,131,083₫</p>
             </div>
             <div class="d-sm-flex justify-content-between mt-sm-2">
-              <p class="fs-4">Vận chuyển</p>
-              <p class="mr-sm-3 fs-4">4,737,305₫</p>
+              <p class="fs-5">Vận chuyển</p>
+              <p class="mr-sm-3 fs-5">4,737,305₫</p>
             </div>
             <div class="d-sm-flex justify-content-between mt-sm-2">
-              <p class="fw-bold fs-4">Tổng cộng (2 mặt hàng)</p>
-              <p class="mr-sm-3 font-weight-bold fs-4">14,868,388₫</p>
+              <p class="fw-bold fs-5">Tổng cộng (2 mặt hàng)</p>
+              <p class="mr-sm-3 font-weight-bold fs-5">14,868,388₫</p>
             </div>
             <button class="btn btn-dark mt-4 fs-4" id="openFormButtonPayment">
               Mua với Google
@@ -435,13 +440,12 @@
                     </p>
                     <div class="col-sm col-md-6 col-lg-12 pr-sm-0">
                       <div class="mt-sm-2 mt-lg-3 ms-sm-0 row w-100">
-                        <input
-                          type="number"
-                          value="1"
-                          min="1"
-                          max="5"
-                          class="form-control w-auto"
-                        />
+                        <select
+                        name="number"
+                        id="number"
+                        class="form-control custom_quanity number-select"
+                        style="width: 75px"
+                      ></select>
                         <button
                           class="col-sm-2 btn btn-outline-secondary btn-sm ms-3 custom_delete"
                         >
@@ -560,13 +564,12 @@
                     </p>
                     <div class="col-sm col-md-6 col-lg-12 pr-sm-0">
                       <div class="mt-sm-2 mt-lg-3 ms-sm-0 row w-100">
-                        <input
-                          type="number"
-                          value="1"
-                          min="1"
-                          max="5"
-                          class="form-control w-auto"
-                        />
+                        <select
+                        name="number"
+                        id="number"
+                        class="form-control custom_quanity number-select"
+                        style="width: 75px"
+                      ></select>
                         <button
                           class="col-sm-2 btn btn-outline-secondary btn-sm ms-3 custom_delete"
                         >
@@ -701,10 +704,6 @@
       </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="checkout.js"></script>
-    <script src="../../styles/general.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
   </body>
 </html>

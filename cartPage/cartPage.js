@@ -1,8 +1,23 @@
 $(document).ready(function () {
+  const options = $.map(
+    Array.from({ length: 30 }, (_, i) => i + 1),
+    function (num) {
+      return `<option value="${num}">${num}</option>`;
+    }
+  );
+
+  $(".number-select").append(options);
   // Toggle coupon input visibility
   $(".cart__container--coupon").click(function () {
-    $(this).next(".cart__container_coupon--submit").slideToggle();
+    $(this).next(".cart__container_coupon--submit").animate(
+      {
+        opacity: "toggle",
+        height: "toggle",
+      },
+      400 // Duration in milliseconds
+    );
   });
+  
 
   // Close the overlay when clicking outside of it
   $(document).on("click", function (event) {
