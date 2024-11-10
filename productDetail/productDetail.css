@@ -1,0 +1,25 @@
+.function__bar{
+    font-size: 18px;
+    margin-top: 5%;
+    border-bottom: rgb(158, 158, 158) 1px solid;
+}
+.function__bar .breadcumb__column{
+    /* display: flex; */
+    /* justify-content: center; */
+    margin-top: 0.8%;
+}
+/* -------------------------------------------- */
+.youmightlike__title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 30px;
+    letter-spacing: 1px;
+  }
+#carouselExampleControls3{
+    display: flex;
+    width: 100px;
+}
+#carouselExampleControls3 a {
+    text-decoration: none;
+  }
+/* -------------------------------------------- */
