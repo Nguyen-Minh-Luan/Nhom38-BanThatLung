@@ -34,3 +34,6 @@ tr:nth-child(even) {
   cursor: pointer;
   background-color: transparent;
 }
+.custom_active{
+  border-bottom: 2px solid black;
+}
