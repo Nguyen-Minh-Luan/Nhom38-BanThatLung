@@ -6,13 +6,28 @@
 .function__bar .breadcumb__column{
     /* display: flex; */
     /* justify-content: center; */
-    margin-top: 0.8%;
+    margin-top: 6.5%;
 }
 /* -------------------------------------------- */
-.product__detail .detail__col{
-    background-color: orangered;
-    width: 100px;
-    height: 10px;
+.product-price {
+  font-size: 1.4rem;
+  color: #333;
+}
+.quantity-controls{
+  width: 100px;
+}
+.product-old-price {
+  text-decoration: line-through;
+  color: #888;
+  margin-left: 10px;
+}
+.quantity-controls input {
+  width: 50px;
+  text-align: center;
+}
+.product-thumbnails img {
+  width: 24%;
+  cursor: pointer;
 }
 
 
