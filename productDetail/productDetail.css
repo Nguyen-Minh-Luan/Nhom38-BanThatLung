@@ -9,22 +9,62 @@
     margin-top: 0.8%;
 }
 /* -------------------------------------------- */
+.product__detail .detail__col{
+    background-color: orangered;
+    width: 100px;
+    height: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------- */
 .youmightlike__title {
     margin-top: 2rem;
     margin-bottom: 2rem;
-    font-size: 30px;
+    font-size: 26px;
     letter-spacing: 1px;
   }
+.youmightlike__component{
+}
   .mostPopular__component {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px 0;
 }
-
+/* 
 .carousel.slide {
-    max-width: 50%;
-}
+    max-width: 100%;
+} */
 
 .card-wrapper {
     display: flex;
@@ -33,7 +73,7 @@
 }
 
 .card {
-    width: 200px;
+    width: 280px;
     text-align: center;
 }
 
@@ -41,3 +81,19 @@
     text-decoration: none;
   }
 /* -------------------------------------------- */
+.viewed__title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 26px;
+    letter-spacing: 1px;
+  }
+  #carouselExampleControls4 a {
+    text-decoration: none;
+  }
+
+
+
+
+
+
+
