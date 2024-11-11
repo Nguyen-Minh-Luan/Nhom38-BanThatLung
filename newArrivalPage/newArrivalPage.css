@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap");
+@import "../styles/general.css";
+
+* {
+    font-family: "IBM Plex Sans Condensed", sans-serif;
+}
+
+body {
+
+}
+
+#logo {
+    color: black;
+    margin-left: 100px;
+    font-size: 40px;
+    font-family: Instrument Serif;
+    letter-spacing: 13px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+}
+
+#navbar {
+    width: 100vw;
+}
+
+.navitem__group a {
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: black;
+}
+
+.navitem__group {
+    gap: 40px;
+}
+
+#search__icon {
+    cursor: pointer;
+}
+
+.nav-icon {
+    margin-top: 6px;
+    width: 30px;
+    height: 30px;
+}
+
+.navbar_nav {}
+
+.header__icon__group {
+    display: flex;
+    gap: 20px;
+}
+
+.favorite {
+    position: relative;
+    text-decoration: none;
+}
+
+.favorite__count {
+    position: absolute;
+    top: -1px;
+    right: -6px;
+    font-size: 12px;
+    display: inline-block;
+    color: white;
+    background: black;
+    border-radius: 50%;
+    width: 18px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* ---------------------------------------------------------------- */
+#carouselExampleIndicators {
+    margin-top: 50px;
+}
+
+.line {
+    background-color: rgb(183, 183, 183);
+    height: 1px;
+    width: 1350px;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.function__bar {
+    font-size: 18px;
+  
+  }
+  
+  .function__bar #filter__column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: rgb(158, 158, 158) 1px solid;
+    border-bottom: rgb(158, 158, 158) 1px solid;
+    border-right: rgb(158, 158, 158) 1px solid;
+  }
+  
+  .function__bar .breadcumb__column {
+    display: flex;
+    justify-content: center;
+    border-top: rgb(158, 158, 158) 1px solid;
+    border-bottom: rgb(158, 158, 158) 1px solid;
+    border-right: rgb(158, 158, 158) 1px solid;
+  }
+  
+  .function__bar .sort__column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: rgb(158, 158, 158) 1px solid;
+    border-bottom: rgb(158, 158, 158) 1px solid;
+  }
+  
+  .function__bar .sort__column li {
+    list-style-type: none;
+  }
+  
