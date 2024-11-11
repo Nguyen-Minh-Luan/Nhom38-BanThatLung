@@ -135,6 +135,6 @@
   object-fit: contain;
 }
 .custom_border_width{
-  border: 2px solid black;
+  border: 1px solid #0e0e0e2e;
   border-radius: 1rem;
 }

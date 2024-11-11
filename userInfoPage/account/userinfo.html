@@ -3,18 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thông tin của bạn</title>
+    <title>THOMAS - Tài khoản</title>
+    <link
+      rel="icon"
+      href="../../assets/icons/favicon.svg"
+      type="image/x-icon"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    <script src="../../styles/general.js"></script>
     <link rel="stylesheet" href="./userInfo.css" />
   </head>
   <body>
@@ -71,7 +75,9 @@
                 </li>
                 <hr class="w-100 ms-2" />
                 <li class="nav-item mx-3">
-                  <a href="../../cartPage/cartPage.html" class="nav-link text-dark"
+                  <a
+                    href="../../cartPage/cartPage.html"
+                    class="nav-link text-dark"
                     >Nữs</a
                   >
                 </li>
@@ -157,8 +163,12 @@
           <a class="nav-item"
             ><img class="nav-icon" src="../../assets/icons/search.svg" alt=""
           /></a>
-          <a class="nav-item favorite" href="#">
-            <img class="nav-icon" src="../../assets/icons/favorite.svg" alt="" />
+          <a class="nav-item favorite" href="../../favoritePage/favoritePage.html">
+            <img
+              class="nav-icon"
+              src="../../assets/icons/favorite.svg"
+              alt=""
+            />
             <span class="favorite__count">0</span>
           </a>
           <a class="nav-item" href="./userinfo.html"
@@ -169,7 +179,7 @@
               alt=""
               style="width: 35px; height: 35px"
           /></a>
-          <a class="nav-item favorite" href="#">
+          <a class="nav-item favorite" href="../../cartPage/cartPage.html">
             <img
               class="nav-icon"
               src="../../assets/icons/cart.svg"
@@ -187,7 +197,9 @@
         style="white-space: nowrap"
       >
         <div class="d-inline-block p-3">
-          <a class="text-dark text-decoration-none custom_active" href="userinfo.html"
+          <a
+            class="text-dark text-decoration-none custom_active"
+            href="userinfo.html"
             >Tài khoản</a
           >
         </div>
@@ -265,16 +277,16 @@
           </button>
         </div>
       </div>
-      <div class="container container-sm border rounded mt-4">
+      <div class="container container-sm border rounded mt-4 mb-5">
         <div
           class="d-flex flex-column mt-4 mb-2 ml-2 border-bottom"
           style="width: 50%"
         >
           <h3 class="font-weight-bold ms-3">Mật khẩu</h3>
-            <h5 class="ms-3">Thay đổi mật khẩu của bạn</h5>
+          <h5 class="ms-3">Thay đổi mật khẩu của bạn</h5>
         </div>
         <div class="d-flex flex-column m-2" style="width: 50%" s>
-            <p class="mb-1 mt-2 ms-2">Mật khẩu hiện tại</p>
+          <p class="mb-1 mt-2 ms-2">Mật khẩu hiện tại</p>
           <input
             type="password"
             class="form-control form-control-md custom__border custom-lg-input ms-2 custom_design"
@@ -306,12 +318,10 @@
     </div>
 
     <section>
-      <footer class="border-top border-dark mt-sm-4">
+      <footer class="border-top border-dark">
         <div class="container">
           <div class="row d-flex footer mt-sm-4">
-            <div
-              class="col-sm footer--section d-flex flex-column justify-content-center"
-            >
+            <div class="col-sm d-flex flex-column justify-content-center">
               <h3>About Us</h3>
               <p>How we work</p>
               <p>Investors</p>
@@ -320,18 +330,14 @@
               <p>Impact</p>
               <p>Legal imprint</p>
             </div>
-            <div
-              class="col-sm footer--section d-flex flex-column justify-content-top"
-            >
+            <div class="col-sm d-flex flex-column justify-content-top">
               <h3>Support</h3>
               <p>Become an Investor</p>
               <p>Your opinion</p>
               <p>Donate</p>
               <p>Survey</p>
             </div>
-            <div
-              class="col-sm footer--section d-flex flex-column justify-content-center"
-            >
+            <div class="col-sm d-flex flex-column justify-content-center">
               <h3>Terms and Conditions</h3>
               <p>Privacy Terms</p>
               <p>Terms of Use</p>
@@ -339,28 +345,47 @@
               <p>Shipping Policy</p>
               <p>Community Standards</p>
             </div>
-            <div
-              class="col-sm footer--section d-flex flex-column justify-content-center"
-            >
+            <div class="col-sm d-flex flex-column justify-content-center">
               <h3>Contact Us</h3>
               <p>thomas@contact.tm.com</p>
               <div class="social-icons">
                 <span class="icon">
-                  <img src="../../assets/icons/Facebook.svg" alt="Facebook" />
+                  <img
+                    src="../../../assets/icons/Facebook.svg"
+                    alt="Facebook"
+                  />
                 </span>
                 <span class="icon">
-                  <img src="../../assets/icons/Instagram.svg" alt="Instagram" />
+                  <img
+                    src="../../../assets/icons/Instagram.svg"
+                    alt="Instagram"
+                  />
                 </span>
                 <span class="icon">
-                  <img src="../../assets/icons/TwitterX.svg" alt="TwitterX" />
+                  <img
+                    src="../../../assets/icons/TwitterX.svg"
+                    alt="TwitterX"
+                  />
                 </span>
               </div>
             </div>
           </div>
         </div>
+        <hr />
+        <div class="container">
+          <div>
+            <p>Công ty TNHH Thomas</p>
+            <p>
+              Văn phòng: Lầu 4, tòa nhà ACM, số 66 Cao Thắng, phường 05, quận 9,
+              TP Hồ Chí Minh.
+            </p>
+            <p>
+              GP số 09009231123 do sở KHĐT Tp Hồ Chí Minh cấp lần đầu ngày
+              9/19/2099.
+            </p>
+          </div>
+        </div>
       </footer>
     </section>
-    <script src="../../styles/general.js"></script>
-
   </body>
 </html>
