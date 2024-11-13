@@ -1,0 +1,15 @@
+.collections__banner {
+  background-image: url(../assets/images/collection-background.svg);
+  background-size: container;
+  background-repeat: no-repeat;
+  height: 400px;
+  align-content: center;
+  margin-top: 5%;
+}
+.collections__banner .title {
+  font-family: "IBM Plex Sans Condensed", sans-serif;
+  text-align: center;
+  color: aliceblue;
+  font-size: 50px;
+  font-weight: 200;
+}
