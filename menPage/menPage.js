@@ -11,6 +11,7 @@ $(document).ready(function(){
         }
       });
       $("#closeButton").click(function () {
+        console.log(1);
         $("#overlay3").removeClass("active");
         $("#dimmer3").removeClass("active");
       });
