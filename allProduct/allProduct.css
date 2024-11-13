@@ -190,7 +190,10 @@
   border-bottom: rgb(158, 158, 158) 1px solid;
   border-right: rgb(158, 158, 158) 1px solid;
 }
-
+.filter__title{
+  border: none;
+  background-color: white;
+}
 .function__bar .breadcumb__column {
   display: flex;
   justify-content: center;
@@ -226,7 +229,7 @@
 /* Định dạng cho từng thẻ product */
 .list__product {
   cursor: pointer;
-  margin-top: 1%;
+  margin-top: 2%;
   width: 1200px;
 }
 
@@ -312,3 +315,4 @@
   color: white;
   background-color: #007bff;
 }
+/* ------------------------------------------------- */

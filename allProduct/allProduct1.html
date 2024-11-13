@@ -44,7 +44,7 @@
                         <ul class="navbar-nav d-flex flex-column list-unstyled fs-3 w-100" style="font-size: 1.5rem">
                             <hr class="w-100 ms-2" />
                             <li class="nav-item mx-3">
-                                <a href="./HomePage.html" class="nav-link text-dark">Home</a>
+                                <a href="../homePage/HomePage.html" class="nav-link text-dark">Home</a>
                             </li>
                             <hr class="w-100 ms-2" />
                             <li class="nav-item mx-3">
@@ -78,7 +78,8 @@
 
             <ul class="navbar-nav col-6 navitem__group d-sm-none d-md-none d-lg-flex">
                 <li class="nav-item"><a href="../homePage/HomePage.html" class="nav-link">Trang Chủ</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Bộ Sưu Tập</a></li>
+                <li class="nav-item"><a href="../collectionPage/collectionsPage.html" class="nav-link">Bộ Sưu Tập</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -90,6 +91,7 @@
                         <li>
                             <a class="dropdown-item" href="#">Thắt Lưng Vải Canvas</a>
                         </li>
+
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -98,11 +100,12 @@
                         Nữ
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="../womenPage/womenPage1.html">Tất cả thắt lưng nữ</a></li>
+                        <li><a class="dropdown-item" href="../menPage/menPage1.html">Tất cả thắt lưng nữ</a></li>
                         <li><a class="dropdown-item" href="#">Thắt Lưng Da</a></li>
                         <li>
                             <a class="dropdown-item" href="#">Thắt Lưng Vải Canvas</a>
                         </li>
+
                     </ul>
                 </li>
                 <li class="nav-item"><a href="../allProduct/allProduct1.html" class="nav-link">Sản Phẩm</a></li>
@@ -142,7 +145,11 @@
             <div class="row function__bar__row" style="height: 2.8rem;">
                 <div class="col-1 " id="filter__column">
                     <i class="fa-solid fa-sliders" style="color: #525252;"></i>
-                    <buttton class="filter__title">Lọc</buttton>
+                    <!-- Nút mở bộ lọc -->
+                    <button class="filter__title" id="filterToggle">Bộ lọc</button>
+
+                    <!-- Sidebar bộ lọc -->
+
                 </div>
                 <div class="col-10  breadcumb__column">
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">

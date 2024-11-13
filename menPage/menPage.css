@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap");
 
 :root {
@@ -22,7 +22,8 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
 }
 
-#navbar {}
+#navbar {
+}
 
 .navitem__group a {
   font-size: 17px;
@@ -67,7 +68,8 @@
   height: 30px;
 }
 
-.navbar_nav {}
+.navbar_nav {
+}
 
 .header__icon__group {
   display: flex;
@@ -160,14 +162,14 @@
 
 /* ------------------------------------------- */
 .allProduct__banner {
-
   background-image: url(../assets/images/blackthorn-belt-2\ \(1\).jpg);
   height: 450px;
   align-content: center;
   margin-top: 4%;
 }
 
-.allProduct__banner .title__wrapper {}
+.allProduct__banner .title__wrapper {
+}
 
 .allProduct__banner .title {
   font-family: "IBM Plex Sans Condensed", sans-serif;
@@ -180,7 +182,6 @@
 /* ---------------------------------------------- */
 .function__bar {
   font-size: 18px;
-
 }
 
 .function__bar #filter__column {
@@ -240,14 +241,16 @@
   background: #fff;
   border: 1px dotted #0000;
   border-radius: 9px;
-  transition: 0.2s cubic-bezier(0.345, 0.115, 0.135, 1.42), opacity 0.15s ease-out, border-color 0.2s ease-out;
+  transition: 0.2s cubic-bezier(0.345, 0.115, 0.135, 1.42),
+    opacity 0.15s ease-out, border-color 0.2s ease-out;
 }
 
 .list__product .product:hover {
   transform: scale(1.05);
 }
 
-.list__product .favorite__icon {}
+.list__product .favorite__icon {
+}
 
 .list__product .product__image {
   display: flex;
