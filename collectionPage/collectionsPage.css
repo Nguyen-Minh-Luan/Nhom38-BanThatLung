@@ -13,3 +13,15 @@
   font-size: 50px;
   font-weight: 200;
 }
+
+.collection__content{
+  margin-left: 100px;
+}
+.collection__title{
+  font-size: 45px;
+}
+.slogan{
+  text-align: center;
+  font-size: 25px;
+  font-weight: 300;
+}
