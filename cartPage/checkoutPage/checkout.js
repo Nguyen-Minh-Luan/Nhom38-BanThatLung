@@ -136,7 +136,7 @@ $(document).ready(function () {
   $(".cart__container--coupon").click(showApplyCoupon());
   $("#openFormButton").click(showPopUp());
   $("#closeFormButton").click(closePopUp());
-  $("#openFormButtonPayment").click(showPopUpPay());
+  $(".openFormButtonPay").click(showPopUpPay());
   $("#closeFormButtonPay").click(closePopUpPay);
   $(".popup--content--submitPayment").click(handleChoosePayment());
   $(".btn-dark").click(handlePayment());
