@@ -1,0 +1,15 @@
+@import url("../styles/general.css");
+@import url("../allProduct/allProduct.css");
+.collections__banner {
+  background-image: url(../assets/images/collectionBanner.png);
+  height: 400px;
+  align-content: center;
+  margin-top: -1.7%;
+}
+.collections__banner .title {
+  font-family: "IBM Plex Sans Condensed", sans-serif;
+  text-align: center;
+  color: aliceblue;
+  font-size: 50px;
+  font-weight: 200;
+}

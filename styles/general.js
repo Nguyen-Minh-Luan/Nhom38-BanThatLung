@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $("#menuButton").on("click", function () {
-    $("#overlay").toggleClass("active");
     $("#dimmer").toggleClass("active");
+    $("#overlay").toggleClass("active");
   });
 
   $(document).on("click", function (event) {

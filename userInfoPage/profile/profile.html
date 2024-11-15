@@ -3,160 +3,194 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Thomas - Cá nhân</title>
+    <link
+      rel="icon"
+      href="../../assets/icons/favicon.svg"
+      type="image/x-icon"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../styles/general.js"></script>
     <link rel="stylesheet" href="./profile.css" />
   </head>
   <body>
     <header>
-      <nav
-      class="navbar navbar-expand shadow-lg p-12 mb-4 bg-white rounded"
-      id="navbar"
-    >
-      <div class="container-fluid-center"></div>
-      <div
-        class="col-sm-3 pl-sm-4 pr-sm-0 col-md-4 justify-content-sm-start d-lg-none d-xl-none col header__navbar header__navbar--center d-flex justify-content-center"
-      >
-        <button id="menuButton" class="btn btn-light h-sm-100 ms-2">
-          <img src="../../assets/icons/menu.svg" />
-        </button>
-      </div>
       <div id="dimmer" class="dimmer"></div>
+      <nav
+        class="navbar navbar-expand shadow-lg p-12 mb-4 bg-white rounded"
+        id="navbar"
+      >
+        <div class="container-fluid-center"></div>
+        <div
+          class="col-sm-3 pl-sm-4 pr-sm-0 col-md-4 justify-content-sm-start d-lg-none d-xl-none col header__navbar header__navbar--center d-flex justify-content-center"
+        >
+          <button id="menuButton" class="btn btn-light h-sm-100 ms-2">
+            <img src="../../assets/icons/menu.svg" />
+          </button>
+        </div>
 
-      <div id="overlay" class="d-sm-flex overlay" style="width: 45%">
-        <div class="overlay__content w-100">
-          <div
-            class="overlay__header d-flex w-100 justify-content-center align-items-center mt-2"
-          >
-            <h3 class="header__title mb-0">THOMAS</h3>
-            <button id="closeButton" class="btn ms-5">
-              <img src="../../assets/icons/close.svg" />
-            </button>
-          </div>
-          <div
-            class="overlay__body d-flex align-items-left justify-content-between"
-            style="height: 500px"
-          >
-            <ul
-              class="navbar-nav d-flex flex-column list-unstyled fs-3 w-100"
-              style="font-size: 1.5rem"
+        <div id="overlay" class="d-sm-flex overlay" style="width: 45%">
+          <div class="overlay__content w-100">
+            <div
+              class="overlay__header d-flex w-100 justify-content-center align-items-center mt-2"
             >
-              <hr class="w-100 ms-2" />
-              <li class="nav-item mx-3">
-                <a href="../index.html" class="nav-link text-dark">Home</a>
-              </li>
-              <hr class="w-100 ms-2" />
-              <li class="nav-item mx-3">
-                <a
-                  href="../productsPage/productsPage.html"
-                  class="nav-link text-dark"
-                  >Bộ sưu tập</a
-                >
-              </li>
-              <hr class="w-100 ms-2" />
-              <li class="nav-item mx-3">
-                <a href="../cartPage/cartPage.html" class="nav-link text-dark"
-                  >Nam</a
-                >
-              </li>
-              <hr class="w-100 ms-2" />
-              <li class="nav-item mx-3">
-                <a href="../cartPage/cartPage.html" class="nav-link text-dark"
-                  >Nữs</a
-                >
-              </li>
-              <hr class="w-100 ms-2" />
-              <li class="nav-item mx-3">
-                <a
-                  href="../signInPage/signInPage.html"
-                  class="nav-link text-dark"
-                  >Đăng nhập / Đăng ký</a
-                >
-              </li>
-              <hr class="w-100 ms-2" />
-            </ul>
+              <h3 class="header__title mb-0">THOMAS</h3>
+              <button id="closeButton" class="btn ms-5">
+                <img src="../../assets/icons/close.svg" />
+              </button>
+            </div>
+            <div
+              class="overlay__body d-flex align-items-left justify-content-between"
+              style="height: 500px"
+            >
+              <ul
+                class="navbar-nav d-flex flex-column list-unstyled fs-3 w-100"
+                style="font-size: 1.5rem"
+              >
+                <hr class="w-100 ms-2" />
+                <li class="nav-item mx-3">
+                  <a href="../index.html" class="nav-link text-dark">Home</a>
+                </li>
+                <hr class="w-100 ms-2" />
+                <li class="nav-item mx-3">
+                  <a
+                    href="../productsPage/productsPage.html"
+                    class="nav-link text-dark"
+                    >Bộ sưu tập</a
+                  >
+                </li>
+                <hr class="w-100 ms-2" />
+                <li class="nav-item mx-3">
+                  <a href="../cartPage/cartPage.html" class="nav-link text-dark"
+                    >Nam</a
+                  >
+                </li>
+                <hr class="w-100 ms-2" />
+                <li class="nav-item mx-3">
+                  <a href="../cartPage/cartPage.html" class="nav-link text-dark"
+                    >Nữs</a
+                  >
+                </li>
+                <hr class="w-100 ms-2" />
+                <li class="nav-item mx-3">
+                  <a
+                    href="../signInPage/signInPage.html"
+                    class="nav-link text-dark"
+                    >Đăng nhập / Đăng ký</a
+                  >
+                </li>
+                <hr class="w-100 ms-2" />
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <a
-        href=""
-        class="navbar-brand col-3 d-sm-none d-md-none d-lg-block"
-        id="logo"
-      >
-        THOMAS
-      </a>
+        <a
+          href=""
+          class="navbar-brand col-3 d-sm-none d-md-none d-lg-block"
+          id="logo"
+        >
+          THOMAS
+        </a>
 
-      <a
-        href=""
-        class="navbar-brand d-sm-block ms-sm-3 ms-5 mr-5 d-md-block d-lg-none"
-        id="logo"
-      >
-        THOMAS
-      </a>
+        <a
+          href=""
+          class="navbar-brand d-sm-block ms-sm-3 ms-5 mr-5 d-md-block d-lg-none"
+          id="logo"
+        >
+          THOMAS
+        </a>
 
-      <ul class="navbar-nav col-6 navitem__group d-sm-none d-md-none d-lg-flex">
-        <li class="nav-item"><a href="" class="nav-link">Trang Chủ</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Bộ Sưu Tập</a></li>
-        <li class="nav-item dropdown">
+        <ul
+          class="navbar-nav col-6 navitem__group d-sm-none d-md-none d-lg-flex"
+        >
+          <li class="nav-item"><a href="" class="nav-link">Trang Chủ</a></li>
+          <li class="nav-item"><a href="" class="nav-link">Bộ Sưu Tập</a></li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Nam
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Thắt Lưng Da</a></li>
+              <li>
+                <a class="dropdown-item" href="#">Thắt Lưng Vải Canvas</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Nữ
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Thắt Lưng Da</a></li>
+              <li>
+                <a class="dropdown-item" href="#">Thắt Lưng Vải Canvas</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="" class="nav-link">Sản Phẩm</a></li>
+        </ul>
+        <div class="header__icon__group col-3">
+          <a class="nav-item"
+            ><img class="nav-icon" src="../../assets/icons/search.svg" alt=""
+          /></a>
           <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
+            class="nav-item favorite"
+            href="../../favoritePage/favoritePage.html"
           >
-            Nam
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Thắt Lưng Da</a></li>
-            <li><a class="dropdown-item" href="#">Thắt Lưng Vải Canvas</a></li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Nữ
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Thắt Lưng Da</a></li>
-            <li><a class="dropdown-item" href="#">Thắt Lưng Vải Canvas</a></li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a href="" class="nav-link">Sản Phẩm</a></li>
-      </ul>
-      <div class="header__icon__group col-3">
-        <a class="nav-item"><img class="nav-icon" src="../../assets/icons/search.svg" alt=""></a>
-        <a class="nav-item favorite" href="#">
-            <img class="nav-icon" src="../../assets/icons/favorite.svg" alt="">
+            <img
+              class="nav-icon"
+              src="../../assets/icons/favorite.svg"
+              alt=""
+            />
             <span class="favorite__count">0</span>
-        </a>
-        <a class="nav-item" href="#"><img id="user__icon" class="nav-icon" src="../../assets/icons/user.svg"
-                alt="" style="width: 35px; height: 35px;"></a>
-        <a class="nav-item favorite" href="#">
-            <img class="nav-icon" src="../../assets/icons/cart.svg" alt="" style="width: 26px; height: 26px;">
+          </a>
+          <a class="nav-item" href="./profile.html"
+            ><img
+              id="user__icon"
+              class="nav-icon"
+              src="../../assets/icons/user.svg"
+              alt=""
+              style="width: 35px; height: 35px"
+          /></a>
+          <a class="nav-item favorite" href="../../cartPage/cartPage.html">
+            <img
+              class="nav-icon"
+              src="../../assets/icons/cart.svg"
+              alt=""
+              style="width: 26px; height: 26px"
+            />
             <span class="nav-item favorite__count">0</span>
-        </a>
-    </div>
-    </nav>
+          </a>
+        </div>
+      </nav>
     </header>
 
     <div class="container mt-3">
@@ -172,7 +206,9 @@
           >
         </div>
         <div class="d-inline-block p-3">
-          <a class="text-dark text-decoration-none" href="./profile.html"
+          <a
+            class="text-dark text-decoration-none custom_active"
+            href="./profile.html"
             >Hồ sơ</a
           >
         </div>
@@ -198,7 +234,7 @@
       </div>
       <div class="container container-sm border">
         <div class="d-flex mt-3">
-          <p>Profile picture</p>
+          <p>Ảnh đại diện</p>
           <input type="file" class="ms-3" />
         </div>
         <div class="d-flex flex-column border-bottom">
@@ -209,30 +245,27 @@
             width="100"
             height="100"
           />
-          <p>
-            Must be a .jpg, .gif or .png file smaller than 10MB and at least
-            400px by 400px.
-          </p>
+          <p>Phải là file .png .jpg hoặc .jpeg và 400x400</p>
         </div>
         <div class="d-flex mt-3">
-          <p>Your name:</p>
+          <p>Tên của bạn:</p>
           <p class="ms-4">Huynh Thang</p>
         </div>
         <div class="d-flex mt-3 border-bottom">
-          <p class="font-weight-bold">Gender:</p>
+          <p class="font-weight-bold">Giới tính:</p>
           <div class="d-flex justify-content-center align-items-center ms-4">
             <input class="mb-3 ms-3" type="radio" name="gender" />
-            <p class="mb-3 ms-2">Male</p>
+            <p class="mb-3 ms-2">Nam</p>
             <input class="mb-3 ms-2" type="radio" name="gender" />
-            <p class="mb-3 ms-2">Female</p>
+            <p class="mb-3 ms-2">Nữ</p>
           </div>
         </div>
         <div class="d-flex mt-3">
-          <p class="font-weight-bold mr-5">Birthday:</p>
+          <p class="font-weight-bold mr-5">Ngày sinh:</p>
           <div class="d-flex justify-content-center align-items-center ml-3">
             <input
               class="mb-3 ms-4"
-              type="number"
+              type="month"
               name="month"
               placeholder="Month"
               min="1"
@@ -240,7 +273,7 @@
             />
             <input
               class="mb-3 ms-2"
-              type="number"
+              type="datetime"
               name="day"
               placeholder="Day"
               min="1"
@@ -250,64 +283,79 @@
         </div>
       </div>
       <div class="d-flex mt-3 mb-5 ml-2">
-        <button class="btn btn-dark px-4 py-2 custom__btn">Save changes</button>
+        <button class="btn btn-dark px-4 py-2 custom__btn">Lưu</button>
       </div>
     </div>
 
-    <footer class="border-top border-dark mt-sm-4">
-      <div class="container">
-        <div class="row d-flex footer mt-sm-4">
-          <div
-            class="col-sm footer--section d-flex flex-column justify-content-center"
-          >
-            <h3>Về Chúng Tôi</h3>
-            <p>Cách chúng tôi làm việc</p>
-            <p>Nhà đầu tư</p>
-            <p>Cơ hội nghề nghiệp</p>
-            <p>Báo chí</p>
-            <p>Tác động</p>
-            <p>Thông tin pháp lý</p>
-          </div>
-          <div
-            class="col-sm footer--section d-flex flex-column justify-content-top"
-          >
-            <h3>Hỗ Trợ</h3>
-            <p>Trở thành nhà đầu tư</p>
-            <p>Ý kiến của bạn</p>
-            <p>Quyên góp</p>
-            <p>Khảo sát</p>
-          </div>
-          <div
-            class="col-sm footer--section d-flex flex-column justify-content-center"
-          >
-            <h3>Điều Khoản và Điều Kiện</h3>
-            <p>Điều khoản bảo mật</p>
-            <p>Điều khoản sử dụng</p>
-            <p>Sở hữu trí tuệ</p>
-            <p>Chính sách vận chuyển</p>
-            <p>Tiêu chuẩn cộng đồng</p>
-          </div>
-          <div
-            class="col-sm footer--section d-flex flex-column justify-content-center"
-          >
-            <h3>Liên Hệ</h3>
-            <p>Thomas@contact.tm.com</p>
-            <div class="social-icons">
-              <span class="icon">
-                <img src="../../assets/icons/Facebook.svg" alt="Facebook" />
-              </span>
-              <span class="icon">
-                <img src="../../assets/icons/Instagram.svg" alt="Instagram" />
-              </span>
-              <span class="icon">
-                <img src="../../assets/icons/TwitterX.svg" alt="TwitterX" />
-              </span>
+    <section>
+      <footer class="border-top border-dark">
+        <div class="container">
+          <div class="row d-flex footer mt-sm-4">
+            <div class="col-sm d-flex flex-column justify-content-center">
+              <h3>About Us</h3>
+              <p>How we work</p>
+              <p>Investors</p>
+              <p>Careers</p>
+              <p>Press</p>
+              <p>Impact</p>
+              <p>Legal imprint</p>
+            </div>
+            <div class="col-sm d-flex flex-column justify-content-top">
+              <h3>Support</h3>
+              <p>Become an Investor</p>
+              <p>Your opinion</p>
+              <p>Donate</p>
+              <p>Survey</p>
+            </div>
+            <div class="col-sm d-flex flex-column justify-content-center">
+              <h3>Terms and Conditions</h3>
+              <p>Privacy Terms</p>
+              <p>Terms of Use</p>
+              <p>Intellectual Property</p>
+              <p>Shipping Policy</p>
+              <p>Community Standards</p>
+            </div>
+            <div class="col-sm d-flex flex-column justify-content-center">
+              <h3>Contact Us</h3>
+              <p>thomas@contact.tm.com</p>
+              <div class="social-icons">
+                <span class="icon">
+                  <img
+                    src="../../../assets/icons/Facebook.svg"
+                    alt="Facebook"
+                  />
+                </span>
+                <span class="icon">
+                  <img
+                    src="../../../assets/icons/Instagram.svg"
+                    alt="Instagram"
+                  />
+                </span>
+                <span class="icon">
+                  <img
+                    src="../../../assets/icons/TwitterX.svg"
+                    alt="TwitterX"
+                  />
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../styles/general.js"></script>
+        <hr />
+        <div class="container pb-5">
+          <div>
+            <p>Công ty TNHH Thomas</p>
+            <p>
+              Văn phòng: Lầu 4, tòa nhà XXX, số 66 XXXX, phường 05, quận 9, TP
+              Hồ Chí Minh.
+            </p>
+            <p>
+              GP số 09009231123 do sở KHĐT Tp Hồ Chí Minh cấp lần đầu ngày
+              9/19/2099.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </section>
   </body>
 </html>

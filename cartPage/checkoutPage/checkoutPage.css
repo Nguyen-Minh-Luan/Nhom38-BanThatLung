@@ -17,7 +17,7 @@
 
 .popup-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 300px;
@@ -34,7 +34,7 @@
   right: 376px;
   width: 180px;
   height: 243px;
-  top: 272px;
+  top: 50px;
 }
 
 .close:hover,
@@ -153,19 +153,20 @@
   flex-direction: column;
 }
 .custom__boxshadow {
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0px 1px 3px 0px #0000004d, 0px 4px 8px 3px #00000026;
 }
 .custom__border {
   border-radius: 5px;
   border: 1px solid #0e0e0e2e;
 }
-/* Default width for extra-small screens (below 576px) */
 .custom-width {
   width: 100%;
 }
-
-/* Width for small screens (576px and up) */
+.custom_rounded {
+  border-radius: 1px solid black;
+  border-radius: 10px;
+}
 @media (min-width: 600px) {
   /* Bootstrap's sm breakpoint */
   .custom-width {
@@ -173,10 +174,8 @@
   }
 }
 
-/* Width for large screens (992px and up) */
 @media (min-width: 992px) {
-  /* Bootstrap's lg breakpoint */
   .custom-width {
-    width: 50%;
+    width: 55%;
   }
 }

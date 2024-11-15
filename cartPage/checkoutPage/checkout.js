@@ -1,4 +1,15 @@
 $(document).ready(function () {
+
+  const options = $.map(
+    Array.from({ length: 30 }, (_, i) => i + 1),
+    function (num) {
+      return `<option value="${num}">${num}</option>`;
+    }
+  );
+
+  $(".number-select").append(options);
+
+
   const popUpUpdateInfo = () =>
     function () {
       const name__field1 = $(this)
@@ -32,7 +43,13 @@ $(document).ready(function () {
     };
   const showApplyCoupon = () =>
     function () {
-      $(this).next(".cart__container_coupon--submit").slideToggle();
+      $(this).next(".cart__container_coupon--submit").animate(
+        {
+          opacity: "toggle",
+          height: "toggle",
+        },
+        400
+      );
     };
   const showPopUp = () =>
     function () {
@@ -64,6 +81,13 @@ $(document).ready(function () {
           "../../assets/icons/footer_trustbadge 1.svg"
         );
         $(".btn-dark").text("Thanh toán bằng Ngân hàng");
+        $("#popUpPayment").fadeOut();
+      }else if (paymentMethod == "Thanh toán khi nhận hàng") {
+        $(".img__paymentMethod").attr(
+          "src",
+          "../../assets/icons/footer_trustbadge 1.svg"
+        );
+        $(".btn-dark").text("Thanh toán khi nhận hàng");
         $("#popUpPayment").fadeOut();
       }
     };
@@ -124,4 +148,9 @@ $(document).ready(function () {
       }
     });
   });
-});ss
+  $(".custom_delete").on("click", function () {
+    console.log("1");
+    const $item = $(this).closest(".custom_item");
+    $item.remove();
+  });
+});

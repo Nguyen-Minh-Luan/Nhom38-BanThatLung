@@ -1,0 +1,36 @@
+@import url(../../../styles/general.css);
+
+.custom_background {
+  background-color: #f4f7fa;
+}
+.custom_background--white {
+  background-color: white;
+}
+.custom_shadow:hover {
+  box-shadow: none;
+}
+.custom_shadow {
+  outline: none;
+}
+.custom_effect--hover {
+  transition: box-shadow 0.3s ease;
+}
+.custom_effect--hover:hover {
+  box-shadow: 0px 1px 3px 0px #0000004d, 0px 4px 8px 3px #00000026;
+}
+.custom_border_bottom {
+  border-bottom: 2px solid rgb(215, 215, 215);
+}
+th{
+  font-size: 20px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.custom_button{
+  border: 0px;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
