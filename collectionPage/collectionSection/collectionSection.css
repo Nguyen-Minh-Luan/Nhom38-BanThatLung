@@ -1,0 +1,28 @@
+a{
+    text-decoration: none;
+}
+.function__bar {
+    font-size: 18px;
+    margin-top: 5%;
+    border-bottom: rgb(158, 158, 158) 1px solid;
+}
+
+#carouselExampleControls3 .cardWrapper {}
+
+.image__Collumn img {
+    width: 100%;
+    height: 100%;
+}
+.mostPopular__title{
+    font-size: 27px;
+    font-weight: 300;
+    margin-top: 1%;
+}
+#carouselExampleControls3 .card {
+    width: 19rem;
+}
+#carouselExampleControls3 .cardWrapper{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
