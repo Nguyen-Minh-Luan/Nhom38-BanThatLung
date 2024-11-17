@@ -1,30 +1,51 @@
-.function__bar{
-    font-size: 18px;
-    margin-top: 5%;
-    border-bottom: rgb(158, 158, 158) 1px solid;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+:root {
+  --margin-left-standard: 145px;
+  --margin-bottom-small: 6px;
+  --margin-left-medium: 75px;
+  --font-size-standard: 20px;
+  --width-big: 929px;
 }
-.function__bar .breadcumb__column{
-    /* display: flex; */
-    /* justify-content: center; */
-    margin-top: 6.5%;
+
+* {
+  font-family: "IBM Plex Sans Condensed", sans-serif;
 }
+
+.function__bar {
+  font-size: 18px;
+  border-bottom: rgb(158, 158, 158) 1px solid;
+}
+
+.function__bar .breadcumb__column {
+  /* display: flex; */
+  /* justify-content: center; */
+  margin-top: 6rem;
+}
+
 /* -------------------------------------------- */
 .product-price {
   font-size: 1.4rem;
   color: #333;
 }
-.quantity-controls{
+
+.quantity-controls {
   width: 100px;
 }
+
 .product-old-price {
   text-decoration: line-through;
   color: #888;
   margin-left: 10px;
 }
+
 .quantity-controls input {
   width: 50px;
   text-align: center;
 }
+
 .product-thumbnails img {
   width: 24%;
   cursor: pointer;
@@ -63,52 +84,49 @@
 
 /* -------------------------------------------- */
 .youmightlike__title {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    font-size: 26px;
-    letter-spacing: 1px;
-  }
-.youmightlike__component{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 26px;
+  letter-spacing: 1px;
 }
-  .mostPopular__component {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
+
+.youmightlike__component {}
+
+.mostPopular__component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
 }
+
 /* 
 .carousel.slide {
     max-width: 100%;
 } */
 
 .card-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
 
 .card {
-    width: 280px;
-    text-align: center;
+  width: 280px;
+  text-align: center;
 }
 
 #carouselExampleControls3 a {
-    text-decoration: none;
-  }
+  text-decoration: none;
+}
+
 /* -------------------------------------------- */
 .viewed__title {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    font-size: 26px;
-    letter-spacing: 1px;
-  }
-  #carouselExampleControls4 a {
-    text-decoration: none;
-  }
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 26px;
+  letter-spacing: 1px;
+}
 
-
-
-
-
-
-
+#carouselExampleControls4 a {
+  text-decoration: none;
+}
