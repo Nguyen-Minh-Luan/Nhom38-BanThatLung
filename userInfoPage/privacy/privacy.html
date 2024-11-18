@@ -108,7 +108,7 @@
 
                   </ul>
               </li>
-              <li class="nav-item"><a href="../allProduct/allProduct1.html" class="nav-link">Sản Phẩm</a></li>
+              <li class="nav-item"><a href="../../allProduct/allProduct1.html" class="nav-link">Sản Phẩm</a></li>
           </ul>
           <div class="header__icon__group col-3">
 
@@ -118,9 +118,6 @@
                   <button class="search-btn" onclick="toggleSearch()">
                       <i class="fa-solid fa-magnifying-glass fa-l"></i></button>
               </div>
-
-
-              <a class="nav-item"></a>
 
               <a class="nav-item favorite" href="../../favoritePage/favoritePage.html">
                   <img class="nav-icon" src="../../assets/icons/favorite.svg" alt="" />
@@ -138,41 +135,38 @@
 
     <div class="container mt-3">
       <div
-      class="overflow-auto d-flex justify-content-between fs-3"
+      class="overflow-auto d-flex justify-content-between fs-3 "
       style="white-space: nowrap; margin-top: 150px;"
-      >
+    >
       <div class="d-inline-block p-3">
         <a
-        class="text-dark text-decoration-none"
-        href="../account/userinfo.html"
-        >Tài khoản</a
-        >
-      </div>
-      <div class="d-inline-block p-3">
-        <a
-        class="text-dark text-decoration-none"
-        href="../profile/profile.html"
-        >Hồ sơ</a
-        >
-      </div>
-      <div class="d-inline-block p-3">
-        <a class="text-dark text-decoration-none" href="../address/address.html"
-        >Địa chỉ</a
+          class="text-dark text-decoration-none"
+          href="../../userInfoPage/account/userinfo.html"
+          >Tài khoản</a
         >
       </div>
       <div class="d-inline-block p-3">
         <a
-        class="text-dark text-decoration-none custom_active"
-        href="./privacy.html"
-        >Riêng tư</a
+          class="text-dark text-decoration-none"
+          href="../../userInfoPage/profile/profile.html"
+          >Hồ sơ</a
         >
       </div>
       <div class="d-inline-block p-3">
-        <a class="text-dark text-decoration-none" href="../email/email.html"
-        >Emails</a
+        <a
+          class="text-dark text-decoration-none"
+          href="../../userInfoPage/address/address.html"
+          >Địa chỉ</a
         >
       </div>
+      <div class="d-inline-block p-3">
+        <a
+          class="text-dark text-decoration-none custom_active"
+          href="../../userInfoPage/privacy/privacy.html"
+          >Riêng tư</a
+        >
       </div>
+    </div>
       <div class="container mb-5">
       <div class="userInfo__content--middle">
         <div class="userInfo--aboutyou">
@@ -233,9 +227,24 @@
           </p>
         </div>
         <div class="userInfo--element">
-          <a href="../publicProfile"
-          ><button>Yêu cầu xóa tài khoản của bạn</button></a
-          >
+          <button class="p-2 rounded" style="background-color: white;"  data-bs-toggle="modal" data-bs-target="#exampleModal">Yêu cầu xóa tài khoản của bạn</button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body fs-4 fw-bold">
+                  <p>Bạn có chắc muốn xóa tài khoản</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-dark">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         </div>
       </div>
