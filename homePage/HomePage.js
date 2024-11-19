@@ -17,5 +17,11 @@ $(document).ready(function () {
   $(".product").hover(console.log("hovered"), function () {
     $(this).toggleClass("active");
   });
+  $(".custom_toggle").on("click",function(){
+    $("#liveToast").addClass("hide");
+    $("#liveToast").addClass("toast");
+    $(".custom_show").addClass("hide");
+    $(".custom_show").addClass("toast ");
+  })
 });
 
