@@ -242,19 +242,24 @@ header {
 
 /* ------------------------------------------------------------------- */
 .button__More {
+  position: relative;
   letter-spacing: -1px;
   display: inline-block;
   text-align: center;
   font-size: 20px;
   font-weight: 300;
   cursor: pointer;
-  color: black;
   text-decoration: none;
+  color: black;
   border: 1px black solid;
   line-height: 2.0;
   width: 9rem;
+  transition: 0.6s all , color 0.6s ease;
 }
-
+.button__More:hover {
+  background-color: #333; /* Nền đen khi hover */
+  color: #fff; /* Chữ trắng khi hover */
+}
 #section_newarrival a {
   text-decoration: none;
 }
