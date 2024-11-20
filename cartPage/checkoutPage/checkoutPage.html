@@ -121,9 +121,6 @@
                       <i class="fa-solid fa-magnifying-glass fa-l"></i></button>
               </div>
 
-
-              <a class="nav-item"></a>
-
               <a class="nav-item favorite" href="../../favoritePage/favoritePage.html">
                   <img class="nav-icon" src="../../assets/icons/favorite.svg" alt="" />
                   <span class="favorite__count">0</span>
@@ -137,9 +134,9 @@
           </div>
       </nav>
   </header>
-    <div class="container-sm ps-0 mb-5" style="margin-top: 308px;">
-      <h2>Vui lòng xác nhận và gửi đơn đặt hàng của bạn</h2>
-      <h4 class="mb-1 mt-5 ms-0 ps-0">Vận chuyển và thanh toán</h4>
+    <div class="container-sm ps-0 mb-5" style="margin-top: 208px;">
+      <h2 class="fw-light">Vui lòng xác nhận và gửi đơn đặt hàng của bạn</h2>
+      <h4 class="mb-1 mt-5 ms-0 ps-0 fw-light">Vận chuyển và thanh toán</h4>
       <div class="row mt-2 mb-5 px-0 py-0 h-50" style="min-height: 550.9px">
         <div class="row custom-width custom__boxshadow p-0 m-0">
           <div class="col-sm pr-0 mt-4">
@@ -150,7 +147,7 @@
             <p class="ms-4">Hồ Chí Minh 700000</p>
             <p class="ms-4">+84 35-617-6054</p>
             <button
-              class="btn btn-outline-secondary ms-4 mt-2 fw-bold text-dark"
+              class="p-2 border-dark rounded custom_hover ms-4 mt-2 fw-bold"
               id="openFormButton"
             >
               Thay đổi
@@ -166,7 +163,7 @@
                 style="max-width: 50px"
               />
             </div>
-            <button class="openFormButtonPay btn btn-outline-secondary fw-bold text-dark">
+            <button class="openFormButtonPay p-2 border-dark rounded custom_hover mt-2 fw-bold">
               Thay đổi
             </button>
           </div>
@@ -174,15 +171,11 @@
 
         <div id="popupForm" class="popup">
           <div class="popup-content">
-            <span class="fs-1 close" id="closeFormButton">&times;</span>
             <div class="popup-content--title">
               <p>Chọn địa chỉ giao hàng</p>
             </div>
 
             <div class="popup-content--desc">
-              <div class="popup-content-radio">
-                <input type="radio" name="address" value="sample2" />
-              </div>
               <div class="popup--content--userInfo--action">
                 <div class="popup--content--userdesc">
                   <span>Mặc định</span>
@@ -193,7 +186,7 @@
                 </div>
                 <div class="popup--content--right">
                   <div class="popup--content--button">
-                    <button class="popup--content--submit" id="submit1">
+                    <button class="popup--content--submit custom__btn" id="submit1">
                       Giao đến đây
                     </button>
                   </div>
@@ -201,9 +194,6 @@
               </div>
             </div>
             <div class="popup-content--desc">
-              <div class="popup-content-radio">
-                <input type="radio" name="address" value="sample1" />
-              </div>
               <div class="popup--content--userInfo--action">
                 <div class="popup--content--userdesc">
                   <span>Mặc định</span>
@@ -214,7 +204,7 @@
                 </div>
                 <div class="popup--content--right">
                   <div class="popup--content--button">
-                    <button class="popup--content--submit" id="submit2">
+                    <button class="popup--content--submit custom__btn" id="submit2">
                       Giao đến đây
                     </button>
                   </div>
@@ -224,9 +214,8 @@
           </div>
         </div>
 
-        <div id="popUpPayment" class="popup">
+        <div id="popUpPayment" class="popup mt-5">
           <div class="popup-content">
-            <span class="fs-1 close" id="closeFormButtonPay">&times;</span>
             <div class="popup-content--desc">
               <div class="popup--content--userInfo--action">
                 <div class="popup--content--userdesc">

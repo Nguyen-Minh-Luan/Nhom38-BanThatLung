@@ -1,9 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap");
+
 @import "../styles/general.css";
-* {
-  font-family: "IBM Plex Sans Condensed", sans-serif;
-}
 
 .cart__container_pay {
   display: flex;
@@ -139,4 +135,15 @@
 .custom_border_width{
   border: 1px solid #0e0e0e2e;
   border-radius: 1rem;
+}
+.custom_hover{
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s ease;
+  border: 2px solid black;
+}
+.custom_hover:hover{
+  color: white;
+  background-color: black;
+  border: white;
 }
