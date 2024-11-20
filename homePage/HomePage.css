@@ -306,13 +306,92 @@ header {
 .collection__component .collection__container {
   width: 1150px;
 }
-
-.collection__component .box img {
+.box img {
   width: 100%;
   display: flex;
   margin-bottom: 10px;
 }
 
+.box{
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.box div{
+  position: absolute;
+  opacity: 0%;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  transition: opacity 0 ease-out;
+}
+.box:hover div{
+  opacity: 60%;
+  transition: all 0.9s;
+}
+.box:not(:hover) div{
+  opacity: 0%;
+  transition: all 0.9s;
+}
+.box span{
+  opacity: 0;
+  top: 13.5rem;
+  position: absolute ;
+  font-size: 40px;
+  font-weight: 300;
+  color: white;
+}
+
+.box:hover span{
+  opacity: 100;
+  transform: scale(1.2);
+  transition: all 0.9s;
+}
+.box:not(:hover) span{
+  transition: all 0.9s;
+}
+.longbox{
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+.longbox div{
+  position: absolute;
+  opacity: 0%;
+  height: 100%;
+  width: 100%;
+  transform: scale(1);
+  transition: all 0.9s;
+  background-color: black;
+}
+.longbox:hover div{
+  opacity: 60%;
+  transition: all 0.9s;
+}
+.longbox:not(:hover) div{
+  opacity: 0%;
+  transition: all 0.9s;
+}
+.longbox span{
+  opacity: 0;
+  top: 13.5rem;
+  position: absolute ;
+  font-size: 40px;
+  font-weight: 300;
+  color: white;
+}
+
+.longbox:hover span{
+  opacity: 100;
+  transform: scale(1.2);
+  transition: all 1s;
+}
+.longbox:not(:hover) span{
+  transition: all 0.9s;
+}
 .collection__component .longbox img {
   width: 100%;
 }
@@ -366,3 +445,4 @@ header {
   margin-left: auto;
   margin-right: auto;
 }
+/* ------------------------------------------------------------ */
