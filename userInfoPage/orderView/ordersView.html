@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../../assets/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.css">
     <link rel="stylesheet" href="../../header footer/header__footer.css">
     <script src="../../styles/general.js"></script>
-    <link rel="stylesheet" href="./email.css" />
+    <link rel="stylesheet" href="./ordersView.css" />
   </head>
   <body>
     <header>
@@ -132,6 +132,24 @@
           </div>
       </nav>
   </header>
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4>Bạn có chắc muốn hủy đơn hàng này</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-dark">Đồng ý</button>
+      </div>
+    </div>
+  </div>
+</div>
     <div class="container mt-3 mb-5">
       <div
       class="overflow-auto d-flex justify-content-between fs-3"
@@ -166,49 +184,151 @@
         >
       </div>
       <div class="d-inline-block p-3">
-        <a class="text-dark text-decoration-none custom_active" href=".email.html"
-        >Emails</a
+        <a class="text-dark text-decoration-none custom_active" href="../orderView/ordersView.html"
+        >Đơn hàng</a
         >
       </div>
       </div>
       <div class="container">
-      <div class="userInfo__content--middle">
-        <h2 class="mt-4 mb-4">Cài đặt email cho huynhminhthang246@gmail.com</h2>
-        <div class="userInfo--aboutyou">
-        <h2 class="Aboutyou">Thông báo của bạn</h2>
-        <h3>Email cho tôi khi</h3>
-        <div class="checkbox__option">
-          <input type="checkbox" /><label class="ms-1"
-          >Ai đó gửi cho tôi một tin nhắn</label
+      <div class="userInfo__content--middle mb-5">
+        <h2 class="mt-4 mb-4 fw-light">Các đơn hàng mà bạn đã đặt</h2>
+        <div class="border rounded p-3 container-sm">
+        <h2 class="fs-3 ms-1 fw-light">Order#1</h2>
+        <div class="container ps-sm-0 border rounded mb-3" id="item1">
+          <div class="row-sm">
+            <div class="col-sm col-md-6 col-lg-12">
+              <div class="row-sm d-lg-flex container-fluid pr-sm-0">
+                <div class="col-sm col-md-2 col-lg-2 ps-sm-0">
+                  <img
+                    class="w-50 img-fluid"
+                    src="../../assets/images/belt_cart_1.png"
+                    alt="black belt"
+                    height="200px"
+                  />
+                </div>
+                <div
+                  class="col-sm col-md-6 col-lg-10 border-dark ps-sm-0 pr-sm-0 mt-sm-4"
+                >
+                  <div
+                    class="d-flex justify-content-between custom_title_container"
+                  >
+                    <h4 class="fs-4 d-lg-none title">
+                      Thắt lưng da hai mặt màu đen với khóa xoay
+                    </h4>
+                    <h4 class="fs-5 d-none d-lg-block">
+                      Thắt lưng da hai mặt màu đen với khóa xoay
+                    </h4>
+                    <h4
+                      class="d-sm-none d-md-none d-lg-block fs-5 custom_price_container"
+                    >
+                      9,063,726₫
+                    </h4>
+                  </div>
+
+                  <div class="row mt-sm-2 custom_tag_container">
+                    <span
+                      class="col-sm-1 ms-sm-2 badge bg-light text-dark me-2 tag1"
+                      >Đen</span
+                    >
+                    <span class="col-sm-1 badge bg-light text-dark me-2 tag2"
+                      >Lón(L)</span
+                    >
+                  </div>
+                  <div class="col-sm col-md-6 col-lg-12 pr-sm-0">
+                    <div
+                      class="mt-sm-2 mt-lg-3 ms-sm-0 row w-100 custom_quantity_container"
+                    >
+                    </div>
+                    <div class="row w-100">
+                      <p
+                        class="ms-sm-2 mt-sm-4 mb-sm-4 ps-sm-1 fs-2 d-sm-block d-md-block d-lg-none"
+                      >
+                        9,063,726₫
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+            <div class="col-sm-4 col-md-6 col-lg-12"></div>
+          </div>
+        </div>
+        <div class="container ps-sm-0 border rounded" id="item2">
+          <div class="row-sm">
+            <div class="col-sm col-md-6 col-lg-12">
+              <div class="row-sm d-lg-flex container-fluid pr-sm-0">
+                <div class="col-sm col-md-2 col-lg-2 ps-sm-0">
+                  <img
+                    class="w-50 img-fluid"
+                    src="../../assets/images/belt_cart_1.png"
+                    alt="black belt"
+                    height="200px"
+                  />
+                </div>
+                <div
+                  class="col-sm col-md-6 col-lg-10 border-dark ps-sm-0 pr-sm-0 mt-sm-4"
+                >
+                  <div
+                    class="d-flex justify-content-between custom_title_container"
+                  >
+                    <h4 class="fs-4 d-lg-none title">
+                      Thắt lưng da hai mặt màu đen với khóa xoay
+                    </h4>
+                    <h4 class="fs-5 d-none d-lg-block">
+                      Thắt lưng da hai mặt màu đen với khóa xoay
+                    </h4>
+                    <h4
+                      class="d-sm-none d-md-none d-lg-block fs-5 custom_price_container"
+                    >
+                      9,063,726₫
+                    </h4>
+                  </div>
+
+                  <div class="row mt-sm-2 custom_tag_container">
+                    <span
+                      class="col-sm-1 ms-sm-2 badge bg-light text-dark me-2 tag1"
+                      >Đen</span
+                    >
+                    <span class="col-sm-1 badge bg-light text-dark me-2 tag2"
+                      >Lón(L)</span
+                    >
+                  </div>
+                  <div class="col-sm col-md-6 col-lg-12 pr-sm-0">
+                    <div
+                      class="mt-sm-2 mt-lg-3 ms-sm-0 row w-100 custom_quantity_container"
+                    >
+                    </div>
+                    <div class="row w-100">
+                      <p
+                        class="ms-sm-2 mt-sm-4 mb-sm-4 ps-sm-1 fs-2 d-sm-block d-md-block d-lg-none"
+                      >
+                        9,063,726₫
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+            <div class="col-sm-4 col-md-6 col-lg-12"></div>
+          </div>
+        </div>
+        <div
+        class="py-2 w-100 d-flex justify-content-between mt-3"
+      >
+        <p
+          class="ms-2 mt-3 font-weight-bold fs-5"
+        >
+          <strong
+            >Vận chuyển: 424.132đ (Nhận hàng từ 5 - 25 tháng
+            11)</strong
           >
-        </div>
-        <div class="checkbox__option">
-          <input type="checkbox" /><label class="ms-1"
-          >Tôi gửi một tin nhắn</label
-          >
-        </div>
-        </div>
-        <div class="userInfo--aboutyou userInfo--aboutyou--location">
-        <div class="userInfo__location--desc">
-          <h2>Đăng ký nhận</h2>
-          <h4>Chung</h4>
-        </div>
-        <div class="checkbox__option">
-          <input type="checkbox" /><label class="ms-1">
-          Mới và đáng chú ý
-          </label>
-        </div>
-        <div class="checkbox__option">
-          <input type="checkbox" /><label class="ms-1"> Phản hồi </label>
-        </div>
-        <div class="checkbox__option">
-          <input type="checkbox" /><label class="ms-1">
-          Phiếu giảm giá và khuyến mãi
-          </label>
-        </div>
-        </div>
-        <div class="btn btn-black">
-        <button>Lưu cài đặt</button>
+        </p>
+        <button class="btn btn-dark fs-6" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Gửi yêu cầu hủy đơn hàng
+        </button>
+      </div>
         </div>
       </div>
       </div>
