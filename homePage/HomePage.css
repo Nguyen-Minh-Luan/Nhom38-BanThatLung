@@ -226,22 +226,41 @@ header {
 }
 
 /* ---------------------------------------------------------------- */
+#section_slider{
+  width: 1400px;
+  margin-inline: auto;
+}
 #carouselExampleIndicators {
   margin-top: 10%;
+  width: 100%;
 }
-
+#carouselExampleIndicators img{
+  width: 100%;
+}
 .carouselExample {
-  width: 1300px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 5rem;
+}
+.carouselExample::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: -5%;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(211, 211, 211);
 }
 
+/* 
 .line {
   background-color: rgb(183, 183, 183);
   height: 1px;
-  width: 1300px;
+  width: 1400px;
   margin-top: 2%;
   margin-left: auto;
   margin-right: auto;
-}
+} */
 
 /* ------------------------------------------------------------------- */
 .button__More {
@@ -265,12 +284,13 @@ header {
 }
 /* ---------------------------------------------- */
 #section_newarrival {
-  width: 1200px;
+  width: 1400px;
   margin: 0 auto; /* Căn giữa section */
 }
 #section_newarrival .cardWrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -303,7 +323,7 @@ header {
 
 .event__banner img {
   height: 160px;
-  width: 1300px;
+  width: 1400px;
   display: flex;
   margin-top: 1%;
   margin-left: auto;
@@ -323,7 +343,8 @@ header {
 }
 
 .collection__component .collection__container {
-  width: 1300px;
+  width: 1400px;
+  margin-inline:auto;
 }
 .box img {
   width: 100%;
@@ -414,9 +435,10 @@ header {
 .collection__component .longbox img {
   width: 100%;
 }
-/* .mostPopular__component{
-  width: 1300px;
-} */
+.mostPopular__component{
+  width: 1400px;
+  margin-inline: auto;
+}
 .mostPopular__title {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -426,7 +448,13 @@ header {
 }
 
 #carouselExampleControls3 {
-  width: 1300px;
+  width: 1400px;
+}
+#carouselExampleControls3 .cardWrapper{
+  margin-inline: auto;
+}
+#carouselExampleControls3 .card{
+  width: 21rem;
 }
 
 #carouselExampleControls3 a {
@@ -436,7 +464,8 @@ header {
 /* ------------------------------------------------------------------ */
 .spotlight__component {
   margin-top: 2%;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(0, 0, 0);
+  color: rgb(240, 240, 240);
 }
 
 .spotlight__title1 {
@@ -452,16 +481,19 @@ header {
   letter-spacing: 1px;
   text-align: center;
 }
-
+.spotlight__row {
+  width: 1400px;
+}
 .spotlight__component .box {
-  height: 310px;
+  height: 100%;
+  width: 100%;
   background-color: rgb(208, 208, 208);
   margin-bottom: 2rem;
 }
 
 .event__banner2 img {
   height: 160px;
-  width: 1300px;
+  width: 1400px;
   display: flex;
   margin-top: 1%;
   margin-left: auto;

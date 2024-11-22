@@ -118,10 +118,10 @@
 
 .product__title {
   margin-left: 3%;
+  font-size: 20px;
 }
 
 .product .title {
-  font-size: 18px;
   font-weight: 300;
 }
 
