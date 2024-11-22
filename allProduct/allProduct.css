@@ -12,158 +12,6 @@
 * {
   font-family: "IBM Plex Sans Condensed", sans-serif;
 }
-
-#logo {
-  color: black;
-  margin-left: 5rem;
-  font-size: 37px;
-  font-family: Instrument Serif;
-  letter-spacing: 13px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
-}
-.filter__header__title {
-  color: black;
-  font-size: 35px;
-  font-family: Instrument Serif;
-  letter-spacing: 13px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
-}
-#navbar {}
-
-.navitem__group a {
-  font-size: 17px;
-  letter-spacing: 1px;
-  color: black;
-}
-
-.navitem__group {
-  gap: 40px;
-}
-
-#search__icon {
-  cursor: pointer;
-}
-
-.nav-icon {
-  margin-top: 6px;
-  width: 30px;
-  height: 30px;
-}
-
-.header__icon__group {
-  display: flex;
-  gap: 20px;
-}
-
-.dropdown-menu {
-  display: none;
-}
-
-.dropdown-menu:hover {
-  display: block;
-}
-
-#search__icon {
-  cursor: pointer;
-}
-
-.nav-icon {
-  margin-top: 6px;
-  width: 30px;
-  height: 30px;
-}
-
-.navbar_nav {}
-
-.header__icon__group {
-  display: flex;
-  gap: 20px;
-}
-
-.favorite {
-  position: relative;
-  text-decoration: none;
-}
-
-.favorite__count {
-  position: absolute;
-  top: -1px;
-  right: -6px;
-  font-size: 12px;
-  display: inline-block;
-  color: white;
-  background: black;
-  border-radius: 50%;
-  width: 18px;
-  text-align: center;
-}
-
-.cart {
-  position: relative;
-  text-decoration: none;
-}
-
-.cart__count {
-  position: absolute;
-  top: -1px;
-  right: -6px;
-  font-size: 12px;
-  display: inline-block;
-  color: white;
-  background: black;
-  border-radius: 50%;
-  width: 18px;
-  text-align: center;
-  text-decoration: none;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  height: 100%;
-  width: 20%;
-  background: white;
-  transition: left 0.5s ease;
-  z-index: 1000;
-}
-
-.overlay.active {
-  left: 0;
-}
-
-.overlay2 {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  height: 100%;
-  width: 45%;
-  background: white;
-  transition: right 0.5s ease;
-  z-index: 1000;
-}
-
-.overlay2.active {
-  right: 0;
-}
-
-.dimmer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
-}
-
-.dimmer.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
 /* ------------------------------------------- */
 .allProduct__banner {
 
@@ -185,7 +33,7 @@
 
 /* ---------------------------------------------- */
 .function__bar {
-  font-size: 18px;
+  font-size: 22px;
 
 }
 
@@ -193,8 +41,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: rgb(158, 158, 158) 1px solid;
-  border-right: rgb(158, 158, 158) 1px solid;
+  border-bottom: rgb(214, 214, 214) 2px solid;
+  border-right: rgb(214, 214, 214) 2px solid;
 }
 .filter__title{
   cursor: pointer;
@@ -205,15 +53,15 @@
   display: flex;
   justify-content: center;
   margin-top: 0.5%;
-  border-bottom: rgb(158, 158, 158) 1px solid;
+  border-bottom: rgb(214, 214, 214) 2px solid;
 }
 
 .function__bar .sort__column {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: rgb(158, 158, 158) 1px solid;
-  border-left: rgb(158, 158, 158) 1px solid;
+  border-bottom: rgb(214, 214, 214) 2px solid;
+  border-left: rgb(214, 214, 214) 2px solid;
 }
 
 .function__bar .sort__column li {
@@ -226,18 +74,16 @@
   color: black;
 }
 
-/* Thiết lập Flexbox cho dòng sản phẩm */
 #list__product__row {
   display: flex;
   flex-wrap: wrap;
-  /* Cho phép các phần tử gói lại khi không đủ không gian */
+
 }
 
-/* Định dạng cho từng thẻ product */
 .list__product {
   cursor: pointer;
   margin-top: 2%;
-  width: 1300px;
+  width: 1600px;
 }
 
 #list__product__row {
@@ -246,13 +92,14 @@
 .list__product .product {
   opacity: 1;
   z-index: 1;
-  box-shadow: 0px 1px 3px 0px #0000004d, 0px 4px 8px 3px #00000026;
+  
   background: #fff;
   border: 1px dotted #0000;
   border-radius: 9px;
   transition: 0.2s cubic-bezier(0.345, 0.115, 0.135, 1.42), opacity 0.15s ease-out, border-color 0.2s ease-out;
 }
 .list__product .product:hover {
+  
   transform: scale(1.05);
 }
 
@@ -322,3 +169,6 @@
   background-color: #007bff;
 }
 /* ------------------------------------------------- */
+.product__title{
+  margin-top: 12px;
+}

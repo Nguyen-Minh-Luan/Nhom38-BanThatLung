@@ -24,4 +24,3 @@ $(document).ready(function () {
     $(".custom_show").addClass("toast ");
   })
 });
-
