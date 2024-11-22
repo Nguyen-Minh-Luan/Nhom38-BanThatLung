@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ</title>
+    <link rel="shortcut icon" href="../assets/icons/icon.svg" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -126,8 +127,8 @@
                     <img class="nav-icon" src="../assets/icons/favorite.svg" alt="" />
                     <span class="favorite__count">0</span>
                 </a>
-                <a class="nav-item user" href="#"><img id="user__icon" class="nav-icon"
-                        src="../assets/icons/user.svg" alt="" style="width: 35px; height: 35px" /></a>
+                <a class="nav-item user" href="#"><img id="user__icon" class="nav-icon" src="../assets/icons/user.svg"
+                        alt="" style="width: 35px; height: 35px" /></a>
                 <a class="nav-item cart" href="#">
                     <img class="nav-icon " src="../assets/icons/cart.svg" alt="" style="width: 26px; height: 26px" />
                     <span class="nav-item favorite__count">0</span>
@@ -135,6 +136,25 @@
             </div>
         </nav>
     </header>
+
+    <div class="position-fixed bottom-0 start-0 p-3 mb-3 ms-3 border custom_show"
+        style="z-index: 11;background-color: white;border-radius: 10px;">
+        <div id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto fs-2">THOMAS</strong>
+            </div>
+            <div class="toast-body fs-6">
+                <p>Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn.</p>
+                <p>Bằng cách tiếp tục sử dụng trang web, bạn chấp nhận với chính sách cookie của chúng tôi.</p>
+                <button class="btn btn-dark custom_toggle">
+                    Chấp Nhận
+                </button>
+                <button class="btn btn-white ms-3 border custom_toggle">
+                    Từ chối
+                </button>
+            </div>
+        </div>
+    </div>
     <section id="section_slider">
         <div class="container carouselExample">
             <div id="carouselExampleIndicators" class="carousel slide">
@@ -150,15 +170,16 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
+                        <img src="../assets/images/that_lung-100_321cbfad83c04d639e3aaa50ed4b75f5.jpg"
+                            class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
                         <img src="../assets/images/emo.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                         <img src="../assets/images/victor.jpg" class="d-block w-100" alt="...">
                     </div>
-                    <div class="carousel-item">
-                        <img src="../assets/images/that_lung-100_321cbfad83c04d639e3aaa50ed4b75f5.jpg"
-                            class="d-block w-100" alt="...">
-                    </div>
+
                     <div class="carousel-item">
                         <img src="../assets/images/./seeetz-eNEa7Gsfzzs-unsplash.jpg" class="d-block w-100" alt="...">
                     </div>
@@ -179,14 +200,16 @@
     </section>
     <div class="line"></div>
     <section id="section_newarrival" style="margin-top: 2em;">
-        <div class="container-fluid" style="width: 1100px;">
+        <div class="container-fluid newarrival__container">
             <div class="row">
                 <div class="col-2">
                     <div class="left__content" style="margin-top: 30%;">
-                        <div class="title__NewArrival" style=" font-size: 30px; letter-spacing: 1px;"><span>Sản Phẩm
+                        <div class="title__NewArrival" style=" font-size: 34px; letter-spacing: 1px;"><span>Sản Phẩm
                                 Mới</span></div>
                         <p>Chọn lựa những thiết kế hợp xu hướng nhất</p>
-                        <a class="button__More"><span>XEM THÊM</span></a>
+                        <a class="button__More">
+                            <span>XEM THÊM</span>
+                        </a>
                     </div>
                 </div>
                 <div class="col-10 ">
@@ -195,7 +218,7 @@
                             <div class="carousel-item active">
                                 <div class="card-wrapper cardWrapper">
                                     <a href="#">
-                                        <div class="card" style="width: 13rem;">
+                                        <div class="card" style="width: 13.8rem;">
                                             <img src="../assets/images/product/ava-day-lung-da-ca-sau-DTA1400-07B-T-CF-2.jpg"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -205,7 +228,7 @@
                                         </div>
                                     </a>
                                     <a href="#">
-                                        <div class="card" style="width: 13rem;">
+                                        <div class="card" style="width: 13.8rem;">
                                             <img src="../assets/images/product/ava-day-lung-nam-D390-202001-1.jpg"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -215,7 +238,7 @@
                                         </div>
                                     </a>
                                     <a href="#">
-                                        <div class="card" style="width: 13rem;">
+                                        <div class="card" style="width: 13.8rem;">
                                             <img src="../assets/images/product/ava-mau-that-lung-nam-D390-202012-1.jpg"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -225,7 +248,7 @@
                                         </div>
                                     </a>
                                     <a href="#">
-                                        <div class="card" style="width: 13rem;">
+                                        <div class="card" style="width: 13.8rem;">
                                             <img src="../assets/images/product/ava-mau-that-lung-nam-D390-202012-1.jpg"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -239,7 +262,7 @@
                             <div class="carousel-item">
                                 <div class="card-wrapper cardWrapper">
                                     <a href="#">
-                                        <div class="card" style="width: 13rem;">
+                                        <div class="card" style="width: 13.8rem;">
                                             <img src="../assets/images/product/ava-day-lung-da-ca-sau-DTA1400-07B-T-CF-2.jpg"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -249,7 +272,7 @@
                                         </div>
                                     </a>
                                     <a href="#">
-                                        <div class="card" style="width: 13rem;">
+                                        <div class="card" style="width: 13.8rem;">
                                             <img src="../assets/images/product/ava-day-lung-nam-D390-202001-1.jpg"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -259,7 +282,7 @@
                                         </div>
                                     </a>
                                     <a href="#">
-                                        <div class="card" style="width: 13rem;">
+                                        <div class="card" style="width: 13.8rem;">
                                             <img src="../assets/images/product/ava-mau-that-lung-nam-D390-202012-1.jpg"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -269,7 +292,7 @@
                                         </div>
                                     </a>
                                     <a href="#">
-                                        <div class="card" style="width: 13rem;">
+                                        <div class="card" style="width: 13.8rem;">
                                             <img src="../assets/images/product/ava-mau-that-lung-nam-D390-202012-1.jpg"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -283,7 +306,7 @@
                             <div class="carousel-item">
                                 <div class="card-wrapper cardWrapper">
                                     <a href="#">
-                                        <div class="card" style="width: 13rem;">
+                                        <div class="card" style="width: 13.8rem;">
                                             <img src="../assets/images/product/ava-day-lung-da-ca-sau-DTA1400-07B-T-CF-2.jpg"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -293,7 +316,7 @@
                                         </div>
                                     </a>
                                     <a href="#">
-                                        <div class="card" style="width: 13rem;">
+                                        <div class="card" style="width: 13.8rem;">
                                             <img src="../assets/images/product/ava-day-lung-nam-D390-202001-1.jpg"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -303,7 +326,7 @@
                                         </div>
                                     </a>
                                     <a href="#">
-                                        <div class="card" style="width: 13rem;">
+                                        <div class="card" style="width: 13.8rem;">
                                             <img src="../assets/images/product/ava-mau-that-lung-nam-D390-202012-1.jpg"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -313,7 +336,7 @@
                                         </div>
                                     </a>
                                     <a href="#">
-                                        <div class="card" style="width: 13rem;">
+                                        <div class="card" style="width: 13.8rem;">
                                             <img src="../assets/images/product/ava-mau-that-lung-nam-D390-202012-1.jpg"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -337,6 +360,8 @@
                         </button>
                     </div>
                 </div>
+            </div>
+        </div>
     </section>
     <div class="event__banner  align-items-center ">
         <a href="#">
@@ -349,13 +374,25 @@
                 <p class="collection__title">Bộ Sưu Tập</p>
                 <div class="row collection__row">
                     <div class="col column__1">
-                        <div class="box"><img src="../assets/images/women1.jpg" alt=""></div>
+                        <div class="box emo">
+                            <div> </div>
+                            <span>EMO</span>
+                            <img src="../assets/images/women1.jpg" alt="">
+                        </div>
                     </div>
                     <div class="col column__2">
-                        <div class="box"><img src="../assets/images/women2.jpg" alt=""></div>
+                        <div class="box victor">
+                            <div> </div>
+                            <span>VICTOR</span>
+                            <img src="../assets/images/women2.jpg" alt="">
+                        </div>
                     </div>
                     <div class="col-12 column__3">
-                        <div class="longbox"><img src="../assets/images/men1.jpg" alt=""></div>
+                        <div class="longbox quietman">
+                            <div> </div>
+                            <span>THE QUIET MAN</span>
+                            <img src="../assets/images/men1.jpg" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -538,10 +575,10 @@
         </div>
     </a>
     <section>
-        <footer class="border-top border-dark mt-sm-4">
+        <footer class="border-top border-dark">
             <div class="container">
-                <div class="row d-flex footer mt-sm-4">
-                    <div class="col-sm footer--section d-flex flex-column justify-content-center">
+                <div class="row footer mt-4">
+                    <div class="col-sm-3 d-flex flex-column align-items-start text-start">
                         <h3>About Us</h3>
                         <p>How we work</p>
                         <p>Investors</p>
@@ -550,14 +587,14 @@
                         <p>Impact</p>
                         <p>Legal imprint</p>
                     </div>
-                    <div class="col-sm footer--section d-flex flex-column justify-content-top">
+                    <div class="col-sm-3 d-flex flex-column align-items-start text-start">
                         <h3>Support</h3>
                         <p>Become an Investor</p>
                         <p>Your opinion</p>
                         <p>Donate</p>
                         <p>Survey</p>
                     </div>
-                    <div class="col-sm footer--section d-flex flex-column justify-content-center">
+                    <div class="col-sm-3 d-flex flex-column align-items-start text-start">
                         <h3>Terms and Conditions</h3>
                         <p>Privacy Terms</p>
                         <p>Terms of Use</p>
@@ -565,14 +602,14 @@
                         <p>Shipping Policy</p>
                         <p>Community Standards</p>
                     </div>
-                    <div class="col-sm footer--section d-flex flex-column justify-content-center">
+                    <div class="col-sm-3 d-flex flex-column align-items-start text-start">
                         <h3>Contact Us</h3>
                         <p>thomas@contact.tm.com</p>
-                        <div class="social-icons">
-                            <span class="icon">
+                        <div class="d-flex social-icons">
+                            <span class="icon me-2">
                                 <img src="../assets/icons/Facebook.svg" alt="Facebook" />
                             </span>
-                            <span class="icon">
+                            <span class="icon me-2">
                                 <img src="../assets/icons/Instagram.svg" alt="Instagram" />
                             </span>
                             <span class="icon">
@@ -582,8 +619,21 @@
                     </div>
                 </div>
             </div>
+            <hr />
+            <div class="container pb-5">
+                <div class="text-start">
+                    <p>Công ty TNHH Thomas</p>
+                    <p>
+                        Văn phòng: Lầu 4, tòa nhà XXX, số 66 XXXX, phường 05, quận 9, TP Hồ Chí Minh.
+                    </p>
+                    <p>
+                        GP số 09009231123 do sở KHĐT Tp Hồ Chí Minh cấp lần đầu ngày 9/19/2099.
+                    </p>
+                </div>
+            </div>
         </footer>
     </section>
+
     <!-- Bootstrap CSS and JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>

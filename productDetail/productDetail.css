@@ -50,6 +50,49 @@
   width: 24%;
   cursor: pointer;
 }
+/* ----------------------------------------------------------------------- */
+
+.size-options h5 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.size-options span {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    background-color: white;
+    border: 1px solid rgb(223, 223, 223);
+    margin: 0 1.2rem 0 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.size-options span:hover {
+    border: 1px solid #000;
+}
+
+.choose_size{
+    display: flex;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+/* -------------------------------------------------------------------- */
+.buyNow__button{
+  font-size: 19px;
+  font-weight: 300;
+  height: 3rem;
+  width: 20rem;
+}
+.addToCart__button{
+  font-size: 19px;
+  font-weight: 300;
+  color: #333;
+  height: 3rem;
+  width: 20rem;
+}
 
 
 
