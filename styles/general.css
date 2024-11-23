@@ -228,7 +228,9 @@ header {
   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #303135;
 }
 .custom_design {
-  border: 2.5px solid black;
+  border: 1.5px solid rgb(134, 134, 134);
+  border-radius: 7px;
+  box-shadow: 0px 1px 4px 0px inset rgba(14, 14, 14, 0.0901960784);
 }
 footer {
   background-color: #f4f4f4;
@@ -316,7 +318,7 @@ footer {
   border-color: white;
   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #303135;
 }
-.custom__btn {
+.custom__btn:hover {
   box-shadow: 0 4px 13px rgba(41, 40, 40, 0.344);
 }
 .custom__btn:hover {

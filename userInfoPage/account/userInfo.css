@@ -7,7 +7,29 @@
   .custom-lg-container {
     max-width: 900px;
   }
+  .container-lg {
+    max-width: 956px;
+    padding:12px;
+  }
   .custom-lg-input{
     width:45%;
   }
+}
+.custom_rounded{
+  border-radius: 10px;
+}
+.custom_size--19{
+  font-size: 19px;
+}
+.d-inline-block{
+  width: 133.84px;
+  height: 50.61px;
+  text-align: center;
+}
+.custom_size--16{
+  font-size: 16px;
+  margin-left: 0px;
+}
+.custom_size-13{
+  font-size: 13px;
 }

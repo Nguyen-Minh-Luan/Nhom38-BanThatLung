@@ -6,6 +6,18 @@
 footer{
   height: 100vh;;
 }
+@media (min-width: 992px) {
+  .custom-lg-container {
+    max-width: 900px;
+  }
+  .container-lg {
+    max-width: 956px;
+    padding:12px;
+  }
+  .custom-lg-input{
+    width:45%;
+  }
+}
 .container__userInfo--center {
   width: 944px;
   margin-left: auto;
@@ -394,4 +406,19 @@ footer{
 .custom_hover:hover {
   background-color: #e2e2e2;
   border-radius: 20px;
+}
+.custom_size--19{
+  font-size: 19px;
+}
+.d-inline-block{
+  width: 133.84px;
+  height: 50.61px;
+  text-align: center;
+}
+.custom_size--16{
+  font-size: 16px;
+  margin-left: 0px;
+}
+.custom_size-13{
+  font-size: 13px;
 }
