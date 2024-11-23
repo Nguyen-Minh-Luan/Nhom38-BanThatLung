@@ -37,3 +37,15 @@ tr:nth-child(even) {
 .custom_active{
   border-bottom: 2px solid black;
 }
+.btn-dark {
+  background-color: #000;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-dark:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+
