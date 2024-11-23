@@ -327,3 +327,21 @@ footer {
 .custom__btn:active {
   opacity: 0.7;
 }
+.custom_rounded{
+  border-radius: 10px;
+}
+.custom_size--19{
+  font-size: 19px;
+}
+.d-inline-block{
+  width: 133.84px;
+  height: 50.61px;
+  text-align: center;
+}
+.custom_size--16{
+  font-size: 16px;
+  margin-left: 0px;
+}
+.custom_size--13{
+  font-size: 13px;
+}

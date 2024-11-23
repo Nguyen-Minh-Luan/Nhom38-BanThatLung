@@ -5,9 +5,18 @@
 * {
   font-family: "IBM Plex Sans Condensed", sans-serif;
 }
-
 @media (min-width: 992px) {
   .custom-lg-container {
-    max-width: 400px;
+    max-width: 900px;
   }
+  .container-lg {
+    max-width: 1400px;
+    padding:12px;
+  }
+  .custom-lg-input{
+    width:45%;
+  }
+}
+.custom_bg--gray{
+  background-color: rgb(249, 249, 249);
 }
