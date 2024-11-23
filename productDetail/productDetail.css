@@ -313,3 +313,6 @@
   background-color: transparent;
   border: none;
 }
+.custom_trans:hover{
+  background-color: white;
+}
