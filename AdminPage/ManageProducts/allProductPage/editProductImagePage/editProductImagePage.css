@@ -37,3 +37,23 @@ tr:nth-child(even) {
 .custom_active{
   border-bottom: 2px solid black;
 }
+/* Button Hover Effect */
+.btn-dark {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-dark:hover {
+  background-color: #333333; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly increases size on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow on hover */
+}
+
+/* Slider Menu Hover Effect */
+.overflow-auto a {
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.overflow-auto a:hover {
+  color: #007bff; /* Change text color on hover */
+  border-bottom-color: #007bff; /* Change border color on hover */
+}
