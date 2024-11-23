@@ -163,9 +163,71 @@
 .card:hover {
   box-shadow: 0px 1px 5px 0px #0000004d, 0px 5px 20px 6px #00000026;
 }
-.custom_red{
+.custom_red {
   background-color: #ffdde6;
   border-radius: 7px;
   padding: 12px;
   width: 50%;
+}
+.custom_edit {
+  background-color: transparent;
+  border: white;
+  width: 50%;
+  font-weight: 700;
+  padding: 0px;
+  text-align: center;
+  font-size: 13px;
+  border-radius: 10px;
+  padding: 6px;
+}
+
+.custom_quantity_container {
+  display: flex;
+  justify-content: space-between;
+  width: 39%;
+}
+.custom_delete {
+  background-color: transparent;
+  border: 0px;
+  width: 50%;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 6px;
+  border-radius: 10px;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.custom_design {
+  border: 2.5px solid #0e0e0e2e;
+}
+.number-select {
+  border-radius: 7px;
+}
+.custom_container{
+  margin-left: 248.500px;
+  margin-right: 248.500px;
+}
+.custom_size{
+  font-size: 16px;
+}
+.custom_margin{
+  margin-left: 165px;
+}
+table {
+  width: 75%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+th, td {
+  padding: 12px;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: right;
+}
+th {
+  text-align: left;
+}
+.total-row {
+  font-weight: bold;
 }

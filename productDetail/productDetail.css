@@ -213,24 +213,27 @@
   margin-bottom: 0px;
 }
 .carousel-control-prev-icon {
-  background-color: rgb(255, 255, 255); /* Background circle */
-  border-radius: 50%; /* Circular shape */
-  width: 50px; /* Circle size */
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%; 
+  width: 50px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 29" fill="none"><path d="M7.0125 16.125L17.2792 26.1583L14.6667 28.6667L0 14.3333L14.6667 0L17.2792 2.50833L7.0125 12.5417H29.3333V16.125H7.0125Z" fill="black"/></svg>');
-  background-size: 60%; /* Scale the arrow */
+
+  background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="%23000000"><path d="M640-80 240-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>');
+
+
+  background-size: 60%; 
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0px 1px 5px 0px #0000004d, 0px 5px 20px 6px #00000026;
 }
 .carousel-control-next-icon {
-  background-color: rgb(255, 255, 255); /* Background circle */
-  border-radius: 50%; /* Circular shape */
-  width: 50px; /* Circle size */
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%; 
+  width: 50px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -238,15 +241,15 @@
 
   background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="%23000000"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>');
 
-  background-size: 60%; /* Scale the arrow */
+  background-size: 60%; 
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0px 1px 5px 0px #0000004d, 0px 5px 20px 6px #00000026;
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: #000000; /* Background color when active */
-  color: #ffffff; /* Text color when active */
+  background-color: #000000;
+  color: #ffffff;
   box-shadow: 0px 1px 5px 0px #0000004d, 0px 5px 20px 6px #00000026;
 }
 .accordion{
