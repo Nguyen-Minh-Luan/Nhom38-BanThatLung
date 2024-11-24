@@ -23,11 +23,10 @@ li {
 .breadcrumb {
   margin-top: 5.38rem;
   margin-bottom: 0;
-  background-color: #f9f9f9;
+  background-color: #efefef;
   height: 2.3rem;
   align-items: center;
   font-size: 17px;
-  
 }
 
 .breadcrumb-item a {
@@ -79,6 +78,7 @@ li {
   cursor: pointer;
   border: none;
   background-color: white;
+  margin-left: 5px;
 }
 
 #filter__button {
@@ -110,6 +110,9 @@ li {
   border-left: rgb(214, 214, 214) 1px solid;
   align-content: center;
 
+}
+.sort__column img{
+  margin-right: 5px;
 }
 
 .function__bar .sort__container {

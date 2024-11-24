@@ -9,7 +9,8 @@
   --font-size-standard: 20px;
   --width-big: 929px;
 }
-a{
+
+a {
   text-decoration: none;
 }
 
@@ -17,231 +18,27 @@ a{
   font-family: "IBM Plex Sans Condensed", sans-serif;
 }
 
-header {
-  position: fixed;
-  z-index: 100;
-  width: 100vw;
-  top: 0;
-}
-
-#logo {
-  color: black;
-  margin-left: 5rem;
-  font-size: 37px;
-  font-family: Instrument Serif;
-  letter-spacing: 13px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
-}
-
-.navitem__group a {
-  font-size: 17px;
-  letter-spacing: 1px;
-  color: black;
-}
-
-.navitem__group {
-  gap: 40px;
-  width: 48%;
-}
-
-/* ------------------------------------------- */
-.search-container {
-  position: relative;
-  width: 40px;
-  /* Ban đầu chỉ hiện nút, khi mở sẽ mở rộng */
-  transition: width 0.3s;
-  overflow: hidden;
-  display: flex;
-}
-
-
-.search-input {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  display: none;
-  /* Ẩn khi chưa kích hoạt */
-}
-
-.search-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-}
-.search-btn:hover{
-  transform: scale(1.3);
-  transition: all 0.3s;
-}
-
-/* Khi mở rộng, hiển thị thanh tìm kiếm */
-.search-container.active {
-  width: 200px;
-}
-
-.search-container.active .search-input {
-  display: inline-block;
-}
-
-
-/* ------------------------------------------- */
-.nav-icon {
-  margin-top: 6px;
-  width: 30px;
-  height: 30px;
-}
-
-.header__icon__group {
-  display: flex;
-  gap: 20px;
-
-}
-
-.header__icon__group .favorite:hover {
-  transform: scale(1.2);
-  transition: all 0.3s;
-}
-.header__icon__group .user {
-  margin-top: -1%;
-}
-.header__icon__group .user:hover {
-  transform: scale(1.2);
-  transition: all 0.3s;
-}
-.header__icon__group .cart:hover {
-  transform: scale(1.2);
-  transition: all 0.3s;
-}
-
-/* -------------------------------------------------- */
-.dropdown-menu {
-  display: none;
-}
-
-.dropdown-menu:hover {
-  display: block;
-}
-
-#search__icon {
-  cursor: pointer;
-}
-
-.nav-icon {
-  margin-top: 6px;
-  width: 30px;
-  height: 30px;
-}
-
-.navbar_nav {}
-
-.header__icon__group {
-  display: flex;
-  gap: 20px;
-}
-
-.favorite {
-  position: relative;
-  text-decoration: none;
-}
-
-.favorite__count {
-  position: absolute;
-  top: -1px;
-  right: -6px;
-  font-size: 12px;
-  display: inline-block;
-  color: white;
-  background: black;
-  border-radius: 50%;
-  width: 18px;
-  text-align: center;
-}
-
-.cart {
-  position: relative;
-  text-decoration: none;
-}
-
-.cart__count {
-  position: absolute;
-  top: -1px;
-  right: -6px;
-  font-size: 12px;
-  display: inline-block;
-  color: white;
-  background: black;
-  border-radius: 50%;
-  width: 18px;
-  text-align: center;
-  text-decoration: none;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  height: 100%;
-  width: 20%;
-  background: white;
-  transition: left 0.5s ease;
-  z-index: 1000;
-}
-
-.overlay.active {
-  left: 0;
-}
-
-.overlay2 {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  height: 100%;
-  width: 45%;
-  background: white;
-  transition: right 0.5s ease;
-  z-index: 1000;
-}
-
-.overlay2.active {
-  right: 0;
-}
-
-.dimmer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
-}
-
-.dimmer.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
 /* ---------------------------------------------------------------- */
-#section_slider{
+#section_slider {
   width: 1400px;
   margin-inline: auto;
 }
+
 #carouselExampleIndicators {
   margin-top: 10%;
   width: 100%;
 }
-#carouselExampleIndicators img{
+
+#carouselExampleIndicators img {
   width: 100%;
 }
+
 .carouselExample {
   width: 100%;
   position: relative;
   margin-bottom: 5rem;
 }
+
 .carouselExample::after {
   position: absolute;
   content: '';
@@ -268,31 +65,39 @@ header {
   letter-spacing: -1px;
   display: inline-block;
   text-align: center;
-  font-size: 23px;
+  font-size: 20px;
   font-weight: 300;
   cursor: pointer;
   text-decoration: none;
   color: black;
   border: 1px black solid;
   line-height: 2.0;
-  width: 9rem;
-  transition: 0.6s all , color 0.6s ease;
+  width: 18rem;
+  transition: 0.6s all, color 0.6s ease;
 }
+
 .button__More:hover {
-  background-color: #333; /* Nền đen khi hover */
-  color: #fff; /* Chữ trắng khi hover */
+  background-color: #333;
+  /* Nền đen khi hover */
+  color: #fff;
+  /* Chữ trắng khi hover */
 }
+
 /* ---------------------------------------------- */
 #section_newarrival {
   width: 1400px;
-  margin: 0 auto; /* Căn giữa section */
+  margin: 0 auto;
+  /* Căn giữa section */
 }
+
 #section_newarrival .cardWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
+
+#carouselExampleControls2 {}
 
 /* #carouselExampleControls2 .carouselInner {
   display: flex;
@@ -344,21 +149,23 @@ header {
 
 .collection__component .collection__container {
   width: 1400px;
-  margin-inline:auto;
+  margin-inline: auto;
 }
+
 .box img {
   width: 100%;
   display: flex;
   margin-bottom: 10px;
 }
 
-.box{
+.box {
   cursor: pointer;
   position: relative;
   display: flex;
   justify-content: center;
 }
-.box div{
+
+.box div {
   position: absolute;
   opacity: 0%;
   height: 98.5%;
@@ -366,39 +173,45 @@ header {
   background-color: black;
   transition: opacity 0 ease-out;
 }
-.box:hover div{
+
+.box:hover div {
   opacity: 60%;
   transition: all 0.9s;
 }
-.box:not(:hover) div{
+
+.box:not(:hover) div {
   opacity: 0%;
   transition: all 0.9s;
 }
-.box span{
+
+.box span {
   opacity: 0;
   top: 13.5rem;
-  position: absolute ;
+  position: absolute;
   font-size: 40px;
   font-weight: 300;
   color: white;
 }
 
-.box:hover span{
+.box:hover span {
   opacity: 100;
   transform: scale(1.2);
   transition: all 0.9s;
 }
-.box:not(:hover) span{
+
+.box:not(:hover) span {
   transition: all 0.9s;
 }
-.longbox{
+
+.longbox {
   cursor: pointer;
   position: relative;
   display: flex;
   justify-content: center;
   background-color: black;
 }
-.longbox div{
+
+.longbox div {
   position: absolute;
   opacity: 0%;
   height: 100%;
@@ -407,38 +220,45 @@ header {
   transition: all 0.9s;
   background-color: black;
 }
-.longbox:hover div{
+
+.longbox:hover div {
   opacity: 60%;
   transition: all 0.9s;
 }
-.longbox:not(:hover) div{
+
+.longbox:not(:hover) div {
   opacity: 0%;
   transition: all 0.9s;
 }
-.longbox span{
+
+.longbox span {
   opacity: 0;
   top: 13.5rem;
-  position: absolute ;
+  position: absolute;
   font-size: 40px;
   font-weight: 300;
   color: white;
 }
 
-.longbox:hover span{
+.longbox:hover span {
   opacity: 100;
   transform: scale(1.2);
   transition: all 1s;
 }
-.longbox:not(:hover) span{
+
+.longbox:not(:hover) span {
   transition: all 0.9s;
 }
+
 .collection__component .longbox img {
   width: 100%;
 }
-.mostPopular__component{
+
+.mostPopular__component {
   width: 1400px;
   margin-inline: auto;
 }
+
 .mostPopular__title {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -450,10 +270,12 @@ header {
 #carouselExampleControls3 {
   width: 1400px;
 }
-#carouselExampleControls3 .cardWrapper{
+
+#carouselExampleControls3 .cardWrapper {
   margin-inline: auto;
 }
-#carouselExampleControls3 .card{
+
+#carouselExampleControls3 .card {
   width: 21rem;
 }
 
@@ -462,10 +284,105 @@ header {
 }
 
 /* ------------------------------------------------------------------ */
+.nav__Tab .nav__Link {
+  border: none;
+  border-radius: 0;
+  padding: 10px 15px;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 25px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.nav__Tab .nav__Link.active {
+  background-color: transparent;
+  color: #000;
+  /* border-bottom: 3px solid rgb(79, 79, 79); */
+  transform: scaleX(1);
+}
+
+.nav__Tab .nav__Link:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+/* Cài đặt font chữ và kích thước đồng đều cho cả hai tab */
+.nav__Tab .nav__Link {
+  font-size: 25px;
+  font-weight: 400;
+  color: #333;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.nav__Tab .nav__Link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px; /* Độ dày của dòng gạch chân */
+  width: 0;
+  background-color: #000; /* Màu sắc của gạch chân */
+  transition: width 0.9s ease;
+}
+
+/* Khi hover vào tab, gạch chân từ trái sang phải */
+.nav__Tab .nav__Link:hover::after,
+.nav__Tab .nav__Link.active::after {
+  width: 100%;
+}
+
+/* Thay đổi màu chữ khi hover */
+.nav__Tab .nav__Link:hover {
+  color: #000;
+}
+
+/* ----------------------------------------------------------------------- */
+.tabEvent {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+
+#list__product__row .product {
+  color: rgb(31, 31, 31);
+  transition: 0.2s cubic-bezier(0.345, 0.115, 0.135, 1.42), opacity 0.15s ease-out, border-color 0.2s ease-out;
+}
+
+.list__product .product:hover {
+  transform: scale(1.05);
+}
+
+.list__product {}
+
+.seeMore {
+  margin-top: 1rem;
+  font-size: 17px;
+  width: 400px;
+  height: 35px;
+  border: 1px solid black;
+  background-color: white;
+  transition: all 0.6s;
+}
+
+.seeMore:hover {
+  color: white;
+  background-color: black;
+  transform: scale(1);
+}
+
+
+
+
+/* ------------------------------------------------------------------ */
 .spotlight__component {
   margin-top: 2%;
-  background-color: rgb(0, 0, 0);
-  color: rgb(240, 240, 240);
+  background-color: rgb(240, 240, 240);
+  color: rgb(26, 26, 26);
 }
 
 .spotlight__title1 {
@@ -481,12 +398,19 @@ header {
   letter-spacing: 1px;
   text-align: center;
 }
+
 .spotlight__row {
   width: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  margin-inline: auto;
 }
+
 .spotlight__component .box {
-  height: 100%;
-  width: 100%;
+  height: 400px;
+  width: 326px;
   background-color: rgb(208, 208, 208);
   margin-bottom: 2rem;
 }
@@ -499,6 +423,7 @@ header {
   margin-left: auto;
   margin-right: auto;
 }
+
 /* ------------------------------------------------------------ */
 .footer .social-icons .icon img {
   width: 37px;
@@ -510,4 +435,5 @@ header {
   transform: scale(1.2);
   filter: brightness(0.7) saturate(1.5);
 }
+
 /* ----------------------------------------------------------------- */
