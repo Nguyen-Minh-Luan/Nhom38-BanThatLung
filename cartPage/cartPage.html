@@ -30,488 +30,495 @@
     <div id="dimmer2" class="dimmer2"></div>
     <header id="header"></header>
 
-    <div class="toast-container position-fixed top-20 end-0 p-3">
-      <div
-        id="liveToast"
-        class="toast"
-        role="alert"
-        aria-live="assertive"
-        aria-atomic="true"
-      >
-        <div class="toast-header">
-          <img src="../assets/icons/task.svg" class="rounded me-2" alt="..." />
-          <strong class="me-auto mt-auto fs-6 fs-bold">Thông báo</strong>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="toast"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="toast-body fs-6">Xóa item thành công</div>
-      </div>
-    </div>
-
-    <div
-      class="mb-5 custom_container"
-      style="margin-top: 120px; min-width: 980px"
-    >
-      <p class="ms-sm-2 mt-sm-2 mb-sm-4 fs-2 fw-light">Giỏ hàng của bạn</p>
-      <div class="d-sm-block d-md-none d-lg-flex">
-        <div class="d-sm-block d-md-block d-lg-block col-lg-9">
-          <div class="container ps-sm-0 custom_item" id="item1">
-            <div class="row-sm">
-              <div class="col-sm col-md-4 col-lg-12 custom_border_width">
-                <div class="row d-lg-flex container-fluid pe-sm-0" style="width: 100%; height: 75%;">
-                  <div class="col-sm col-md-6 col-lg-3 my-4 mx-4">
-                    <img
-                      class="w-100 h-80 border rounded custom_image_container"
-                      src="../assets/images/victor_sample1.png"
-                      alt="black belt"
-                      height="200px"
-                    />
-                  </div>
-                  <div
-                    class="col-sm col-md-6 col-lg-8 border-dark ps-sm-0 pe-sm-0 mt-sm-4 ms-lg-2 mb-4 d-flex flex-column justify-content-between pb-0"
-                  >
-                    <div
-                      class="d-flex justify-content-between custom_title_container"
-                    >
-                      <h4 class="fs-4 fw-normal d-lg-none title">
-                        Thắt lưng da hai mặt màu đen với khóa xoay
-                      </h4>
-                      <h4 class="fs-5 fw-normal d-none d-lg-block">
-                        Thắt lưng da hai mặt màu đen với khóa xoay
-                      </h4>
-                      <h4
-                        class="d-sm-none d-md-none d-lg-block fs-5 custom_price_container"
-                      >
-                        9,063,726₫
-                      </h4>
-                    </div>
-
-                    <div class="row mt-sm-2 custom_tag_container">
-                      <span
-                        class="col-sm-2 ms-sm-2 badge bg-light text-dark me-2 tag1"
-                        >Đen</span
-                      >
-                      <span class="col-sm-2 badge bg-light text-dark me-2 tag2"
-                        >Lón(L)</span
-                      >
-                    </div>
-                    <div class="custom_red mt-3">
-                      <p class="m-0 fs-6 text-dark text-danger">
-                        Đang giảm giá 50%
-                      </p>
-                    </div>
-                    <div class="col-sm col-md-6 col-lg-12 pr-sm-0">
-                      <div
-                        class="mt-sm-2 mt-lg-3 ms-sm-0 custom_quantity_container"
-                      >
-                        <select
-                          name="number"
-                          id="number"
-                          class="form-control custom_design custom__border number-select py-1 px-2 me-2"
-                          style="width: 80px"
-                        ></select>
-                        <div
-                          class="d-flex justify-content-between align-item-center w-75"
-                        >
-                          <button class="col-sm-2 custom_edit editItem">
-                            Chỉnh sửa
-                          </button>
-                          <button
-                            class="col-sm-2 custom_delete"
-                            id="liveToastBtn"
-                          >
-                            Xóa
-                          </button>
-                        </div>
-                      </div>
-                      <div class="row w-100">
-                        <p
-                          class="ms-sm-2 mt-sm-4 mb-sm-4 ps-sm-1 fs-2 d-sm-block d-md-block d-lg-none"
-                        >
-                          9,063,726₫
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="ms-sm-1 ms-lg-0 ps-sm-0 row border-top py-2 w-100 border-top py-0"
-                >
-                  <p
-                    class="col-sm-10 ms-sm-2 mt-sm-2 mb-sm-2 ps-sm-0 ms-4 ms-2 d-md-none d-lg-none"
-                    style="margin-left: 37px"
-                  >
-                    <strong>Vận chuyển</strong>: 424.132đ (Nhận hàng từ 5 - 25
-                    tháng 11)
-                  </p>
-                  <p
-                    class="d-sm-none d-md-none d-lg-block col-lg-6 mt-lg-2 fs-6 ps-sm-0 my-1"
-                    style="margin-left: 37px"
-                  >
-                    <strong>Vận chuyển</strong>: 424.132đ (Nhận hàng từ 5 - 25
-                    tháng 11)
-                  </p>
-                </div>
-              </div>
-              <div class="col-sm-4 col-md-6 col-lg-12"></div>
-            </div>
-            <div id="overlay1" class="d-sm-flex overlay2">
-              <div class="overlay__content w-100">
-                <div class="overlay__header d-flex w-100">
-                  <h3 class="header__title mb-0 ms-5 mt-3">Chỉnh sửa item</h3>
-                </div>
-                <div class="overlay__body d-flex mt-5" style="height: 500px">
-                  <div class="d-flex flex-column me-5">
-                    <img
-                      class="w-50 h-30 custom_image_container_display img-fluid mx-auto"
-                      src=""
-                      alt="black belt"
-                      style="object-fit: cover"
-                    />
-                    <h3 class="fs-4 custom_title_container_display ms-3"></h3>
-                    <h4 class="fs-5 mt-3 custom_tag_container_display ms-3">
-                      Màu sắc
-                    </h4>
-                    <select class="form-select ms-3 custom_select_color">
-                      <option value="Đen">Đen</option>
-                      <option value="Trắng">Trắng</option>
-                      <option value="Xanh dương">Xanh dương</option>
-                      <option value="Đỏ">Đỏ</option>
-                      <option value="Vàng">Vàng</option>
-                    </select>
-                    <h4 class="fs-5 mt-3 custom_tag_container_display ms-3">
-                      Kích cỡ
-                    </h4>
-                    <select class="form-select ms-3 custom_select_size">
-                      <option value="Nhỏ (S)">Nhỏ (S)</option>
-                      <option value="Vừa (M)">Vừa (M)</option>
-                      <option value="Lớn (L)">Lớn (L)</option>
-                      <option value="Rất lớn (XL)">Rất lớn (XL)</option>
-                      <option value="Rất rất lớn (XXL)">
-                        Rất rất lớn (XXL)
-                      </option>
-                    </select>
-                    <button class="btn btn-dark mt-5 ms-3 w-100 custom_update">
-                      Cập nhập
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div class="custom_margin--container" style="margin-top: 250px">
+      <div class="row">
+        <div class="col-5 mb-5 pe-5" style="margin-left: 196.25px">
+          <div class="row">
+            <h1 class="ps-0">Giỏ hàng của bạn</h1>
+            <h3 class="ps-0">Tổng [2 đơn hàng] 999.123.673 vnđ</h3>
           </div>
-          <div
-            class="container ps-sm-0 custom_item mt-5 custom_item"
-            id="item2"
-          >
-            <div class="row-sm">
-              <div class="col-sm col-md-6 col-lg-12 custom_border_width">
-                <div class="row-sm d-lg-flex container-fluid pe-sm-0">
-                  <div
-                    class="col-sm col-md-6 col-lg-3 border rounded my-4 mx-4"
-                  >
-                    <img
-                      class="w-100 h-80 custom_image_container"
-                      src="../assets/images/victor_sample1.png"
-                      alt="black belt"
-                      height="200px"
-                    />
-                  </div>
-                  <div
-                    class="col-sm col-md-6 col-lg-8 border-dark ps-sm-0 pe-sm-0 mt-sm-4 ms-lg-2 mb-4 d-flex flex-column justify-content-between pb-0"
-                  >
-                    <div
-                      class="d-flex justify-content-between custom_title_container"
-                    >
-                      <h4 class="fs-4 fw-normal d-lg-none title">
-                        Thắt lưng da hai mặt màu đen với khóa xoay
-                      </h4>
-                      <h4 class="fs-5 fw-normal d-none d-lg-block">
-                        Thắt lưng da hai mặt màu đen với khóa xoay
-                      </h4>
-                      <h4
-                        class="d-sm-none d-md-none d-lg-block fs-5 custom_price_container"
-                      >
-                        9,063,726₫
-                      </h4>
-                    </div>
-
-                    <div class="row mt-sm-2 custom_tag_container">
-                      <span
-                        class="col-sm-2 ms-sm-2 badge bg-light text-dark me-2 tag1"
-                        >Đen</span
-                      >
-                      <span class="col-sm-2 badge bg-light text-dark me-2 tag2"
-                        >Lón(L)</span
-                      >
-                    </div>
-                    <div class="custom_red mt-3">
-                      <p class="m-0 fs-6 text-dark text-danger">
-                        Đang giảm giá 50%
-                      </p>
-                    </div>
-                    <div class="col-sm col-md-6 col-lg-12 pr-sm-0">
-                      <div
-                        class="mt-sm-2 mt-lg-3 ms-sm-0 custom_quantity_container"
-                      >
-                        <select
-                          name="number"
-                          id="number"
-                          class="form-control custom_design custom__border number-select py-1 px-2 me-2"
-                          style="width: 80px"
-                        ></select>
-                        <div
-                          class="d-flex justify-content-between align-item-center w-75"
-                        >
-                          <button class="col-sm-2 custom_edit editItem">
-                            Chỉnh sửa
-                          </button>
-                          <button
-                            class="col-sm-2 custom_delete"
-                            id="liveToastBtn"
-                          >
-                            Xóa
-                          </button>
-                        </div>
-                      </div>
-                      <div class="row w-100">
-                        <p
-                          class="ms-sm-2 mt-sm-4 mb-sm-4 ps-sm-1 fs-2 d-sm-block d-md-block d-lg-none"
-                        >
-                          9,063,726₫
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="ms-sm-1 ms-lg-0 ps-sm-0 row border-top py-2 w-100 border-top py-0"
-                >
-                  <p
-                    class="col-sm-10 ms-sm-2 mt-sm-2 mb-sm-2 ps-sm-0 ms-4 ms-2 d-md-none d-lg-none"
-                    style="margin-left: 37px"
-                  >
-                    <strong>Vận chuyển</strong>: 424.132đ (Nhận hàng từ 5 - 25
-                    tháng 11)
-                  </p>
-                  <p
-                    class="d-sm-none d-md-none d-lg-block col-lg-6 mt-lg-2 fs-6 ps-sm-0 my-1"
-                    style="margin-left: 37px"
-                  >
-                    <strong>Vận chuyển</strong>: 424.132đ (Nhận hàng từ 5 - 25
-                    tháng 11)
-                  </p>
-                </div>
-              </div>
-              <div class="col-sm-4 col-md-6 col-lg-12"></div>
-            </div>
-            <div id="overlay1" class="d-sm-flex overlay2">
-              <div class="overlay__content w-100">
-                <div class="overlay__header d-flex w-100">
-                  <h3 class="header__title mb-0 ms-5 mt-3">Chỉnh sửa item</h3>
-                </div>
-                <div class="overlay__body d-flex mt-5" style="height: 500px">
-                  <div class="d-flex flex-column me-5">
-                    <img
-                      class="w-50 h-30 custom_image_container_display img-fluid mx-auto"
-                      src=""
-                      alt="black belt"
-                      style="object-fit: cover"
-                    />
-                    <h3 class="fs-4 custom_title_container_display ms-3"></h3>
-                    <h4 class="fs-5 mt-3 custom_tag_container_display ms-3">
-                      Màu sắc
-                    </h4>
-                    <select class="form-select ms-3 custom_select_color">
-                      <option value="Đen">Đen</option>
-                      <option value="Trắng">Trắng</option>
-                      <option value="Xanh dương">Xanh dương</option>
-                      <option value="Đỏ">Đỏ</option>
-                      <option value="Vàng">Vàng</option>
-                    </select>
-                    <h4 class="fs-5 mt-3 custom_tag_container_display ms-3">
-                      Kích cỡ
-                    </h4>
-                    <select class="form-select ms-3 custom_select_size">
-                      <option value="Nhỏ (S)">Nhỏ (S)</option>
-                      <option value="Vừa (M)">Vừa (M)</option>
-                      <option value="Lớn (L)">Lớn (L)</option>
-                      <option value="Rất lớn (XL)">Rất lớn (XL)</option>
-                      <option value="Rất rất lớn (XXL)">
-                        Rất rất lớn (XXL)
-                      </option>
-                    </select>
-                    <button class="btn btn-dark mt-5 ms-3 w-100 custom_update">
-                      Cập nhập
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container mt-5 col-lg-4 mt-lg-0 custom_height">
-          <div class="d-flex flex-column justify-content-left mt-sm-4 mt-lg-0">
-            <table>
-              <tr class="custom_size">
-                  <th class="">Tổng các mặt hàng</th>
-                  <td class="">7,692,307₫</td>
-              </tr>
-              <tr class="custom_size border-bottom">
-                  <th>Giảm giả shop</th>
-                  <td>-2,520,159₫</td>
-              </tr>
-              <tr class="custom_size">
-                  <th>Tổng tạm tính</th>
-                  <td>5,172,148₫</td>
-              </tr>
-              <tr class="custom_size border-bottom">
-                  <th>Vận chuyển</th>
-                  <td>3,022,016₫</td>
-              </tr>
-              </tr>
-              <tr class="total-row custom_size">
-                  <th>Tổng (2 sản phẩm)</th>
-                  <td>8,194,164₫</td>
-              </tr>
-          </table>
-            <a
-              class="btn btn-dark btn-lg custom__btn w-75 mt-2"
-              href="./checkoutPage/checkoutPage.html"
-              >Tiến hành thanh toán</a
-            >
-            <img
-              src="../assets/icons/footer_trustbadge 1.svg"
-              alt="trust badge"
-              class="mt-4 w-75"
-            />
-            <p class="text-muted mt-3 w-75 custom_size">
-              Tất cả các loại thuế sẽ được bao gồm khi thanh toán
-              <span>
-                <a
-                  href="../termsPage/termsPage.html"
-                  class="text-decoration-none text-dark"
-                >
-                  Tìm hiểu về Điều khoản của chúng tôi tại đây
-                </a>
-              </span>
-            </p>
-            <div class="cart__container_pay cart__container--coupon mt-4 w-75">
-              <img src="../assets/icons/coupon.svg" alt="coupon" />
-              <p class="cart__coupon--padding2px mb-0 fs-5">
-                Áp dụng mã giảm giá
-              </p>
-            </div>
-            <div
-              class="cart__container_pay cart__container_coupon--submit w-75"
-              style="display: none"
-            >
-              <input
-                class="cart--inputCoupon"
-                type="text"
-                placeholder="Nhập mã giảm giá"
+          <div class="row border border-dark mt-4 custom_remove">
+            <div class="col-4 p-0">
+              <img
+                src="../assets/images/victor_sample1.png"
+                class="img-fluid p-0"
               />
-              <button class="cart--submitCoupon">Áp dụng</button>
+            </div>
+            <div class="col-8 fw-light pb-0">
+              <div class="row">
+                <div class="flex-grow-1" style="flex-basis: 90%">
+                  <div
+                    class="d-flex justify-content-between flex-column flex-grow-2"
+                    style="height: 100%"
+                  >
+                    <div class="d-flex justify-content-between flex-column">
+                      <div class="d-flex justify-content-between mt-3">
+                        <p>Thắt Lưng Hai Mặt LV Heritage 35MM</p>
+                        <p>9.123.765 vnđ</p>
+                      </div>
+                      <div class="d-flex justify-content-between mt-3">
+                        <p>SIZE : XL</p>
+                      </div>
+                    </div>
+                    <div class="d-flex">
+                      <select
+                        class="form-select w-25 p-3 border border-dark"
+                        aria-label="Select a number"
+                      >
+                        <option selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                        <option value="34">34</option>
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                        <option value="45">45</option>
+                        <option value="46">46</option>
+                        <option value="47">47</option>
+                        <option value="48">48</option>
+                        <option value="49">49</option>
+                        <option value="50">50</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex-grow-1 ps-0 mt-3" style="flex-basis: 10%">
+                  <svg class="remove_button"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 -960 960 960"
+                    width="24px"
+                    fill="#00000"
+                  >
+                    <path
+                      d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row border border-dark mt-4 custom_remove">
+            <div class="col-4 p-0">
+              <img
+                src="../assets/images/victor_sample1.png"
+                class="img-fluid p-0"
+              />
+            </div>
+            <div class="col-8 fw-light pb-0">
+              <div class="row">
+                <div class="flex-grow-1" style="flex-basis: 90%">
+                  <div
+                    class="d-flex justify-content-between flex-column flex-grow-2"
+                    style="height: 100%"
+                  >
+                    <div class="d-flex justify-content-between flex-column">
+                      <div class="d-flex justify-content-between mt-3">
+                        <p>Thắt Lưng Hai Mặt LV Heritage 35MM</p>
+                        <p>9.123.765 vnđ</p>
+                      </div>
+                      <div class="d-flex justify-content-between mt-3">
+                        <p>SIZE : XL</p>
+                      </div>
+                    </div>
+                    <div class="d-flex">
+                      <select
+                        class="form-select w-25 p-3 border border-dark"
+                        aria-label="Select a number"
+                      >
+                        <option selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                        <option value="34">34</option>
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                        <option value="45">45</option>
+                        <option value="46">46</option>
+                        <option value="47">47</option>
+                        <option value="48">48</option>
+                        <option value="49">49</option>
+                        <option value="50">50</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex-grow-1 ps-0 mt-3" style="flex-basis: 10%">
+                  <svg
+                  class="remove_button"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 -960 960 960"
+                    width="24px"
+                    fill="#00000"
+                  >
+                    <path
+                      d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+                    />
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row d-sm-none d-md-none d-lg-block ms-0">
-        <h2 class="mb-5 ms-lg-0 ps-lg-0" style="margin-top: 200px;">Bạn cũng có thể thích</h2>
-        <div class="d-flex ps-0">
-          <div class="card w-50">
-            <a class="p-3" href="../productDetail/productDetail.html">
-              <div class="product">
-                <div class="product__image">
-                  <img
-                    src="../assets/images/victor_sample1.png"
-                    class="img-fluid"
-                    alt="Leather Belt"
-                  />
-                </div>
-                <div class="product__title mt-2">
-                  <h4 class="title text-start">
-                    Thắt Lưng Hai Mặt LV Damier 40MM
-                  </h4>
-                  <p class="product__price text-start">100.000VNĐ</p>
-                  <p class="product__discount text-start" style="color: red">
-                    30%
-                  </p>
-                </div>
+        <div class="col-3 mb-5 mt-4 ps-5">
+          <div class="row">
+            <a href="checkoutPage/checkoutPage.html" class="btn btn-dark p-3 custom_button"
+              >Tiến hành thanh toán
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#EFEFEF"
+              >
+                <path
+                  d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"
+                /></svg
+            ></a>
+            <div class="containe mt-5 ps-0">
+              <div class="border-bottom pb-2 mb-3">
+                <h5 class="fw-bold">Tóm tắt đơn hàng</h5>
               </div>
-            </a>
+              <div class="d-flex justify-content-between mb-2">
+                <p class="mb-0">2 sản phẩm</p>
+                <p class="mb-0">1,360,000₫</p>
+              </div>
+              <div class="d-flex justify-content-between mb-2">
+                <p class="mb-0">Vận chuyển</p>
+                <p class="mb-0">70,000₫</p>
+              </div>
+              <div class="border-top pt-2">
+                <div class="d-flex justify-content-between fw-bold mb-2">
+                  <p class="mb-0">Tổng cộng</p>
+                  <p class="mb-0">1,430,000₫</p>
+                </div>
+                <p class="text-muted small mb-0">(bao gồm cả thuế)</p>
+              </div>
+              <div
+                class="input-group custom_input_group custom_input--btn mt-4"
+              >
+                <input
+                  type="text"
+                  class="form-control custom_input--btn-group__input rounded-pill-start fs-5"
+                  placeholder="Tìm sản phẩm bạn yêu thích"
+                />
+                <button
+                  class="btn btn-dark input-group-text custom_button_design custom_input--btn-group__btn rounded-pill-end"
+                >
+                  Áp dụng
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="card w-50">
-            <a class="p-3" href="../productDetail/productDetail.html">
-              <div class="product">
-                <div class="product__image">
-                  <img
-                    src="../assets/images/victor_sample1.png"
-                    class="img-fluid"
-                    alt="Leather Belt"
-                  />
-                </div>
-                <div class="product__title mt-2">
-                  <h4 class="title text-start">
-                    Thắt Lưng Hai Mặt LV Damier 40MM
-                  </h4>
-                  <p class="product__price text-start">100.000VNĐ</p>
-                  <p class="product__discount text-start" style="color: red">
-                    30%
-                  </p>
+        </div>
+        <div class="col-10">
+          <h2 class="my-5" style="margin-left: 190px;">Gợi ý cho bạn</h2>
+          <div
+            id="carouselExampleControls2"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner carouselInner pb-5">
+              <div class="carousel-item active">
+                <div class="card-wrapper cardWrapper">
+                  <a href="#">
+                    <div class="card" style="width: 13.8rem">
+                      <img
+                        src="../assets/images/victor_sample1.png"
+                        class="card-img-top"
+                        alt="..."
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          Thắt Lưng Hai Mặt LV Heritage 35MM
+                        </h5>
+                        <p class="card-text">100.000 VNĐ</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#">
+                      <div class="card" style="width: 13.8rem">
+                        <img
+                          src="../assets/images/victor_sample1.png"
+                          class="card-img-top"
+                          alt="..."
+                        />
+                        <div class="card-body">
+                          <h5 class="card-title">
+                            Thắt Lưng Hai Mặt LV Heritage 35MM
+                          </h5>
+                          <p class="card-text">100.000 VNĐ</p>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#">
+                      <div class="card" style="width: 13.8rem">
+                        <img
+                          src="../assets/images/victor_sample1.png"
+                          class="card-img-top"
+                          alt="..."
+                        />
+                        <div class="card-body">
+                          <h5 class="card-title">
+                            Thắt Lưng Hai Mặt LV Heritage 35MM
+                          </h5>
+                          <p class="card-text">100.000 VNĐ</p>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#">
+                      <div class="card" style="width: 13.8rem">
+                        <img
+                          src="../assets/images/victor_sample1.png"
+                          class="card-img-top"
+                          alt="..."
+                        />
+                        <div class="card-body">
+                          <h5 class="card-title">
+                            Thắt Lưng Hai Mặt LV Heritage 35MM
+                          </h5>
+                          <p class="card-text">100.000 VNĐ</p>
+                        </div>
+                      </div>
+                    </a>
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="card w-50">
-            <a class="p-3" href="../productDetail/productDetail.html">
-              <div class="product">
-                <div class="product__image">
-                  <img
-                    src="../assets/images/victor_sample1.png"
-                    class="img-fluid"
-                    alt="Leather Belt"
-                  />
-                </div>
-                <div class="product__title mt-2">
-                  <h4 class="title text-start">
-                    Thắt Lưng Hai Mặt LV Damier 40MM
-                  </h4>
-                  <p class="product__price text-start">100.000VNĐ</p>
-                  <p class="product__discount text-start" style="color: red">
-                    30%
-                  </p>
-                </div>
+              <div class="carousel-item">
+                  <div class="card-wrapper cardWrapper">
+                      <a href="#">
+                        <div class="card" style="width: 13.8rem">
+                          <img
+                            src="../assets/images/victor_sample1.png"
+                            class="card-img-top"
+                            alt="..."
+                          />
+                          <div class="card-body">
+                            <h5 class="card-title">
+                              Thắt Lưng Hai Mặt LV Heritage 35MM
+                            </h5>
+                            <p class="card-text">100.000 VNĐ</p>
+                          </div>
+                        </div>
+                      </a>
+                      <a href="#">
+                          <div class="card" style="width: 13.8rem">
+                            <img
+                              src="../assets/images/victor_sample1.png"
+                              class="card-img-top"
+                              alt="..."
+                            />
+                            <div class="card-body">
+                              <h5 class="card-title">
+                                Thắt Lưng Hai Mặt LV Heritage 35MM
+                              </h5>
+                              <p class="card-text">100.000 VNĐ</p>
+                            </div>
+                          </div>
+                        </a>
+                        <a href="#">
+                          <div class="card" style="width: 13.8rem">
+                            <img
+                              src="../assets/images/victor_sample1.png"
+                              class="card-img-top"
+                              alt="..."
+                            />
+                            <div class="card-body">
+                              <h5 class="card-title">
+                                Thắt Lưng Hai Mặt LV Heritage 35MM
+                              </h5>
+                              <p class="card-text">100.000 VNĐ</p>
+                            </div>
+                          </div>
+                        </a>
+                        <a href="#">
+                          <div class="card" style="width: 13.8rem">
+                            <img
+                              src="../assets/images/victor_sample1.png"
+                              class="card-img-top"
+                              alt="..."
+                            />
+                            <div class="card-body">
+                              <h5 class="card-title">
+                                Thắt Lưng Hai Mặt LV Heritage 35MM
+                              </h5>
+                              <p class="card-text">100.000 VNĐ</p>
+                            </div>
+                          </div>
+                        </a>
+                    </div>
               </div>
-            </a>
-          </div>
-          <div class="card w-50">
-            <a class="p-3" href="../productDetail/productDetail.html">
-              <div class="product">
-                <div class="product__image">
-                  <img
-                    src="../assets/images/victor_sample1.png"
-                    class="img-fluid"
-                    alt="Leather Belt"
-                  />
-                </div>
-                <div class="product__title mt-2">
-                  <h4 class="title text-start">
-                    Thắt Lưng Hai Mặt LV Damier 40MM
-                  </h4>
-                  <p class="product__price text-start">100.000VNĐ</p>
-                  <p class="product__discount text-start" style="color: red">
-                    30%
-                  </p>
-                </div>
+              <div class="carousel-item">
+                  <div class="card-wrapper cardWrapper">
+                      <a href="#">
+                        <div class="card" style="width: 13.8rem">
+                          <img
+                            src="../assets/images/victor_sample1.png"
+                            class="card-img-top"
+                            alt="..."
+                          />
+                          <div class="card-body">
+                            <h5 class="card-title">
+                              Thắt Lưng Hai Mặt LV Heritage 35MM
+                            </h5>
+                            <p class="card-text">100.000 VNĐ</p>
+                          </div>
+                        </div>
+                      </a>
+                      <a href="#">
+                          <div class="card" style="width: 13.8rem">
+                            <img
+                              src="../assets/images/victor_sample1.png"
+                              class="card-img-top"
+                              alt="..."
+                            />
+                            <div class="card-body">
+                              <h5 class="card-title">
+                                Thắt Lưng Hai Mặt LV Heritage 35MM
+                              </h5>
+                              <p class="card-text">100.000 VNĐ</p>
+                            </div>
+                          </div>
+                        </a>
+                        <a href="#">
+                          <div class="card" style="width: 13.8rem">
+                            <img
+                              src="../assets/images/victor_sample1.png"
+                              class="card-img-top"
+                              alt="..."
+                            />
+                            <div class="card-body">
+                              <h5 class="card-title">
+                                Thắt Lưng Hai Mặt LV Heritage 35MM
+                              </h5>
+                              <p class="card-text">100.000 VNĐ</p>
+                            </div>
+                          </div>
+                        </a>
+                        <a href="#">
+                          <div class="card" style="width: 13.8rem">
+                            <img
+                              src="../assets/images/victor_sample1.png"
+                              class="card-img-top"
+                              alt="..."
+                            />
+                            <div class="card-body">
+                              <h5 class="card-title">
+                                Thắt Lưng Hai Mặt LV Heritage 35MM
+                              </h5>
+                              <p class="card-text">100.000 VNĐ</p>
+                            </div>
+                          </div>
+                        </a>
+                    </div>
               </div>
-            </a>
+            </div>
+            <button
+              class="carousel-control-prev custom_shadow"
+              type="button"
+              data-bs-target="#carouselExampleControls2"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleControls2"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
       </div>
+    
     </div>
 
     <footer id="footer"></footer>
