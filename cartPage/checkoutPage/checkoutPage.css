@@ -179,3 +179,9 @@
     width: 55%;
   }
 }
+.custom_hover {
+  background-color: transparent;
+}
+.custom_hover:hover {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #303135;
+}

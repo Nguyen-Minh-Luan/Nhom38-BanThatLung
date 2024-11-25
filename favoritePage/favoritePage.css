@@ -53,3 +53,16 @@ a:hover {
   text-decoration: none;
   color: black;
 }
+.custom_margin--container {
+  margin-left: 148.5px;
+  margin-right: 148.5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.custom_button{
+  border-radius: 0px;
+  background-color: white;
+}
+.custom_bg--light{
+  background-color: #0e0e0e17;
+}

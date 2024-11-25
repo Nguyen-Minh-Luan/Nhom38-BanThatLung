@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Xác nhận đơn hàng</title>
-    <link rel="icon" href="../../assets/icons/favicon.svg" type="image/x-icon" />
+    <link
+      rel="icon"
+      href="../../assets/icons/favicon.svg"
+      type="image/x-icon"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,130 +19,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../../header footer/header__footer.js"></script>
-    <link rel="stylesheet" href="../../assets/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.css">
-    <link rel="stylesheet" href="../../header footer/header__footer.css">
+    <link
+      rel="stylesheet"
+      href="../../assets/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.css"
+    />
+    <link rel="stylesheet" href="../../header footer/header__footer.css" />
     <script src="checkout.js"></script>
     <script src="../../styles/general.js"></script>
     <link rel="stylesheet" href="checkoutPage.css" />
   </head>
 
   <body>
-    <header>
-      <div id="dimmer" class="dimmer"></div>
-      <nav class="navbar navbar-expand shadow-lg p-12 mb-4 bg-white rounded" id="navbar">
-          <div class="container-fluid-center"></div>
-          <div
-              class="col-sm-3 pl-sm-4 pr-sm-0 col-md-4 justify-content-sm-start d-lg-none d-xl-none col header__navbar header__navbar--center d-flex justify-content-center">
-              <button id="menuButton" class="btn btn-light h-sm-100 ms-2">
-                  <img src="../../assets/icons/menu.svg" />
-              </button>
-          </div>
+    <header id="header">
 
-          <div id="overlay" class="d-sm-flex overlay" style="width: 45%">
-              <div class="overlay__content w-100">
-                  <div class="overlay__header d-flex w-100 justify-content-center align-items-center mt-2">
-                      <h3 class="header__title mb-0">THOMAS</h3>
-                      <button id="closeButton" class="btn ms-5">
-                          <img src="../../assets/icons/close.svg" />
-                      </button>
-                  </div>
-                  <div class="overlay__body d-flex align-items-left justify-content-between" style="height: 500px">
-                      <ul class="navbar-nav d-flex flex-column list-unstyled fs-3 w-100" style="font-size: 1.5rem">
-                          <hr class="w-100 ms-2" />
-                          <li class="nav-item mx-3">
-                              <a href="../../homePage/HomePage.html" class="nav-link text-dark">Home</a>
-                          </li>
-                          <hr class="w-100 ms-2" />
-                          <li class="nav-item mx-3">
-                              <a href="#" class="nav-link text-dark">Bộ sưu tập</a>
-                          </li>
-                          <hr class="w-100 ms-2" />
-                          <li class="nav-item mx-3">
-                              <a href="../../menPage/menPage1.html" class="nav-link text-dark">Nam</a>
-                          </li>
-                          <hr class="w-100 ms-2" />
-                          <li class="nav-item mx-3">
-                              <a href="../../womenPage/womenPage1.html" class="nav-link text-dark">Nữ</a>
-                          </li>
-                          <hr class="w-100 ms-2" />
-                          <li class="nav-item mx-3">
-                              <a href="../../signInPage/signInPage.html" class="nav-link text-dark">Đăng nhập / Đăng
-                                  ký</a>
-                          </li>
-                          <hr class="w-100 ms-2" />
-                      </ul>
-                  </div>
-              </div>
-          </div>
-          <a href="" class="navbar-brand col-3 d-sm-none d-md-none d-lg-block" id="logo">
-              THOMAS
-          </a>
-
-          <a href="" class="navbar-brand d-sm-block ms-sm-3 ms-5 mr-5 d-md-block d-lg-none" id="logo">
-              THOMAS
-          </a>
-
-          <ul class="navbar-nav col-6 navitem__group d-sm-none d-md-none d-lg-flex">
-              <li class="nav-item"><a href="../../homePage/HomePage.html" class="nav-link">Trang Chủ</a></li>
-              <li class="nav-item"><a href="../../collectionPage/collectionsPage.html" class="nav-link">Bộ Sưu Tập</a>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      Nam
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="../../menPage/menPage1.html">Tất cả thắt lưng nam</a></li>
-                      <li><a class="dropdown-item" href="#">Thắt Lưng Da</a></li>
-                      <li>
-                          <a class="dropdown-item" href="#">Thắt Lưng Vải Canvas</a>
-                      </li>
-
-                  </ul>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      Nữ
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="../../menPage/menPage1.html">Tất cả thắt lưng nữ</a></li>
-                      <li><a class="dropdown-item" href="#">Thắt Lưng Da</a></li>
-                      <li>
-                          <a class="dropdown-item" href="#">Thắt Lưng Vải Canvas</a>
-                      </li>
-
-                  </ul>
-              </li>
-              <li class="nav-item"><a href="../allProduct/allProduct1.html" class="nav-link">Sản Phẩm</a></li>
-          </ul>
-          <div class="header__icon__group col-3">
-
-
-              <div class="search-container">
-                  <input type="text" class="search-input" placeholder="Tìm kiếm...">
-                  <button class="search-btn" onclick="toggleSearch()">
-                      <i class="fa-solid fa-magnifying-glass fa-l"></i></button>
-              </div>
-
-              <a class="nav-item favorite" href="../../favoritePage/favoritePage.html">
-                  <img class="nav-icon" src="../../assets/icons/favorite.svg" alt="" />
-                  <span class="favorite__count">0</span>
-              </a>
-              <a class="nav-item user" href="../../userInfoPage/account/userinfo.html"><img id="user__icon" class="nav-icon"
-                      src="../../assets/icons/user.svg" alt="" style="width: 35px; height: 35px" /></a>
-              <a class="nav-item cart" href="../../cartPage/cartPage.html">
-                  <img class="nav-icon " src="../../assets/icons/cart.svg" alt="" style="width: 26px; height: 26px" />
-                  <span class="nav-item favorite__count">0</span>
-              </a>
-          </div>
-      </nav>
-  </header>
-    <div class="container-sm ps-0 mb-5" style="margin-top: 208px;">
+    </header>
+    <div class="container-sm ps-0 mb-5" style="margin-top: 208px">
       <h2 class="fw-light">Vui lòng xác nhận và gửi đơn đặt hàng của bạn</h2>
       <h4 class="mb-1 mt-5 ms-0 ps-0 fw-light">Vận chuyển và thanh toán</h4>
       <div class="row mt-2 mb-5 px-0 py-0 h-50" style="min-height: 550.9px">
-        <div class="row custom-width custom__boxshadow p-0 m-0">
+        <div class="col d-flex custom-width custom__boxshadow p-0 m-0">
           <div class="col-sm pr-0 mt-4">
             <h4 class="ms-4">Thông tin thanh toán</h4>
             <p class="ms-4">huỳnh minh thắng</p>
@@ -163,7 +62,9 @@
                 style="max-width: 50px"
               />
             </div>
-            <button class="openFormButtonPay p-2 border-dark rounded custom_hover mt-2 fw-bold">
+            <button
+              class="openFormButtonPay p-2 border-dark rounded custom_hover mt-2 fw-bold"
+            >
               Thay đổi
             </button>
           </div>
@@ -186,7 +87,10 @@
                 </div>
                 <div class="popup--content--right">
                   <div class="popup--content--button">
-                    <button class="popup--content--submit custom__btn" id="submit1">
+                    <button
+                      class="popup--content--submit custom__btn"
+                      id="submit1"
+                    >
                       Giao đến đây
                     </button>
                   </div>
@@ -204,7 +108,10 @@
                 </div>
                 <div class="popup--content--right">
                   <div class="popup--content--button">
-                    <button class="popup--content--submit custom__btn" id="submit2">
+                    <button
+                      class="popup--content--submit custom__btn"
+                      id="submit2"
+                    >
                       Giao đến đây
                     </button>
                   </div>
@@ -268,397 +175,57 @@
             </div>
           </div>
         </div>
-        <div class="container mt-3 col-lg-5 mt-lg-0 me-0 ms-4">
-          <div class="d-flex flex-column mt-sm-4 mt-lg-0 w-100">
-            <div class="d-sm-flex justify-content-between mt-sm-2">
-              <p class="fw-bold fs-5">Tổng số mặt hàng</p>
-              <p class="mr-sm-3 fs-5">10,487,042₫</p>
+        <div class="col-6 ms-5 ps-0">
+          <div class="border-bottom pb-2 mb-3">
+            <h5 class="fw-bold">Tóm tắt đơn hàng</h5>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <p class="mb-0">2 sản phẩm</p>
+            <p class="mb-0">1,360,000₫</p>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <p class="mb-0">Vận chuyển</p>
+            <p class="mb-0">70,000₫</p>
+          </div>
+          <div class="border-top pt-2">
+            <div class="d-flex justify-content-between fw-bold mb-2">
+              <p class="mb-0">Tổng cộng</p>
+              <p class="mb-0">1,430,000₫</p>
             </div>
-            <div class="d-sm-flex justify-content-between">
-              <p class="font-weight-bold fs-5">Giảm giá cửa hàng</p>
-              <p class="mr-sm-3 fs-5">-355,959₫</p>
-            </div>
-            <div class="d-sm-flex justify-content-between mt-sm-2">
-              <p class="fw-bold fs-5">Tổng phụ</p>
-              <p class="mr-sm-3 fs-5">10,131,083₫</p>
-            </div>
-            <div class="d-sm-flex justify-content-between mt-sm-2">
-              <p class="fs-5">Vận chuyển</p>
-              <p class="mr-sm-3 fs-5">4,737,305₫</p>
-            </div>
-            <div class="d-sm-flex justify-content-between mt-sm-2">
-              <p class="fw-bold fs-5">Tổng cộng (2 mặt hàng)</p>
-              <p class="mr-sm-3 font-weight-bold fs-5">14,868,388₫</p>
-            </div>
-            <button class="btn btn-dark mt-4 fs-4 custom__btn" id="openFormButtonPayment">
-              Thanh toán với Google
-            </button>
-            <div id="popUpPaymentQR" class="popup">
-              <div class="popup-content">
-                <span class="fs-1 close" id="closeFormButtonPayment"
-                  >&times;</span
-                >
-                <div class="popup-content--desc--payment">
-                  <div class="popup--content--userInfo--payment--action">
-                    <div class="popup--content--userdesc">
-                      <span
-                        style="text-align: center; font-size: 32px"
-                        id="countdown"
-                        >05:00</span
-                      >
-                      <img
-                        style="width: 100%; height: 100%"
-                        src="../../assets/images/QrPayment.png"
-                        alt="googlepay"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="cart__container_pay cart__container--coupon mt-4 mb-4">
-              <img src="../../assets/icons/coupon.svg" alt="coupon" />
-              <p class="cart__coupon--padding2px mb-0">Áp dụng mã giảm giá</p>
-            </div>
-            <div
-              class="cart__container_pay cart__container_coupon--submit mb-4"
-              style="display: none"
+            <p class="text-muted small mb-0">(bao gồm cả thuế)</p>
+          </div>
+          <div
+            class="input-group custom_input_group custom_input--btn mt-4"
+          >
+            <input
+              type="text"
+              class="form-control custom_input--btn-group__input rounded-pill-start fs-5"
+              placeholder="Nhập coupon"
+            />
+            <button
+              class="btn btn-dark input-group-text custom_button_design custom_input--btn-group__btn rounded-pill-end"
             >
-              <input
-                class="cart--inputCoupon"
-                type="text"
-                placeholder="Nhập mã giảm giá"
-              />
-              <button class="cart--submitCoupon">Áp dụng</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row w-100">
-        <div
-          class="d-sm-block d-md-block d-lg-block col-lg-12 pl-0 pr-0 w-100 ps-0"
-        >
-          <div
-            class="container pl-sm-0 w-100 ps-0 custom__boxshadow pe-0 custom_item"
-            id="item2"
-          >
-            <div class="row-sm">
-              <div class="col-sm col-md-6 col-lg-12 border">
-                <div class="row-sm d-lg-flex container-fluid pr-sm-0 mt-5">
-                  <div class="col-sm col-md-6 col-lg-3 pl-sm-0">
-                    <img
-                      class="w-100 h-80"
-                      src="../../assets/images/belt_cart_1.png"
-                      alt="black belt"
-                      height="250px"
-                      width="150px"
-                    />
-                  </div>
-                  <div
-                    class="col-sm col-md-6 col-lg-4 border-dark pl-sm-0 pr-sm-0 mt-sm-4 ms-lg-5"
-                  >
-                    <div class="d-flex justify-content-between">
-                      <h4 class="fs-4 d-lg-none">
-                        Thắt lưng da hai mặt màu đen với khóa xoay
-                      </h4>
-                      <h4 class="fs-5 d-none d-lg-block">
-                        Thắt lưng da hai mặt màu đen với khóa xoay
-                      </h4>
-                    </div>
-
-                    <div class="row mt-sm-2">
-                      <span
-                        class="col-sm-2 ms-sm-2 badge bg-light text-dark me-2"
-                        >Màu sắc: trắng</span
-                      >
-                      <span class="col-sm-2 badge bg-light text-dark me-2"
-                        >Khóa trắng</span
-                      >
-                    </div>
-                    <p class="mt-sm-3 text-danger">
-                      Trong giỏ hàng với 41 đánh giá
-                    </p>
-                    <div class="col-sm col-md-6 col-lg-12 pr-sm-0">
-                      <div class="mt-sm-2 mt-lg-3 ms-sm-0 row w-100">
-                        <select
-                          name="number"
-                          id="number"
-                          class="form-control custom_quanity number-select"
-                          style="width: 75px"
-                        ></select>
-                        <button
-                          class="col-sm-2 btn btn-outline-secondary btn-sm ms-3 custom_delete"
-                        >
-                          Xóa
-                        </button>
-                      </div>
-                      <div class="row w-100">
-                        <p
-                          class="ms-sm-2 mt-sm-4 mb-sm-4 ps-sm-1 fs-2 d-sm-block d-md-block d-lg-none"
-                        >
-                          9,063,726₫
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="container mt-3 col-lg-4 mt-lg-0 me-4 border border-secondary mb-2 custom_rounded"
-                  >
-                    <div class="d-flex flex-column mt-sm-4 mt-lg-0 pt-2">
-                      <div class="d-sm-flex justify-content-between mt-sm-2">
-                        <p class="font-weight-bold fs-6">Tổng mặt hàng</p>
-                        <p class="mr-sm-3 fs-6">10,487,042₫</p>
-                      </div>
-                      <div class="d-sm-flex justify-content-between">
-                        <p class="font-weight-bold fs-6">Giảm giá cửa hàng</p>
-                        <p class="mr-sm-3 fs-6">-355,959₫</p>
-                      </div>
-                      <div class="d-sm-flex justify-content-between mt-sm-2">
-                        <p class="fs-6">Tổng phụ</p>
-                        <p class="mr-sm-3 fs-6">10,131,083₫</p>
-                      </div>
-                      <div class="d-sm-flex justify-content-between mt-sm-2">
-                        <p class="fs-6">Vận chuyển</p>
-                        <p class="mr-sm-3 fs-6">4,737,305₫</p>
-                      </div>
-                      <div class="d-sm-flex justify-content-between mt-sm-2">
-                        <p class="font-weight-bold fs-6">Tổng cộng</p>
-                        <p class="mr-sm-3 font-weight-bold fs-6">14,868,388₫</p>
-                      </div>
-
-                      <div
-                        class="cart__container_pay cart__container_coupon--submit mb-4"
-                        style="display: none"
-                      >
-                        <input
-                          class="cart--inputCoupon"
-                          type="text"
-                          placeholder="Nhập mã giảm giá"
-                        />
-                        <button class="cart--submitCoupon">Áp dụng</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="ms-sm-1 ms-lg-0 ps-sm-0 row border-top py-2 w-100">
-                  <p
-                    class="col-sm-10 ms-sm-2 mt-sm-2 mb-sm-2 ps-sm-0 ms-4 font-weight-bold ms-2 d-md-none d-lg-none"
-                  >
-                    <strong
-                      >Vận chuyển: 424.132đ (Nhận hàng từ 5 - 25 tháng
-                      11)</strong
-                    >
-                  </p>
-                  <p
-                    class="d-sm-none d-md-none d-lg-block col-lg-5 mt-lg-2 ps-sm-0 ms-4 font-weight-bold ms-2"
-                  >
-                    <strong
-                      >Vận chuyển: 424.132đ (Nhận hàng từ 5 - 25 tháng
-                      11)</strong
-                    >
-                  </p>
-                </div>
-              </div>
-              <div class="col-sm-4 col-md-6 col-lg-12"></div>
-            </div>
-          </div>
-          <div
-            class="container pl-sm-0 w-100 ps-0 custom__boxshadow pe-0 mt-5 custom_item"
-            id="item1"
-          >
-            <div class="row-sm">
-              <div class="col-sm col-md-6 col-lg-12 border">
-                <div class="row-sm d-lg-flex container-fluid pr-sm-0 mt-5">
-                  <div class="col-sm col-md-6 col-lg-3 pl-sm-0">
-                    <img
-                      class="w-100 h-80"
-                      src="../../assets/images/belt_cart_1.png"
-                      alt="black belt"
-                      height="250px"
-                      width="150px"
-                    />
-                  </div>
-                  <div
-                    class="col-sm col-md-6 col-lg-4 border-dark pl-sm-0 pr-sm-0 mt-sm-4 ms-lg-5"
-                  >
-                    <div class="d-flex justify-content-between">
-                      <h4 class="fs-4 d-lg-none">
-                        Thắt lưng da hai mặt màu đen với khóa xoay
-                      </h4>
-                      <h4 class="fs-5 d-none d-lg-block">
-                        Thắt lưng da hai mặt màu đen với khóa xoay
-                      </h4>
-                    </div>
-
-                    <div class="row mt-sm-2">
-                      <span
-                        class="col-sm-2 ms-sm-2 badge bg-light text-dark me-2"
-                        >Màu sắc: trắng</span
-                      >
-                      <span class="col-sm-2 badge bg-light text-dark me-2"
-                        >Khóa trắng</span
-                      >
-                    </div>
-                    <p class="mt-sm-3 text-danger">
-                      Trong giỏ hàng với 41 đánh giá
-                    </p>
-                    <div class="col-sm col-md-6 col-lg-12 pr-sm-0">
-                      <div class="mt-sm-2 mt-lg-3 ms-sm-0 row w-100">
-                        <select
-                          name="number"
-                          id="number"
-                          class="form-control custom_quanity number-select"
-                          style="width: 75px"
-                        ></select>
-                        <button
-                          class="col-sm-2 btn btn-outline-secondary btn-sm ms-3 custom_delete"
-                        >
-                          Xóa
-                        </button>
-                      </div>
-                      <div class="row w-100">
-                        <p
-                          class="ms-sm-2 mt-sm-4 mb-sm-4 ps-sm-1 fs-2 d-sm-block d-md-block d-lg-none"
-                        >
-                          9,063,726₫
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="container mt-3 col-lg-4 mt-lg-0 me-4 mb-2 border border-secondary custom_rounded"
-                  >
-                    <div class="d-flex flex-column mt-sm-4 mt-lg-0 pt-2">
-                      <div class="d-sm-flex justify-content-between mt-sm-2">
-                        <p class="font-weight-bold fs-6">Tổng mặt hàng</p>
-                        <p class="mr-sm-3 fs-6">10,487,042₫</p>
-                      </div>
-                      <div class="d-sm-flex justify-content-between">
-                        <p class="font-weight-bold fs-6">Giảm giá cửa hàng</p>
-                        <p class="mr-sm-3 fs-6">-355,959₫</p>
-                      </div>
-                      <div class="d-sm-flex justify-content-between mt-sm-2">
-                        <p class="fs-6">Tổng phụ</p>
-                        <p class="mr-sm-3 fs-6">10,131,083₫</p>
-                      </div>
-                      <div class="d-sm-flex justify-content-between mt-sm-2">
-                        <p class="fs-6">Vận chuyển</p>
-                        <p class="mr-sm-3 fs-6">4,737,305₫</p>
-                      </div>
-                      <div class="d-sm-flex justify-content-between mt-sm-2">
-                        <p class="font-weight-bold fs-6">Tổng cộng</p>
-                        <p class="mr-sm-3 font-weight-bold fs-6">14,868,388₫</p>
-                      </div>
-
-                      <div
-                        class="cart__container_pay cart__container_coupon--submit mb-4"
-                        style="display: none"
-                      >
-                        <input
-                          class="cart--inputCoupon"
-                          type="text"
-                          placeholder="Nhập mã giảm giá"
-                        />
-                        <button class="cart--submitCoupon">Áp dụng</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="ms-sm-1 ms-lg-0 ps-sm-0 row border-top py-2 w-100">
-                  <p
-                    class="col-sm-10 ms-sm-2 mt-sm-2 mb-sm-2 ps-sm-0 ms-4 font-weight-bold ms-2 d-md-none d-lg-none"
-                  >
-                    <strong
-                      >Vận chuyển: 424.132đ (Nhận hàng từ 5 - 25 tháng
-                      11)</strong
-                    >
-                  </p>
-                  <p
-                    class="d-sm-none d-md-none d-lg-block col-lg-5 mt-lg-2 ps-sm-0 ms-4 font-weight-bold ms-2"
-                  >
-                    <strong
-                      >Vận chuyển: 424.132đ (Nhận hàng từ 5 - 25 tháng
-                      11)</strong
-                    >
-                  </p>
-                </div>
-              </div>
-              <div class="col-sm-4 col-md-6 col-lg-12"></div>
-            </div>
+              Áp dụng
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <section>
-      <footer class="border-top border-dark">
-        <div class="container">
-          <div class="row d-flex footer mt-sm-4">
-            <div class="col-sm d-flex flex-column justify-content-center">
-              <h3>About Us</h3>
-              <p>How we work</p>
-              <p>Investors</p>
-              <p>Careers</p>
-              <p>Press</p>
-              <p>Impact</p>
-              <p>Legal imprint</p>
-            </div>
-            <div class="col-sm d-flex flex-column justify-content-top">
-              <h3>Support</h3>
-              <p>Become an Investor</p>
-              <p>Your opinion</p>
-              <p>Donate</p>
-              <p>Survey</p>
-            </div>
-            <div class="col-sm d-flex flex-column justify-content-center">
-              <h3>Terms and Conditions</h3>
-              <p>Privacy Terms</p>
-              <p>Terms of Use</p>
-              <p>Intellectual Property</p>
-              <p>Shipping Policy</p>
-              <p>Community Standards</p>
-            </div>
-            <div class="col-sm d-flex flex-column justify-content-center">
-              <h3>Contact Us</h3>
-              <p>thomas@contact.tm.com</p>
-              <div class="social-icons">
-                <span class="icon">
-                  <img
-                    src="../../../assets/icons/Facebook.svg"
-                    alt="Facebook"
-                  />
-                </span>
-                <span class="icon">
-                  <img
-                    src="../../../assets/icons/Instagram.svg"
-                    alt="Instagram"
-                  />
-                </span>
-                <span class="icon">
-                  <img
-                    src="../../../assets/icons/TwitterX.svg"
-                    alt="TwitterX"
-                  />
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr />
-        <div class="container pb-5">
-          <div>
-            <p>Công ty TNHH Thomas</p>
-            <p>
-              Văn phòng: Lầu 4, tòa nhà XXX, số 66 XXXX, phường 05, quận
-              9, TP Hồ Chí Minh.
-            </p>
-            <p>
-              GP số 09009231123 do sở KHĐT Tp Hồ Chí Minh cấp lần đầu ngày
-              9/19/2099.
-            </p>
-          </div>
-      </div>
-      </footer>
-    </section>
+    <footer id="footer"></footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="../header footer/header.js"></script>
+    <script>
+      const footer = document.querySelector("#footer");
+      fetch("../../header footer/footer.html")
+        .then((response) => response.text())
+        .then((html) => (footer.innerHTML = html));
+
+      const header = document.querySelector("#header");
+      fetch("../../header footer/header.html")
+        .then((response) => response.text())
+        .then((html) => (header.innerHTML = html));
+    </script>
   </body>
 </html>
