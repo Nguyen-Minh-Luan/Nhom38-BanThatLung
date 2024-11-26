@@ -289,16 +289,12 @@ a {
   border-radius: 0;
   padding: 10px 15px;
   color: #333;
-  transition: background-color 0.3s ease, color 0.3s ease;
   font-size: 25px;
   font-weight: 400;
   text-transform: uppercase;
 }
-
 .nav__Tab .nav__Link.active {
-  background-color: transparent;
   color: #000;
-  /* border-bottom: 3px solid rgb(79, 79, 79); */
   transform: scaleX(1);
 }
 
@@ -307,42 +303,27 @@ a {
   color: #000;
 }
 
-/* Cài đặt font chữ và kích thước đồng đều cho cả hai tab */
-.nav__Tab .nav__Link {
-  font-size: 25px;
-  font-weight: 400;
-  color: #333;
-  text-transform: uppercase;
-  padding: 10px 15px;
-  border: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 
 .nav__Tab .nav__Link::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 2px; /* Độ dày của dòng gạch chân */
+  height: 2px;
   width: 0;
-  background-color: #000; /* Màu sắc của gạch chân */
-  transition: width 0.9s ease;
+  background-color: #000;
+  transition: all 1s ease;
 }
 
-/* Khi hover vào tab, gạch chân từ trái sang phải */
 .nav__Tab .nav__Link:hover::after,
 .nav__Tab .nav__Link.active::after {
   width: 100%;
 }
 
-/* Thay đổi màu chữ khi hover */
-.nav__Tab .nav__Link:hover {
-  color: #000;
-}
-
 /* ----------------------------------------------------------------------- */
 .tabEvent {
+  width: 1400px;
+  margin-inline: auto ;
   margin-top: 3rem;
   margin-bottom: 5rem;
 }
