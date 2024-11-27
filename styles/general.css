@@ -386,7 +386,7 @@ footer {
 }
 
 .card {
-  width: 280px;
+  width: 22%;
   text-align: center;
 }.card a {
   color: black;
@@ -408,4 +408,12 @@ footer {
 }
 .card:hover {
   box-shadow: 0px 1px 5px 0px #0000004d, 0px 5px 20px 6px #00000026;
+}
+.custom_favorite_click {
+  cursor: pointer;
+  transition: fill 0.2s ease;
+}
+
+.custom_favorite_click:active {
+  fill: black;
 }

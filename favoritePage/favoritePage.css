@@ -71,7 +71,9 @@ a:hover {
   flex-wrap: wrap;
   gap: 5px; /* Space between items */
 }
-
+.card{
+  width: 100%;
+}
 .card-container .col {
   flex: 1 1 calc(25% - 16px); /* Four items per row with gaps */
   box-sizing: border-box;
