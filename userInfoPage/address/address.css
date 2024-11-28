@@ -401,10 +401,9 @@ footer{
 }
 .custom_hover {
   border-radius: 20px;
-  border: 2px solid white;
+  border: 2px solid transparent;
 }
 .custom_hover:hover {
-  background-color: #e2e2e2;
   border-radius: 20px;
 }
 .custom_size--19{
@@ -421,4 +420,7 @@ footer{
 }
 .custom_size-13{
   font-size: 13px;
+}
+.btn-dark{
+  border-radius: 0px;
 }
