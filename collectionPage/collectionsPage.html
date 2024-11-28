@@ -27,18 +27,21 @@
       rel="stylesheet"
       href="../assets/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.css"
     />
-    <script src="../collectionPage/collectionsPage.css"></script>
     <link rel="stylesheet" href="../styles/general.css" />
     <link rel="stylesheet" href="../header footer/header.css" />
     <link rel="stylesheet" href="../header footer/footer.css" />
+    <link rel="stylesheet" href="collectionsPage.css" />
     <script src="../header footer/header.js"></script>
+    <script src="../styles/general.js"></script>
   </head>
   <body>
     <header id="header"></header>
     <div class="breadcumb__container">
       <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+          <li class="breadcrumb-item">
+            <a href="/homePage\HomePage.html">Trang chủ</a>
+          </li>
           <li class="breadcrumb-item active" aria-current="page">Bộ sưu tập</li>
         </ol>
       </nav>
@@ -52,59 +55,131 @@
     <div class="container d-flex">
       <div class="col-6 mt-5">
         <div class="row">
-          <div class="col-md-6 col-sm-6">
-            <div class="card product-card">
+          <div class="cardWrapper">
+            <div class="card" style="position: relative">
+              <div
+                style="position: absolute; top: 10px; right: 10px; z-index: 10"
+              >
+                <svg
+                  class="custom_favorite_click"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#000000"
+                >
+                  <path
+                    d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+                  />
+                </svg>
+              </div>
               <img
                 src="../assets/images/victor_sample1.png"
                 class="card-img-top"
-                alt="Canvas Belt"
+                alt="..."
               />
-              <div class="card-body text-start">
-                <p class="card-text">Thắt Lưng Hai Mặt LV Heritage 35MM</p>
-                <p class="text-muted">389,000đ</p>
-              </div>
+              <a href="../productDetail/productDetail.html">
+                <div class="card-body text-start">
+                  <h5 class="card-title text-start">
+                    Thắt Lưng Hai Mặt LV Heritage 35MM
+                  </h5>
+                  <p class="card-text text-start">100.000 VNĐ</p>
+                </div>
+              </a>
             </div>
-          </div>
-          <div class="col-md-6 col-sm-6">
-            <div class="card product-card">
+            <div class="card" style="position: relative">
+              <div
+                style="position: absolute; top: 10px; right: 10px; z-index: 10"
+              >
+                <svg
+                  class="custom_favorite_click"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#000000"
+                >
+                  <path
+                    d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+                  />
+                </svg>
+              </div>
               <img
                 src="../assets/images/victor_sample1.png"
                 class="card-img-top"
-                alt="Canvas Belt"
+                alt="..."
               />
-              <div class="card-body text-start">
-                <p class="card-text">Thắt Lưng Hai Mặt LV Heritage 35MM</p>
-                <p class="text-muted">389,000đ</p>
-              </div>
+              <a href="../productDetail/productDetail.html">
+                <div class="card-body text-start">
+                  <h5 class="card-title text-start">
+                    Thắt Lưng Hai Mặt LV Heritage 35MM
+                  </h5>
+                  <p class="card-text text-start">100.000 VNĐ</p>
+                </div>
+              </a>
             </div>
-          </div>
-        </div>
 
-        <div class="row mt-5">
-          <div class="col-md-6 col-sm-6">
-            <div class="card product-card">
+            <div class="card" style="position: relative">
+              <div
+                style="position: absolute; top: 10px; right: 10px; z-index: 10"
+              >
+                <svg
+                  class="custom_favorite_click"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#000000"
+                >
+                  <path
+                    d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+                  />
+                </svg>
+              </div>
               <img
                 src="../assets/images/victor_sample1.png"
                 class="card-img-top"
-                alt="Canvas Belt"
+                alt="..."
               />
-              <div class="card-body text-start">
-                <p class="card-text">Thắt Lưng Hai Mặt LV Heritage 35MM</p>
-                <p class="text-muted">389,000đ</p>
-              </div>
+              <a href="../productDetail/productDetail.html">
+                <div class="card-body text-start">
+                  <h5 class="card-title text-start">
+                    Thắt Lưng Hai Mặt LV Heritage 35MM
+                  </h5>
+                  <p class="card-text text-start">100.000 VNĐ</p>
+                </div>
+              </a>
             </div>
-          </div>
-          <div class="col-md-6 col-sm-6">
-            <div class="card product-card">
+            <div class="card" style="position: relative">
+              <div
+                style="position: absolute; top: 10px; right: 10px; z-index: 10"
+              >
+                <svg
+                  class="custom_favorite_click"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#000000"
+                >
+                  <path
+                    d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+                  />
+                </svg>
+              </div>
               <img
                 src="../assets/images/victor_sample1.png"
                 class="card-img-top"
-                alt="Canvas Belt"
+                alt="..."
               />
-              <div class="card-body text-start">
-                <p class="card-text">Thắt Lưng Hai Mặt LV Heritage 35MM</p>
-                <p class="text-muted">389,000đ</p>
-              </div>
+              <a href="../productDetail/productDetail.html">
+                <div class="card-body text-start">
+                  <h5 class="card-title text-start">
+                    Thắt Lưng Hai Mặt LV Heritage 35MM
+                  </h5>
+                  <p class="card-text text-start">100.000 VNĐ</p>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -153,61 +228,131 @@
     </div>
     <div class="container d-flex">
       <div class="col-6 mt-5">
-        <div class="row">
-          <div class="col-md-6 col-sm-6">
-            <div class="card product-card">
-              <img
-                src="../assets/images/victor_sample1.png"
-                class="card-img-top"
-                alt="Canvas Belt"
-              />
-              <div class="card-body text-start">
-                <p class="card-text">Thắt Lưng Hai Mặt LV Heritage 35MM</p>
-                <p class="text-muted">389,000đ</p>
-              </div>
+        <div class="cardWrapper">
+          <div class="card" style="position: relative">
+            <div
+              style="position: absolute; top: 10px; right: 10px; z-index: 10"
+            >
+              <svg
+                class="custom_favorite_click"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#000000"
+              >
+                <path
+                  d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+                />
+              </svg>
             </div>
-          </div>
-          <div class="col-md-6 col-sm-6">
-            <div class="card product-card">
-              <img
-                src="../assets/images/victor_sample1.png"
-                class="card-img-top"
-                alt="Canvas Belt"
-              />
+            <img
+              src="../assets/images/victor_sample1.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <a href="../productDetail/productDetail.html">
               <div class="card-body text-start">
-                <p class="card-text">Thắt Lưng Hai Mặt LV Heritage 35MM</p>
-                <p class="text-muted">389,000đ</p>
+                <h5 class="card-title text-start">
+                  Thắt Lưng Hai Mặt LV Heritage 35MM
+                </h5>
+                <p class="card-text text-start">100.000 VNĐ</p>
               </div>
-            </div>
+            </a>
           </div>
-        </div>
+          <div class="card" style="position: relative">
+            <div
+              style="position: absolute; top: 10px; right: 10px; z-index: 10"
+            >
+              <svg
+                class="custom_favorite_click"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#000000"
+              >
+                <path
+                  d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+                />
+              </svg>
+            </div>
+            <img
+              src="../assets/images/victor_sample1.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <a href="../productDetail/productDetail.html">
+              <div class="card-body text-start">
+                <h5 class="card-title text-start">
+                  Thắt Lưng Hai Mặt LV Heritage 35MM
+                </h5>
+                <p class="card-text text-start">100.000 VNĐ</p>
+              </div>
+            </a>
+          </div>
 
-        <div class="row mt-5">
-          <div class="col-md-6 col-sm-6">
-            <div class="card product-card">
-              <img
-                src="../assets/images/victor_sample1.png"
-                class="card-img-top"
-                alt="Canvas Belt"
-              />
-              <div class="card-body text-start">
-                <p class="card-text">Thắt Lưng Hai Mặt LV Heritage 35MM</p>
-                <p class="text-muted">389,000đ</p>
-              </div>
+          <div class="card" style="position: relative">
+            <div
+              style="position: absolute; top: 10px; right: 10px; z-index: 10"
+            >
+              <svg
+                class="custom_favorite_click"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#000000"
+              >
+                <path
+                  d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+                />
+              </svg>
             </div>
+            <img
+              src="../assets/images/victor_sample1.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <a href="../productDetail/productDetail.html">
+              <div class="card-body text-start">
+                <h5 class="card-title text-start">
+                  Thắt Lưng Hai Mặt LV Heritage 35MM
+                </h5>
+                <p class="card-text text-start">100.000 VNĐ</p>
+              </div>
+            </a>
           </div>
-          <div class="col-md-6 col-sm-6">
-            <div class="card product-card">
-              <img
-                src="../assets/images/victor_sample1.png"
-                class="card-img-top"
-                alt="Canvas Belt"
-              />
-              <div class="card-body text-start">
-                <p class="card-text">Thắt Lưng Hai Mặt LV Heritage 35MM</p>
-                <p class="text-muted">389,000đ</p>
-              </div>
+          <div class="card" style="position: relative">
+            <div
+              style="position: absolute; top: 10px; right: 10px; z-index: 10"
+            >
+              <svg
+                class="custom_favorite_click"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#000000"
+              >
+                <path
+                  d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+                />
+              </svg>
             </div>
+            <img
+              src="../assets/images/victor_sample1.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <a href="../productDetail/productDetail.html">
+              <div class="card-body text-start">
+                <h5 class="card-title text-start">
+                  Thắt Lưng Hai Mặt LV Heritage 35MM
+                </h5>
+                <p class="card-text text-start">100.000 VNĐ</p>
+              </div>
+            </a>
           </div>
         </div>
         <section class="container ps-0 mt-5 pe-4 mb-5">

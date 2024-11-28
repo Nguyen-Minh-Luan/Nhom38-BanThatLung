@@ -1,5 +1,3 @@
-@import "../styles/general.css";
-@import "../homePage/HomePage.css";
 
 .custom_margin--container {
   margin-left: 148.5px;
@@ -53,13 +51,23 @@
   justify-content: center;
   gap: 1rem;
 }
-a{
-  color: black;
-}
-a:hover{
-  color: black;
-
-}
 .remove_button{
   cursor: pointer;
+}
+.breadcrumb {
+  margin-top: 5.38rem;
+  margin-bottom: 0;
+  background-color: #efefef;
+  height: 2.3rem;
+  align-items: center;
+  font-size: 17px;
+}
+
+.breadcrumb-item a {
+  color: #6c757d;
+  margin-left: 3rem;
+}
+
+.breadcrumb-item.active {
+  color: #1c1c1c;
 }

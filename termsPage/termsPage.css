@@ -15,3 +15,20 @@
 .content {
   font-size: 26px;
 }
+.breadcrumb {
+  margin-top: 5.38rem;
+  margin-bottom: 0;
+  background-color: #efefef;
+  height: 2.3rem;
+  align-items: center;
+  font-size: 17px;
+}
+
+.breadcrumb-item a {
+  color: #6c757d;
+  margin-left: 3rem;
+}
+
+.breadcrumb-item.active {
+  color: #1c1c1c;
+}
