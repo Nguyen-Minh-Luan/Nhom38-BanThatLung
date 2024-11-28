@@ -16,6 +16,7 @@ li {
 .breadcrumb {
   margin-top: 5.38rem;
   margin-bottom: 0;
+  padding-left: 3rem;
   background-color: #efefef;
   height: 2.3rem;
   align-items: center;
@@ -24,7 +25,6 @@ li {
 
 .breadcrumb-item a {
   color: #6c757d;
-  margin-left: 3rem;
 }
 
 .breadcrumb-item.active {
