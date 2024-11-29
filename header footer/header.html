@@ -99,9 +99,9 @@
             >Tất cả thắt lưng nam</a
           >
         </li>
-        <li><a class="dropdown-item" href="#">Thắt Lưng Da</a></li>
+        <li><a class="dropdown-item" href="/menPage\menLeather.html">Thắt Lưng Da</a></li>
         <li>
-          <a class="dropdown-item" href="#">Thắt Lưng Vải Canvas</a>
+          <a class="dropdown-item" href="/menPage\menCanvas.html">Thắt Lưng Vải Canvas</a>
         </li>
       </ul>
     </li>
@@ -139,18 +139,48 @@
       </button>
     </div>
 
-    <a class="nav-item favorite custom_scale" href="/favoritePage\favoritePage.html">
+    <a
+      class="nav-item favorite custom_scale"
+      href="/favoritePage\favoritePage.html"
+    >
       <img class="nav-icon" src="/assets\icons\favorite.svg" alt="" />
       <span class="favorite__count">0</span>
     </a>
-    <a class="nav-item user custom_scale" href="/userInfoPage\account\userinfo.html"
-      ><img
-        id="user__icon"
-        class="nav-icon"
-        src="/assets\icons\user.svg"
-        alt=""
-        style="width: 35px; height: 35px"
-    /></a>
+    <a class="nav-item user user__dropdown" href="#">
+      <!-- Dropdown for user profile -->
+      <div class="dropdown text-end">
+        <a
+          href="#"
+          class="d-flex align-items-center text-decoration-none dropdown-toggle"
+          style="color: black;"
+          id="dropdownUser"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="/assets\images\profile.jpg"
+            alt="User Avatar"
+            width="35"
+            height="35"
+            class="rounded-circle me-2"
+          />
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end text-small"
+          aria-labelledby="dropdownUser"
+        >
+          <li>
+            <a class="dropdown-item" href="/userInfoPage\account\userinfo.html"
+              >Hồ Sơ</a
+            >
+          </li>
+          <li>
+            <hr class="dropdown-divider" />
+          </li>
+          <li><a class="dropdown-item text-danger" href="/signInPage\signInPage.html">Đăng Xuất</a></li>
+        </ul>
+      </div>
+    </a>
     <a class="nav-item cart custom_scale" href="/cartPage\cartPage.html">
       <img
         class="nav-icon"

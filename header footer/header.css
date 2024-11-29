@@ -237,6 +237,7 @@ header {
 .custom_design {
   border: 2.5px solid black;
 }
+
 footer {
   background-color: #f4f4f4;
 }
@@ -290,4 +291,12 @@ footer {
 .cart--inputCoupon:focus {
   border-color: #222;
   height: 48px;
+}
+.dropdown-menu {
+  border-radius: 0 !important;
+}
+
+.dropdown-item:hover {
+  background-color: black;
+  color: white;
 }

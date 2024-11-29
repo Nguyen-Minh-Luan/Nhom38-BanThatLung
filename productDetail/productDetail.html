@@ -24,6 +24,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../productDetail/productDetail.css" />
+    <script src="../styles/general.js"></script>
     <script src="../productDetail/productDetail.js"></script>
     <link
       rel="stylesheet"
@@ -44,7 +45,9 @@
     <div class="breadcumb__container">
       <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/homePage\HomePage.html">Trang chủ</a></li>
+          <li class="breadcrumb-item">
+            <a href="/homePage\HomePage.html">Trang chủ</a>
+          </li>
           <li class="breadcrumb-item active" aria-current="page">Sản phẩm</li>
         </ol>
       </nav>
@@ -183,7 +186,6 @@
             <select
               class="form-select form-control form-control-lg custom_design custom_size--16"
               aria-label="Select a number"
-              style="border-radius: 7px"
             >
               <option selected>0</option>
               <!-- Options from 1 to 50 -->
@@ -244,7 +246,7 @@
             <button class="buyNow__button btn btn-dark w-100 mb-4">
               Mua Ngay
             </button>
-            <button class="addToCart__button btn-white me-2 w-100 mb-3 rounded">
+            <button class="addToCart__button btn-white me-2 w-100 mb-3">
               Thêm vào giỏ hàng
             </button>
             <button class="favorite_button btn me-2 w-100 mb-3 rounded">
@@ -759,12 +761,13 @@
     >
       <p class="viewed__title ms-0 fs-2">Bạn có thể thích</p>
       <div class="d-flex justify-content-between">
-        <a href="../productDetail/productDetail.html">
+        <div class="card-wrapper cardWrapper">
           <div class="card" style="position: relative">
             <div
               style="position: absolute; top: 10px; right: 10px; z-index: 10"
             >
               <svg
+                class="custom_favorite_click"
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
                 viewBox="0 -960 960 960"
@@ -781,18 +784,21 @@
               class="card-img-top"
               alt="..."
             />
-            <div class="card-body">
-              <h5 class="card-title">Thắt Lưng Hai Mặt LV Heritage 35MM</h5>
-              <p class="card-text">100.000 VNĐ</p>
-            </div>
+            <a href="../productDetail/productDetail.html">
+              <div class="card-body text-start">
+                <h5 class="card-title text-start">
+                  Thắt Lưng Hai Mặt LV Heritage 35MM
+                </h5>
+                <p class="card-text text-start">100.000 VNĐ</p>
+              </div>
+            </a>
           </div>
-        </a>
-        <a href="../productDetail/productDetail.html">
           <div class="card" style="position: relative">
             <div
               style="position: absolute; top: 10px; right: 10px; z-index: 10"
             >
               <svg
+                class="custom_favorite_click"
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
                 viewBox="0 -960 960 960"
@@ -809,18 +815,22 @@
               class="card-img-top"
               alt="..."
             />
-            <div class="card-body">
-              <h5 class="card-title">Thắt Lưng Hai Mặt LV Heritage 35MM</h5>
-              <p class="card-text">100.000 VNĐ</p>
-            </div>
+            <a href="../productDetail/productDetail.html">
+              <div class="card-body text-start">
+                <h5 class="card-title text-start">
+                  Thắt Lưng Hai Mặt LV Heritage 35MM
+                </h5>
+                <p class="card-text text-start">100.000 VNĐ</p>
+              </div>
+            </a>
           </div>
-        </a>
-        <a href="../productDetail/productDetail.html">
+
           <div class="card" style="position: relative">
             <div
               style="position: absolute; top: 10px; right: 10px; z-index: 10"
             >
               <svg
+                class="custom_favorite_click"
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
                 viewBox="0 -960 960 960"
@@ -837,18 +847,21 @@
               class="card-img-top"
               alt="..."
             />
-            <div class="card-body">
-              <h5 class="card-title">Thắt Lưng Hai Mặt LV Heritage 35MM</h5>
-              <p class="card-text">100.000 VNĐ</p>
-            </div>
+            <a href="../productDetail/productDetail.html">
+              <div class="card-body text-start">
+                <h5 class="card-title text-start">
+                  Thắt Lưng Hai Mặt LV Heritage 35MM
+                </h5>
+                <p class="card-text text-start">100.000 VNĐ</p>
+              </div>
+            </a>
           </div>
-        </a>
-        <a href="../productDetail/productDetail.html">
           <div class="card" style="position: relative">
             <div
               style="position: absolute; top: 10px; right: 10px; z-index: 10"
             >
               <svg
+                class="custom_favorite_click"
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
                 viewBox="0 -960 960 960"
@@ -865,12 +878,16 @@
               class="card-img-top"
               alt="..."
             />
-            <div class="card-body">
-              <h5 class="card-title">Thắt Lưng Hai Mặt LV Heritage 35MM</h5>
-              <p class="card-text">100.000 VNĐ</p>
-            </div>
+            <a href="../productDetail/productDetail.html">
+              <div class="card-body text-start">
+                <h5 class="card-title text-start">
+                  Thắt Lưng Hai Mặt LV Heritage 35MM
+                </h5>
+                <p class="card-text text-start">100.000 VNĐ</p>
+              </div>
+            </a>
           </div>
-        </a>
+        </div>
       </div>
     </div>
 
@@ -879,12 +896,13 @@
     >
       <p class="viewed__title ms-0 fs-2">Sản phẩm đã xem</p>
       <div class="d-flex justify-content-between">
-        <a href="../productDetail/productDetail.html">
+        <div class="card-wrapper cardWrapper">
           <div class="card" style="position: relative">
             <div
               style="position: absolute; top: 10px; right: 10px; z-index: 10"
             >
               <svg
+                class="custom_favorite_click"
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
                 viewBox="0 -960 960 960"
@@ -901,18 +919,21 @@
               class="card-img-top"
               alt="..."
             />
-            <div class="card-body">
-              <h5 class="card-title">Thắt Lưng Hai Mặt LV Heritage 35MM</h5>
-              <p class="card-text">100.000 VNĐ</p>
-            </div>
+            <a href="../productDetail/productDetail.html">
+              <div class="card-body text-start">
+                <h5 class="card-title text-start">
+                  Thắt Lưng Hai Mặt LV Heritage 35MM
+                </h5>
+                <p class="card-text text-start">100.000 VNĐ</p>
+              </div>
+            </a>
           </div>
-        </a>
-        <a href="../productDetail/productDetail.html">
           <div class="card" style="position: relative">
             <div
               style="position: absolute; top: 10px; right: 10px; z-index: 10"
             >
               <svg
+                class="custom_favorite_click"
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
                 viewBox="0 -960 960 960"
@@ -929,18 +950,22 @@
               class="card-img-top"
               alt="..."
             />
-            <div class="card-body">
-              <h5 class="card-title">Thắt Lưng Hai Mặt LV Heritage 35MM</h5>
-              <p class="card-text">100.000 VNĐ</p>
-            </div>
+            <a href="../productDetail/productDetail.html">
+              <div class="card-body text-start">
+                <h5 class="card-title text-start">
+                  Thắt Lưng Hai Mặt LV Heritage 35MM
+                </h5>
+                <p class="card-text text-start">100.000 VNĐ</p>
+              </div>
+            </a>
           </div>
-        </a>
-        <a href="../productDetail/productDetail.html">
+
           <div class="card" style="position: relative">
             <div
               style="position: absolute; top: 10px; right: 10px; z-index: 10"
             >
               <svg
+                class="custom_favorite_click"
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
                 viewBox="0 -960 960 960"
@@ -957,18 +982,21 @@
               class="card-img-top"
               alt="..."
             />
-            <div class="card-body">
-              <h5 class="card-title">Thắt Lưng Hai Mặt LV Heritage 35MM</h5>
-              <p class="card-text">100.000 VNĐ</p>
-            </div>
+            <a href="../productDetail/productDetail.html">
+              <div class="card-body text-start">
+                <h5 class="card-title text-start">
+                  Thắt Lưng Hai Mặt LV Heritage 35MM
+                </h5>
+                <p class="card-text text-start">100.000 VNĐ</p>
+              </div>
+            </a>
           </div>
-        </a>
-        <a href="../productDetail/productDetail.html">
           <div class="card" style="position: relative">
             <div
               style="position: absolute; top: 10px; right: 10px; z-index: 10"
             >
               <svg
+                class="custom_favorite_click"
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
                 viewBox="0 -960 960 960"
@@ -985,12 +1013,16 @@
               class="card-img-top"
               alt="..."
             />
-            <div class="card-body">
-              <h5 class="card-title">Thắt Lưng Hai Mặt LV Heritage 35MM</h5>
-              <p class="card-text">100.000 VNĐ</p>
-            </div>
+            <a href="../productDetail/productDetail.html">
+              <div class="card-body text-start">
+                <h5 class="card-title text-start">
+                  Thắt Lưng Hai Mặt LV Heritage 35MM
+                </h5>
+                <p class="card-text text-start">100.000 VNĐ</p>
+              </div>
+            </a>
           </div>
-        </a>
+        </div>
       </div>
     </div>
 
