@@ -1,5 +1,4 @@
-@import url(../../../../styles/general.css);
-
+@import "../../styles/general.css";
 
 #userPage{
     color: rgba(0, 0, 0, .85);

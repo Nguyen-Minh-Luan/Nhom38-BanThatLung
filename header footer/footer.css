@@ -8,7 +8,7 @@
     filter: brightness(0.7) saturate(1.5); /* Tăng độ sáng và độ bão hòa */
 }
 p {
-    font-size: 18px;
+    font-size: 14px;
     transition: transform 0.3s;
 }
 .footer p:hover{

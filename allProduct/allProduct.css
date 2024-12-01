@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap");
 
 :root {
@@ -58,7 +58,7 @@ li {
   border-right: rgb(214, 214, 214) 1px solid;
   align-content: center;
 }
-.filter__header__title{
+.filter__header__title {
   color: black;
   margin-left: 5rem;
   font-size: 37px;
@@ -74,7 +74,6 @@ li {
   /* margin-left: 6rem; */
 }
 
-
 .filter__title {
   cursor: pointer;
   border: none;
@@ -87,7 +86,6 @@ li {
   background-color: rgb(48, 48, 48);
   display: flex;
   margin-inline: auto;
-
 }
 
 .function__bar .quantity__column {
@@ -110,9 +108,8 @@ li {
   border-bottom: rgb(214, 214, 214) 1px solid;
   border-left: rgb(214, 214, 214) 1px solid;
   align-content: center;
-
 }
-.sort__column img{
+.sort__column img {
   margin-right: 5px;
 }
 
@@ -122,7 +119,6 @@ li {
   align-items: center;
 }
 
-
 .filter-sort {
   display: flex;
   justify-content: space-between;
@@ -130,22 +126,21 @@ li {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
-.apply__container{
+.apply__container {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
 }
-.apply__button{
+.apply__button {
   color: black;
   background: white;
   font-size: 18px;
-  transition: all 0.5s ;
+  transition: all 0.5s;
 }
-.apply__button:hover{
+.apply__button:hover {
   background-color: black;
   color: white;
   transform: scale(1);
-
 }
 
 /* ------------------------------------------------------ */
@@ -157,7 +152,6 @@ li {
 #list__product__row {
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .list__product {
@@ -168,8 +162,8 @@ li {
 #list__product__row {
   display: flex;
 }
- /* Tổng quan */
- .list__product {
+/* Tổng quan */
+.list__product {
   margin: 0 auto;
 }
 
@@ -234,7 +228,6 @@ li {
 /* --------------------------------------------------------- */
 #pagination__bar {
   margin-top: 3%;
-
 }
 
 #pagination__bar .pageNumber:active {
@@ -256,11 +249,11 @@ li {
   border-radius: 4px;
 }
 
-
 /* Đổi màu khi di chuột */
 .pagination .page-link:hover {
   color: white;
   background-color: #565656;
 }
+
 
 /* ------------------------------------------------- */
