@@ -3,9 +3,6 @@
 * {
   font-family: "IBM Plex Sans Condensed", sans-serif;
 }
-footer{
-  height: 100vh;;
-}
 @media (min-width: 992px) {
   .custom-lg-container {
     max-width: 900px;

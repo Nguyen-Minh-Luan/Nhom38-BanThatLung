@@ -117,6 +117,25 @@
     </div>
    
   
+<<<<<<< HEAD
+=======
+    <footer id="footer"></footer>
+    <!-- Bootstrap CSS and JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="../../header footer/header.js"></script>
+    <script>
+      const footer = document.querySelector("#footer");
+      fetch("../../../header footer/footer.html")
+        .then((response) => response.text())
+        .then((html) => (footer.innerHTML = html));
+
+      const header = document.querySelector("#header");
+      fetch("../../../header footer/header.html")
+        .then((response) => response.text())
+        .then((html) => (header.innerHTML = html));
+    </script>
+>>>>>>> d3b5dcb8c542616878d58e1dd803445a985490f1
   </body>
   <script src="../pending.js"></script>
 </html>
