@@ -1,5 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap");
+
+:root {
+  --margin-left-standard: 145px;
+  --margin-bottom-small: 6px;
+  --margin-left-medium: 75px;
+  --font-size-standard: 20px;
+  --width-big: 929px;
+}
 
 * {
   font-family: "IBM Plex Sans Condensed", sans-serif;
@@ -15,6 +23,7 @@ li {
 .breadcrumb {
   margin-top: 5.38rem;
   margin-bottom: 0;
+  padding-left: 3rem;
   background-color: #efefef;
   height: 2.3rem;
   align-items: center;
@@ -23,7 +32,6 @@ li {
 
 .breadcrumb-item a {
   color: #6c757d;
-  margin-left: 3rem;
 }
 
 .breadcrumb-item.active {
@@ -49,7 +57,7 @@ li {
   border-right: rgb(214, 214, 214) 1px solid;
   align-content: center;
 }
-.filter__header__title {
+.filter__header__title{
   color: black;
   margin-left: 5rem;
   font-size: 37px;
@@ -65,6 +73,7 @@ li {
   /* margin-left: 6rem; */
 }
 
+
 .filter__title {
   cursor: pointer;
   border: none;
@@ -77,6 +86,7 @@ li {
   background-color: rgb(48, 48, 48);
   display: flex;
   margin-inline: auto;
+
 }
 
 .function__bar .quantity__column {
@@ -99,8 +109,9 @@ li {
   border-bottom: rgb(214, 214, 214) 1px solid;
   border-left: rgb(214, 214, 214) 1px solid;
   align-content: center;
+
 }
-.sort__column img {
+.sort__column img{
   margin-right: 5px;
 }
 
@@ -110,6 +121,7 @@ li {
   align-items: center;
 }
 
+
 .filter-sort {
   display: flex;
   justify-content: space-between;
@@ -117,21 +129,22 @@ li {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
-.apply__container {
+.apply__container{
   display: flex;
   justify-content: center;
   margin-top: 2rem;
 }
-.apply__button {
+.apply__button{
   color: black;
   background: white;
   font-size: 18px;
-  transition: all 0.5s;
+  transition: all 0.5s ;
 }
-.apply__button:hover {
+.apply__button:hover{
   background-color: black;
   color: white;
   transform: scale(1);
+
 }
 
 /* ------------------------------------------------------ */
@@ -143,6 +156,7 @@ li {
 #list__product__row {
   display: flex;
   flex-wrap: wrap;
+
 }
 
 .list__product {
@@ -162,16 +176,15 @@ li {
   background: #fff;
   border: 1px dotted #0000;
   border-radius: 9px;
-  transition: 0.2s cubic-bezier(0.345, 0.115, 0.135, 1.42),
-    opacity 0.15s ease-out, border-color 0.2s ease-out;
+  transition: 0.2s cubic-bezier(0.345, 0.115, 0.135, 1.42), opacity 0.15s ease-out, border-color 0.2s ease-out;
 }
 
 .list__product .product:hover {
+
   transform: scale(1.05);
 }
 
-.list__product .favorite__icon {
-}
+.list__product .favorite__icon {}
 
 .list__product .product__image {
   display: flex;
@@ -205,6 +218,7 @@ li {
 /* --------------------------------------------------------- */
 #pagination__bar {
   margin-top: 3%;
+
 }
 
 #pagination__bar .pageNumber:active {
@@ -226,6 +240,7 @@ li {
   border-radius: 4px;
 }
 
+
 /* Đổi màu khi di chuột */
 .pagination .page-link:hover {
   color: white;
@@ -233,23 +248,12 @@ li {
 }
 
 /* ------------------------------------------------- */
-.product__title {
+.product__title{
   margin-top: 12px;
 }
-.product-card {
+.product-card{
   margin-right: 20px;
 }
-.see-more-btn {
+.see-more-btn{
   border-radius: 0px;
-}
-.cardWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.card {
-  flex: 1 1 calc(50% - 50px); 
-  max-width: calc(50% - 50px); 
-  box-sizing: border-box;
 }

@@ -48,6 +48,7 @@ li {
 /* ------------------------------------------------------ */
 .function__bar {
   font-size: 18px;
+  margin-bottom: 2rem;
 }
 
 .filter__column {
@@ -161,59 +162,74 @@ li {
 
 .list__product {
   cursor: pointer;
-  margin-top: 2%;
   width: 1600px;
 }
 
 #list__product__row {
   display: flex;
 }
-
-.list__product .product {
-  opacity: 1;
-  z-index: 1;
-
-  background: #fff;
-  border: 1px dotted #0000;
-  border-radius: 9px;
-  transition: 0.2s cubic-bezier(0.345, 0.115, 0.135, 1.42), opacity 0.15s ease-out, border-color 0.2s ease-out;
+ /* Tổng quan */
+ .list__product {
+  margin: 0 auto;
 }
 
-.list__product .product:hover {
-
-  transform: scale(1.05);
-}
-
-.list__product .favorite__icon {}
-
-.list__product .product__image {
+/* Đảm bảo các sản phẩm có kích thước đồng nhất */
+.product {
+  width: 100%;
+  max-width: 23.5rem;
+  height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 10px;
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Định dạng cho hình ảnh */
+/* Định dạng cho hình ảnh sản phẩm */
 .product__image img {
-  margin-top: 2%;
-  width: 95%;
+  width: 100%;
+  height: 100%;
 }
 
+/* Đảm bảo tiêu đề và giá luôn được căn chỉnh */
 .product__title {
-  margin-left: 3%;
-  font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
 }
 
-.product .title {
-  font-weight: 300;
+.title {
+  font-size: 20px;
+  color: #333;
+  font-weight: 400;
+  margin-bottom: 8px;
 }
 
 .product__price {
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 400;
+  margin-top: 5px;
 }
 
-.product__discount {
-  font-size: 15px;
+/* Hover hiệu ứng */
+.list__product .product:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
+
+/* Đảm bảo các cột sản phẩm đều nhau */
+.row .product__col {
+  display: flex;
+  align-items: stretch;
+}
+
+.product__col a {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+/* ---------------------------------------------------------- */
 
 /* --------------------------------------------------------- */
 #pagination__bar {
@@ -248,6 +264,3 @@ li {
 }
 
 /* ------------------------------------------------- */
-.btn-dark{
-  border-radius: 0px;
-}

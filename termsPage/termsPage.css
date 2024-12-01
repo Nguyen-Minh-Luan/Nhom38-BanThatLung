@@ -3,7 +3,7 @@
 .custom_ref{
   text-decoration: none;
   color: black;
-  font-size: 28px;
+  font-size: 20px;
   text-align: right;
   padding: 12px;
   border-radius: 5px;
@@ -13,7 +13,7 @@
   color: white;
 }
 .content {
-  font-size: 26px;
+  font-size: 21px;
 }
 .breadcrumb {
   margin-top: 5.38rem;

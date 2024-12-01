@@ -15,6 +15,10 @@
     width: 45%;
   }
 }
+a{
+  color: black;
+  text-decoration: none;
+}
 .custom_rounded {
   border-radius: 10px;
 }

@@ -15,6 +15,7 @@
 }
 
 a {
+    color: black;
     text-decoration: none;
 }
 
@@ -31,6 +32,7 @@ a {
 }
 
 /* ------------------------------------------------------- */
+#carouselExampleControls3 .cardWrapper {}
 
 .image__Collumn img {
     width: 100%;
@@ -54,15 +56,3 @@ a {
     gap: 1rem;
     justify-content: center;
 }
-.cardWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .card {
-    flex: 1 1 calc(20% - 25px); 
-    max-width: calc(20% - 25px); 
-    box-sizing: border-box;
-  }
-  
