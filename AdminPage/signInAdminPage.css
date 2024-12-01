@@ -12,8 +12,23 @@
     max-width: 400px;
   }
 }
-a{
+#logo {
+  color: black;
+  margin-left: 5rem;
+  font-size: 40px;
+  font-family: Instrument Serif;
+  letter-spacing: 13px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+}
+
+a,
+a:active,
+a:visited {
   text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: white;
 }
 .signInButton {
   margin-inline: auto;
@@ -30,12 +45,11 @@ a{
   background-color: black;
   color: white;
   border: 1px black solid;
-  line-height: 2.0;
+  line-height: 2;
   width: 18rem;
   transition: 0.4s all, color 0.4s ease;
 }
 
 .signInButton:hover {
   background-color: #363636;
-
 }
