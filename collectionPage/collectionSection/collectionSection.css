@@ -18,6 +18,25 @@ a {
     text-decoration: none;
 }
 
+.breadcrumb {
+    margin-top: 5.38rem;
+    margin-bottom: 0;
+    padding-left: 2rem;
+    background-color: #efefef;
+    height: 2.3rem;
+    align-items: center;
+    font-size: 17px;
+  }
+  
+  .breadcrumb-item a {
+    color: #6c757d;
+  }
+  
+  .breadcrumb-item.active {
+    color: #1c1c1c;
+  }
+
+
 .function__bar {
     font-size: 18px;
     margin-top: 5%;

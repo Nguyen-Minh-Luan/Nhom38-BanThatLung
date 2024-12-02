@@ -24,19 +24,18 @@
   color: #333;
 }
 
-.quantity-controls {
-  width: 100px;
-}
 
 .product-old-price {
   text-decoration: line-through;
   color: #888;
   margin-left: 10px;
 }
-
-.quantity-controls input {
-  width: 50px;
+.quantity__control{
+  width: 7rem;
+}
+#quantity {
   text-align: center;
+  border: rgb(99, 99, 99) 1px solid;
 }
 
 .product-thumbnails img {
@@ -290,6 +289,7 @@ a {
 .breadcrumb-item.active {
   color: #1c1c1c;
 }
+
 .btn-dark{
   border-radius: 0px;
 }
