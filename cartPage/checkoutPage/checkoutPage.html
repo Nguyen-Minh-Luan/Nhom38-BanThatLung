@@ -1,377 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xác nhận đơn hàng</title>
+    <link
+      rel="icon"
+      href="../../assets/icons/favicon.svg"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../header footer/header__footer.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../assets/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.css"
+    />
+    <link rel="stylesheet" href="../../header footer/header__footer.css" />
+    <script src="checkout.js"></script>
+    <script src="../../styles/general.js"></script>
+    <link rel="stylesheet" href="../../header footer/header.css" />
+    <link rel="stylesheet" href="../../header footer/footer.css" />
+    <link rel="stylesheet" href="checkoutPage.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xác nhận đơn hàng</title>
-  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/x-icon" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="../../header footer/header__footer.js"></script>
-  <link rel="stylesheet" href="../../assets/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.css" />
-  <link rel="stylesheet" href="../../header footer/header__footer.css" />
-  <script src="checkout.js"></script>
-  <script src="../../styles/general.js"></script>
-  <link rel="stylesheet" href="../../header footer/header.css" />
-  <link rel="stylesheet" href="../../header footer/footer.css" />
-  <link rel="stylesheet" href="checkoutPage.css" />
-</head>
+  <body>
+    <header id="header">
+      <div id="dimmer" class="dimmer"></div>
+      <nav class="navbar navbar-expand p-12 mb-4 bg-white rounded" id="navbar">
+        <div class="container-fluid-center"></div>
+        <div
+          class="col-sm-3 pl-sm-4 pr-sm-0 col-md-4 justify-content-sm-start d-lg-none d-xl-none col header__navbar header__navbar--center d-flex justify-content-center"
+        >
+          <button id="menuButton" class="btn btn-light h-sm-100 ms-2">
+            <img src="../../assets/icons/menu.svg" />
+          </button>
+        </div>
 
-<body>
-  <header id="header">
-    <div id="dimmer" class="dimmer"></div>
-    <nav class="navbar navbar-expand  p-12 mb-4 bg-white rounded" id="navbar">
-      <div class="container-fluid-center"></div>
-      <div
-        class="col-sm-3 pl-sm-4 pr-sm-0 col-md-4 justify-content-sm-start d-lg-none d-xl-none col header__navbar header__navbar--center d-flex justify-content-center">
-        <button id="menuButton" class="btn btn-light h-sm-100 ms-2">
-          <img src="../../assets/icons/menu.svg" />
-        </button>
-      </div>
+        <div id="overlay" class="d-sm-flex overlay" style="width: 45%">
+          <div class="overlay__content w-100">
+            <div
+              class="overlay__header d-flex w-100 justify-content-center align-items-center mt-2"
+            >
+              <h3 class="header__title mb-0">THOMAS</h3>
+              <button id="closeButton" class="btn ms-5">
+                <img src="../../assets/icons/close.svg" />
+              </button>
+            </div>
+            <div
+              class="overlay__body d-flex align-items-left justify-content-between"
+              style="height: 500px"
+            >
+              <ul
+                class="navbar-nav d-flex flex-column list-unstyled fs-3 w-100"
+                style="font-size: 1.5rem"
+              >
+                <hr class="w-100 ms-2" />
+                <li class="nav-item mx-3">
+                  <a
+                    href="../../homePage/homePage.html"
+                    class="nav-link text-dark"
+                    >Home</a
+                  >
+                </li>
+                <hr class="w-100 ms-2" />
+                <li class="nav-item mx-3">
+                  <a href="#" class="nav-link text-dark">Bộ sưu tập</a>
+                </li>
+                <hr class="w-100 ms-2" />
+                <li class="nav-item mx-3">
+                  <a
+                    href="../../menPage/menPage.html"
+                    class="nav-link text-dark"
+                    >Nam</a
+                  >
+                </li>
+                <hr class="w-100 ms-2" />
+                <li class="nav-item mx-3">
+                  <a
+                    href="../../womenPage/womenPage.html"
+                    class="nav-link text-dark"
+                    >Nữ</a
+                  >
+                </li>
+                <hr class="w-100 ms-2" />
+                <li class="nav-item mx-3">
+                  <a
+                    href="../../signInPage/signInPage.html"
+                    class="nav-link text-dark"
+                    >Đăng nhập / Đăng ký</a
+                  >
+                </li>
+                <hr class="w-100 ms-2" />
+              </ul>
+            </div>
+          </div>
+        </div>
+        <a
+          href=""
+          class="navbar-brand col-3 d-sm-none d-md-none d-lg-block"
+          id="logo"
+        >
+          THOMAS
+        </a>
 
-      <div id="overlay" class="d-sm-flex overlay" style="width: 45%">
-        <div class="overlay__content w-100">
-          <div class="overlay__header d-flex w-100 justify-content-center align-items-center mt-2">
-            <h3 class="header__title mb-0">THOMAS</h3>
-            <button id="closeButton" class="btn ms-5">
-              <img src="../../assets/icons/close.svg" />
+        <a
+          href=""
+          class="navbar-brand d-sm-block ms-sm-3 ms-5 mr-5 d-md-block d-lg-none"
+          id="logo"
+        >
+          THOMAS
+        </a>
+
+        <ul
+          class="navbar-nav col-6 navitem__group d-sm-none d-md-none d-lg-flex"
+        >
+          <li class="nav-item">
+            <a href="../../homePage/HomePage.html" class="nav-link"
+              >Trang Chủ</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="../../collectionPage/collectionsPage.html" class="nav-link"
+              >Bộ Sưu Tập</a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Nam
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="../../menPage/menPage.html"
+                  >Tất cả thắt lưng nam</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="../../menPage/menLeather.html"
+                  >Thắt Lưng Da Nam</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="../../menPage/menCanvas.html"
+                  >Thắt Lưng Vải Canvas Nam</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Nữ
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="../../womenPage/womenPage.html"
+                  >Tất cả thắt lưng nữ</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="../../womenPage/womenLeather.html"
+                  >Thắt Lưng Da Nữ
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="../../womenPage/womenCanvas.html"
+                  >Thắt Lưng Vải Canvas Nữ</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="../../allProduct/allProduct1.html" class="nav-link"
+              >Sản Phẩm</a
+            >
+          </li>
+        </ul>
+        <div class="header__icon__group col-3">
+          <div class="search-container">
+            <input type="text" class="search-input" placeholder="Tìm kiếm..." />
+            <button class="search-btn" onclick="toggleSearch()">
+              <i class="fa-solid fa-magnifying-glass fa-l"></i>
             </button>
           </div>
-          <div class="overlay__body d-flex align-items-left justify-content-between" style="height: 500px">
-            <ul class="navbar-nav d-flex flex-column list-unstyled fs-3 w-100" style="font-size: 1.5rem">
-              <hr class="w-100 ms-2" />
-              <li class="nav-item mx-3">
-                <a href="../../homePage/homePage.html" class="nav-link text-dark">Home</a>
-              </li>
-              <hr class="w-100 ms-2" />
-              <li class="nav-item mx-3">
-                <a href="#" class="nav-link text-dark">Bộ sưu tập</a>
-              </li>
-              <hr class="w-100 ms-2" />
-              <li class="nav-item mx-3">
-                <a href="../../menPage/menPage.html" class="nav-link text-dark">Nam</a>
-              </li>
-              <hr class="w-100 ms-2" />
-              <li class="nav-item mx-3">
-                <a href="../../womenPage/womenPage.html" class="nav-link text-dark">Nữ</a>
-              </li>
-              <hr class="w-100 ms-2" />
-              <li class="nav-item mx-3">
-                <a href="../../signInPage/signInPage.html" class="nav-link text-dark">Đăng nhập / Đăng
-                  ký</a>
-              </li>
-              <hr class="w-100 ms-2" />
-            </ul>
-          </div>
-        </div>
-      </div>
-      <a href="" class="navbar-brand col-3 d-sm-none d-md-none d-lg-block" id="logo">
-        THOMAS
-      </a>
 
-      <a href="" class="navbar-brand d-sm-block ms-sm-3 ms-5 mr-5 d-md-block d-lg-none" id="logo">
-        THOMAS
-      </a>
-
-      <ul class="navbar-nav col-6 navitem__group d-sm-none d-md-none d-lg-flex">
-        <li class="nav-item"><a href="../../homePage/HomePage.html" class="nav-link">Trang Chủ</a></li>
-        <li class="nav-item"><a href="../../collectionPage/collectionsPage.html" class="nav-link">Bộ Sưu Tập</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Nam
+          <a
+            class="nav-item favorite"
+            href="../../favoritePage/favoritePage.html"
+          >
+            <img
+              class="nav-icon"
+              src="../../assets/icons/favorite.svg"
+              alt=""
+            />
+            <span class="favorite__count">0</span>
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="../../menPage/menPage.html">Tất cả thắt lưng nam</a></li>
-            <li><a class="dropdown-item" href="../../menPage/menLeather.html">Thắt Lưng Da Nam</a></li>
-            <li>
-              <a class="dropdown-item" href="../../menPage/menCanvas.html">Thắt Lưng Vải Canvas Nam</a>
-            </li>
-
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Nữ
+          <a class="nav-item user user__dropdown" href="#">
+            <div class="dropdown text-end dropdown-hover">
+              <a
+                href="../../userInfoPage/account/userinfo.html"
+                class="d-flex align-items-center text-decoration-none"
+                id="dropdownUser"
+              >
+                <img
+                  src="../../assets/images/profile.jpg"
+                  alt="User Avatar"
+                  width="35"
+                  height="35"
+                  class="rounded-circle me-2"
+                />
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end text-small"
+                aria-labelledby="dropdownUser"
+              >
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../../signInPage/signInPage.html"
+                    >Đăng Nhập</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../../signInPage/signUpPage/signUp.html"
+                    >Đăng ký</a
+                  >
+                </li>
+              </ul>
+            </div>
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="../../womenPage/womenPage.html">Tất cả thắt lưng nữ</a></li>
-            <li><a class="dropdown-item" href="../../womenPage/womenLeather.html">Thắt Lưng Da Nữ </a></li>
-            <li>
-              <a class="dropdown-item" href="../../womenPage/womenCanvas.html">Thắt Lưng Vải Canvas Nữ</a>
-            </li>
-
-          </ul>
-        </li>
-        <li class="nav-item"><a href="../../allProduct/allProduct1.html" class="nav-link">Sản Phẩm</a></li>
-      </ul>
-      <div class="header__icon__group col-3">
-
-
-        <div class="search-container">
-          <input type="text" class="search-input" placeholder="Tìm kiếm...">
-          <button class="search-btn" onclick="toggleSearch()">
-            <i class="fa-solid fa-magnifying-glass fa-l"></i></button>
-        </div>
-
-
-
-        <a class="nav-item favorite" href="../../favoritePage/favoritePage.html">
-          <img class="nav-icon" src="../../assets/icons/favorite.svg" alt="" />
-          <span class="favorite__count">0</span>
-        </a>
-        <a class="nav-item user user__dropdown" href="#">
-          <div class="dropdown text-end dropdown-hover">
-            <a href="../../userInfoPage/account/userinfo.html" class="d-flex align-items-center text-decoration-none"
-              id="dropdownUser">
-              <img src="../../assets/images/profile.jpg" alt="User Avatar" width="35" height="35"
-                class="rounded-circle me-2">
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="dropdownUser">
-              <li><a class="dropdown-item" href="../../signInPage/signInPage.html">Đăng Nhập</a></li>
-              <li><a class="dropdown-item" href="../../signInPage/signUpPage/signUp.html">Đăng ký</a></li>
-            </ul>
-          </div>
-        </a>
-        <a class="nav-item cart" href="../../cartPage/cartPage.html">
-          <img class="nav-icon " src="../../assets/icons/cart.svg" alt="" style="width: 26px; height: 26px" />
-          <span class="nav-item favorite__count">0</span>
-        </a>
-      </div>
-    </nav>
-  </header>
-
-
-
-
-  <div class="container-sm ps-0 mb-5" style="margin-top: 208px">
-    <h2 class="fw-light">Vui lòng xác nhận và gửi đơn đặt hàng của bạn</h2>
-    <h4 class="mb-1 mt-5 ms-0 ps-0 fw-light">Vận chuyển và thanh toán</h4>
-    <div class="row mt-2 mb-5 px-0 py-0 h-50" style="min-height: 550.9px">
-      <div class="col d-flex custom-width custom__boxshadow p-0 m-0">
-        <div class="col-sm pr-0 mt-4">
-          <h4 class="ms-4">Thông tin thanh toán</h4>
-          <p class="ms-4">huỳnh minh thắng</p>
-          <p class="ms-4">ktx khu b</p>
-          <p class="ms-4">THÀNH PHỐ HỒ CHÍ MINH</p>
-          <p class="ms-4">Hồ Chí Minh 700000</p>
-          <p class="ms-4">+84 35-617-6054</p>
-          <button class="p-2 border-dark rounded custom_hover ms-4 mt-2 fw-bold" id="openFormButton">
-            Thay đổi
-          </button>
-        </div>
-        <div class="col-sm">
-          <h4 class="mt-4">Phương thức thanh toán</h4>
-          <div class="w-5 h-5">
-            <img class="w-5 h-5" src="../../assets/icons/gPay.svg" alt="googlePay" style="max-width: 50px" />
-          </div>
-          <button class="openFormButtonPay p-2 border-dark rounded custom_hover mt-2 fw-bold">
-            Thay đổi
-          </button>
-        </div>
-      </div>
-
-      <div id="popupForm" class="popup">
-        <div class="popup-content">
-          <div class="popup-content--title">
-            <p>Chọn địa chỉ giao hàng</p>
-          </div>
-
-          <div class="popup-content--desc">
-            <div class="popup--content--userInfo--action">
-              <div class="popup--content--userdesc">
-                <span>Mặc định</span>
-                <p class="name__field1">huynhminhthang</p>
-                <p class="address__field1">ktx khu b</p>
-                <p class="city__field1">THÀNH PHỐ HỒ CHÍ MINH</p>
-                <p class="number__field1">+84356176054</p>
-              </div>
-              <div class="popup--content--right">
-                <div class="popup--content--button">
-                  <button class="popup--content--submit custom__btn" id="submit1">
-                    Giao đến đây
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="popup-content--desc">
-            <div class="popup--content--userInfo--action">
-              <div class="popup--content--userdesc">
-                <span>Mặc định</span>
-                <p class="name__field1">huynhminhthang</p>
-                <p class="address__field1">ktx khu b</p>
-                <p class="city__field1">THÀNH PHỐ HỒ CHÍ MINH</p>
-                <p class="number__field1">+84356176054</p>
-              </div>
-              <div class="popup--content--right">
-                <div class="popup--content--button">
-                  <button class="popup--content--submit custom__btn" id="submit2">
-                    Giao đến đây
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="popUpPayment" class="popup mt-5">
-        <div class="popup-content">
-          <div class="popup-content--desc">
-            <div class="popup--content--userInfo--action">
-              <div class="popup--content--userdesc">
-                <span class="paymentMethod">Google Pay</span>
-                <img src="../../assets/icons/gPay.svg" alt="googlepay" />
-              </div>
-              <div class="popup--content--right">
-                <div class="popup--content--button">
-                  <button class="popup--content--submitPayment" id="submit2">
-                    Sử dụng
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="popup-content--desc">
-            <div class="popup--content--userInfo--action">
-              <div class="popup--content--userdesc">
-                <span class="paymentMethod">Bank</span>
-                <img src="../../assets/icons/footer_trustbadge 1.svg" alt="googlepay" style="margin-top: 6px" />
-              </div>
-              <div class="popup--content--right">
-                <div class="popup--content--button">
-                  <button class="popup--content--submitPayment" id="submit2">
-                    Sử dụng
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="popup-content--desc">
-            <div class="popup--content--userInfo--action">
-              <div class="popup--content--userdesc d-flex justify-content-center align-items-center">
-                <span class="paymentMethod">Thanh toán khi nhận hàng</span>
-              </div>
-              <div class="popup--content--right">
-                <div class="popup--content--button">
-                  <button class="popup--content--submitPayment" id="submit2">
-                    Sử dụng
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 ms-5 ps-0">
-        <div class="border-bottom pb-2 mb-3">
-          <h5 class="fw-bold">Tóm tắt đơn hàng</h5>
-        </div>
-        <div class="d-flex justify-content-between mb-2">
-          <p class="mb-0">2 sản phẩm</p>
-          <p class="mb-0">1,360,000₫</p>
-        </div>
-        <div class="d-flex justify-content-between mb-2">
-          <p class="mb-0">Vận chuyển</p>
-          <p class="mb-0">70,000₫</p>
-        </div>
-        <div class="border-top pt-2">
-          <div class="d-flex justify-content-between fw-bold mb-2">
-            <p class="mb-0">Tổng cộng</p>
-            <p class="mb-0">1,430,000₫</p>
-          </div>
-          <p class="text-muted small mb-0">(bao gồm cả thuế)</p>
-        </div>
-        <div class="input-group custom_input_group custom_input--btn mt-4">
-          <input type="text" class="form-control custom_input--btn-group__input rounded-pill-start fs-5"
-            placeholder="Nhập coupon" />
-          <button
-            class="btn btn-dark input-group-text custom_button_design custom_input--btn-group__btn rounded-pill-end">
-            Áp dụng
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer class="border-top">
-    <div class="container">
-      <div class="row footer mt-4">
-        <!-- About Us Column -->
-        <div class="col-sm-3 text-start">
-          <h3>About Us</h3>
-          <p>How we work</p>
-          <p>Investors</p>
-          <p>Careers</p>
-          <p>Press</p>
-          <p>Impact</p>
-          <p>Legal imprint</p>
-        </div>
-
-        <!-- Support Column -->
-        <div class="col-sm-3 text-start">
-          <h3>Support</h3>
-          <p>Become an Investor</p>
-          <p>Your opinion</p>
-          <p>Donate</p>
-          <p>Survey</p>
-        </div>
-
-        <!-- Terms and Conditions Column -->
-        <div class="col-sm-3 text-start">
-          <h3>Terms and Conditions</h3>
-          <p>Privacy Terms</p>
-          <a href="../../termsPage/termsPage.html">
-            <p>Terms of Use</p>
+          <a class="nav-item cart" href="../../cartPage/cartPage.html">
+            <img
+              class="nav-icon"
+              src="../../assets/icons/cart.svg"
+              alt=""
+              style="width: 26px; height: 26px"
+            />
+            <span class="nav-item favorite__count">0</span>
           </a>
-          <p>Intellectual Property</p>
-          <p>Shipping Policy</p>
-          <p>Community Standards</p>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-sm ps-0 mb-5" style="margin-top: 208px">
+      <h2 class="fw-light">Vui lòng xác nhận và gửi đơn đặt hàng của bạn</h2>
+      <h4 class="mb-1 mt-5 ms-0 ps-0 fw-light">Vận chuyển và thanh toán</h4>
+      <div class="row mt-2 mb-5 px-0 py-0 h-50" style="min-height: 550.9px">
+        <div class="col d-flex custom-width custom__boxshadow p-0 m-0">
+          <div class="col-sm pr-0 mt-4">
+            <h4 class="ms-4">Thông tin thanh toán</h4>
+            <p class="ms-4">huỳnh minh thắng</p>
+            <p class="ms-4">ktx khu b</p>
+            <p class="ms-4">THÀNH PHỐ HỒ CHÍ MINH</p>
+            <p class="ms-4">Hồ Chí Minh 700000</p>
+            <p class="ms-4">+84 35-617-6054</p>
+            <button
+              class="p-2 border-dark rounded custom_hover ms-4 mt-2 fw-bold"
+              id="openFormButton"
+            >
+              Thay đổi
+            </button>
+          </div>
+          <div class="col-sm">
+            <h4 class="mt-4">Phương thức thanh toán</h4>
+            <div class="w-5 h-5">
+              <img
+                class="w-5 h-5"
+                src="../../assets/icons/gPay.svg"
+                alt="googlePay"
+                style="max-width: 50px"
+              />
+            </div>
+            <button
+              class="openFormButtonPay p-2 border-dark rounded custom_hover mt-2 fw-bold"
+            >
+              Thay đổi
+            </button>
+          </div>
         </div>
 
-        <!-- Contact Us Column -->
-        <div class="col-sm-3 text-start">
-          <h3>Contact Us</h3>
-          <p>thomas@contact.tm.com</p>
-          <div class="d-flex social-icons">
-            <span class="icon me-2">
-              <img src="../../assets/icons/Facebook.svg" alt="Facebook" />
-            </span>
-            <span class="icon me-2">
-              <img src="../../assets/icons/Instagram.svg" alt="Instagram" />
-            </span>
-            <span class="icon">
-              <img src="../../assets/icons/TwitterX.svg" alt="TwitterX" />
-            </span>
+        <div id="popupForm" class="popup">
+          <div class="popup-content">
+            <div class="popup-content--title">
+              <p>Chọn địa chỉ giao hàng</p>
+            </div>
+
+            <div class="popup-content--desc">
+              <div class="popup--content--userInfo--action">
+                <div class="popup--content--userdesc">
+                  <span>Mặc định</span>
+                  <p class="name__field1">huynhminhthang</p>
+                  <p class="address__field1">ktx khu b</p>
+                  <p class="city__field1">THÀNH PHỐ HỒ CHÍ MINH</p>
+                  <p class="number__field1">+84356176054</p>
+                </div>
+                <div class="popup--content--right">
+                  <div class="popup--content--button">
+                    <button
+                      class="popup--content--submit custom__btn"
+                      id="submit1"
+                    >
+                      Giao đến đây
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="popup-content--desc">
+              <div class="popup--content--userInfo--action">
+                <div class="popup--content--userdesc">
+                  <span>Mặc định</span>
+                  <p class="name__field1">huynhminhthang</p>
+                  <p class="address__field1">ktx khu b</p>
+                  <p class="city__field1">THÀNH PHỐ HỒ CHÍ MINH</p>
+                  <p class="number__field1">+84356176054</p>
+                </div>
+                <div class="popup--content--right">
+                  <div class="popup--content--button">
+                    <button
+                      class="popup--content--submit custom__btn"
+                      id="submit2"
+                    >
+                      Giao đến đây
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="popUpPayment" class="popup mt-5">
+          <div class="popup-content">
+            <div class="popup-content--desc">
+              <div class="popup--content--userInfo--action">
+                <div class="popup--content--userdesc">
+                  <span class="paymentMethod">Google Pay</span>
+                  <img src="../../assets/icons/gPay.svg" alt="googlepay" />
+                </div>
+                <div class="popup--content--right">
+                  <div class="popup--content--button">
+                    <button class="popup--content--submitPayment" id="submit2">
+                      Sử dụng
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="popup-content--desc">
+              <div class="popup--content--userInfo--action">
+                <div class="popup--content--userdesc">
+                  <span class="paymentMethod">Bank</span>
+                  <img
+                    src="../../assets/icons/footer_trustbadge 1.svg"
+                    alt="googlepay"
+                    style="margin-top: 6px"
+                  />
+                </div>
+                <div class="popup--content--right">
+                  <div class="popup--content--button">
+                    <button class="popup--content--submitPayment" id="submit2">
+                      Sử dụng
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="popup-content--desc">
+              <div class="popup--content--userInfo--action">
+                <div
+                  class="popup--content--userdesc d-flex justify-content-center align-items-center"
+                >
+                  <span class="paymentMethod">Thanh toán khi nhận hàng</span>
+                </div>
+                <div class="popup--content--right">
+                  <div class="popup--content--button">
+                    <button class="popup--content--submitPayment" id="submit2">
+                      Sử dụng
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 ms-5 ps-0">
+          <div class="border-bottom pb-2 mb-3">
+            <h5 class="fw-bold">Tóm tắt đơn hàng</h5>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <p class="mb-0">2 sản phẩm</p>
+            <p class="mb-0">1,360,000₫</p>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <p class="mb-0">Vận chuyển</p>
+            <p class="mb-0">70,000₫</p>
+          </div>
+          <div class="border-top pt-2">
+            <div class="d-flex justify-content-between fw-bold mb-2">
+              <p class="mb-0">Tổng cộng</p>
+              <p class="mb-0">1,430,000₫</p>
+            </div>
+            <p class="text-muted small mb-0">(bao gồm cả thuế)</p>
+          </div>
+          <a href="../../homePage/HomePage.html" class="btn btn-dark mt-4 fs-4 custom__btn w-100" id="openFormButtonPayment">
+            Thanh toán với Google
+          </a>
+          <div class="input-group custom_input_group custom_input--btn mt-4">
+            <input
+              type="text"
+              class="form-control custom_input--btn-group__input rounded-pill-start fs-5"
+              placeholder="Nhập coupon"
+            />
+            <button
+              class="btn btn-dark input-group-text custom_button_design custom_input--btn-group__btn rounded-pill-end"
+            >
+              Áp dụng
+            </button>
           </div>
         </div>
       </div>
     </div>
-    <hr />
-    <div class="container pb-5">
-      <div class="text-start">
-        <p>Công ty TNHH Thomas</p>
-        <p>
-          Văn phòng: Lầu 4, tòa nhà XXX, số 66 XXXX, phường 05, quận 9, TP Hồ Chí Minh.
-        </p>
-        <p>
-          GP số 09009231123 do sở KHĐT Tp Hồ Chí Minh cấp lần đầu ngày 9/19/2099.
-        </p>
-      </div>
-    </div>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-  <script src="../../header footer/header.js"></script>
 
-</body>
+    <footer id="footer"></footer>
+    <!-- Bootstrap CSS and JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="../../header footer/header.js"></script>
+    <script>
+      const footer = document.querySelector("#footer");
+      fetch("../../header footer/footer.html")
+        .then((response) => response.text())
+        .then((html) => (footer.innerHTML = html));
 
+      const header = document.querySelector("#header");
+      fetch("../../header footer/header.html")
+        .then((response) => response.text())
+        .then((html) => (header.innerHTML = html));
+    </script>
+  </body>
 </html>
