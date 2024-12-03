@@ -74,27 +74,20 @@ $(document).ready(function () {
         .find(".paymentMethod")
         .text();
       if (paymentMethod == "Google Pay") {
+        $("#openFormButtonPayment").text("Thanh toán bằng Google Pay");
         $("#popUpPayment").fadeOut();
       } else if (paymentMethod == "Bank") {
-        $(".img__paymentMethod").attr(
-          "src",
-          "../../assets/icons/footer_trustbadge 1.svg"
-        );
-        $(".btn-dark").text("Thanh toán bằng Ngân hàng");
+        $("#openFormButtonPayment").text("Thanh toán bằng Ngân hàng");
         $("#popUpPayment").fadeOut();
       }else if (paymentMethod == "Thanh toán khi nhận hàng") {
-        $(".img__paymentMethod").attr(
-          "src",
-          "../../assets/icons/footer_trustbadge 1.svg"
-        );
-        $(".btn-dark").text("Thanh toán khi nhận hàng");
+        $("#openFormButtonPayment").text("Thanh toán khi nhận hàng");
         $("#popUpPayment").fadeOut();
       }
     };
   };
   const handlePayment = () =>
     function () {
-      if ($(".btn-dark").text() == "Thanh toán bằng Ngân hàng") {
+      if ($("#openFormButtonPayment").text() == "Thanh toán bằng Ngân hàng") {
         $("#popUpPaymentQR").fadeIn();
         handleCountDown();
       }
