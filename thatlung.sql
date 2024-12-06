@@ -1,6 +1,4 @@
-create database thatlungdb;
-
-SELECT VERSION();
+CREATE DATABASE thatlungdb;
 
 
 use thatlungdb;
@@ -24,7 +22,19 @@ CREATE TABLE belts (
     materialBelt VARCHAR(255),
 	FOREIGN KEY (categoryId) REFERENCES categories(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
+CREATE TABLE users(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  dateOfBirth VARCHAR(255),
+  password VARCHAR(255),
+  image VARCHAR(255),
+  createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+  isDeleted INT DEFAULT(0),
+  gender VARCHAR(50),
+  phoneNumber BIGINT,
+  role INT
+)
 CREATE TABLE categories (
 	id INT AUTO_INCREMENT PRIMARY KEY,
     categoryName VARCHAR(50) NOT NULL
@@ -105,7 +115,7 @@ CREATE TABLE paymentMethods (
 CREATE TABLE userPaymentMethods (
     userId INT NOT NULL,
     paymentMethodId INT NOT NULL,
-	isUse INT NOT NULL,
+    isUse INT NOT NULL,
     PRIMARY KEY (userId, paymentMethodId),
     FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (paymentMethodId) REFERENCES paymentMethods(id) ON DELETE CASCADE ON UPDATE CASCADE
@@ -138,7 +148,7 @@ CREATE TABLE couponUsage (
     FOREIGN KEY (orderId) REFERENCES orders(id) ON DELETE CASCADE
 );
 CREATE TABLE beltViews(
-	id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     beltId INT NOT NULL,
     viewDate DATETIME NOT NULL,
     viewCount INT default 1
