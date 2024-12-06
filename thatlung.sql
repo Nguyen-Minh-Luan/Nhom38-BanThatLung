@@ -1,0 +1,145 @@
+create database thatlungdb;
+
+SELECT VERSION();
+
+
+use thatlungdb;
+
+DROP database thatlungdb;
+
+CREATE TABLE belts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    categoryId INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(500),
+    price FLOAT NOT NULL,
+    gender ENUM('M', 'F') NOT NULL,
+    stockQuantity INT DEFAULT 0,
+    release_date DATE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    prior INT DEFAULT 0,
+    isDeleted INT DEFAULT 0,
+    discountPercent DOUBLE DEFAULT 0.0,
+    materialBelt VARCHAR(255),
+	FOREIGN KEY (categoryId) REFERENCES categories(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE categories (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    categoryName VARCHAR(50) NOT NULL
+);
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userID INT NOT NULL,
+    paymentMethodId INT,
+    orderDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    orderTotal DOUBLE NOT NULL,
+    orderStatus VARCHAR(50) NOT NULL,
+    isDeleted INT DEFAULT 0,
+	FOREIGN KEY (paymentMethodId) REFERENCES paymentMethods(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (userID) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE orderDetails (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    orderId INT NOT NULL,
+    price double NOT NULL,
+    beltId INT NOT NULL,
+    quantity INT NOT NULL,
+    FOREIGN KEY (orderId) REFERENCES orders(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (beltId) REFERENCES belts(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE reviews (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    beltId INT NOT NULL,
+    userId INT NOT NULL,
+    content VARCHAR(1000),
+    ratingStar INT CHECK (ratingStar BETWEEN 1 AND 5),
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (beltId) REFERENCES belts(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE image_entry (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    beltId INT NOT NULL,
+    mainImage VARCHAR(255),
+    extraImage1 VARCHAR(255),
+    extraImage2 VARCHAR(255),
+    extraImage3 VARCHAR(255),
+    extraImage4 VARCHAR(255),
+    FOREIGN KEY (beltId) REFERENCES belts(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+      
+CREATE TABLE collections (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    beltId INT NOT NULL,
+    FOREIGN KEY (beltId) REFERENCES belts(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE favorites (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    beltId INT NOT NULL,
+	userId INT NOT NULL,
+    FOREIGN KEY (beltId) REFERENCES belts(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE beltfavorites (
+    beltId INT NOT NULL,
+    favoriteId INT NOT NULL,
+    PRIMARY KEY (beltId, favoriteId),
+    FOREIGN KEY (beltId) REFERENCES belts(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (favoriteId) REFERENCES favorites(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE paymentMethods (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE userPaymentMethods (
+    userId INT NOT NULL,
+    paymentMethodId INT NOT NULL,
+	isUse INT NOT NULL,
+    PRIMARY KEY (userId, paymentMethodId),
+    FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (paymentMethodId) REFERENCES paymentMethods(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE addresses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userId INT NOT NULL,
+    addressCity VARCHAR(255) NOT NULL,
+    addressStreet VARCHAR(500),
+    isUse INT DEFAULT 0,
+    isDeleted INT DEFAULT 0,
+    FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE coupon (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    discountRate INT NOT NULL,
+    startDate DATETIME,
+    endDate DATETIME
+);
+CREATE TABLE couponUsage (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    couponId INT NOT NULL,
+    userId INT NOT NULL,
+    orderId INT NOT NULL,
+    usedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (couponId) REFERENCES coupon(id) ON DELETE CASCADE,
+    FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (orderId) REFERENCES orders(id) ON DELETE CASCADE
+);
+CREATE TABLE beltViews(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    beltId INT NOT NULL,
+    viewDate DATETIME NOT NULL,
+    viewCount INT default 1
+)
