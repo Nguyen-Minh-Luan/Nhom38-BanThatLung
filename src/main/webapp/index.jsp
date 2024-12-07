@@ -1,4 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +38,7 @@
     <script src="js/header.js"></script>
 </head>
 <body>
-    <jsp:include page="/frontend/header_footer/header.jsp"/>
+    <%@ include file="/frontend/header_footer/header.jsp" %>
 <div
         class="position-fixed bottom-0 start-0 p-3 mb-3 ms-3 border custom_show"
         style="z-index: 11; background-color: white; border-radius: 10px"

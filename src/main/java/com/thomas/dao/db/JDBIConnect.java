@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class JDBIConnect {
     private static Jdbi jdbi;
-    static String url = "jdbc::mysql://" + DBProperties.host() + ":" + DBProperties.port() + "/" + DBProperties.dbname() + "?" + DBProperties.option();
+    static String url = "jdbc:mysql://" + DBProperties.host() + ":" + DBProperties.port() + "/" + DBProperties.dbname() + "?" + DBProperties.option();
 
     public static Jdbi get() {
         if (jdbi == null) makeConnect();
