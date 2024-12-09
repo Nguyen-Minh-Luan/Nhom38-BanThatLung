@@ -63,7 +63,7 @@
                     >
                     <a
                             class="text-dark"
-                            href="${pageContext.request.contextPath}/frontend/signInPage/signUpPage/signUp.jsp"
+                            href="${pageContext.request.contextPath}/signup"
                     >Đăng ký</a
                     >
                 </div>

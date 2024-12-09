@@ -1,6 +1,7 @@
 package com.thomas.dao.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class User implements Serializable {
     private int id;
@@ -8,17 +9,18 @@ public class User implements Serializable {
     private String password;
     private String email;
     private int phone;
-    private String dateOfBirth;
+    private LocalDate dateOfBirth;
     private String gender;
     private String image;
     private int role;
-    public String createAt;
+    public LocalDate createAt;
+    public int isDeleted;
 
     public User() {
 
     }
 
-    public User(String password, String name, String email, int phone, String dateOfBirth, String gender, String image, int role, String createAt) {
+    public User(String password, String name, String email, int phone, LocalDate dateOfBirth, String gender, String image, int role, LocalDate createAt,int isDeleted) {
         this.password = password;
         this.name = name;
         this.email = email;
@@ -71,11 +73,11 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -103,13 +105,22 @@ public class User implements Serializable {
         this.role = role;
     }
 
-    public String getCreateAt() {
+    public LocalDate getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(String createAt) {
+    public void setCreateAt(LocalDate createAt) {
         this.createAt = createAt;
     }
+
+    public void setIsDeleted(int isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
+    public int getIsDeleted() {
+        return this.isDeleted;
+    }
+
 
     @Override
     public String toString() {
@@ -126,5 +137,6 @@ public class User implements Serializable {
                 ", createAt='" + createAt + '\'' +
                 '}';
     }
+
 
 }

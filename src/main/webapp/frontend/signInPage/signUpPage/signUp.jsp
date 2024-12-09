@@ -28,23 +28,27 @@
     </div>
 
     <div class="container-lg d-flex justify-content-between">
-      <form class="col-12 mt-5 d-flex justify-content-between">
+      <form method="POST" class="col-12 mt-5 d-flex justify-content-between">
         <div class="col-6 me-5">
           <div class="ps-0">
             <div class="d-flex flex-column mt-3">
               <p class="mb-1 custom_size--16">Email</p>
               <input
+                name="email"
                 type="email"
                 class="form-control form-control-lg custom_design custom_size--16"
                 placeholder="Nhập Email"
+                required
               />
             </div>
             <div class="d-flex flex-column mt-3">
               <p class="mb-1 custom_size--16">Nhập mật khẩu</p>
               <input
+                name="password"
                 type="password"
                 class="form-control form-control-lg custom_design custom_size--16"
                 placeholder="Nhập mật khẩu"
+                required
               />
             </div>
           </div>
@@ -52,6 +56,7 @@
             <input
               type="checkbox"
               class="me-2"
+              required
             />
             <a href="${pageContext.request.contextPath}/frontend/termsPage/termsPage.jsp" class="mb-0 mt-0 text-dark text-decoration-none custom_size--13" style="font-size: 1.25rem">Tôi đồng ý với chính sách và điều khoản</a>
             
@@ -62,6 +67,7 @@
             <div class="d-flex flex-column mt-3">
               <p class="mb-1 custom_size--16">Tên</p>
               <input
+                name="name"
                 type="text"
                 class="form-control form-control-lg custom_design custom_size--16"
                 placeholder="Tên"
@@ -70,6 +76,7 @@
             <div class="d-flex flex-column mt-3">
               <p class="mb-1 custom_size--16">Họ</p>
               <input
+                name="middleName"
                 type="text"
                 class="form-control form-control-lg custom_design custom_size--16"
                 placeholder="Họ"
@@ -78,15 +85,15 @@
             <div class="d-flex flex-column mt-3">
               <p class="mb-1 custom_size--16">Ngày sinh</p>
               <input
+                name="birthDate"
                 type="date"
                 class="form-control form-control-lg custom_design custom_size--16"
-                placeholder="Họ"
               />
             </div>
             <div
               class="d-flex justify-content-end align-items-center mt-5 mb-5"
             >
-              <button class="btn btn-dark p-2 custom__btn w-50">
+              <button type="submit" class="btn btn-dark p-2 custom__btn w-50">
                 Đăng ký
               </button>
             </div>

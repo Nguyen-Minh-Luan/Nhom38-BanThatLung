@@ -15,8 +15,10 @@ import java.io.IOException;
 public class loginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/frontend/signInPage/signInPage.jsp").forward(request, response);
-
+        HttpSession session = request.getSession();
+        if(session.getAttribute("auth") == null) {
+            request.getRequestDispatcher("/frontend/signInPage/signInPage.jsp").forward(request, response);
+        }
     }
 
     @Override

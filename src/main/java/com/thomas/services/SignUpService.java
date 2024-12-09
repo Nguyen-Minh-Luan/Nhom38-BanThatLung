@@ -1,0 +1,24 @@
+package com.thomas.services;
+
+import com.thomas.dao.UserDao;
+import com.thomas.dao.model.User;
+
+import java.time.LocalDate;
+
+public class SignUpService {
+
+    public boolean signUp(String email, String password, String name, String middleName, LocalDate birthDate) {
+        UserDao  userDao = new UserDao();
+        if(userDao.findUserEmail(email) != null ) {
+            return false;
+        }
+        User u = new User();
+        u.setEmail(email);
+        u.setPassword(password);
+        u.setName(middleName+" "+name);
+        u.setIsDeleted(0);
+        u.setDateOfBirth(birthDate);
+        u.setCreateAt(LocalDate.now());
+        return userDao.registerUser(u);
+    }
+}
