@@ -34,7 +34,7 @@ CREATE TABLE users(
   gender VARCHAR(50),
   phoneNumber BIGINT,
   role INT,
-  token VARCHAR(255)
+  token VA(255)
 )
 CREATE TABLE categories (
 	id INT AUTO_INCREMENT PRIMARY KEY,
