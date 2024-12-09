@@ -30,7 +30,8 @@
       class="container-lg d-flex mt-5 justify-content-between"
       style="margin-bottom: 200px"
     >
-      <form class="col-7 mt-5">
+      <form method="POST" action="/resetPassword" class="col-7 mt-5">
+        <input type="hidden" name="token" value="${param.token}" />
         <h2 class="custom_size--19 fw-light">Đặt lại mật khẩu</h2>
         <h2 class="custom_size--19 fw-light">
           Nhập mật khẩu mới của bạn.
@@ -39,6 +40,7 @@
           <div class="d-flex flex-column mt-3">
             <p class="mb-1 custom_size--16">Mật khẩu</p>
             <input
+                    name="password"
               type="password"
               class="form-control form-control-lg custom_design custom_size--16"
               placeholder="Nhập mật khẩu"
@@ -47,6 +49,7 @@
           <div class="d-flex flex-column mt-3">
             <p class="mb-1 custom_size--16">Nhập lại Mật khẩu</p>
             <input
+                    name="retypePassword"
               type="password"
               class="form-control form-control-lg custom_design custom_size--16"
               placeholder="Nhập lại mật khẩu"

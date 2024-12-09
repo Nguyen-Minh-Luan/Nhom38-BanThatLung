@@ -37,40 +37,41 @@
         </h2>
         <div class="ps-0">
             <p class="row justify-content-end text-danger">Thông tin bắt buộc *</p>
-                <div class="d-flex flex-column mt-3">
-                    <p class="mb-1 custom_size--16">Email</p>
-                    <input
-                            name="userEmail"
-                            type="email"
-                            class="form-control form-control-lg custom_design custom_size--16"
-                            placeholder="Nhập Email"
-                    />
-                </div>
-                <div class="d-flex flex-column mt-3">
-                    <p class="mb-1 custom_size--16">Nhập mật khẩu</p>
-                    <input
-                            name="password"
-                            type="password"
-                            class="form-control form-control-lg custom_design custom_size--16"
-                            placeholder="Nhập mật khẩu"
-                    />
-                </div>
-                <div class="d-flex flex-column mt-3">
-                    <a
-                            class="text-dark"
-                            href="${pageContext.request.contextPath}/frontend/signInPage/forgetPasswordPage/forgetPasswordPage.jsp"
-                    >Quên mật khẩu</a
-                    >
-                    <a
-                            class="text-dark"
-                            href="${pageContext.request.contextPath}/signup"
-                    >Đăng ký</a
-                    >
-                </div>
-                <div class="d-flex justify-content-end align-items-center mt-5 mb-5">
-                    <button type="submit"
-                       class="btn btn-dark p-2 custom__btn w-50">Đăng nhập</button>
-                </div>
+            <div class="d-flex flex-column mt-3">
+                <p class="mb-1 custom_size--16">Email</p>
+                <input
+                        name="userEmail"
+                        type="email"
+                        class="form-control form-control-lg custom_design custom_size--16"
+                        placeholder="Nhập Email"
+                />
+            </div>
+            <div class="d-flex flex-column mt-3">
+                <p class="mb-1 custom_size--16">Nhập mật khẩu</p>
+                <input
+                        name="password"
+                        type="password"
+                        class="form-control form-control-lg custom_design custom_size--16"
+                        placeholder="Nhập mật khẩu"
+                />
+            </div>
+            <div class="d-flex flex-column mt-3">
+                <a
+                        class="text-dark"
+                        href="${pageContext.request.contextPath}/forgotPassword"
+                >Quên mật khẩu</a
+                >
+                <a
+                        class="text-dark"
+                        href="${pageContext.request.contextPath}/signup"
+                >Đăng ký</a
+                >
+            </div>
+            <div class="d-flex justify-content-end align-items-center mt-5 mb-5">
+                <button type="submit"
+                        class="btn btn-dark p-2 custom__btn w-50">Đăng nhập
+                </button>
+            </div>
         </div>
     </form>
     <div class="col-4 my-auto custom_bg--gray border rounded p-5">

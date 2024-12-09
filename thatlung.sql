@@ -33,7 +33,8 @@ CREATE TABLE users(
   isDeleted INT DEFAULT(0),
   gender VARCHAR(50),
   phoneNumber BIGINT,
-  role INT
+  role INT,
+  token VARCHAR(255)
 )
 CREATE TABLE categories (
 	id INT AUTO_INCREMENT PRIMARY KEY,
