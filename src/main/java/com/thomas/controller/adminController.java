@@ -14,7 +14,7 @@ import java.io.IOException;
 public class adminController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/frontend/AdminPage/UserManagement/userManagementPage.jsp").forward(request, response);
+        request.getRequestDispatcher("/frontend/AdminPage/admin.jsp").forward(request, response);
     }
 
     @Override

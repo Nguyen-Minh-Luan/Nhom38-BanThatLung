@@ -137,7 +137,7 @@
               <a class="collapse-item active" href="${pageContext.request.contextPath}/frontend/AdminPage/allUser/allUser.jsp"
               >Người dùng</a
               >
-              <a class="collapse-item" href="${pageContext.request.contextPath}/frontend/AdminPage/allProduct/allProduct.jsp">Sản phẩm</a>
+              <a class="collapse-item" href="${pageContext.request.contextPath}/admin/table/products">Sản phẩm</a>
               <a class="collapse-item" href="${pageContext.request.contextPath}/frontend/AdminPage/allReview/allReview.jsp"
               >Đánh giá</a
               >

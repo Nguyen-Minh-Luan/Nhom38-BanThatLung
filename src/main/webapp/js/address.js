@@ -3,5 +3,6 @@ $(document).ready(function () {
     $(".address__info").css("border", "2px solid white");
     $(this).closest(".address__info").css("border", "2px solid black");
   });
+
 });
 

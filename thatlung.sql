@@ -11,16 +11,16 @@ CREATE TABLE belts (
     name VARCHAR(255) NOT NULL,
     description VARCHAR(500),
     price FLOAT NOT NULL,
-    gender ENUM('M', 'F') NOT NULL,
+    gender VARCHAR(50) NOT NULL,
     stockQuantity INT DEFAULT 0,
     release_date DATE,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    prior INT DEFAULT 0,
     isDeleted INT DEFAULT 0,
     discountPercent DOUBLE DEFAULT 0.0,
     materialBelt VARCHAR(255),
 	FOREIGN KEY (categoryId) REFERENCES categories(id) ON DELETE CASCADE ON UPDATE CASCADE
+
 );
 CREATE TABLE users(
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -73,7 +73,7 @@ CREATE TABLE reviews (
     FOREIGN KEY (beltId) REFERENCES belts(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE image_entry (
+CREATE TABLE imageEntry (
     id INT AUTO_INCREMENT PRIMARY KEY,
     beltId INT NOT NULL,
     mainImage VARCHAR(255),

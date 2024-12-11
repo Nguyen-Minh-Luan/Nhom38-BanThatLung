@@ -6,6 +6,10 @@ import com.thomas.dao.model.User;
 import java.sql.Timestamp;
 
 public class UserDao {
+    public UserDao() {
+
+    }
+
     public void saveResetToken(String toEmail, String token) {
         JDBIConnect.get().withHandle(h -> {
             String sql = "UPDATE users SET token = :token WHERE email = :email";
