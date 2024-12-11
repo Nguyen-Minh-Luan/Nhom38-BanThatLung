@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,10 +12,11 @@
     <meta name="author" content="" />
 
     <title>THOMAS - Admin</title>
+    <link rel="icon" href="${pageContext.request.contextPath}/assets/icons/favicon.svg" type="image/x-icon"/>
 
     <!-- Custom fonts for this template-->
     <link
-      href="../../../css/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css"
+      href="${pageContext.request.contextPath}/css/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css"
       rel="stylesheet"
       type="text/css"
     />
@@ -24,7 +26,7 @@
     />
 
     <!-- Custom styles for this template-->
-    <link href="../../../css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet" />
   </head>
 
   <body id="page-top">
@@ -85,34 +87,35 @@
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Các đối tượng:</h6>
               <a
-                class="collapse-item"
-                href="../userManagement/userManagement.html"
-                >Người dùng</a
+                      class="collapse-item"
+                      href="${pageContext.request.contextPath}/frontend/AdminPage/userManagement/userManagement.jsp"
+              >Người dùng</a
               >
               <a
-                class="collapse-item"
-                href="../productManagement/productManagement.html"
-                >Sản phẩm</a
+                      class="collapse-item active"
+                      href="${pageContext.request.contextPath}/frontend/AdminPage/productManagement/productManagement.jsp"
+              >Sản phẩm</a
               >
               <a
-                class="collapse-item active"
-                href="../reviewManagement/reviewManagement.html"
-                >Đánh giá</a
+                      class="collapse-item"
+                      href="${pageContext.request.contextPath}/frontend/AdminPage/reviewManagement/reviewManagement.jsp"
+              >Đánh giá</a
               >
               <a
-                class="collapse-item"
-                href="../couponManagement/couponManagement.html"
-                >Coupon</a
+                      class="collapse-item"
+                      href="${pageContext.request.contextPath}/frontend/AdminPage/couponManagement/couponManagement.jsp"
+              >Coupon</a
               >
               <a
-                class="collapse-item"
-                href="../orderManagement/orderManagement.html"
-                >Đơn hàng</a
+                      class="collapse-item"
+                      href="${pageContext.request.contextPath}/frontend/AdminPage/orderManagement/orderManagement.jsp"
+              >Đơn hàng</a
               >
             </div>
           </div>
         </li>
 
+        <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
           <a
             class="nav-link collapsed"
@@ -132,75 +135,21 @@
             data-parent="#accordionSidebar"
           >
             <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item active" href="../allUser/allUser.html"
-                >Người dùng</a
+              <a class="collapse-item active" href="${pageContext.request.contextPath}/frontend/AdminPage/allUser/allUser.jsp"
+              >Người dùng</a
               >
-              <a class="collapse-item" href="utilities-border.html">Sản phẩm</a>
-              <a class="collapse-item" href="../allReview/allReview.html"
-                >Đánh giá</a
+              <a class="collapse-item" href="${pageContext.request.contextPath}/frontend/AdminPage/allProduct/allProduct.jsp">Sản phẩm</a>
+              <a class="collapse-item" href="${pageContext.request.contextPath}/frontend/AdminPage/allReview/allReview.jsp"
+              >Đánh giá</a
               >
-              <a class="collapse-item" href="../allCoupon/allCoupon.html"
-                >Coupon</a
+              <a class="collapse-item" href="${pageContext.request.contextPath}/frontend/AdminPage/allCoupon/allCoupon.jsp"
+              >Coupon</a
               >
-              <a class="collapse-item" href="utilities-other.html">Đơn hàng</a>
+              <a class="collapse-item" href="${pageContext.request.contextPath}/frontend/AdminPage/allOrder/allOrder.jsp"
+              >Đơn hàng</a
+              >
             </div>
           </div>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider" />
-
-        <!-- Heading -->
-        <div class="sidebar-heading">Addons</div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-          <a
-            class="nav-link collapsed"
-            href="#"
-            data-toggle="collapse"
-            data-target="#collapsePages"
-            aria-expanded="true"
-            aria-controls="collapsePages"
-          >
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
-          </a>
-          <div
-            id="collapsePages"
-            class="collapse"
-            aria-labelledby="headingPages"
-            data-parent="#accordionSidebar"
-          >
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Login Screens:</h6>
-              <a class="collapse-item" href="login.html">Login</a>
-              <a class="collapse-item" href="register.html">Register</a>
-              <a class="collapse-item" href="forgot-password.html"
-                >Forgot Password</a
-              >
-              <div class="collapse-divider"></div>
-              <h6 class="collapse-header">Other Pages:</h6>
-              <a class="collapse-item" href="404.html">404 Page</a>
-              <a class="collapse-item" href="blank.html">Blank Page</a>
-            </div>
-          </div>
-        </li>
-
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-          <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a
-          >
-        </li>
-
-        <!-- Nav Item - Tables -->
-        <li class="nav-item">
-          <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a
-          >
         </li>
 
         <!-- Divider -->
@@ -418,19 +367,6 @@
                   class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                   aria-labelledby="userDropdown"
                 >
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
-                  </a>
-                  <div class="dropdown-divider"></div>
                   <a
                     class="dropdown-item"
                     href="#"
@@ -451,7 +387,7 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800">Đánh giá</h1>
+            <h1 class="h3 mb-4 text-gray-800">Người dùng</h1>
 
             <div class="row">
               <div class="col-lg-6">
@@ -459,7 +395,7 @@
                 <div class="card shadow mb-4">
                   <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">
-                      Đánh giá dài nhất
+                      Sản phẩm bán chạy
                     </h6>
                   </div>
                   <div class="card-body">
@@ -532,7 +468,7 @@
                 <div class="card shadow mb-4">
                   <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">
-                      Đánh giá thấp nhất
+                      Sản phẩm xóa mềm
                     </h6>
                   </div>
                   <div class="card-body">
@@ -562,7 +498,7 @@
                 <div class="card shadow mb-4">
                   <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">
-                      Đánh giá bị xóa
+                      Sản phẩm được xem nhiều nhất
                     </h6>
                   </div>
                   <div class="card-body">
@@ -704,13 +640,13 @@
 
       <!-- Bootstrap core JavaScript-->
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="../../../js/bootstrap.bundle.min.js"></script>
+      <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
 
       <!-- Core plugin JavaScript-->
-      <script src="../../../js/jquery.easing.min.js"></script>
+      <script src="${pageContext.request.contextPath}/js/jquery.easing.min.js"></script>
 
       <!-- Custom scripts for all pages-->
-      <script src="../../../js/sb-admin-2.min.js"></script>
+      <script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
     </div>
   </body>
 </html>
