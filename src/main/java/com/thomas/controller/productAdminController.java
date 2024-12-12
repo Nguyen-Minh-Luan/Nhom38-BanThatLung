@@ -1,5 +1,6 @@
 package com.thomas.controller;
 
+import com.thomas.dao.model.Product;
 import com.thomas.services.UploadProductService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -20,10 +21,13 @@ import java.util.List;
 )
 public class productAdminController extends HttpServlet {
     private static final String ULOAD_DIR = "uploads";
+    private static final UploadProductService uploadProductService = new UploadProductService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+        List<Product> beltList = uploadProductService.getProducts();
+        request.setAttribute("beltList", beltList);
         request.getRequestDispatcher("/frontend/AdminPage/allProduct/allProduct.jsp").forward(request, response);
     }
 
@@ -33,30 +37,21 @@ public class productAdminController extends HttpServlet {
         int productId = 0;
         String message = request.getParameter("message");
         String productName = request.getParameter("productName");
-        String tags = request.getParameter("categories");
+        String[] tags = request.getParameter("categories").split(" ");
         String description = request.getParameter("Desc");
         String releaseDateString = request.getParameter("releaseDate");
         LocalDate releaseDate = LocalDate.parse(releaseDateString, formatter);
         String gender = request.getParameter("gender");
         double price = Double.parseDouble(request.getParameter("price"));
         int stockQuantity = Integer.parseInt(request.getParameter("stockQuantity"));
+        int isDeleted = Integer.parseInt(request.getParameter("isDeleted"));
         String material = request.getParameter("material");
-        UploadProductService uploadProductService = new UploadProductService();
-        System.out.println(message
-                + productName
-                + tags
-                + description
-                + releaseDateString
-                + gender
-                + price
-                + stockQuantity
-                + material
-        );
+
         if (message.equals("create")) {
-            uploadProductService.saveProduct(productName, tags, description, releaseDate, gender, price, stockQuantity, material);
-        } else if(message.equals("update")) {
+            uploadProductService.saveProduct(productName, tags, description, releaseDate, gender, price, stockQuantity, material, isDeleted);
+        } else if (message.equals("update")) {
             productId = Integer.parseInt(request.getParameter("productId"));
-            uploadProductService.updateProduct(productId, productName, tags, description, releaseDate, gender, price, stockQuantity, material);
+            uploadProductService.updateProduct(productId, productName, tags, description, releaseDate, gender, price, stockQuantity, material, isDeleted);
         }
         String uploadPath = request.getServletContext().getRealPath("") + File.separator + ULOAD_DIR;
         File uploadDir = new File(uploadPath);
@@ -94,7 +89,7 @@ public class productAdminController extends HttpServlet {
                 if (message.equals("create")) {
                     int beltId = uploadProductService.getLatestProductId();
                     uploadProductService.saveImagePath(beltId, mainImage, extraImages);
-                } else if(message.equals("update")) {
+                } else if (message.equals("update")) {
                     uploadProductService.updateImagePath(productId, mainImage, extraImages);
                 }
             }

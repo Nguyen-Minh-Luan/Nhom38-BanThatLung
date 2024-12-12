@@ -7,26 +7,23 @@ DROP database thatlungdb;
 
 CREATE TABLE belts (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    categoryId INT NOT NULL,
     name VARCHAR(255) NOT NULL,
     description VARCHAR(500),
     price FLOAT NOT NULL,
     gender VARCHAR(50) NOT NULL,
     stockQuantity INT DEFAULT 0,
-    release_date DATE,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    releaseDate DATE,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     isDeleted INT DEFAULT 0,
     discountPercent DOUBLE DEFAULT 0.0,
     materialBelt VARCHAR(255),
-	FOREIGN KEY (categoryId) REFERENCES categories(id) ON DELETE CASCADE ON UPDATE CASCADE
-
 );
 CREATE TABLE users(
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  dateOfBirth DATETIME(255),
+  dateOfBirth DATETIME,
   password VARCHAR(255),
   image VARCHAR(255),
   createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -34,11 +31,18 @@ CREATE TABLE users(
   gender VARCHAR(50),
   phoneNumber BIGINT,
   role INT,
-  token VA(255)
+  token VARCHAR(255)
 )
 CREATE TABLE categories (
 	id INT AUTO_INCREMENT PRIMARY KEY,
     categoryName VARCHAR(50) NOT NULL
+);
+CREATE TABLE beltCategory (
+    beltId INT NOT NULL,
+    categoryId INT NOT NULL,
+    PRIMARY KEY (beltId, categoryId),
+    FOREIGN KEY (beltId) REFERENCES belts(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (categoryId) REFERENCES categories(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -84,7 +88,7 @@ CREATE TABLE imageEntry (
     FOREIGN KEY (beltId) REFERENCES belts(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-      
+
 CREATE TABLE collections (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,

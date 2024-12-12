@@ -37,8 +37,7 @@ public class forgotPasswordController extends HttpServlet {
         props.put("mail.smtp.port", port); //TLS 587 SSL 465
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.ssl.protocols", "TLSv1.2");  // Explicitly enable TLSv1.2
-        // create Authenticator
+        props.put("mail.smtp.ssl.protocols", "TLSv1.2");
         Authenticator auth = new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
