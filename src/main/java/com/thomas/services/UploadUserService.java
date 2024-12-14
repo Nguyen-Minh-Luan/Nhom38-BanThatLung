@@ -23,12 +23,11 @@ public class UploadUserService {
     public boolean deleteUser(int userId) {
         return userDao.deleteUserById(userId);
     }
-    public boolean updateUser(int userId, String userName, String email, String password, String gender, int role, LocalDate birthDate, long phone, int isDeleted) {
+    public boolean updateUser(int userId, String userName, String email, String gender, int role, LocalDate birthDate, long phone, int isDeleted) {
         User user = new User();
         user.setId(userId);
         user.setName(userName);
         user.setEmail(email);
-        user.setPassword(password);
         user.setGender(gender);
         user.setRole(role);
         user.setPhone(phone);

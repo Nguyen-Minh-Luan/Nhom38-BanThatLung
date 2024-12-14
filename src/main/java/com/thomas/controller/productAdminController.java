@@ -25,7 +25,6 @@ public class productAdminController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
         List<Product> beltList = uploadProductService.getProducts();
         request.setAttribute("beltList", beltList);
         request.getRequestDispatcher("/frontend/AdminPage/allProduct/allProduct.jsp").forward(request, response);

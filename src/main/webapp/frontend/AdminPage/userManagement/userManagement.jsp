@@ -145,7 +145,7 @@
                        href="${pageContext.request.contextPath}/admin/table/products">Sản
                         phẩm</a>
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allReview/allReview.jsp"
+                       href="${pageContext.request.contextPath}/admin/table/reviews"
                     >Đánh giá</a
                     >
                     <a class="collapse-item"

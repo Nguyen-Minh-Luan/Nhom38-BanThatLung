@@ -143,7 +143,7 @@
                         phẩm</a>
                     <a
                             class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/reviewManagement/reviewManagement.jsp"
+                            href="${pageContext.request.contextPath}/admin/table/reviews"
                     >Đánh giá</a
                     >
                     <a

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -140,7 +141,7 @@
                        href="${pageContext.request.contextPath}/admin/table/products">Sản
                         phẩm</a>
                     <a class="collapse-item active"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allReview/allReview.jsp"
+                       href="${pageContext.request.contextPath}/admin/table/reviews"
                     >Đánh giá</a
                     >
                     <a class="collapse-item"
@@ -168,15 +169,6 @@
             <nav
                     class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
             >
-                <button
-                        class="btn btn-white border border-dark"
-                        style="color: black"
-                        data-bs-toggle="modal"
-                        data-bs-target="#createModal"
-                >
-                    Tạo 1 sản phẩm mới
-                </button>
-
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown no-arrow d-sm-none">
                         <div
@@ -401,38 +393,47 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Người đánh giá</th>
-                                    <th>Số sao</th>
+                                    <th>Tên người đánh giá</th>
+                                    <th>Tên sản phẩm</th>
                                     <th>Ngày đánh giá</th>
+                                    <th>Số sao</th>
+                                    <th>Hành động</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Tên người đánh giá</th>
                                     <th>Tên sản phẩm</th>
-                                    <th>Ngày tạo</th>
                                     <th>Ngày đánh giá</th>
+                                    <th>Số sao</th>
+                                    <th>Hành động</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td class="text-center">
-                                        <button
-                                                class="btn btn-dark fa-solid fa-pen-to-square"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#editModal"
-                                        ></button>
-                                        <button
-                                                class="btn btn-danger fa-solid fa-trash-can"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#removeModal"
-                                        ></button>
-                                    </td>
-                                </tr>
+                                <jsp:useBean id="reviewList" scope="request" type="java.util.List"/>
+                                <c:forEach var="review" items="${reviewList}">
+                                    <tr>
+                                        <td class="reviewId">${review.id}</td>
+                                        <td>${review.reviewerName}</td>
+                                        <td>${review.beltName}</td>
+                                        <td>${review.createdAt}</td>
+                                        <td>${review.reviewerStar}</td>
+                                        <td class="text-center">
+                                            <a
+                                                    href="${pageContext.request.contextPath}/admin/table/reviews/reviewDetail?reviewId=${review.id}"
+                                                    class="btn btn-dark fa-solid fa-pen-to-square"
+
+                                            ></a>
+                                            <button
+                                                    class="btn btn-danger fa-solid fa-trash-can"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#removeModal"
+                                            ></button>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+
                                 <tr>
                                     <td>Garrett Winters</td>
                                     <td>Accountant</td>
@@ -951,8 +952,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                        Bạn có muốn xóa người dùng này?
+                    <h5 class="modal-title removeUser" id="removeModal">
+                        Bạn có muốn xóa review này?
                     </h5>
                     <button
                             type="button"
@@ -960,6 +961,9 @@
                             data-bs-dismiss="modal"
                             aria-label="Close"
                     ></button>
+                </div>
+                <div class="modal-body removeModalBody">
+
                 </div>
                 <div class="modal-footer">
                     <button
@@ -970,217 +974,17 @@
                     >
                         Hủy
                     </button>
-                    <button
-                            type="button"
-                            class="btn btn-dark"
-                            style="color: white; background-color: black"
-                    >
-                        Xóa mềm
-                    </button>
-                    <button
-                            type="button"
-                            class="btn btn-dark"
-                            style="color: white; background-color: black"
-                    >
-                        Xóa vĩnh viễn
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div
-            class="modal fade"
-            id="editModal"
-            tabindex="-1"
-            aria-labelledby="removeModal"
-            aria-hidden="true"
-    >
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                        Bạn có muốn xóa sản phẩm này?
-                    </h5>
-                    <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                    ></button>
-                </div>
-                <div class="modal-footer">
-                    <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-bs-dismiss="modal"
-                    >
-                        Hủy
-                    </button>
-                    <button type="button" class="btn btn-dark">Xóa mềm</button>
-                    <button type="button" class="btn btn-dark">Xóa vĩnh viễn</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div
-            class="modal fade"
-            id="createModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-    >
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5
-                            class="modal-title"
-                            id="exampleModalLabel"
-                            style="color: black"
-                    >
-                        Tạo người dùng
-                    </h5>
-                    <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                    ></button>
-                </div>
-                <div class="modal-body">
-                    <form class="d-flex flex-column justify-content-between">
-                        <div class="d-flex flex-column">
-                            <label class="fomr-label" for="userImage" style="color: black"
-                            >Chọn ảnh bìa
-                            </label>
-                            <input name="userImage" type="file" style="color: black"/>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <label class="fomr-label" for="userImage" style="color: black"
-                            >Chọn ảnh
-                            </label>
-                            <input name="userImage" type="file" style="color: black"/>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <label class="fomr-label" for="userImage" style="color: black"
-                            >Chọn ảnh
-                            </label>
-                            <input name="userImage" type="file" style="color: black"/>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <label class="fomr-label" for="userImage" style="color: black"
-                            >Chọn ảnh
-                            </label>
-                            <input name="userImage" type="file" style="color: black"/>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <label class="fomr-label" for="userImage" style="color: black"
-                            >Chọn ảnh
-                            </label>
-                            <input name="userImage" type="file" style="color: black"/>
-                        </div>
-                        <div class="d-flex flex-column mt-3">
-                            <label
-                                    class="fomr-label"
-                                    for="productName"
-                                    style="color: black"
-                            >Tên sản phẩm</label
-                            >
-                            <input
-                                    class="form-control"
-                                    name="productName"
-                                    type="text"
-                                    placeholder="Nhập tên sản phẩm"
-                            />
-                        </div>
-                        <div class="d-flex flex-column mt-3">
-                            <label class="fomr-label" for="category" style="color: black"
-                            >Email</label
-                            >
-                            <input
-                                    class="form-control"
-                                    name="category"
-                                    type="text"
-                                    placeholder="Nhập tag"
-                            />
-                        </div>
-                        <div class="d-flex flex-column mt-3">
-                            <label class="form-label" for="Desc" style="color: black"
-                            >Nhập mô tả sản phẩm</label
-                            >
-                            <textarea
-                                    name="Desc"
-                                    id="productDesc"
-                                    cols="15"
-                                    rows="15"
-                            ></textarea>
-                        </div>
-                        <div class="d-flex flex-column mt-3">
-                            <label
-                                    class="form-label"
-                                    for="realeaseDate"
-                                    style="color: black"
-                            >Nhập ngày ra mắt</label
-                            >
-                            <input class="form-control" name="realeaseDate" type="date"/>
-                        </div>
-                        <div class="d-flex flex-column mt-3">
-                            <label class="fomr-label" style="color: black"
-                            >Giới tính</label
-                            >
-                            <div class="d-flex">
-                                <div
-                                        class="d-flex align-items-center"
-                                        style="margin-right: 10px"
-                                >
-                                    <input
-                                            class="my-0"
-                                            name="Nam"
-                                            style="margin-right: 5px"
-                                            type="radio"
-                                    />
-                                    <p class="my-0" style="color: black">Nam</p>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <input
-                                            class="my-0"
-                                            name="Nữ"
-                                            style="margin-right: 5px"
-                                            type="radio"
-                                    />
-                                    <p class="my-0" style="color: black">Nữ</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-column mt-3">
-                            <select
-                                    style="color: black"
-                                    class="form-control"
-                                    name="material"
-                                    aria-label="Default select example"
-                            >
-                                <option selected>Chọn chất liệu</option>
-                                <option value="1">Da</option>
-                                <option value="0">Canvas</option>
-                            </select>
-                        </div>
+                    <form class="deleteBtn" action="/admin/table/reviews" method="POST">
+                        <button
+                                id="removeUserBtn"
+                                type="submit"
+                                class="btn btn-dark"
+                                style="color: white; background-color: black"
+                        >
+                            Xóa
+                        </button>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button
-                            type="button"
-                            class="btn btn-white border border-dark"
-                            data-bs-dismiss="modal"
-                            style="color: black"
-                    >
-                        Hủy
-                    </button>
-                    <button
-                            type="button"
-                            class="btn"
-                            style="color: white; background-color: black"
-                    >
-                        Tạo
-                    </button>
+
                 </div>
             </div>
         </div>

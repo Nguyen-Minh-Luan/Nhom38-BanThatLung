@@ -1,6 +1,9 @@
+<jsp:useBean id="beltName" scope="request" type="java.lang.String"/>
+<jsp:useBean id="review" scope="request" type="com.thomas.dao.model.Review"/>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +35,7 @@
     <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/css/general.css" rel="stylesheet"/>
     <script src="https://cdn.ckeditor.com/ckeditor5/44.0.0/ckeditor5.umd.js"></script>
-    <link href="${pageContext.request.contextPath}/css/general.css" rel="stylesheet"/>
+
 
 </head>
 
@@ -174,84 +177,120 @@
         <div id="content">
 
             <div class="container-fluid">
-                <h1 class="h3 mb-2 text-gray-800 mt-5"> Mô tả Sản phẩm</h1>
+                <h1 class="h3 mb-2 text-gray-800 mt-5">Xem chi tiết review</h1>
                 <div class="d-flex w-100">
                     <div class="col-11 bg-light">
-                        <div
-                                class="overflow-auto d-flex justify-content-center fs-3 mt-5 pb-5"
-                                style="white-space: nowrap;color:black"
-                        >
-                            <div class="d-inline-block p-3">
-                                <a
-                                        class="text-dark text-decoration-none fs-4"
-                                        href="${pageContext.request.contextPath}/admin/table/products/createProduct?id=${param.id}&message=update"
-                                        style="font-size: 32px"
-                                >Tổng quan</a
-                                >
-                            </div>
-                            <div class="d-inline-block p-3 ms-0">
-                                <a
-                                        class="text-dark text-decoration-none fs-4 custom_active"
-                                        href="${pageContext.request.contextPath}/admin/table/products/createProductDescription?id=${param.id}&message=update"
-                                        style="font-size: 32px"
-                                >Mô tả</a>
-
-                            </div>
-
-                        </div>
                     </div>
                 </div>
                 <form id="productForm" method="POST"
                       class="d-flex flex-column justify-content-between" enctype="multipart/form-data">
 
-                    <input type="hidden" name="message" value="<c:choose>
-    <c:when test='${param.message == "update"}'>update</c:when>
-    <c:otherwise>create</c:otherwise>
-</c:choose>"/>
-                    <input type="hidden" name="productId"/>
+                    <input type="hidden" name="reviewId" value="${param.reviewId}"/>
+                    <input type="hidden" name="message" value="delete"/>
                     <div class="d-flex w-100">
+                        <div data-include="\AdminPage\AdminSidebar\adminSideBar.html"></div>
+                        <div class="b-example-divider col-1"></div>
                         <div class="col-11 bg-light">
+                            <div class="d-flex flex-column mt-5">
+                                <div class="mt-5 ms-5">
+                                    <h1 class="fw-bold">
+                                        Xem review #${param.reviewId}
+                                    </h1>
+                                </div>
+                            </div>
                             <div
                                     class="d-flex flex-column justify-content-left align-items-left"
                             >
                                 <div class="d-flex flex-column mt-5 w-50">
                                     <div class="row mb-3">
-                                        <p class="col-3 mb-0 d-flex justify-content-end align-items-top"
-                                           style="font-size: 32px">
-                                            Mô tả
+                                        <p
+                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
+                                        >
+                                            Tên sản phẩm
                                         </p>
-                                        <div class="document-editor">
-                                            <div class="document-editor__toolbar"></div>
-                                            <div class="document-editor__editing" name="Description"></div>
-                                        </div>
+                                        <input
+                                                name="beltName"
+                                                type="text"
+                                                class="col form-control form-control-lg custom_design custom__border"
+                                                placeholder="Nhập tên sản phẩm"
+                                                value="${beltName}"
+                                                disabled
+
+                                        />
                                     </div>
-                                    <div class="row d-flex justify-content-end mb-3 ps-sm-5">
-                                        <button type="submit" class="btn btn-dark "
-                                                style="width: 20%; height: 47px">
-                                            Tạo
-                                        </button>
+                                    <div class="row mb-3">
+                                        <p
+                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
+                                        >
+                                            Tên người dùng
+                                        </p>
+                                        <input
+                                                name="beltName"
+                                                type="text"
+                                                class="col form-control form-control-lg custom_design custom__border"
+                                                value="${review.reviewerName}"
+                                                disabled
+                                        />
+                                    </div>
+                                    <div class="row mb-3">
+                                        <p
+                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
+                                        >
+                                            Nội dung
+                                        </p>
+                                        <textarea
+                                                name="tags"
+                                                class="col form-control form-control-lg custom_design custom__border"
+                                                disabled
+                                        >${review.content}</textarea>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <p
+                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
+                                        >
+                                            Số sao
+                                        </p>
+                                        <input
+                                                name="ratingStar"
+                                                type="number"
+                                                class="col form-control form-control-lg custom_design custom__border"
+                                                placeholder="Nhập tên sản phẩm"
+                                                value="${review.reviewerStar}"
+                                                disabled
+
+                                        />
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <p
+                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
+                                        >
+                                            Ngày review
+                                        </p>
+                                        <input name="releaseDate" type="date"
+                                               class="col form-control form-control-lg custom_design custom__border"
+                                               value="${review.createdAt}"
+                                               disabled
+                                        />
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+                    </div>
 
                 </form>
+
             </div>
-
         </div>
-    </div>
-</div>
-</div>
 
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright &copy; THOMAS 2021</span>
-        </div>
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; THOMAS 2021</span>
+                </div>
+            </div>
+        </footer>
     </div>
-</footer>
-</div>
 </div>
 
 <a class="scroll-to-top rounded" href="#page-top">
@@ -299,6 +338,8 @@
     </div>
 </div>
 
+</div>
+
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -340,7 +381,7 @@
                 ]
             },
             simpleUpload: {
-                uploadUrl: '/upload?id=${param.id}&message=update',
+                uploadUrl: '/upload',
                 withCredentials: false,
 
             },
@@ -361,6 +402,15 @@
             console.error('Error initializing CKEditor:', error);
         });
 </script>
+<script>
+    // Reference to the checkbox and hidden input
+    const checkbox = document.getElementById('isDeleted');
+    const hiddenInput = document.getElementById('hiddenIsDeleted');
 
+    // Update hidden input value when checkbox state changes
+    checkbox.addEventListener('change', function () {
+        hiddenInput.value = this.checked ? 1 : 0;
+    });
+</script>
 </body>
 </html>

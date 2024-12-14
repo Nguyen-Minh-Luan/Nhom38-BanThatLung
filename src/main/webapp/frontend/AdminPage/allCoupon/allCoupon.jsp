@@ -140,10 +140,9 @@
                     <a class="collapse-item"
                        href="${pageContext.request.contextPath}/admin/table/products">Sản
                         phẩm</a>
-                    >
                     <a
                             class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/reviewManagement/reviewManagement.jsp"
+                            href="${pageContext.request.contextPath}/admin/table/reviews"
                     >Đánh giá</a
                     >
                     <a
@@ -152,7 +151,7 @@
                     >Coupon</a
                     >
                     <a
-                            class="collapse-item active"
+                            class="collapse-item"
                             href="${pageContext.request.contextPath}/frontend/AdminPage/orderManagement/orderManagement.jsp"
                     >Đơn hàng</a
                     >

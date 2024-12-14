@@ -66,5 +66,17 @@ $(document).ready(function () {
         $(".modal-title").text("Tạo người dùng");
         $(".createOrUpdate").text("Tạo");
         $(".createOrUpdate input[name='userId']").remove();
+        $(".password-fields").show();
+    });
+    $('#createModal').on('shown.bs.modal', function () {
+        const message = $(".messageCreateOrUpdate").val(); // Check if it's create or update
+        console.log(message)
+        if (message === "update") {
+            // Hide password fields for update
+            $(".password-fields").hide();
+        } else {
+            // Show password fields for create
+            $(".password-fields").show();
+        }
     });
 });

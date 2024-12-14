@@ -70,6 +70,10 @@ public class userAdminController extends HttpServlet {
         String email = request.getParameter("Email");
         String password = request.getParameter("password");
         String retype = request.getParameter("reTypePassword");
+        if(message.equals("create")) {
+            password = request.getParameter("password");
+            retype = request.getParameter("reTypePassword");
+        }
         String gender = request.getParameter("gender");
         int role = Integer.parseInt(request.getParameter("role"));
         String birthdayString = request.getParameter("birthDate");
@@ -80,7 +84,7 @@ public class userAdminController extends HttpServlet {
             uploadUserService.saveUser(userName, email, password, gender, role, brithDate, phone, isDeleted);
 
         } else if (message.equals("update")) {
-            System.out.println(uploadUserService.updateUser(userId,userName, email, password, gender, role, brithDate, phone, isDeleted));
+            uploadUserService.updateUser(userId,userName, email, gender, role, brithDate, phone, isDeleted);
         }
 
 

@@ -28,6 +28,7 @@
 
     <!-- Custom styles for this template-->
     <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/allUsers.css" rel="stylesheet"/>
 </head>
 
 <body id="page-top">
@@ -141,7 +142,7 @@
                        href="${pageContext.request.contextPath}/admin/table/products">Sản
                         phẩm</a>
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allReview/allReview.jsp"
+                       href="${pageContext.request.contextPath}/admin/table/reviews"
                     >Đánh giá</a
                     >
                     <a class="collapse-item"
@@ -605,8 +606,8 @@
                                     required
                             />
                         </div>
-                        <div class="d-flex flex-column mt-3">
-                            <label class="form-label" for="password" style="color: black"
+                        <div class="d-flex flex-column mt-3 password-fields">
+                            <label class="form-label " for="password" style="color: black"
                             >Nhập mật khẩu</label
                             >
                             <input
@@ -615,10 +616,10 @@
                                     name="password"
                                     type="password"
                                     placeholder="Nhập mật khẩu cho người dùng"
-                                    required
+
                             />
                         </div>
-                        <div class="d-flex flex-column mt-3">
+                        <div class="d-flex flex-column mt-3 password-fields">
                             <label
                                     class="form-label"
                                     for="reTypePassword"
@@ -631,7 +632,7 @@
                                     name="reTypePassword"
                                     type="password"
                                     placeholder="Nhập lại mật khẩu cho người dùng"
-                                    required
+
                             />
                         </div>
                         <div class="d-flex flex-column mt-3">
@@ -691,7 +692,7 @@
                             <input class="form-control" name="phoneNumber" type="number" required/>
                         </div>
                         <div class="d-flex flex mt-3">
-                            <label class="form-label" style="color: black" for="isDeleted">
+                            <label class="form-label m-0 mr-2" style="color: black" for="isDeleted">
                                 Xóa mềm
                             </label>
                             <input
@@ -750,12 +751,14 @@
     </script>
     <script>
         document.getElementById("createUserForm").addEventListener("submit", function (e) {
-            const password = document.getElementById("password").value;
-            const reTypePassword = document.getElementById("reTypePassword").value;
-
-            if (password !== reTypePassword) {
-                alert("Passwords do not match. Please check and try again.");
-                e.preventDefault();
+            const messageCreateOrUpdate = document.getElementsByClassName("messageCreateOrUpdate").value;
+            if (messageCreateOrUpdate == "create") {
+                const password = document.getElementById("password").value;
+                const reTypePassword = document.getElementById("reTypePassword").value;
+                if (password !== reTypePassword) {
+                    alert("Passwords do not match. Please check and try again.");
+                    e.preventDefault();
+                }
             }
         });
     </script>

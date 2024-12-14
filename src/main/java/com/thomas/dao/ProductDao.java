@@ -195,4 +195,5 @@ public class ProductDao {
             return h.createQuery(sql).mapTo(Integer.class).findFirst().orElse(0);
         });
     }
+
 }

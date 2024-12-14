@@ -13,7 +13,7 @@ CREATE TABLE belts
     id            INT AUTO_INCREMENT PRIMARY KEY,
     name          VARCHAR(255) NOT NULL,
     description   VARCHAR(500),
-    price         FLOAT        NOT NULL,
+    price double NOT NULL,
     gender        VARCHAR(50)  NOT NULL,
     stockQuantity INT      DEFAULT 0,
     releaseDate   DATE,
@@ -28,7 +28,7 @@ CREATE TABLE users
     id          INT AUTO_INCREMENT PRIMARY KEY,
     name        VARCHAR(255) NOT NULL,
     email       VARCHAR(255) NOT NULL,
-    dateOfBirth DATETIME(255),
+    dateOfBirth DATETIME,
     password    VARCHAR(255),
     image       VARCHAR(255),
     createAt    DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -40,7 +40,7 @@ CREATE TABLE users
 )
 CREATE TABLE categories
 (
-    id           INT AUTO_INCREMENT PRIMARY KEY,
+    id   INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL
 );
 CREATE TABLE beltCategory
@@ -83,22 +83,17 @@ CREATE TABLE reviews
     content    VARCHAR(1000),
     ratingStar INT CHECK (ratingStar BETWEEN 1 AND 5),
     createdAt  DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updatedAt  DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (beltId) REFERENCES belts (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE imageEntry
 (
-    id          INT AUTO_INCREMENT PRIMARY KEY,
-    beltId      INT NOT NULL,
-    mainImage   VARCHAR(255),
-    extraImage1 VARCHAR(255),
-    extraImage2 VARCHAR(255),
-    extraImage3 VARCHAR(255),
-    extraImage4 VARCHAR(255),
+    id        INT AUTO_INCREMENT PRIMARY KEY,
+    beltId    INT NOT NULL,
+    imageType VARCHAR(50),
+    imagePath VARCHAR(255),
     FOREIGN KEY (beltId) REFERENCES belts (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
 
 CREATE TABLE collections
 (
@@ -178,3 +173,4 @@ CREATE TABLE beltViews
     viewDate  DATETIME NOT NULL,
     viewCount INT default 1
 )
+

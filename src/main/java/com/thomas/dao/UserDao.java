@@ -33,13 +33,12 @@ public class UserDao {
     public boolean updateUser(User user) {
         return JDBIConnect.get().withHandle(handle -> {
             // SQL query for updating the user
-            String sql = "UPDATE users SET name = :name, email = :email, password = :password, gender = :gender, dateOfBirth = :dateOfBirth, phoneNumber = :phone, role = :role, isDeleted = :isDeleted WHERE id = :userId";
+            String sql = "UPDATE users SET name = :name, email = :email, gender = :gender, dateOfBirth = :dateOfBirth, phoneNumber = :phone, role = :role, isDeleted = :isDeleted WHERE id = :userId";
 
             // Execute the update query with the user's data
             return handle.createUpdate(sql)
                     .bind("name", user.getName())
                     .bind("email", user.getEmail())
-                    .bind("password", user.getPassword())
                     .bind("gender", user.getGender())
                     .bind("dateOfBirth", user.getDateOfBirth())
                     .bind("phone", user.getPhone())
