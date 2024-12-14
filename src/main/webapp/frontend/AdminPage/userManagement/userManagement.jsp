@@ -149,7 +149,7 @@
                     >Đánh giá</a
                     >
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allCoupon/allCoupon.jsp"
+                       href="${pageContext.request.contextPath}/admin/table/coupons"
                     >Coupon</a
                     >
                     <a class="collapse-item"

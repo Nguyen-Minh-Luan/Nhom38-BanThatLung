@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $(".fa-trash-can").on("click", function () {
         const reviewId = $(this).closest("tr").find(".reviewId").text();
+        console.log(reviewId);
         $(".removeModalBody").text(`Xóa review #${reviewId}`);
         // Xóa các input cũ trước khi thêm mới
         // Xóa các input cũ (nếu có) nhưng giữ lại nút "Xóa"
@@ -18,4 +19,5 @@ $(document).ready(function () {
         $(".deleteBtn input[name='reviewId']").remove();
         $(".deleteBtn input[name='message']").remove();
     });
+
 });

@@ -2,7 +2,7 @@ package com.thomas.dao.model;
 
 import java.time.LocalDate;
 
-public class Review {
+public class Review implements java.io.Serializable {
     private int id;
     private int beltId;
     private int userId;

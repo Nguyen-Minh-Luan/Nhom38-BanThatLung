@@ -33,7 +33,7 @@
 
     <!-- Custom styles for this template-->
     <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet"/>
-    <link href="${pageContext.request.contextPath}/css/general.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/adminGeneral.css" rel="stylesheet"/>
     <script src="https://cdn.ckeditor.com/ckeditor5/44.0.0/ckeditor5.umd.js"></script>
 
 
@@ -154,7 +154,7 @@
                     >Đánh giá</a
                     >
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allCoupon/allCoupon.jsp"
+                       href="${pageContext.request.contextPath}/admin/table/coupons"
                     >Coupon</a
                     >
                     <a class="collapse-item"
@@ -176,21 +176,15 @@
     <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
 
-            <div class="container-fluid">
-                <h1 class="h3 mb-2 text-gray-800 mt-5">Xem chi tiết review</h1>
-                <div class="d-flex w-100">
-                    <div class="col-11 bg-light">
-                    </div>
-                </div>
+            <div class="container-fluid px-0">
+                <h1 class="title-create-edit mb-2 mt-5 ml-3">Xem chi tiết review</h1>
                 <form id="productForm" method="POST"
                       class="d-flex flex-column justify-content-between" enctype="multipart/form-data">
 
                     <input type="hidden" name="reviewId" value="${param.reviewId}"/>
                     <input type="hidden" name="message" value="delete"/>
                     <div class="d-flex w-100">
-                        <div data-include="\AdminPage\AdminSidebar\adminSideBar.html"></div>
-                        <div class="b-example-divider col-1"></div>
-                        <div class="col-11 bg-light">
+                        <div class="col-12 bg-white">
                             <div class="d-flex flex-column mt-5">
                                 <div class="mt-5 ms-5">
                                     <h1 class="fw-bold">

@@ -36,8 +36,8 @@
 
     <!-- Custom styles for this template-->
     <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet"/>
-    <link href="${pageContext.request.contextPath}/css/general.css" rel="stylesheet"/>
     <script src="https://cdn.ckeditor.com/ckeditor5/44.0.0/ckeditor5.umd.js"></script>
+    <link href="${pageContext.request.contextPath}/css/adminGeneral.css" rel="stylesheet"/>
 
 
 </head>
@@ -157,7 +157,7 @@
                     >Đánh giá</a
                     >
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allCoupon/allCoupon.jsp"
+                       href="${pageContext.request.contextPath}/admin/table/coupons"
                     >Coupon</a
                     >
                     <a class="collapse-item"
@@ -179,32 +179,46 @@
     <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
 
-            <div class="container-fluid">
-                <h1 class="h3 mb-2 text-gray-800 mt-5">Sản phẩm</h1>
+            <div class="container-fluid px-0">
+                <h1 class="title-create-edit mb-2 mt-5 ml-3">
+                    <c:choose>
+                        <c:when test="${param.id!=null}">
+                            Chỉnh sửa sản phẩm
+                        </c:when>
+                        <c:otherwise>
+                            Tạo Sản phẩm
+                        </c:otherwise>
+                    </c:choose>
+
+
+                </h1>
                 <div class="d-flex w-100">
-                    <div class="col-11 bg-light">
-                        <div
-                                class="overflow-auto d-flex justify-content-center fs-3 mt-5 pb-5"
-                                style="white-space: nowrap;color:black"
-                        >
-                            <div class="d-inline-block p-3">
-                                <a
-                                        class="text-dark text-decoration-none fs-4 custom_active"
-                                        href="${pageContext.request.contextPath}/admin/table/products/createProduct?id=${param.id}&message=update"
-                                        style="font-size: 32px"
-                                >Tổng quan</a
-                                >
-                            </div>
-                            <div class="d-inline-block p-3 ms-0">
-                                <a
-                                        class="text-dark text-decoration-none"
-                                        href="${pageContext.request.contextPath}/admin/table/products/createProductDescription?id=${param.id}&message=update"
-                                        style="font-size: 32px"
-                                >Mô tả</a>
+                    <div class="col-12 bg-light">
+                        <c:if test="${param.id!=null}">
+                            <div
+                                    class="overflow-auto d-flex justify-content-center fs-3 mt-5"
+                                    style="white-space: nowrap;color:black"
+                            >
+                                <div class="d-inline-block p-3">
+                                    <a
+                                            class="text-decoration-none fs-4 custom_active"
+                                            href="${pageContext.request.contextPath}/admin/table/products/createProduct?id=${param.id}&message=update"
+                                            style="font-size: 32px"
+                                    >Tổng quan</a
+                                    >
+                                </div>
+                                <div class="d-inline-block p-3 ms-0">
+                                    <a
+                                            class="text-decoration-none"
+                                            href="${pageContext.request.contextPath}/admin/table/products/createProductDescription?id=${param.id}&message=update"
+                                            style="font-size: 32px"
+                                    >Mô tả</a>
+
+                                </div>
 
                             </div>
+                        </c:if>
 
-                        </div>
                     </div>
                 </div>
                 <form id="productForm" method="POST"
@@ -216,9 +230,7 @@
 </c:choose>"/>
                     <input type="hidden" name="productId"/>
                     <div class="d-flex w-100">
-                        <div data-include="\AdminPage\AdminSidebar\adminSideBar.html"></div>
-                        <div class="b-example-divider col-1"></div>
-                        <div class="col-11 bg-light">
+                        <div class="col-12 bg-white">
                             <div class="d-flex flex-column mt-5">
                                 <div class="mt-5 ms-5">
                                     <h1 class="fw-bold">

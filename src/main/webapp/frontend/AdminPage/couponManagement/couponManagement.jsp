@@ -27,6 +27,7 @@
 
     <!-- Custom styles for this template-->
     <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/adminGeneral.css" rel="stylesheet"/>
 </head>
 
 <body id="page-top">
@@ -147,9 +148,8 @@
                     >Đánh giá</a
                     >
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allCoupon/allCoupon.jsp"
-                    >Coupon</a
-                    >
+                       href="${pageContext.request.contextPath}/admin/table/coupons"
+                    >Coupon</a>
                     <a class="collapse-item"
                        href="${pageContext.request.contextPath}/frontend/AdminPage/allOrder/allOrder.jsp"
                     >Đơn hàng</a

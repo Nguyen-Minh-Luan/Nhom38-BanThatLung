@@ -74,7 +74,7 @@ public class UserDao {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return null;  // No return value, data is collected in userList
+            return null;
         });
 
         return userList;

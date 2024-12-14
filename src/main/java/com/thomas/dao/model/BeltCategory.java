@@ -1,6 +1,6 @@
 package com.thomas.dao.model;
 
-public class BeltCategory {
+public class BeltCategory implements java.io.Serializable {
     private int beltId;
     private int categoryId;
 

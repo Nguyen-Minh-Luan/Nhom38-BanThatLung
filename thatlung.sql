@@ -147,13 +147,14 @@ CREATE TABLE addresses
     isDeleted     INT DEFAULT 0,
     FOREIGN KEY (userId) REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
-CREATE TABLE coupon
+CREATE TABLE coupons
 (
-    id           INT AUTO_INCREMENT PRIMARY KEY,
-    name         VARCHAR(50) NOT NULL,
-    discountRate INT         NOT NULL,
-    startDate    DATETIME,
-    endDate      DATETIME
+    id        INT AUTO_INCREMENT PRIMARY KEY,
+    code      VARCHAR(50) NOT NULL,
+    discountRate DOUBLE NOT NULL,
+    startDate DATETIME,
+    endDate   DATETIME,
+    isActive  INT
 );
 CREATE TABLE couponUsage
 (
