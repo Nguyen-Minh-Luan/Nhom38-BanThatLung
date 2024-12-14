@@ -1,26 +1,23 @@
 $(document).ready(function () {
-    $(".fa-pen-to-square").on("click", function () {
-        const productId = $(this).closest("tr").find(".beltId").text();
+    $(".fa-trash-can").on("click", function () {
+        const beltId = $(this).closest("tr").find(".beltId").text();
+        $(".modal-body").text(`Xóa sản phẩm #${beltId}`);
+        // Xóa các input cũ trước khi thêm mới
+        // Xóa các input cũ (nếu có) nhưng giữ lại nút "Xóa"
+        $(".deleteBtn input[name='beltId']").remove();
+        $(".deleteBtn input[name='message']").remove();
 
-        // Đổi tiêu đề và nút cho hành động sửa sản phẩm
-        $("#createUpdateModal__header").text("Sửa sản phẩm");
-        $(".productAction").val("update")
-        $(".productBtnAction").text("Cập nhập");
-
-
-        $(".modal-header")
-            .removeData()
-            .empty()
-            .append(`
-        <input type="hidden" name="productId" value="${productId}">
-        <h5>Sản phẩm # ${productId}</h5>
-    `);
+        // Thêm input ẩn vào form nút delete
+        $(".deleteBtn").prepend(`
+            <input type="hidden" name="beltId" value="${beltId}">
+            <input type="hidden" name="message" value="delete">
+        `);
     });
-    $("#createButton").on("click", function () {
-        $("#createUpdateModal__header").text("Tạo sản phẩm mới");
-        $(".productAction").val("create")
-        $(".productBtnAction").text("Tạo");
-        $("#productForm")[0].reset();
-    })
+
+    // (Tùy chọn) Xóa các input khi modal đóng
+    $('#removeModal').on('hidden.bs.modal', function () {
+        $(".deleteBtn input[name='beltId']").remove();
+        $(".deleteBtn input[name='message']").remove();
+    });
 });
 

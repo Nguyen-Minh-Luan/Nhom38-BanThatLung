@@ -26,9 +26,11 @@
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.0.0/ckeditor5.css">
 
     <!-- Custom styles for this template-->
     <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet"/>
+
 </head>
 
 <body id="page-top">
@@ -170,16 +172,19 @@
             <nav
                     class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
             >
-                <button
-                        class="btn btn-white border border-dark"
-                        id="createButton"
-                        style="color: black"
-                        data-bs-toggle="modal"
-                        data-bs-target="#createUpdateModal"
-                >
-                    Tạo 1 sản phẩm mới
-                </button>
+                <form method="POST">
+                    <button
+                            type="submit"
+                            class="btn btn-white border border-dark"
+                            id="createButton"
+                            style="color: black"
 
+                    >
+                        Tạo 1 sản phẩm mới
+                    </button>
+                </form>
+
+                <input name="productId" id="productId" type="hidden"/>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown no-arrow d-sm-none">
                         <div
@@ -407,6 +412,8 @@
                                     <th>Tên sản phẩm</th>
                                     <th>Ngày tạo</th>
                                     <th>giá</th>
+                                    <th>% giảm giá</th>
+                                    <th>Chất liệu</th>
                                     <th>Xóa</th>
                                     <th>Hành động</th>
                                 </tr>
@@ -417,6 +424,8 @@
                                     <th>Tên sản phẩm</th>
                                     <th>Ngày tạo</th>
                                     <th>giá</th>
+                                    <th>% giảm giá</th>
+                                    <th>Chất liệu</th>
                                     <th>Xóa</th>
                                     <th>Hành động</th>
                                 </tr>
@@ -428,18 +437,19 @@
                                         <td class="beltId">${belt.id}</td>
                                         <td>${belt.name}</td>
                                         <td>${belt.createdDate}</td>
-                                        <td>${belt.price}</td>
+                                        <td>${belt.price} vnđ</td>
+                                        <td>${belt.discountPercent}</td>
+                                        <td>${belt.materialBelt}</td>
                                         <td>${belt.isDeleted ==0 ? "Chưa xóa":"Xóa mềm"}</td>
                                         <td class="text-center">
-                                            <button
-                                                    class="btn btn-dark fa-solid fa-pen-to-square"
-                                                    data-bs-toggle="modal"
-                                                    data-bs-target="#createUpdateModal"
-                                            ></button>
+                                            <input type="hidden" name="beltId" value="${belt.id}"/>
+                                            <input type="hidden" name="message" value="update"/>
+                                            <a href="${pageContext.request.contextPath}/admin/table/products/createProduct?id=${belt.id}&message=update"
+                                               class="btn btn-dark fa-solid fa-pen-to-square"></a>
+
                                             <button
                                                     class="btn btn-danger fa-solid fa-trash-can"
-                                                    data-bs-toggle="modal"
-                                                    data-bs-target="#removeModal"
+                                                    data-bs-toggle="modal" data-bs-target="#removeModal"
                                             ></button>
                                         </td>
                                     </tr>
@@ -505,292 +515,26 @@
             </div>
         </div>
     </div>
-
-    <div
-            class="modal fade"
-            id="removeModal"
-            tabindex="-1"
-            aria-labelledby="removeModal"
-            aria-hidden="true"
-    >
+    <!-- Modal -->
+    <div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="removeModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                        Bạn có muốn xóa người dùng này?
-                    </h5>
-                    <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                    ></button>
+                    <h5 class="modal-title" id="removeModal">Xóa sản phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
                 </div>
                 <div class="modal-footer">
-                    <button
-                            type="button"
-                            class="btn btn-white border border-dark"
-                            data-bs-dismiss="modal"
-                            style="color: black"
-                    >
-                        Hủy
-                    </button>
-                    <button
-                            type="button"
-                            class="btn btn-dark"
-                            style="color: white; background-color: black"
-                    >
-                        Xóa mềm
-                    </button>
-                    <button
-                            type="button"
-                            class="btn btn-dark"
-                            style="color: white; background-color: black"
-                    >
-                        Xóa vĩnh viễn
-                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <form class="deleteBtn" action="/admin/table/products" method="post">
+                        <button type="submit" class="btn btn-danger">Xóa</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <div
-            class="modal fade"
-            id="editModal"
-            tabindex="-1"
-            aria-labelledby="removeModal"
-            aria-hidden="true"
-    >
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                        Bạn có muốn xóa sản phẩm này?
-                    </h5>
-                    <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                    ></button>
-                </div>
-                <div class="modal-footer">
-                    <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-bs-dismiss="modal"
-                    >
-                        Hủy
-                    </button>
-                    <button type="button" class="btn btn-dark">Xóa mềm</button>
-                    <button type="button" class="btn btn-dark">Xóa vĩnh viễn</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div
-            class="modal fade"
-            id="createUpdateModal"
-            tabindex="-1"
-            aria-labelledby="createUpdateModal"
-            aria-hidden="true"
-    >
-        <div class="modal-dialog">
-            <form id="productForm" method="POST"
-                  class="d-flex flex-column justify-content-between" enctype="multipart/form-data">
-
-                <div class="modal-content">
-
-                    <div class="modal-header">
-                        <h5
-                                class="modal-title"
-                                id="createUpdateModal__header"
-                                style="color: black"
-                        >
-                            Tạo người dùng
-                        </h5>
-                        <input class="productAction" type="hidden" name="message" value="">
-                        <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                        ></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="d-flex flex-column">
-                            <label class="form-label" for="userImage[]" style="color: black"
-                            >Chọn ảnh bìa
-                            </label>
-                            <input name="userImage[]" type="file" style="color: black"/>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <label class="form-label" for="userImage[]" style="color: black"
-                            >Chọn ảnh
-                            </label>
-                            <input name="userImage[]" type="file" style="color: black"/>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <label class="form-label" for="userImage[]" style="color: black"
-                            >Chọn ảnh
-                            </label>
-                            <input name="userImage[]" type="file" style="color: black"/>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <label class="form-label" for="userImage[]" style="color: black"
-                            >Chọn ảnh
-                            </label>
-                            <input name="userImage[]" type="file" style="color: black"/>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <label class="form-label" for="userImage[]" style="color: black"
-                            >Chọn ảnh
-                            </label>
-                            <input name="userImage[]" type="file" style="color: black"/>
-                        </div>
-                        <div class="d-flex flex-column mt-3">
-                            <label
-                                    class="form-label"
-                                    for="productName"
-                                    style="color: black"
-                            >Tên sản phẩm</label
-                            >
-                            <input
-                                    class="form-control"
-                                    name="productName"
-                                    type="text"
-                                    placeholder="Nhập tên sản phẩm"
-                            />
-                        </div>
-                        <div class="d-flex flex-column mt-3">
-                            <label class="fomr-label" for="category" style="color: black"
-                            >Tags</label
-                            >
-                            <input
-                                    class="form-control"
-                                    name="categories"
-                                    type="text"
-                                    placeholder="Nhập tag"
-                            />
-                        </div>
-                        <div class="d-flex flex-column mt-3">
-                            <label class="form-label" for="Desc" style="color: black"
-                            >Nhập mô tả sản phẩm</label
-                            >
-                            <textarea
-                                    name="Desc"
-                                    id="productDesc"
-                                    cols="15"
-                                    rows="15"
-                            ></textarea>
-                        </div>
-                        <div class="d-flex flex-column mt-3">
-                            <label
-                                    class="form-label"
-                                    for="releaseDate"
-                                    style="color: black"
-                            >Nhập ngày ra mắt</label
-                            >
-                            <input class="form-control" name="releaseDate" type="date"/>
-                        </div>
-                        <div class="d-flex flex-column mt-3">
-                            <label class="fomr-label" style="color: black"
-                            >Giới tính</label
-                            >
-                            <div class="d-flex">
-                                <div
-                                        class="d-flex align-items-center"
-                                        style="margin-right: 10px"
-                                >
-                                    <input
-                                            value="nam"
-                                            class="my-0"
-                                            name="gender"
-                                            style="margin-right: 5px"
-                                            type="radio"
-                                    />
-                                    <p class="my-0" style="color: black">Nam</p>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <input
-                                            value="nữ"
-                                            class="my-0"
-                                            name="gender"
-                                            style="margin-right: 5px"
-                                            type="radio"
-                                    />
-                                    <p class="my-0" style="color: black">Nữ</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-column mt-3">
-                            <select
-                                    style="color: black"
-                                    class="form-control"
-                                    name="material"
-                                    aria-label="Default select example"
-                            >
-                                <option selected>Chọn chất liệu</option>
-                                <option value="1">Da</option>
-                                <option value="0">Canvas</option>
-                            </select>
-                        </div>
-                        <div class="d-flex flex-column mt-3">
-                            <label class="form-label" for="price" style="color: black"
-                            >Giá</label
-                            >
-                            <input
-                                    class="form-control"
-                                    name="price"
-                                    type="number"
-                                    placeholder="Nhập giá"
-                            />
-                        </div>
-                        <div class="d-flex flex-column mt-3">
-                            <label class="form-label" for="stockQuantity" style="color: black"
-                            >Số lượng</label
-                            >
-                            <input
-                                    class="form-control"
-                                    name="stockQuantity"
-                                    type="number"
-                                    placeholder="Nhập số lượng"
-                            />
-                        </div>
-                        <div class="d-flex flex align-items-center mt-3">
-                            <label class="form-label mr-3 p-0" for="isDeleted" style="color: black"
-                            >Xóa</label
-                            >
-                            <input
-                                    class="p-0"
-                                    value="1"
-                                    name="isDeleted"
-                                    type="checkbox"
-                            />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button
-                                type="button"
-                                class="btn btn-white border border-dark"
-                                data-bs-dismiss="modal"
-                                style="color: black"
-                        >
-                            Hủy
-                        </button>
-                        <button
-                                type="submit"
-                                class="btn productBtnAction"
-                                style="color: white; background-color: black"
-                        >
-                            Tạo
-                        </button>
-                    </div>
-                </div>
-            </form>
-
-        </div>
-    </div>
-    <!-- Bootstrap core JavaScript-->
 
     <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -806,6 +550,7 @@
     <!-- Custom scripts for all pages-->
     <script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/allProductAdmin.js"></script>
+
 </div>
 </body>
 </html>

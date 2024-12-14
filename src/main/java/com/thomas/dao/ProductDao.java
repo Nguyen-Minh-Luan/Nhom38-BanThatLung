@@ -11,9 +11,8 @@ import java.util.List;
 public class ProductDao {
     public boolean createProduct(Product product) {
         return JDBIConnect.get().withHandle(h -> {
-            String sql = "INSERT INTO belts ( name, description, releaseDate, gender, price,stockQuantity ,materialBelt,isDeleted) VALUES (:productName,:description,:releaseDate,:gender,:price,:stockQuantity,:material,:isDeleted)";
+            String sql = "INSERT INTO belts ( name, releaseDate, gender, price,stockQuantity ,materialBelt,isDeleted) VALUES (:productName,:description,:releaseDate,:gender,:price,:stockQuantity,:material,:isDeleted)";
             return h.createUpdate(sql).bind("productName", product.getName())
-                    .bind("description", product.getDescription())
                     .bind("releaseDate", product.getReleaseDate())
                     .bind("gender", product.getGender())
                     .bind("price", product.getPrice())
@@ -21,6 +20,77 @@ public class ProductDao {
                     .bind("material", product.getMaterialBelt())
                     .bind("isDeleted", product.getIsDeleted())
                     .execute() > 0;
+        });
+    }
+
+    public String[] getTags(int beltId) {
+        return JDBIConnect.get().withHandle(handle -> {
+            // Execute the query to fetch category names
+            List<String> categories = handle.createQuery(
+                            "SELECT c.name " +
+                                    "FROM beltCategory bc " +
+                                    "JOIN categories c ON bc.categoryId = c.id " +
+                                    "WHERE bc.beltId = :beltId"
+                    )
+                    .bind("beltId", beltId)
+                    .mapTo(String.class)
+                    .list();
+
+            // Convert the list to an array and return
+            return categories.toArray(new String[0]);
+        });
+    }
+
+
+    public String[] getProductImages(int beltId) {
+        return JDBIConnect.get().withHandle(handle -> {
+            List<String> imagePaths = handle.createQuery(
+                            "SELECT imagePath FROM imageEntry WHERE beltId = :beltId AND imageType IN ('main', 'extra')")
+                    .bind("beltId", beltId)
+                    .mapTo(String.class)
+                    .list();
+
+            return imagePaths.toArray(new String[0]);
+        });
+    }
+
+    public void saveDesc(int beltId, String desc) {
+        JDBIConnect.get().withHandle(h -> {
+            String sql = "UPDATE belts SET description = :desc WHERE id = :beltId";
+            return h.createUpdate(sql)
+                    .bind("beltId", beltId)
+                    .bind("desc", desc)
+                    .execute() > 0;
+        });
+    }
+
+
+    public Product getProduct(int id) {
+        Product product = new Product();
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT * FROM belts ORDER BY id DESC";
+            try (Handle h = handle) {
+                h.execute(sql);
+                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
+                while (rs.next()) {
+                    product.setId(rs.getInt("id"));
+                    product.setName(rs.getString("name"));
+                    product.setDescription(rs.getString("description"));
+                    product.setPrice(rs.getDouble("price"));
+                    product.setGender(rs.getString("gender"));
+                    product.setStockQuantity(rs.getInt("stockQuantity"));
+                    product.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
+                    product.setCreateDate(rs.getDate("createdAt").toLocalDate());
+                    product.setUpdatedDate(rs.getDate("updatedAt").toLocalDate());
+                    product.setIsDeleted(rs.getInt("isDeleted"));
+                    product.setDiscountPercent(rs.getDouble("discountPercent"));
+                    product.setMaterialBelt(rs.getString("materialBelt"));
+                    product.setIsDeleted(rs.getInt("isDeleted"));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return product;
         });
     }
 
@@ -65,18 +135,16 @@ public class ProductDao {
     public boolean updateProduct(Product product) {
         return JDBIConnect.get().withHandle(h -> {
             String sql = "UPDATE belts SET name = :productName, " +
-                    "description = :description, " +
                     "releaseDate = :releaseDate, " +
                     "gender = :gender, " +
                     "price = :price, " +
                     "stockQuantity = :stockQuantity, " +
-                    "materialBelt = :material " +
+                    "materialBelt = :material, " +
                     "isDeleted = :isDeleted " +
                     "WHERE id = :id";
 
             return h.createUpdate(sql)
                     .bind("productName", product.getName())
-                    .bind("description", product.getDescription())
                     .bind("releaseDate", product.getReleaseDate())
                     .bind("gender", product.getGender())
                     .bind("price", product.getPrice())
@@ -88,36 +156,34 @@ public class ProductDao {
         });
     }
 
-    public void saveImage(int beltId, String mainImage, String... extraImages) {
+    public boolean deleteProductById(int id) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "DELETE FROM belts WHERE id = :id";
+            return h.createUpdate(sql).bind("id", id).execute() > 0;
+        });
+    }
+
+    public void saveImage(int beltId, String imageType, String imagePath) {
         JDBIConnect.get().useHandle(handle -> {
-            String sql = "INSERT INTO imageEntry (beltId, mainImage, extraImage1, extraImage2, extraImage3, extraImage4) " +
-                    "VALUES (:beltId, :mainImage, :extraImage1, :extraImage2, :extraImage3, :extraImage4)";
+            String sql = "INSERT INTO imageEntry (beltId, imageType, imagePath) " +
+                    "VALUES (:beltId, :imageType, :imagePath)";
             handle.createUpdate(sql)
                     .bind("beltId", beltId)
-                    .bind("mainImage", mainImage)
-                    .bind("extraImage1", extraImages.length > 0 ? extraImages[0] : null)
-                    .bind("extraImage2", extraImages.length > 1 ? extraImages[1] : null)
-                    .bind("extraImage3", extraImages.length > 2 ? extraImages[2] : null)
-                    .bind("extraImage4", extraImages.length > 3 ? extraImages[3] : null)
+                    .bind("imageType", imageType)  // 'main', 'extra', or 'description'
+                    .bind("imagePath", imagePath)
                     .execute();
         });
     }
 
-    public void updateImage(int beltId, String mainImage, String... extraImages) {
+
+    public void updateImage(int beltId, String imageType, String imagePath) {
         JDBIConnect.get().useHandle(handle -> {
-            String sql = "UPDATE imageEntry SET mainImage = :mainImage, " +
-                    "extraImage1 = :extraImage1, " +
-                    "extraImage2 = :extraImage2, " +
-                    "extraImage3 = :extraImage3, " +
-                    "extraImage4 = :extraImage4 " +
-                    "WHERE beltId = :beltId";
+            String sql = "UPDATE imageEntry SET imagePath = :imagePath " +
+                    "WHERE beltId = :beltId AND imageType = :imageType";
             handle.createUpdate(sql)
                     .bind("beltId", beltId)
-                    .bind("mainImage", mainImage)
-                    .bind("extraImage1", extraImages.length > 0 ? extraImages[0] : null)
-                    .bind("extraImage2", extraImages.length > 1 ? extraImages[1] : null)
-                    .bind("extraImage3", extraImages.length > 2 ? extraImages[2] : null)
-                    .bind("extraImage4", extraImages.length > 3 ? extraImages[3] : null)
+                    .bind("imageType", imageType)  // 'main', 'extra', or 'description'
+                    .bind("imagePath", imagePath)
                     .execute();
         });
     }

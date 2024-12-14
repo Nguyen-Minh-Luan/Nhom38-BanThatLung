@@ -26,17 +26,30 @@ public class UploadProductService {
         return productDao.getAllProducts();
     }
 
-    public void saveProduct(String productName, String[] tags, String description, LocalDate releaseDate, String gender, double price, int stockQuantity, String material, int isDeleted) {
+    public String[] getProductImages(int beltId) {
+        return productDao.getProductImages(beltId);
+
+    }
+
+    public String[] getTags(int beltId) {
+        return productDao.getTags(beltId);
+    }
+
+    public void saveDesc(int beltId, String description) {
+        productDao.saveDesc(beltId, description);
+    }
+
+    public void saveProduct(String productName, String[] tags, double discountPercent, LocalDate releaseDate, String gender, double price, int stockQuantity, String material, int isDeleted) {
 
         Product product = new Product();
         product.setName(productName);
-        product.setDescription(description);
         product.setPrice(price);
         product.setReleaseDate(releaseDate);
         product.setGender(gender);
         product.setStockQuantity(stockQuantity);
         product.setMaterialBelt(material);
         product.setIsDeleted(isDeleted);
+        product.setDiscountPercent(discountPercent);
         boolean isCreated = productDao.createProduct(product);
         int id = 0;
         if (isCreated) {
@@ -74,14 +87,19 @@ public class UploadProductService {
         return bc;
     }
 
-    public void updateProduct(int id, String productName, String[] tags, String description, LocalDate releaseDate, String gender, double price, int stockQuantity, String material, int isDeleted) {
+    public Product getProductById(int productId) {
+        return productDao.getProduct(productId);
+    }
+
+    public void updateProduct(int id, String productName, String[] tags, double discountPercent, LocalDate releaseDate, String gender, double price, int stockQuantity, String material, int isDeleted) {
         Product product = productDao.findById(id);
-        product.setDescription(description);
+        product.setName(productName);
         product.setPrice(price);
         product.setReleaseDate(releaseDate);
         product.setGender(gender);
         product.setStockQuantity(stockQuantity);
         product.setMaterialBelt(material);
+        product.setDiscountPercent(discountPercent);
         product.setIsDeleted(isDeleted);
         int beltId = productDao.findById(product.getId()).getId();
         if (beltId <= 0) {
@@ -95,23 +113,47 @@ public class UploadProductService {
             }
         }
 
-        productDao.createProduct(product);
+        productDao.updateProduct(product);
+    }
+
+    public boolean deleteProduct(int productId) {
+        return productDao.deleteProductById(productId);
     }
 
     public void saveImagePath(int beltId, String filePath, List<String> extraImages) {
-        String mainImage = filePath;
-        String[] extraImagePaths = extraImages.toArray(new String[0]);
-        productDao.saveImage(beltId, mainImage, extraImagePaths);
+        if (extraImages != null && !extraImages.isEmpty()) {
+            // Save the main image
+            productDao.saveImage(beltId, "main", filePath);
+
+            // Save extra images
+            for (String extraImage : extraImages) {
+                productDao.saveImage(beltId, "extra", extraImage);
+            }
+        }
     }
 
+    public void saveDescImg(int beltId, List<String> filePaths) {
+        for (String descImg : filePaths) {
+            productDao.saveImage(beltId, "description", descImg);
+        }
+    }
 
     public int getLatestProductId() {
         return productDao.getLatestProductId();
     }
 
-    public void updateImagePath(int productId, String filePath, List<String> extraImages) {
-        String mainImage = filePath;
-        String[] extraImagePaths = extraImages.toArray(new String[0]);
-        productDao.updateImage(productId, mainImage, extraImagePaths);
+    public void updateImagePath(int beltId, String filePath, List<String> extraImages) {
+        if (extraImages != null && !extraImages.isEmpty()) {
+            // Update the main image
+            productDao.updateImage(beltId, "main", filePath);
+
+            // Update extra images
+            for (String extraImage : extraImages) {
+                productDao.updateImage(beltId, "extra", extraImage);
+            }
+
+        }
+
     }
+
 }
