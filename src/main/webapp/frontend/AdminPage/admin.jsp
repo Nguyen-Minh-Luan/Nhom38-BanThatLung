@@ -151,7 +151,7 @@
                     >Coupon</a
                     >
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allOrder/allOrder.jsp"
+                       href="${pageContext.request.contextPath}/admin/table/orders"
                     >Đơn hàng</a
                     >
                 </div>

@@ -1,0 +1,32 @@
+package com.thomas.services;
+
+import com.thomas.dao.OrderDao;
+import com.thomas.dao.model.Order;
+
+import java.util.List;
+
+public class UploadOrderService {
+    OrderDao orderDao;
+
+    public UploadOrderService() {
+        orderDao = new OrderDao();
+    }
+
+    public List<Order> getAllOrders() {
+        return orderDao.getAllOrder();
+    }
+
+    public void setUserName(Order order) {
+        if (order != null) {
+            String orderName = orderDao.getUserName(order.getId());
+            order.setUserName(orderName);
+        }
+    }
+
+    public void setPaymentName(Order order) {
+        if (order != null) {
+            String paymentName = orderDao.getPaymentName(order.getId());
+            order.setPaymentMethod(paymentName);
+        }
+    }
+}

@@ -29,8 +29,9 @@
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.0.0/ckeditor5.css">
 
     <!-- Custom styles for this template-->
-    <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/css/adminGeneral.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
 
 </head>
 
@@ -153,7 +154,7 @@
                     >Coupon</a
                     >
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allOrder/allOrder.jsp"
+                       href="${pageContext.request.contextPath}/admin/table/orders"
                     >Đơn hàng</a
                     >
                 </div>
@@ -550,8 +551,12 @@
     <script src="${pageContext.request.contextPath}/js/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/allProductAdmin.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
+
+    <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/dataTables.bootstrap4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/datatable.js"></script>
 
 </div>
 </body>

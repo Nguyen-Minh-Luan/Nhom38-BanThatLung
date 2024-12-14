@@ -27,8 +27,9 @@
     />
 
     <!-- Custom styles for this template-->
-    <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/css/adminGeneral.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
 
 </head>
 
@@ -155,15 +156,12 @@
                     >
                     <a
                             class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/orderManagement/orderManagement.jsp"
+                            href="${pageContext.request.contextPath}/admin/table/orders"
                     >Đơn hàng</a
                     >
                 </div>
             </div>
         </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider"/>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block"/>
 
@@ -570,7 +568,8 @@
     >
         <div class="modal-dialog">
             <div class="modal-content">
-                <form id="createCouponForm" action="${pageContext.request.contextPath}/admin/table/coupons" method="POST">
+                <form id="createCouponForm" action="${pageContext.request.contextPath}/admin/table/coupons"
+                      method="POST">
                     <input class="createOrUpdate" type="hidden" name="message" value="create">
                     <div class="modal-header">
                         <h5
@@ -666,10 +665,16 @@
 
     <!-- Core plugin JavaScript-->
     <script src="${pageContext.request.contextPath}/js/jquery.easing.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/allCoupon.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
+
+    <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/dataTables.bootstrap4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/datatable.js"></script>
+
     <script>
         const checkbox = document.getElementById('showActive');
         const hiddenInput = document.querySelector('.isActive');

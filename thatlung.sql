@@ -123,8 +123,9 @@ CREATE TABLE beltfavorites
 
 CREATE TABLE paymentMethods
 (
-    id   INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
+    id       INT AUTO_INCREMENT PRIMARY KEY,
+    name     VARCHAR(255) NOT NULL,
+    isActive INT
 );
 
 CREATE TABLE userPaymentMethods

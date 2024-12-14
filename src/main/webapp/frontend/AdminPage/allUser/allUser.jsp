@@ -27,9 +27,11 @@
     />
 
     <!-- Custom styles for this template-->
-    <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/css/allUsers.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/css/adminGeneral.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+
 </head>
 
 <body id="page-top">
@@ -151,7 +153,7 @@
                     >Coupon</a
                     >
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allOrder/allOrder.jsp"
+                       href="${pageContext.request.contextPath}/admin/table/orders"
                     >Đơn hàng</a
                     >
                 </div>
@@ -742,6 +744,10 @@
     <!-- Custom scripts for all pages-->
     <script src="${pageContext.request.contextPath}/js/allUser.js"></script>
     <script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
+
+    <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/dataTables.bootstrap4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/datatable.js"></script>
     <script>
         const checkbox = document.getElementById('showDeleted');
         const hiddenInput = document.querySelector('.isDeleted');
