@@ -103,7 +103,7 @@
                     >Đánh giá</a
                     >
                     <a
-                            class="collapse-itema"
+                            class="collapse-item"
                             href="${pageContext.request.contextPath}/frontend/AdminPage/couponManagement/couponManagement.jsp"
                     >Coupon</a
                     >
@@ -137,11 +137,11 @@
             >
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allUser/allUser.jsp"
+                       href="${pageContext.request.contextPath}/admin/table/users"
                     >Người dùng</a
                     >
                     <a class="collapse-item active"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allProduct/allProduct.jsp">Sản
+                       href="${pageContext.request.contextPath}/admin/table/products">Sản
                         phẩm</a>
                     <a class="collapse-item"
                        href="${pageContext.request.contextPath}/frontend/AdminPage/allReview/allReview.jsp"
@@ -182,6 +182,7 @@
                     >
                         Tạo 1 sản phẩm mới
                     </button>
+                    <input type="hidden" name="message" value="create">
                 </form>
 
                 <input name="productId" id="productId" type="hidden"/>

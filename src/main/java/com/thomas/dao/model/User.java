@@ -8,7 +8,7 @@ public class User implements Serializable {
     private String name;
     private String password;
     private String email;
-    private int phone;
+    private long phone;
     private LocalDate dateOfBirth;
     private String gender;
     private String image;
@@ -20,7 +20,7 @@ public class User implements Serializable {
 
     }
 
-    public User(String password, String name, String email, int phone, LocalDate dateOfBirth, String gender, String image, int role, LocalDate createAt,int isDeleted) {
+    public User(String password, String name, String email, long phone, LocalDate dateOfBirth, String gender, String image, int role, LocalDate createAt,int isDeleted) {
         this.password = password;
         this.name = name;
         this.email = email;
@@ -65,11 +65,11 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public int getPhone() {
+    public long getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(long phone) {
         this.phone = phone;
     }
 

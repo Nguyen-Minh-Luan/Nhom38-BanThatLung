@@ -1,8 +1,12 @@
-<jsp:useBean id="tags" scope="request" type="java.lang.String"/>
-<jsp:useBean id="product" scope="request" type="com.thomas.dao.model.Product"/>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:choose>
+    <c:when test="${param.id!=null}">
+        <jsp:useBean id="tags" scope="request" type="java.lang.String"/>
+        <jsp:useBean id="product" scope="request" type="com.thomas.dao.model.Product"/>
+    </c:when>
+</c:choose>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,11 +146,11 @@
             >
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allUser/allUser.jsp"
+                       href="${pageContext.request.contextPath}/admin/table/users"
                     >Người dùng</a
                     >
                     <a class="collapse-item active"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allProduct/allProduct.jsp">Sản
+                       href="${pageContext.request.contextPath}/admin/table/products">Sản
                         phẩm</a>
                     <a class="collapse-item"
                        href="${pageContext.request.contextPath}/frontend/AdminPage/allReview/allReview.jsp"
@@ -176,26 +180,27 @@
         <div id="content">
 
             <div class="container-fluid">
-                <h1 class="h3 mb-2 text-gray-800">Sản phẩm</h1>
+                <h1 class="h3 mb-2 text-gray-800 mt-5">Sản phẩm</h1>
                 <div class="d-flex w-100">
-                    <div class="b-example-divider col-1"></div>
                     <div class="col-11 bg-light">
                         <div
-                                class="overflow-auto d-flex justify-content-left fs-3 mt-5"
-                                style="white-space: nowrap"
+                                class="overflow-auto d-flex justify-content-center fs-3 mt-5 pb-5"
+                                style="white-space: nowrap;color:black"
                         >
                             <div class="d-inline-block p-3">
                                 <a
                                         class="text-dark text-decoration-none fs-4 custom_active"
                                         href="${pageContext.request.contextPath}/admin/table/products/createProduct?id=${param.id}&message=update"
+                                        style="font-size: 32px"
                                 >Tổng quan</a
                                 >
                             </div>
                             <div class="d-inline-block p-3 ms-0">
                                 <a
-                                        class="text-dark text-decoration-none fs-4 custom_active"
+                                        class="text-dark text-decoration-none"
                                         href="${pageContext.request.contextPath}/admin/table/products/createProductDescription?id=${param.id}&message=update"
-                                >Hình ảnh</a>
+                                        style="font-size: 32px"
+                                >Mô tả</a>
 
                             </div>
 
@@ -519,7 +524,7 @@
                                                 value="1"
                                         ${product.isDeleted == 1 ? "checked" : ""}
                                         />
-                                        <input type="hidden" name="isDeleted" value="0" />
+                                        <input type="hidden" name="isDeleted" value="0"/>
                                     </div>
                                     <div class="row mb-3">
                                         <p
@@ -545,7 +550,7 @@
                                     <%--                                    </div>--%>
                                     <div class="row d-flex justify-content-end mb-3 ps-sm-5">
                                         <button type="submit" class="btn btn-dark "
-                                                style="width: 20%; height: 47px">
+                                                style="width: 30%; height: 47px">
                                             <c:choose>
                                                 <c:when test="${param.id != null}">
                                                     Chỉnh sửa sản phẩm # ${param.id}

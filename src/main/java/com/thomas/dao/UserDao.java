@@ -3,7 +3,10 @@ package com.thomas.dao;
 import com.thomas.dao.db.JDBIConnect;
 import com.thomas.dao.model.User;
 
+import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDao {
     public UserDao() {
@@ -18,6 +21,64 @@ public class UserDao {
                     .bind("token", token)
                     .execute() > 0;
         });
+    }
+
+    public boolean deleteUserById(int userId) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "DELETE FROM users WHERE id = :userId";
+            return h.createUpdate(sql).bind("userId", userId).execute() > 0;
+        });
+    }
+
+    public boolean updateUser(User user) {
+        return JDBIConnect.get().withHandle(handle -> {
+            // SQL query for updating the user
+            String sql = "UPDATE users SET name = :name, email = :email, password = :password, gender = :gender, dateOfBirth = :dateOfBirth, phoneNumber = :phone, role = :role, isDeleted = :isDeleted WHERE id = :userId";
+
+            // Execute the update query with the user's data
+            return handle.createUpdate(sql)
+                    .bind("name", user.getName())
+                    .bind("email", user.getEmail())
+                    .bind("password", user.getPassword())
+                    .bind("gender", user.getGender())
+                    .bind("dateOfBirth", user.getDateOfBirth())
+                    .bind("phone", user.getPhone())
+                    .bind("role", user.getRole())
+                    .bind("isDeleted", user.getIsDeleted())
+                    .bind("userId", user.getId())
+                    .execute() > 0;
+        });
+    }
+
+    public List<User> getAllUsers() {
+        List<User> userList = new ArrayList<>();
+        String sql = "SELECT * FROM users ORDER BY id DESC";
+
+        // Using JDBI to fetch data
+        JDBIConnect.get().withHandle(handle -> {
+            try (ResultSet rs = handle.getConnection().createStatement().executeQuery(sql)) {
+                while (rs.next()) {
+                    User user = new User();
+                    user.setId(rs.getInt("id"));
+                    user.setName(rs.getString("name"));
+                    user.setEmail(rs.getString("email"));
+                    user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
+                    user.setPassword(rs.getString("password"));
+                    user.setImage(rs.getString("image"));
+                    user.setCreateAt(rs.getDate("createAt").toLocalDate());
+                    user.setIsDeleted(rs.getInt("isDeleted"));
+                    user.setGender(rs.getString("gender"));
+                    user.setPhone(rs.getLong("phoneNumber"));
+                    user.setRole(rs.getInt("role"));
+                    userList.add(user);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;  // No return value, data is collected in userList
+        });
+
+        return userList;
     }
 
 
@@ -53,9 +114,9 @@ public class UserDao {
 
     public boolean registerUser(User user) {
         return JDBIConnect.get().withHandle(h -> {
-            String sql = "INSERT INTO users (name, email, dateOfBirth, password, createAt, isDeleted, role) " +
-                    "VALUES (:name, :email, :dateOfBirth, :password, :createAt, :isDeleted, :role)";
-            return h.createUpdate(sql)
+            String insertedsql = "INSERT INTO users (name, email, dateOfBirth, password, createAt,gender,phoneNumber, isDeleted, role) " +
+                    "VALUES (:name, :email, :dateOfBirth, :password, :createAt,:gender,:phoneNumber, :isDeleted, :role)";
+            return h.createUpdate(insertedsql)
                     .bind("name", user.getName())
                     .bind("email", user.getEmail())
                     .bind("dateOfBirth", Timestamp.valueOf(user.getDateOfBirth().atStartOfDay()))
@@ -63,8 +124,16 @@ public class UserDao {
                     .bind("createAt", Timestamp.valueOf(user.getCreateAt().atStartOfDay()))
                     .bind("isDeleted", user.getIsDeleted())
                     .bind("role", user.getRole())
+                    .bind("gender", user.getGender())
+                    .bind("phoneNumber", user.getPhone())
                     .execute() > 0;
         });
     }
 
+    public User findUserById(int userId) {
+        return JDBIConnect.get().withHandle(h -> {
+            return h.createQuery("select * from users where id = :userId")
+                    .bind("userId", userId).mapToBean(User.class).findFirst().orElse(null);
+        });
+    }
 }

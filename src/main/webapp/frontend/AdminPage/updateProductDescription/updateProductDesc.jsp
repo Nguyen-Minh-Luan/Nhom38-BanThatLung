@@ -140,11 +140,11 @@
             >
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allUser/allUser.jsp"
+                       href="${pageContext.request.contextPath}/admin/table/users"
                     >Người dùng</a
                     >
                     <a class="collapse-item active"
-                       href="${pageContext.request.contextPath}/frontend/AdminPage/allProduct/allProduct.jsp">Sản
+                       href="${pageContext.request.contextPath}/admin/table/products">Sản
                         phẩm</a>
                     <a class="collapse-item"
                        href="${pageContext.request.contextPath}/frontend/AdminPage/allReview/allReview.jsp"
@@ -174,8 +174,33 @@
         <div id="content">
 
             <div class="container-fluid">
-                <h1 class="h3 mb-2 text-gray-800">Sản phẩm</h1>
+                <h1 class="h3 mb-2 text-gray-800 mt-5"> Mô tả Sản phẩm</h1>
+                <div class="d-flex w-100">
+                    <div class="col-11 bg-light">
+                        <div
+                                class="overflow-auto d-flex justify-content-center fs-3 mt-5 pb-5"
+                                style="white-space: nowrap;color:black"
+                        >
+                            <div class="d-inline-block p-3">
+                                <a
+                                        class="text-dark text-decoration-none fs-4"
+                                        href="${pageContext.request.contextPath}/admin/table/products/createProduct?id=${param.id}&message=update"
+                                        style="font-size: 32px"
+                                >Tổng quan</a
+                                >
+                            </div>
+                            <div class="d-inline-block p-3 ms-0">
+                                <a
+                                        class="text-dark text-decoration-none fs-4 custom_active"
+                                        href="${pageContext.request.contextPath}/admin/table/products/createProductDescription?id=${param.id}&message=update"
+                                        style="font-size: 32px"
+                                >Mô tả</a>
 
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
                 <form id="productForm" method="POST"
                       class="d-flex flex-column justify-content-between" enctype="multipart/form-data">
 
@@ -185,49 +210,38 @@
 </c:choose>"/>
                     <input type="hidden" name="productId"/>
                     <div class="d-flex w-100">
-                        <div class="b-example-divider col-1"></div>
                         <div class="col-11 bg-light">
                             <div
-                                    class="overflow-auto d-flex justify-content-left fs-3 mt-5"
-                                    style="white-space: nowrap"
+                                    class="d-flex flex-column justify-content-left align-items-left"
                             >
-                                <div class="d-inline-block p-3">
-                                    <a
-                                            class="text-dark text-decoration-none fs-4 custom_active"
-                                            href="${pageContext.request.contextPath}/admin/table/products/createProduct?id=${param.id}&message=update"
-                                    >Tổng quan</a
-                                    >
+                                <div class="d-flex flex-column mt-5 w-50">
+                                    <div class="row mb-3">
+                                        <p class="col-3 mb-0 d-flex justify-content-end align-items-top"
+                                           style="font-size: 32px">
+                                            Mô tả
+                                        </p>
+                                        <div class="document-editor">
+                                            <div class="document-editor__toolbar"></div>
+                                            <div class="document-editor__editing" name="Description"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex justify-content-end mb-3 ps-sm-5">
+                                        <button type="submit" class="btn btn-dark "
+                                                style="width: 20%; height: 47px">
+                                            Tạo
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="d-inline-block p-3 ms-0">
-                                    <a
-                                            class="text-dark text-decoration-none fs-4 custom_active"
-                                            href="${pageContext.request.contextPath}/admin/table/products/createProductDescription?id=${param.id}&message=update"
-                                    >Hình ảnh</a>
-
-                                </div>
-
                             </div>
+
                         </div>
-                    </div>
-                    <div class="row mb-3">
-                        <p class="col-3 mb-0 d-flex justify-content-end align-items-top fs-5">
-                            Mô tả
-                        </p>
-                        <div class="document-editor">
-                            <div class="document-editor__toolbar"></div>
-                            <div class="document-editor__editing" name="Description"></div>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-end mb-3 ps-sm-5">
-                        <button type="submit" class="btn btn-dark "
-                                style="width: 20%; height: 47px">
-                            Tạo
-                        </button>
-                    </div>
+
                 </form>
             </div>
+
         </div>
     </div>
+</div>
 </div>
 
 <footer class="sticky-footer bg-white">

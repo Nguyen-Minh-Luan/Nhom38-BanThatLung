@@ -21,7 +21,7 @@ CREATE TABLE belts
     updatedAt     DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     isDeleted     INT      DEFAULT 0,
     discountPercent DOUBLE DEFAULT 0.0,
-    materialBelt  VARCHAR(255),
+    materialBelt  VARCHAR(255)
 );
 CREATE TABLE users
 (
@@ -36,12 +36,12 @@ CREATE TABLE users
     gender      VARCHAR(50),
     phoneNumber BIGINT,
     role        INT,
-    token       VA(255)
+    token       VARCHAR(255)
 )
 CREATE TABLE categories
 (
     id           INT AUTO_INCREMENT PRIMARY KEY,
-    categoryName VARCHAR(50) NOT NULL
+    name VARCHAR(50) NOT NULL
 );
 CREATE TABLE beltCategory
 (

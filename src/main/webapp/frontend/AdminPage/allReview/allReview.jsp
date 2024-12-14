@@ -132,17 +132,23 @@
                     data-parent="#accordionSidebar"
             >
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="${pageContext.request.contextPath}/frontend/AdminPage/allUser/allUser.jsp"
+                    <a class="collapse-item"
+                       href="${pageContext.request.contextPath}/admin/table/users"
                     >Người dùng</a
                     >
-                    <a class="collapse-item" href="${pageContext.request.contextPath}/frontend/AdminPage/allProduct/allProduct.jsp">Sản phẩm</a>
-                    <a class="collapse-item active" href="${pageContext.request.contextPath}/frontend/AdminPage/allReview/allReview.jsp"
+                    <a class="collapse-item"
+                       href="${pageContext.request.contextPath}/admin/table/products">Sản
+                        phẩm</a>
+                    <a class="collapse-item active"
+                       href="${pageContext.request.contextPath}/frontend/AdminPage/allReview/allReview.jsp"
                     >Đánh giá</a
                     >
-                    <a class="collapse-item" href="${pageContext.request.contextPath}/frontend/AdminPage/allCoupon/allCoupon.jsp"
+                    <a class="collapse-item"
+                       href="${pageContext.request.contextPath}/frontend/AdminPage/allCoupon/allCoupon.jsp"
                     >Coupon</a
                     >
-                    <a class="collapse-item" href="${pageContext.request.contextPath}/frontend/AdminPage/allOrder/allOrder.jsp"
+                    <a class="collapse-item"
+                       href="${pageContext.request.contextPath}/frontend/AdminPage/allOrder/allOrder.jsp"
                     >Đơn hàng</a
                     >
                 </div>

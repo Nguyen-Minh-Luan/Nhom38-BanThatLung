@@ -1,0 +1,90 @@
+package com.thomas.controller;
+
+import com.thomas.dao.model.User;
+import com.thomas.services.UploadUserService;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
+@WebServlet(name = "userAdminController", value = "/admin/table/users")
+public class userAdminController extends HttpServlet {
+    UploadUserService uploadUserService = new UploadUserService();
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String ajaxHeader = request.getHeader("X-Requested-With");
+        if ("XMLHttpRequest".equals(ajaxHeader)) {
+            String message = request.getParameter("message");
+
+            if ("update".equals(message)) {
+                try {
+                    int userId = Integer.parseInt(request.getParameter("userId"));
+                    User user = uploadUserService.getUser(userId);
+
+                    // Respond with user data in JSON format
+                    response.setContentType("application/json");
+                    response.setCharacterEncoding("UTF-8");
+
+                    PrintWriter out = response.getWriter();
+                    out.write("{");
+                    out.write("\"userName\": \"" + user.getName() + "\",");
+                    out.write("\"email\": \"" + user.getEmail() + "\",");
+                    out.write("\"gender\": \"" + user.getGender() + "\",");
+                    out.write("\"role\": " + user.getRole() + ",");
+                    out.write("\"birthDate\": \"" + user.getDateOfBirth() + "\",");
+                    out.write("\"phoneNumber\": \"" + user.getPhone() + "\",");
+                    out.write("\"isDeleted\": \"" + user.getIsDeleted() + "\"");
+                    out.write("}");
+                    out.flush();
+                    return;
+                } catch (Exception e) {
+                    response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid user ID or server error.");
+                    return;
+                }
+            }
+        }
+        List<User> userList = uploadUserService.getAllUsers();
+        request.setAttribute("userList", userList);
+        request.getRequestDispatcher("/frontend/AdminPage/allUser/allUser.jsp").forward(request, response);
+    }
+
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String message = request.getParameter("message");
+        if (message.equals("delete")) {
+            int userId = Integer.parseInt(request.getParameter("userId"));
+            uploadUserService.deleteUser(userId);
+            response.sendRedirect(request.getContextPath() + "/admin/table/users");
+            return;
+        }
+        int userId = Integer.parseInt(request.getParameter("userId"));
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
+        String userName = request.getParameter("userName");
+        String email = request.getParameter("Email");
+        String password = request.getParameter("password");
+        String retype = request.getParameter("reTypePassword");
+        String gender = request.getParameter("gender");
+        int role = Integer.parseInt(request.getParameter("role"));
+        String birthdayString = request.getParameter("birthDate");
+        LocalDate brithDate = LocalDate.parse(birthdayString, formatter);
+        long phone = Integer.parseInt(request.getParameter("phoneNumber"));
+        int isDeleted = Integer.parseInt(request.getParameter("isDeleted"));
+        if (message.equals("create")) {
+            uploadUserService.saveUser(userName, email, password, gender, role, brithDate, phone, isDeleted);
+
+        } else if (message.equals("update")) {
+            System.out.println(uploadUserService.updateUser(userId,userName, email, password, gender, role, brithDate, phone, isDeleted));
+        }
+
+
+        response.sendRedirect("/admin/table/users");
+    }
+}
+

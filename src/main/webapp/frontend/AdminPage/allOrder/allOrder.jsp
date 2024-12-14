@@ -99,7 +99,7 @@
                     >Đánh giá</a
                     >
                     <a
-                            class="collapse-itema"
+                            class="collapse-item"
                             href="${pageContext.request.contextPath}/frontend/AdminPage/couponManagement/couponManagement.jsp"
                     >Coupon</a
                     >
@@ -135,14 +135,12 @@
                     <h6 class="collapse-header">Các đối tượng:</h6>
                     <a
                             class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/userManagement/userManagement.jsp"
+                            href="${pageContext.request.contextPath}/admin/table/users"
                     >Người dùng</a
                     >
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/productManagement/productManagement.jsp"
-                    >Sản phẩm</a
-                    >
+                    <a class="collapse-item"
+                       href="${pageContext.request.contextPath}/admin/table/products">Sản
+                        phẩm</a>
                     <a
                             class="collapse-item"
                             href="${pageContext.request.contextPath}/frontend/AdminPage/reviewManagement/reviewManagement.jsp"
