@@ -1,6 +1,7 @@
 package com.thomas.controller;
 
 import com.thomas.dao.model.User;
+import com.thomas.services.MD5Service;
 import com.thomas.services.UploadUserService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -70,7 +71,7 @@ public class userAdminController extends HttpServlet {
         String email = request.getParameter("Email");
         String password = request.getParameter("password");
         String retype = request.getParameter("reTypePassword");
-        if(message.equals("create")) {
+        if (message.equals("create")) {
             password = request.getParameter("password");
             retype = request.getParameter("reTypePassword");
         }
@@ -81,10 +82,10 @@ public class userAdminController extends HttpServlet {
         long phone = Integer.parseInt(request.getParameter("phoneNumber"));
         int isDeleted = Integer.parseInt(request.getParameter("isDeleted"));
         if (message.equals("create")) {
-            uploadUserService.saveUser(userName, email, password, gender, role, brithDate, phone, isDeleted);
+            uploadUserService.saveUser(userName, email, MD5Service.hashPassword(password), gender, role, brithDate, phone, isDeleted);
 
         } else if (message.equals("update")) {
-            uploadUserService.updateUser(userId,userName, email, gender, role, brithDate, phone, isDeleted);
+            uploadUserService.updateUser(userId, userName, email, gender, role, brithDate, phone, isDeleted);
         }
 
 

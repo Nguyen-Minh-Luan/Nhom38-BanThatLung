@@ -169,13 +169,14 @@
             <div class="dropdown text-end dropdown-hover">
                 <c:if test="${sessionScope.auth !=null}">
                     <a
-                            href="${pageContext.request.contextPath}/info"
+                            href="${pageContext.request.contextPath}/userInfo"
                             class="d-flex align-items-center text-decoration-none"
                             id="dropdownUser"
                     >
                         <c:choose>
                             <c:when test="${sessionScope.auth.image == null}">
-                                <img src="${pageContext.request.contextPath}/assets/icons/default_profile.svg" alt="User Avatar"
+                                <img src="${pageContext.request.contextPath}/assets/icons/default_profile.svg"
+                                     alt="User Avatar"
                                      width="35"
                                      height="35"
                                      class="rounded-circle me-2">
@@ -237,7 +238,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="dropdown-item"
+                            <a href="/signup" class="dropdown-item"
                             >Đăng ký
                             </a>
 

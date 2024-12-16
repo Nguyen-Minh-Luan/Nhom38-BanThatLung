@@ -13,14 +13,15 @@ public class User implements Serializable {
     private String gender;
     private String image;
     private int role;
-    public LocalDate createAt;
-    public int isDeleted;
+    private LocalDate createAt;
+    private int isDeleted;
+    private int isActive;
 
     public User() {
 
     }
 
-    public User(String password, String name, String email, long phone, LocalDate dateOfBirth, String gender, String image, int role, LocalDate createAt,int isDeleted) {
+    public User(String password, String name, String email, long phone, LocalDate dateOfBirth, String gender, String image, int role, LocalDate createAt, int isDeleted, int isActive) {
         this.password = password;
         this.name = name;
         this.email = email;
@@ -121,6 +122,17 @@ public class User implements Serializable {
         return this.isDeleted;
     }
 
+    public void setIsActive(int isActive) {
+        this.isActive = isActive;
+    }
+
+    public int getIsActive() {
+        return this.isActive;
+    }
+
+    public String getFirstName() {
+        return this.name.substring(this.name.lastIndexOf(" ") + 1);
+    }
 
     @Override
     public String toString() {

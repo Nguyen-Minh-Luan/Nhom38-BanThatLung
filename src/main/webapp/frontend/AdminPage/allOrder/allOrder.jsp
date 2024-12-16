@@ -151,7 +151,7 @@
                     >
                     <a
                             class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/couponManagement/couponManagement.jsp"
+                            href="${pageContext.request.contextPath}/admin/table/coupons"
                     >Coupon</a
                     >
                     <a
@@ -433,7 +433,7 @@
                                 <tr>
                                     <jsp:useBean id="orderList" scope="request" type="java.util.List"/>
                                     <c:forEach var="order" items="${orderList}">
-                                    <td>${order.id}</td>
+                                    <td class="orderId">${order.id}</td>
                                     <td>${order.userName}</td>
                                     <td>${order.orderDate}</td>
                                     <td>${order.paymentMethod}</td>
@@ -441,7 +441,7 @@
                                     <td>${order.orderTotal}</td>
                                     <td class="text-center">
                                         <a
-                                                href="${pageContext.request.contextPath}/admin/order/createOrder?${order.id}"
+                                                href="${pageContext.request.contextPath}/admin/table/orders/details?id=${order.id}"
                                                 class="btn btn-dark fa-solid fa-pen-to-square"
 
                                         ></a>
@@ -526,7 +526,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
-                        Bạn có muốn xóa coupon này?
+                        Bạn có muốn xóa đơn hàng này?
                     </h5>
                     <button
                             type="button"
@@ -534,6 +534,9 @@
                             data-bs-dismiss="modal"
                             aria-label="Close"
                     ></button>
+                </div>
+                <div class="modal-body removeModalBody">
+
                 </div>
                 <div class="modal-footer">
                     <button
@@ -544,58 +547,21 @@
                     >
                         Hủy
                     </button>
-                    <button
-                            type="button"
-                            class="btn btn-dark"
-                            style="color: white; background-color: black"
-                    >
-                        Xóa mềm
-                    </button>
-                    <button
-                            type="button"
-                            class="btn btn-dark"
-                            style="color: white; background-color: black"
-                    >
-                        Xóa vĩnh viễn
-                    </button>
+                    <form class="deleteBtn" method="POST" action="/admin/table/orders">
+                        <button
+                                type="submit"
+                                class="btn btn-dark"
+                                style="color: white; background-color: black"
+                        >
+                            Xóa vĩnh viễn
+                        </button>
+                    </form>
+
                 </div>
             </div>
         </div>
     </div>
-    <div
-            class="modal fade"
-            id="editModal"
-            tabindex="-1"
-            aria-labelledby="removeModal"
-            aria-hidden="true"
-    >
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                        Bạn có muốn xóa đơn hàng này?
-                    </h5>
-                    <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                    ></button>
-                </div>
-                <div class="modal-footer">
-                    <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-bs-dismiss="modal"
-                    >
-                        Hủy
-                    </button>
-                    <button type="button" class="btn btn-dark">Xóa mềm</button>
-                    <button type="button" class="btn btn-dark">Xóa vĩnh viễn</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div
             class="modal fade"
             id="createModal"
@@ -758,6 +724,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/allOrder.js"></script>
 
     <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/dataTables.bootstrap4.min.js"></script>

@@ -13,6 +13,7 @@ public class Order implements Serializable {
     private int isDeleted;
     private String userName;
     private String paymentMethod;
+    private String addresse;
 
     public Order() {
 
@@ -97,5 +98,13 @@ public class Order implements Serializable {
 
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public String getAddresse() {
+        return addresse;
+    }
+
+    public void setAddresse(String addresse) {
+        this.addresse = addresse;
     }
 }

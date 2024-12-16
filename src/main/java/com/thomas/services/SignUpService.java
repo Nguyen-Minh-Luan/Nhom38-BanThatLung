@@ -8,17 +8,18 @@ import java.time.LocalDate;
 public class SignUpService {
 
     public boolean signUp(String email, String password, String name, String middleName, LocalDate birthDate) {
-        UserDao  userDao = new UserDao();
-        if(userDao.findUserEmail(email) != null ) {
+        UserDao userDao = new UserDao();
+        if (userDao.findUserEmail(email) != null) {
             return false;
         }
         User u = new User();
         u.setEmail(email);
-        u.setPassword(password);
-        u.setName(middleName+" "+name);
+        u.setPassword(MD5Service.hashPassword(password));
+        u.setName(middleName + " " + name);
         u.setIsDeleted(0);
         u.setDateOfBirth(birthDate);
         u.setCreateAt(LocalDate.now());
+        u.setIsActive(0);
         return userDao.registerUser(u);
     }
 }

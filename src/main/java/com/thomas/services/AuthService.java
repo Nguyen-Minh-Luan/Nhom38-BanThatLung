@@ -7,13 +7,13 @@ public class AuthService {
     public User checkLogin(String email, String password) {
         UserDao udao = new UserDao();
         User u = udao.findUserEmail(email);
-        if (u.getImage().equals("null")) {
-            u.setImage(null);
+        if (u != null && password != null) {
+            if (MD5Service.hashPassword(password).equals(u.getPassword())) {
+                return u;
+            }
         }
-        if (password != null && password.equals(u.getPassword())) {
-            u.setPassword(null);
-            return u;
-        }
+
         return null;
     }
+
 }

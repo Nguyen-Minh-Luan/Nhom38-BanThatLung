@@ -36,7 +36,8 @@ CREATE TABLE users
     gender      VARCHAR(50),
     phoneNumber BIGINT,
     role        INT,
-    token       VARCHAR(255)
+    token       VARCHAR(255),
+    isActive    INT
 )
 CREATE TABLE categories
 (
@@ -56,12 +57,14 @@ CREATE TABLE orders
     id              INT AUTO_INCREMENT PRIMARY KEY,
     userID          INT         NOT NULL,
     paymentMethodId INT,
+    addressesId     INT,
     orderDate       DATETIME DEFAULT CURRENT_TIMESTAMP,
     orderTotal DOUBLE NOT NULL,
     orderStatus     VARCHAR(50) NOT NULL,
     isDeleted       INT      DEFAULT 0,
     FOREIGN KEY (paymentMethodId) REFERENCES paymentMethods (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (userID) REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (userID) REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (addressesId) REFERENCES addresses (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE orderDetails
@@ -164,7 +167,7 @@ CREATE TABLE couponUsage
     userId   INT NOT NULL,
     orderId  INT NOT NULL,
     usedAt   DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (couponId) REFERENCES coupon (id) ON DELETE CASCADE,
+    FOREIGN KEY (couponId) REFERENCES coupons (id) ON DELETE CASCADE,
     FOREIGN KEY (userId) REFERENCES users (id) ON DELETE CASCADE,
     FOREIGN KEY (orderId) REFERENCES orders (id) ON DELETE CASCADE
 );
@@ -175,4 +178,3 @@ CREATE TABLE beltViews
     viewDate  DATETIME NOT NULL,
     viewCount INT default 1
 )
-

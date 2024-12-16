@@ -1,6 +1,7 @@
 package com.thomas.controller;
 
 import com.thomas.dao.UserDao;
+import com.thomas.services.MD5Service;
 import com.thomas.services.TokenService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -30,15 +31,12 @@ public class resetPasswordController extends HttpServlet {
         String password = request.getParameter("password");
         String retypePassword = request.getParameter("retypePassword");
         String token = request.getParameter("token");
-        System.out.println(password
-                + retypePassword
-                + token);
         if (!password.equals(retypePassword)) {
             response.getWriter().println("Mật khẩu không khớp.");
         }
         TokenService tokenService = new TokenService();
-        if (tokenService.updatePasswordByToken(token, password)) {
-            response.sendRedirect("/index.jsp");
+        if (tokenService.updatePasswordByToken(token, MD5Service.hashPassword(password))) {
+            response.sendRedirect("/");
         }
     }
 }

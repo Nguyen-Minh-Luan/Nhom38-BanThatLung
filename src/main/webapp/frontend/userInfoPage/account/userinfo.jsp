@@ -91,92 +91,153 @@
     </div>
     <div class="container container-sm border custom_rounded bg-white">
         <div class="d-flex flex-column mt-4 mb-2 ms-2">
-            <h3 class="font-weight-bold custom_size--19">Chào Thang</h3>
+            <h3 class="font-weight-bold custom_size--19">Chào ${sessionScope.auth.firstName}</h3>
             <h5 class="custom_size--16">Họ tên</h5>
-            <p class="custom_size--16">Huynh Minh Thang</p>
+            <p class="custom_size--16">${sessionScope.auth.name}</p>
             <h5 class="font-weight-bold custom_size--19">Gia nhập từ</h5>
-            <p class="custom_size--16">24 Tháng 11,2024</p>
+            <p class="custom_size--16">${sessionScope.auth.createAt}</p>
         </div>
     </div>
-    <div class="container container-sm border custom_rounded mt-4">
-        <div class="d-flex flex-column mt-4 mb-2 ms-2 border-bottom ms-2">
-            <h3 class="font-weight-bold custom_size--19">Email</h3>
-            <h6 class="custom_size--16">Email hiện tại</h6>
-            <p class="custom_size--16">huynhminhthang246@gmail.com</p>
+    <form id="emailUpdate" action="${pageContext.request.contextPath}/userInfo" method="POST">
+        <input type="hidden" name="message" value="updateEmail">
+        <input type="hidden" name="userId" value="${sessionScope.auth.id}">
+        <input id="newEmail" type="hidden" name="newEmail" value="">
+        <div class="container container-sm border custom_rounded mt-4">
+            <div class="d-flex flex-column mt-4 mb-2 ms-2 border-bottom ms-2">
+                <h3 class="font-weight-bold custom_size--19">Email</h3>
+                <h6 class="custom_size--16">Email hiện tại</h6>
+                <p class="custom_size--16">${sessionScope.auth.email}</p>
+            </div>
+            <div class="d-flex flex-column m-2" style="width: 90%">
+                <p class="font-weight-bold mb-1 fs-4 ps-0 mt-4 custom_size--19">
+                    Thay đổi email
+                </p>
+                <p class="mb-1 mt-2 custom_size--16">Email mới</p>
+                <input
+                        id="currentEmail"
+                        type="email"
+                        class="form-control form-control-md custom__border custom-lg-input custom_size--16 custom_design"
+                        placeholder="Nhập email mới"
+                />
+            </div>
+            <div class="d-flex flex-column m-2" style="width: 90%">
+                <p class="mb-1 mt-2 custom_size--16">Mật khẩu</p>
+                <input
+                        type="password"
+                        class="form-control form-control-md custom__border custom custom-lg-input custom_size--16 custom_design currentPassword"
+                        placeholder="Nhập mật khẩu"
+                />
+            </div>
+            <div class="d-flex flex-column m-2 retypePasswordCurrent" style="width: 90%">
+                <p class="mb-1 mt-2 custom_size--16">Nhập lại mật khẩu</p>
+                <input
+                        type="password"
+                        class="form-control form-control-md custom__border custom-lg-input custom_size--16 custom_design currentPasswordRetype"
+                />
+            </div>
+            <div class="d-flex mt-3 mb-5 ms-2">
+                <button class="btn btn-dark px-3 py-2 custom__btn ms-2">
+                    Thay đổi email
+                </button>
+            </div>
         </div>
-        <div class="d-flex flex-column m-2" style="width: 90%">
-            <p class="font-weight-bold mb-1 fs-4 ps-0 mt-4 custom_size--19">
-                Thay đổi email
-            </p>
-            <p class="mb-1 mt-2 custom_size--16">Email của bạn</p>
-            <input
-                    type="email"
-                    class="form-control form-control-md custom__border custom-lg-input custom_size--16 custom_design"
-                    placeholder="Nhập email mới"
-            />
-        </div>
-        <div class="d-flex flex-column m-2" style="width: 90%">
-            <p class="mb-1 mt-2 custom_size--16">Mật khẩu</p>
-            <input
-                    type="password"
-                    class="form-control form-control-md custom__border custom custom-lg-input custom_size--16 custom_design"
-                    placeholder="Nhập mật khẩu"
-            />
-        </div>
-        <div class="d-flex flex-column m-2" style="width: 90%">
-            <p class="mb-1 mt-2 custom_size--16">Nhập lại mật khẩu</p>
-            <input
-                    type="password"
-                    class="form-control form-control-md custom__border custom-lg-input custom_size--16 custom_design"
-            />
-        </div>
-        <div class="d-flex mt-3 mb-5 ms-2">
-            <button class="btn btn-dark px-3 py-2 custom__btn custom_size--13">
-                Thay đổi email
-            </button>
-        </div>
-    </div>
+
+    </form>
     <div class="container container-sm border custom_rounded mt-4 mb-5">
-        <div
-                class="d-flex flex-column mt-4 mb-2 ml-2 border-bottom"
-                style="width: 70%"
-        >
-            <h3 class="font-weight-bold ms-3 custom_size--19">Mật khẩu</h3>
-            <h5 class="ms-3 custom_size--16">Thay đổi mật khẩu của bạn</h5>
-        </div>
-        <div class="d-flex flex-column m-2" style="width: 90%">
-            <p class="mb-1 mt-2 ms-2 custom_size--16">Mật khẩu hiện tại</p>
-            <input
-                    type="password"
-                    class="form-control form-control-md custom__border custom-lg-input ms-2 custom_design custom_size--16"
-                    placeholder="Mật khẩu hiện tại"
-            />
-        </div>
-        <div class="d-flex flex-column ms-2" style="width: 90%">
-            <p class="mb-1 mt-2 ms-2 custom_size--16">Mật khẩu mới</p>
-            <input
-                    type="password"
-                    class="form-control form-control-md custom__border custom-lg-input ms-2 custom_design custom_size--16"
-                    placeholder="Nhập mật khẩu mới"
-            />
-        </div>
-        <div class="d-flex flex-column ms-2" style="width: 90%">
-            <p class="mb-1 mt-2 ms-2 custom_size--16">Nhập lại mật khẩu</p>
-            <input
-                    type="password"
-                    class="form-control form-control-md custom__border custom-lg-input ms-2 custom_design custom_size--16"
-                    placeholder=""
-            />
-        </div>
-        <div class="d-flex mt-3 mb-5 ms-2">
-            <button class="btn btn-dark px-3 py-2 custom__btn ms-2">
-                Thay đổi mật khẩu
-            </button>
-        </div>
+        <form id="updatePasswordForm" action="${pageContext.request.contextPath}/userInfo" method="POST">
+            <input type="hidden" name="message" value="updatePassword"/>
+            <input type="hidden" name="userId" value="${sessionScope.auth.id}"/>
+            <input id="updatePassword" type="hidden" name="updatePassword" value=""/>
+            <input id="currentPassword" type="hidden" name="currentPassword" value=""/>
+            <div
+                    class="d-flex flex-column mt-4 mb-2 ml-2 border-bottom"
+                    style="width: 70%"
+            >
+                <h3 class="font-weight-bold ms-3 custom_size--19">Mật khẩu</h3>
+                <h5 class="ms-3 custom_size--16">Thay đổi mật khẩu của bạn</h5>
+            </div>
+            <div class="d-flex flex-column m-2 currentPasswordContainer" style="width: 90%">
+                <p class="mb-1 mt-2 ms-2 custom_size--16">Mật khẩu hiện tại</p>
+                <input
+                        type="password"
+                        class="form-control form-control-md custom__border custom-lg-input ms-2 custom_design custom_size--16 currentPassword"
+                        placeholder="Mật khẩu hiện tại"
+                        required
+                />
+                <c:if test="${not empty errorMessage}">
+                    <p class="text-danger mt-2 ms-2 custom_size--16 mb-0">${errorMessage}</p>
+                </c:if>
+            </div>
+            <div class="d-flex flex-column ms-2" style="width: 90%">
+                <p class="mb-1 mt-2 ms-2 custom_size--16">Mật khẩu mới</p>
+                <input
+                        type="password"
+                        class="form-control form-control-md custom__border custom-lg-input ms-2 custom_design custom_size--16 newPassword"
+                        placeholder="Nhập mật khẩu mới"
+                        required
+                />
+            </div>
+            <div class="d-flex flex-column ms-2 retypePassword" style="width: 90%">
+                <p class="mb-1 mt-2 ms-2 custom_size--16">Nhập lại mật khẩu</p>
+                <input
+                        type="password"
+                        class="form-control form-control-md custom__border custom-lg-input ms-2 custom_design custom_size--16 newPasswordRetype"
+                        placeholder="Nhập lại mật khẩu"
+                        required
+                />
+            </div>
+            <div class="d-flex mt-3 mb-5 ms-2">
+
+                <button type="submit" class="btn btn-dark px-3 py-2 custom__btn ms-2 submitUpdatePassword">
+                    Thay đổi mật khẩu
+                </button>
+            </div>
+        </form>
+
     </div>
 </div>
 
 <jsp:include page="/frontend/header_footer/footer.jsp"/>
+<script>
+    $(document).ready(function () {
 
+        $("#updatePasswordForm").submit(function (e) {
+            $("#updatePassword").val($(".newPassword").val());
+            $("#currentPassword").val($(".currentPassword").val());
+        });
+        $("#emailUpdate").submit(function (e) {
+            $("#newEmail").val($("#currentEmail").val());
+
+        })
+        document.getElementById("updatePasswordForm").addEventListener("submit", function (e) {
+            const password = document.getElementsByClassName("newPassword")[0].value;
+            const reTypePassword = document.getElementsByClassName("newPasswordRetype")[0].value;
+
+            if (password !== reTypePassword) {
+                if (!document.querySelector(".password-mismatch")) {
+                    const errorMessage = document.createElement("p");
+                    errorMessage.className = "password-mismatch text-danger mt-2 ms-2 custom_size--16 mb-0";
+                    errorMessage.textContent = "Mật khẩu không khớp!";
+                    document.querySelector(".retypePassword").appendChild(errorMessage);
+                    e.preventDefault();
+                }
+            }
+        });
+        document.getElementById("emailUpdate").addEventListener("submit", function (e) {
+            const password = document.getElementsByClassName("currentPassword")[0].value;
+            const reTypePassword = document.getElementsByClassName("currentPasswordRetype")[0].value;
+
+            if (password !== reTypePassword) {
+                if (!document.querySelector(".password-mismatch")) {
+                    const errorMessage = document.createElement("p");
+                    errorMessage.className = "password-mismatch text-danger mt-2 ms-2 custom_size--16 mb-0";
+                    errorMessage.textContent = "Mật khẩu không khớp!";
+                    document.querySelector(".retypePasswordCurrent").appendChild(errorMessage);
+                    e.preventDefault();
+                }
+            }
+        });
+    })
+</script>
 </body>
 </html>

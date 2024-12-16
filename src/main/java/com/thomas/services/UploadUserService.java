@@ -2,6 +2,8 @@ package com.thomas.services;
 
 import com.thomas.dao.UserDao;
 import com.thomas.dao.model.User;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,9 +22,11 @@ public class UploadUserService {
     public User getUser(int userId) {
         return userDao.findUserById(userId);
     }
+
     public boolean deleteUser(int userId) {
         return userDao.deleteUserById(userId);
     }
+
     public boolean updateUser(int userId, String userName, String email, String gender, int role, LocalDate birthDate, long phone, int isDeleted) {
         User user = new User();
         user.setId(userId);
@@ -51,5 +55,19 @@ public class UploadUserService {
         user.setDateOfBirth(birthDate);
         user.setCreateAt(LocalDate.now());
         return userDao.registerUser(user);
+    }
+
+    public boolean updateUserPassword(String password, int userId) {
+        User user = userDao.findUserById(userId);
+        user.setPassword(password);
+        return userDao.updateUserPassword(user);
+    }
+
+    public boolean updateEmail(HttpServletRequest request, String email, int userId) {
+        User user = userDao.findUserById(userId);
+        user.setEmail(email);
+        HttpSession session = request.getSession();
+        session.setAttribute("auth", user);
+        return userDao.updateUser(user);
     }
 }

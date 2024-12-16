@@ -13,8 +13,8 @@ public class UserDao {
 
     }
 
-    public void saveResetToken(String toEmail, String token) {
-        JDBIConnect.get().withHandle(h -> {
+    public boolean saveResetToken(String toEmail, String token) {
+        return JDBIConnect.get().withHandle(h -> {
             String sql = "UPDATE users SET token = :token WHERE email = :email";
             return h.createUpdate(sql)
                     .bind("email", toEmail)
@@ -44,6 +44,19 @@ public class UserDao {
                     .bind("phone", user.getPhone())
                     .bind("role", user.getRole())
                     .bind("isDeleted", user.getIsDeleted())
+                    .bind("userId", user.getId())
+                    .execute() > 0;
+        });
+    }
+
+    public boolean updateUserPassword(User user) {
+        return JDBIConnect.get().withHandle(handle -> {
+            // SQL query for updating the user
+            String sql = "UPDATE users SET password = :password WHERE id = :userId";
+
+            // Execute the update query with the user's data
+            return handle.createUpdate(sql)
+                    .bind("password", user.getPassword())
                     .bind("userId", user.getId())
                     .execute() > 0;
         });
@@ -113,8 +126,8 @@ public class UserDao {
 
     public boolean registerUser(User user) {
         return JDBIConnect.get().withHandle(h -> {
-            String insertedsql = "INSERT INTO users (name, email, dateOfBirth, password, createAt,gender,phoneNumber, isDeleted, role) " +
-                    "VALUES (:name, :email, :dateOfBirth, :password, :createAt,:gender,:phoneNumber, :isDeleted, :role)";
+            String insertedsql = "INSERT INTO users (name, email, dateOfBirth, password, createAt,gender,phoneNumber, isDeleted, role,isActive) " +
+                    "VALUES (:name, :email, :dateOfBirth, :password, :createAt,:gender,:phoneNumber, :isDeleted, :role,:isActive)";
             return h.createUpdate(insertedsql)
                     .bind("name", user.getName())
                     .bind("email", user.getEmail())
@@ -125,6 +138,7 @@ public class UserDao {
                     .bind("role", user.getRole())
                     .bind("gender", user.getGender())
                     .bind("phoneNumber", user.getPhone())
+                    .bind("isActive", user.getIsActive())
                     .execute() > 0;
         });
     }
@@ -133,6 +147,12 @@ public class UserDao {
         return JDBIConnect.get().withHandle(h -> {
             return h.createQuery("select * from users where id = :userId")
                     .bind("userId", userId).mapToBean(User.class).findFirst().orElse(null);
+        });
+    }
+
+    public boolean activeByToken(String token) {
+        return JDBIConnect.get().withHandle(h -> {
+            return h.createUpdate("update users set isActive = 1 where token = :token").bind("token", token).execute() > 0;
         });
     }
 }

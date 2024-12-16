@@ -48,4 +48,39 @@ public class OrderDao {
                     .orElse(null);
         });
     }
+
+    public String getBeltName(int id) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "SELECT b.name " +
+                    "FROM orders o " +
+                    "JOIN belts b ON b.id = o.beltId " +
+                    "WHERE o.id = :id";
+            return h.createQuery(sql)
+                    .bind("id", id)
+                    .mapTo(String.class)
+                    .findFirst()
+                    .orElse(null);
+        });
+    }
+
+    public String getAddress(int id) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "SELECT CONCAT(ad.addressCity, ' ', ad.addressStreet) AS fullAddress " +
+                    "FROM orders o " +
+                    "JOIN addresses ad ON ad.id = o.addressesId " +
+                    "WHERE o.id = :id";
+            return h.createQuery(sql)
+                    .bind("id", id)
+                    .mapTo(String.class)
+                    .findFirst()
+                    .orElse(null);
+        });
+    }
+
+    public boolean deleteOrderById(int orderId) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "DELETE FROM orders WHERE id = :id";
+            return h.createUpdate(sql).bind("id", orderId).execute() > 0;
+        });
+    }
 }

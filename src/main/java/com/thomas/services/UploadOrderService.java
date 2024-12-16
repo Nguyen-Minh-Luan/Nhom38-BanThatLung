@@ -29,4 +29,19 @@ public class UploadOrderService {
             order.setPaymentMethod(paymentName);
         }
     }
+
+    public void setAddressName(Order order) {
+        if (order != null) {
+            String addressName = orderDao.getAddress(order.getId());
+            order.setAddresse(addressName);
+        }
+    }
+
+    public Order getOrderById(int id) {
+        return orderDao.getOrderById(id);
+    }
+
+    public boolean deteleOrder(int orderId) {
+        return orderDao.deleteOrderById(orderId);
+    }
 }

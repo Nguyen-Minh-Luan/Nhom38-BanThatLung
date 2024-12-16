@@ -54,6 +54,9 @@
                         class="form-control form-control-lg custom_design custom_size--16"
                         placeholder="Nhập mật khẩu"
                 />
+                <c:if test="${not empty errorMessage}">
+                    <p class="text-danger mt-2 custom_size--16 mb-0">${errorMessage}</p>
+                </c:if>
             </div>
             <div class="d-flex flex-column mt-3">
                 <a

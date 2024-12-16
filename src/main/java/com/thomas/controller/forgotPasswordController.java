@@ -76,7 +76,7 @@ public class forgotPasswordController extends HttpServlet {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-        request.getRequestDispatcher("/").forward(request, response);
+        response.sendRedirect("/");
     }
 }
 
