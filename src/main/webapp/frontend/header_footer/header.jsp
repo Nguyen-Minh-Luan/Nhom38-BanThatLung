@@ -182,7 +182,7 @@
                                      class="rounded-circle me-2">
                             </c:when>
                             <c:otherwise>
-                                <img src="${pageContext.request.contextPath}/${sessionScope.auth.image}"
+                                <img src="${sessionScope.auth.image}"
                                      alt="User Avatar"
                                      width="35"
                                      height="35"

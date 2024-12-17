@@ -53,21 +53,21 @@
         <div class="d-inline-block fw-bold mb-4" style="padding: 12px">
             <a
                     class="text-dark text-decoration-none custom_size--19"
-                    href="${pageContext.request.contextPath}/frontend/account/userinfo.jsp"
+                    href="${pageContext.request.contextPath}/userInfo"
             >Tài khoản</a
             >
         </div>
         <div class="d-inline-block fw-bold" style="padding: 12px">
             <a
                     class="text-dark text-decoration-none custom_size--19"
-                    href="${pageContext.request.contextPath}/frontend/userInfoPage/profile/profile.jsp"
+                    href="${pageContext.request.contextPath}/userProfile"
             >Hồ sơ</a
             >
         </div>
         <div class="d-inline-block fw-bold custom_active" style="padding: 12px">
             <a
                     class="text-dark text-decoration-none custom_size--19"
-                    href="${pageContext.request.contextPath}/frontend//userInfoPage/address/address.jsp"
+                    href="${pageContext.request.contextPath}/userAddress"
             >Địa chỉ</a
             >
         </div>
@@ -231,7 +231,7 @@
                             data-bs-toggle="modal"
                             data-bs-target="#editaddressModal"
                     >
-                        <img src="../../assets/icons/edit.svg"/>Chỉnh sửa
+                        <img src="${pageContext.request.contextPath}/assets/icons/edit.svg"/>Chỉnh sửa
                     </button>
                     <div
                             class="modal fade"

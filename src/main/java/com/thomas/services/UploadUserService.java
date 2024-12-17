@@ -70,4 +70,19 @@ public class UploadUserService {
         session.setAttribute("auth", user);
         return userDao.updateUser(user);
     }
+
+    public void updateImagePath(HttpServletRequest request, int userId, String mainImage) {
+        User user = userDao.findUserById(userId);
+        user.setImage(mainImage);
+        HttpSession session = request.getSession();
+        session.setAttribute("auth", user);
+        userDao.updateUserImage(user);
+    }
+
+    public void updateUserInfo(int userId, String gender, LocalDate birthday) {
+        User user = userDao.findUserById(userId);
+        user.setGender(gender);
+        user.setDateOfBirth(birthday);
+        userDao.updateUser(user);
+    }
 }

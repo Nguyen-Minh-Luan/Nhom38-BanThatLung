@@ -22,6 +22,7 @@ import java.util.List;
 )
 public class createProductController extends HttpServlet {
     private static final String ULOAD_DIR = "uploads";
+    private static final String UPLOAD_DIR_SERVER = "C:\\Users\\huynh\\OneDrive\\Desktop\\Nhom38-BanThatLung\\src\\main\\webapp\\uploads";
     private static final UploadProductService uploadProductService = new UploadProductService();
 
     @Override
@@ -90,31 +91,30 @@ public class createProductController extends HttpServlet {
             List<String> descImages = new ArrayList<>();
             String mainImage = null;
 
-            // Create product directory if it doesn't exist
             File productDirectory = new File(uploadPath + File.separator + productName);
             if (!productDirectory.exists()) {
                 productDirectory.mkdirs();
             }
-
-            // Iterate through all parts in the request
+            File serverDirectory = new File(UPLOAD_DIR_SERVER + File.separator + productName);
+            if (!serverDirectory.exists()) {
+                serverDirectory.mkdirs();
+            }
             for (Part part : request.getParts()) {
                 String fieldName = part.getName();
                 String fileName = extractedFile(part);
 
                 if (fileName != null && !fileName.isEmpty()) {
-                    // Generate a unique file name for saving
-                    String uniqueFileName = productName + "_" + count + "_" + System.currentTimeMillis();
+                    String uniqueFileName = productName + "_" + count + "_" + System.currentTimeMillis() + getFileExtension(fileName);
                     String filePath = productDirectory.getAbsolutePath() + File.separator + uniqueFileName;
                     count++;
 
-                    // Save the file
                     part.write(filePath);
-
+                    part.write(serverDirectory + File.separator + uniqueFileName);
                     // Assign to mainImage or add to extraImages
                     if (count == 1) {
-                        mainImage = filePath;
+                        mainImage = File.separator + ULOAD_DIR + File.separator + productName + File.separator + uniqueFileName;
                     } else {
-                        extraImages.add(filePath);
+                        extraImages.add(File.separator + ULOAD_DIR + File.separator + productName + File.separator + uniqueFileName);
                     }
                 }
             }
@@ -144,5 +144,8 @@ public class createProductController extends HttpServlet {
         return null;
     }
 
+    private String getFileExtension(String filename) {
+        return filename.substring(filename.lastIndexOf("."));
+    }
 }
 

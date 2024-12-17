@@ -25,8 +25,7 @@ public class userFilter implements Filter {
         HttpServletResponse req = (HttpServletResponse) response;
         HttpSession session = res.getSession(true);
         User user = (User) session.getAttribute("auth");
-        System.out.println(user);
-        if (user == null || user.getRole() < 1) {
+        if (user == null) {
             req.sendRedirect("/login");
             return;
         }

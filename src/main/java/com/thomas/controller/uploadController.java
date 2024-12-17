@@ -21,7 +21,8 @@ import java.util.List;
 public class uploadController extends HttpServlet {
     // Path where files will be saved
     UploadProductService uploadProductService = new UploadProductService();
-    private final String UPLOAD_DIRECTORY = "uploads";
+    private static final String ULOAD_DIR = "uploads";
+    private static final String UPLOAD_DIR_SERVER = "C:\\Users\\huynh\\OneDrive\\Desktop\\Nhom38-BanThatLung\\src\\main\\webapp\\uploads";
 
     // Configure the maximum file size
     private final int MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
@@ -40,14 +41,17 @@ public class uploadController extends HttpServlet {
         if (request.getContentType() != null && request.getContentType().startsWith("multipart/")) {
 
             // Get the upload path
-            String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+            String uploadPath = getServletContext().getRealPath("") + File.separator + ULOAD_DIR;
 
             // Create the upload directory if it doesn't exist
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
-
+            File serverDirectory = new File(UPLOAD_DIR_SERVER + File.separator + "_" + "belt" + beltId);
+            if (!serverDirectory.exists()) {
+                serverDirectory.mkdirs();
+            }
             // Prepare JSON response
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
@@ -66,11 +70,13 @@ public class uploadController extends HttpServlet {
 
                     if (fileName != null && !fileName.isEmpty()) {
                         // Create a file path where the file will be saved
-                        String filePath = uploadPath + File.separator + fileName;
+                        String uniqueFileName = beltId + "_" + "desc" + System.currentTimeMillis() + getFileExtension(fileName);
+                        String filePath = uploadDir.getAbsolutePath() + File.separator + uniqueFileName;
 
                         // Save the file to the server
                         part.write(filePath);
-                        descImage.add(filePath);
+                        part.write(serverDirectory + File.separator + uniqueFileName);
+                        descImage.add(File.separator + ULOAD_DIR + File.separator + beltId + File.separator + uniqueFileName);
                         // Append file details to the JSON response
                         if (!firstFile) {
                             jsonResponse.append(",");
@@ -106,6 +112,10 @@ public class uploadController extends HttpServlet {
             }
         }
         return null;
+    }
+
+    private String getFileExtension(String filename) {
+        return filename.substring(filename.lastIndexOf("."));
     }
 }
 

@@ -155,4 +155,11 @@ public class UserDao {
             return h.createUpdate("update users set isActive = 1 where token = :token").bind("token", token).execute() > 0;
         });
     }
+
+    public void updateUserImage(User user) {
+        JDBIConnect.get().withHandle(h -> {
+            String sql = "Update users SET image = :image WHERE id = :id";
+            return h.createUpdate(sql).bind("image", user.getImage()).bind("id", user.getId()).execute() > 0;
+        });
+    }
 }

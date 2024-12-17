@@ -56,21 +56,21 @@
         >
             <a
                     class="text-dark text-decoration-none custom_size--19"
-                    href="${pageContext.request.contextPath}/frontend/userInfoPage/account/userinfo.jsp"
+                    href="${pageContext.request.contextPath}/userInfo"
             >Tài khoản</a
             >
         </div>
         <div class="d-inline-block fw-bold" style="padding: 12px">
             <a
                     class="text-dark text-decoration-none custom_size--19"
-                    href="${pageContext.request.contextPath}/frontend/userInfoPage/profile/profile.jsp"
+                    href="${pageContext.request.contextPath}/userProfile"
             >Hồ sơ</a
             >
         </div>
         <div class="d-inline-block fw-bold" style="padding: 12px">
             <a
                     class="text-dark text-decoration-none custom_size--19"
-                    href="${pageContext.request.contextPath}/frontend/userInfoPage/address/address.jsp"
+                    href="${pageContext.request.contextPath}/userAddress"
             >Địa chỉ</a
             >
         </div>
