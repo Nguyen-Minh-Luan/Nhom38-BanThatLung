@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,34 +46,26 @@
 <div class="container my-5 bg-white rounded p-5 mb-0">
     <div class="d-flex">
         <div class="col-md-8 d-flex">
-            <div class="col-2 product-thumbnails d-flex flex-column align-item-start justify-content-between mt-0">
-                <img src="${pageContext.request.contextPath}/assets/images/product/product detail/victor/victor1 (1).webp" class="mb-2 border rounded"
-                     alt="Thumbnail 1" data-bs-target="#productCarousel" data-bs-slide-to="0"/>
-                <img src="${pageContext.request.contextPath}/assets/images/product/product detail/victor/victor1 (2).webp" class="mb-2 border rounded"
-                     alt="Thumbnail 1" data-bs-target="#productCarousel" data-bs-slide-to="1"/>
-                <img src="${pageContext.request.contextPath}/assets/images/product/product detail/victor/victor1 (3).webp" class="mb-2 border rounded"
-                     alt="Thumbnail 1" data-bs-target="#productCarousel" data-bs-slide-to="2"/>
-                <img src="${pageContext.request.contextPath}/assets/images/product/product detail/victor/victor1 (4).webp" class="border rounded"
-                     alt="Thumbnail 1" data-bs-target="#productCarousel" data-bs-slide-to="3"/>
+            <div class="col-2 belts-thumbnails d-flex flex-column align-item-start justify-content-between mt-0">
+                <c:forEach var="image" items="${belt.image}" varStatus="status">
+                    <img src="${pageContext.request.contextPath}${image}"
+                         width="116px"
+                         height="116px"
+                         class="mb-2 border rounded"
+                         alt="Thumbnail ${status.index+1}" data-bs-target="#productCarousel"
+                         data-bs-slide-to="${status.index}"/>
+                </c:forEach>
             </div>
-            <div id="productCarousel" class="carousel slide border rounded col-2 product w-75">
-                <div class="carousel-inner h-100">
-                    <div class="carousel-item active">
-                        <img src="${pageContext.request.contextPath}/assets/images/product/product detail/victor/victor1 (1).webp"
-                             class="img-fluid border rounded" alt="Product Image 1"/>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="${pageContext.request.contextPath}/assets/images/product/product detail/victor/victor1 (2).webp"
-                             class="img-fluid border rounded" alt="Product Image 2"/>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="${pageContext.request.contextPath}/assets/images/product/product detail/victor/victor1 (3).webp"
-                             class="img-fluid border rounded" alt="Product Image 3"/>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="${pageContext.request.contextPath}/assets/images/product/product detail/victor/victor1 (4).webp"
-                             class="img-fluid border rounded" alt="Product Image 3"/>
-                    </div>
+            <div id="productCarousel" class="carousel slide border rounded col-2 belts w-75 p-5">
+                <div class="carousel-inner">
+                    <c:forEach var="image" items="${belt.image}" varStatus="status">
+                        <div class="carousel-item active">
+                            <img src="${pageContext.request.contextPath}${image}"
+
+                                 class="img-fluid rounded" style="width: 520px; height: 520px"
+                                 alt="Product Image ${status.index}"/>
+                        </div>
+                    </c:forEach>
                 </div>
                 <button class="carousel-control-prev custom_shadow" type="button" data-bs-target="#productCarousel"
                         data-bs-slide="prev">
@@ -86,28 +80,26 @@
             </div>
         </div>
 
-        <div class="col-md-6">
-            <h2>Dây Nịt Da</h2>
-            <p class="product-price text-danger">
-                480.000 VND
-                <span class="product-old-price text-muted text-decoration-line-through">560.000 VND</span>
-            </p>
+        <div class="col-md-6" style="position: relative">
+            <h2>${belt.name}</h2>
+            <c:choose>
+                <c:when test="${belt.discountPercent > 0}">
+                    <p class="belts-price text-danger">
+                            ${belt.price - (belt.price * belt.discountPercent / 100)} vnđ
+                        <span class="belts-old-price text-muted text-decoration-line-through">${belt.price} vnđ</span>
+                    </p>
+                </c:when>
+                <c:otherwise>
+                    <p class="belts-price">
+                            ${belt.price} vnđ
+                    </p>
+                </c:otherwise>
+            </c:choose>
+
             <div class="mb-3">
-                <strong>Màu:</strong> Đen
-                <div class="mt-1">
-            <span class="badge bg-dark" style="
-                  width: 20px;
-                  height: 20px;
-                  border-radius: 50%;
-                  display: inline-block;
-                "></span>
-                </div>
-            </div>
-            <div class="size-options mt-4">
-                <h5>Chọn độ dài thắt lưng (cm):</h5>
-                <div class="choose_size mt-3">
-                    <span>80</span><span>90</span><span>100</span><span>110</span><span>120</span>
-                </div>
+                <c:forEach var="category" items="${beltCategory}">
+                    <strong>${category.name}</strong>
+                </c:forEach>
             </div>
             <div class="mb-3 mt-3">
                 <label for="quantity" class="form-label"><strong>Số Lượng:</strong></label>
@@ -119,9 +111,9 @@
             </div>
 
             <div class="mb-3 d-flex flex-column align-item-center">
-                <button class="buyNow__button btn btn-dark w-100 mb-4">
+                <a href="" class="buyNow__button btn btn-dark w-100 mb-4">
                     Mua Ngay
-                </button>
+                </a>
                 <button class="addToCart__button btn-white me-2 w-100 mb-3">
                     Thêm vào giỏ hàng
                 </button>
@@ -148,99 +140,30 @@
                          aria-labelledby="headingDescription"
                          data-bs-parent="#productAccordion">
                         <div class="accordion-body">
-                            <ul>
-                                <li>
-                                    Thắt lưng nam cao cấp tại hà nội với mặt khóa được làm từ
-                                    chất liệu ngũ kim sáng bóng
-                                </li>
-                                <li>Thiết kế khóa trượt thời trang, tiện dụng</li>
-                                <li>Đường chỉ may tinh tế, chắc chắn</li>
-                                <li>
-                                    Kích thước (độ rộng dây x độ dài dây): 3,5 cm x 110cm ~
-                                    120 cm
-                                </li>
-                                <li>Màu sắc: Đen da trơn</li>
-                            </ul>
+                            ${belt.description}
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingCareLabel">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseCareLabel" aria-expanded="false"
+                        <button class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapseCareLabel"
+                                aria-expanded="false"
                                 aria-controls="collapseCareLabel">
-                            Cách thức bảo quản
+                            Ảnh
                         </button>
                     </h2>
-                    <div id="collapseCareLabel" class="accordion-collapse collapse" aria-labelledby="headingCareLabel"
+                    <div id="collapseCareLabel"
+                         class="accordion-collapse collapse"
+                         aria-labelledby="headingCareLabel"
                          data-bs-parent="#productAccordion">
-                        <div class="accordion-body">
-                            <ul>
-                                <li>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quasi reiciendis laborum quis quae recusandae, placeat
-                                    quibusdam excepturi cumque non totam obcaecati,
-                                    praesentium cupiditate iusto voluptatibus, similique
-                                    eveniet aut incidunt tempora?
-                                </li>
-                                <li>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quasi reiciendis laborum quis quae recusandae, placeat
-                                    quibusdam excepturi cumque non totam obcaecati,
-                                    praesentium cupiditate iusto voluptatibus, similique
-                                    eveniet aut incidunt tempora?
-                                </li>
-                                <li>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quasi reiciendis laborum quis quae recusandae, placeat
-                                    quibusdam excepturi cumque non totam obcaecati,
-                                    praesentium cupiditate iusto voluptatibus, similique
-                                    eveniet aut incidunt tempora?
-                                </li>
-                                <li>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quasi reiciendis laborum quis quae recusandae, placeat
-                                    quibusdam excepturi cumque non totam obcaecati,
-                                    praesentium cupiditate iusto voluptatibus, similique
-                                    eveniet aut incidunt tempora?
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingSpecial">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseSpecial" aria-expanded="false" aria-controls="collapseSpecial">
-                            Đặc Biệt
-                        </button>
-                    </h2>
-                    <div id="collapseSpecial" class="accordion-collapse collapse" aria-labelledby="headingSpecial"
-                         data-bs-parent="#productAccordion">
-                        <div class="accordion-body">
-                            <ul>
-                                <li>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quasi reiciendis laborum quis quae recusandae, placeat
-                                    quibusdam excepturi cumque non totam obcaecati,
-                                    praesentium cupiditate iusto voluptatibus, similique
-                                    eveniet aut incidunt tempora?
-                                </li>
-                                <li>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quasi reiciendis laborum quis quae recusandae, placeat
-                                    quibusdam excepturi cumque non totam obcaecati,
-                                    praesentium cupiditate iusto voluptatibus, similique
-                                    eveniet aut incidunt tempora?
-                                </li>
-                                <li>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quasi reiciendis laborum quis quae recusandae, placeat
-                                    quibusdam excepturi cumque non totam obcaecati,
-                                    praesentium cupiditate iusto voluptatibus, similique
-                                    eveniet aut incidunt tempora?
-                                </li>
-                            </ul>
+                        <div class="accordion-body overflow-auto" style="height: 500px;">
+                            <c:forEach var="image" items="${descBeltImage}" varStatus="status">
+                                <img src="${pageContext.request.contextPath}${image}" alt="${status.index}"
+                                     style="width: 75%">
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
@@ -250,134 +173,31 @@
 </div>
 <div class="container p-5">
     <div class="col-7">
-        <p class="fs-4">3,734 đánh giá</p>
+        <p class="fs-4">${fn:length(reviewsList)} đánh giá</p>
         <div class="d-flex border-bottom mb-3">
             <p class="mb-0">Đánh giá cho sản phẩm này</p>
-            <span class="ps-3 pe-3 pb-1 pt-1 ms-2 bg-light rounded-pill mb-2">448</span>
+            <span class="ps-3 pe-3 pb-1 pt-1 ms-2 bg-light rounded-pill mb-2">${fn:length(reviewsList)}</span>
         </div>
-        <div class="d-flex flex-column">
-            <div class="star">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
+        <c:forEach var="reviews" items="${reviewsList}">
+            <div class="d-flex flex-column">
+                <div class="star-rating animated-stars">
+                    <c:forEach begin="1" end="5" var="star">
+                        <label class="${star <= reviews.ratingStar ? 'bi bi-star-fill text-warning' : 'bi bi-star'}"></label>
+                    </c:forEach>
+                </div>
+                <div class="content_review mt-2">
+                    <p class="mb-1">
+                            ${reviews.content}
+                    </p>
+                </div>
+                <div class="d-flex author_review mt-0 border-bottom">
+                    <p class="fw-light fs-6 text-decoration-underline">
+                            ${reviews.reviewerName}
+                    </p>
+                    <p class="fw-light fs-6 ms-2">${reviews.createdAt}</p>
+                </div>
             </div>
-            <div class="content_review mt-2">
-                <p class="mb-1">
-                    Chính xác như mô tả! Chất lượng rất cao và được đóng gói đẹp mắt!
-                    Cảm ơn bạn 😊
-                </p>
-            </div>
-            <div class="d-flex author_review mt-0 border-bottom">
-                <p class="fw-light fs-6 text-decoration-underline">
-                    Huynh Minh Thang
-                </p>
-                <p class="fw-light fs-6 ms-2">Ngày 11 tháng 99 năm 2044</p>
-            </div>
-        </div>
-        <div class="d-flex flex-column">
-            <div class="star">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
-            </div>
-            <div class="content_review mt-2">
-                <p class="mb-1">
-                    Chính xác như mô tả! Chất lượng rất cao và được đóng gói đẹp mắt!
-                    Cảm ơn bạn 😊
-                </p>
-            </div>
-            <div class="d-flex author_review mt-0 border-bottom">
-                <p class="fw-light fs-6 text-decoration-underline">
-                    Huynh Minh Thang
-                </p>
-                <p class="fw-light fs-6 ms-2">Ngày 11 tháng 99 năm 2044</p>
-            </div>
-        </div>
-        <div class="d-flex flex-column">
-            <div class="star">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                     fill="#000000">
-                    <path
-                            d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                </svg>
-            </div>
-            <div class="content_review mt-2">
-                <p class="mb-1">
-                    Chính xác như mô tả! Chất lượng rất cao và được đóng gói đẹp mắt!
-                    Cảm ơn bạn 😊
-                </p>
-            </div>
-            <div class="d-flex author_review mt-0 border-bottom">
-                <p class="fw-light fs-6 text-decoration-underline">
-                    Huynh Minh Thang
-                </p>
-                <p class="fw-light fs-6 ms-2">Ngày 11 tháng 99 năm 2044</p>
-            </div>
-        </div>
+        </c:forEach>
     </div>
     <section class="mt-3">
         <nav aria-label="Page__navigation__example" id="pagination__bar">
@@ -411,37 +231,23 @@
 
         <div class="row mt-2">
             <div class="d-flex align-item-center">
-                <img src="../assets/images/victor_sample1.png" class="" alt="..." width="200px"/>
+                <img src="${pageContext.request.contextPath}${belt.image[0]}" class=""
+                     alt="..." width="200px"/>
                 <div class="ms-4">
                     <h5 class="card-title text-start fs-6">
-                        Thắt Lưng Hai Mặt LV Heritage 35MM
+                        ${belt.name}
                     </h5>
                     <div class="star">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                             fill="#000000">
-                            <path
-                                    d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                             fill="#000000">
-                            <path
-                                    d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                             fill="#000000">
-                            <path
-                                    d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                             fill="#000000">
-                            <path
-                                    d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                             fill="#000000">
-                            <path
-                                    d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
-                        </svg>
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5" class="bi bi-star-fill"></label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4" class="bi bi-star-fill"></label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3" class="bi bi-star-fill"></label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2" class="bi bi-star-fill"></label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1" class="bi bi-star-fill"></label>
                     </div>
                     <textarea class="pt-4 ps-1 mt-4" cols="50" rows="3" style="resize: none"
                               placeholder="Viết đánh giá vào đây">
@@ -451,8 +257,20 @@
         </div>
 
         <div class="d-flex">
-            <img src="../assets/images/sampleProfile1.jpg" alt="choose_file" class="mt-3" width="50px" height="50px"
-                 style="border-radius: 50%"/>
+            <c:choose>
+                <c:when test="${sessionScope.auth.image == null}">
+                    <img src="${pageContext.request.contextPath}/assets/icons/default_profile.svg"
+                         alt="User Avatar"
+
+                         class="mt-3" width="50px" height="50px">
+                </c:when>
+                <c:otherwise>
+                    <img src="${sessionScope.auth.image}"
+                         alt="User Avatar"
+
+                         class="mt-3" width="50px" height="50px">
+                </c:otherwise>
+            </c:choose>
             <p class="mt-4 ms-3">Đánh giá bởi</p>
         </div>
         <div class="d-flex justify-content-end">
@@ -630,8 +448,17 @@
         </div>
     </div>
 </div>
-
-<jsp:include page = "/frontend/header_footer/footer.jsp" />
+<script>
+    document.querySelectorAll('.star-rating:not(.readonly) label').forEach(star => {
+        star.addEventListener('click', function () {
+            this.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 200);
+        });
+    });
+</script>
+<jsp:include page="/frontend/header_footer/footer.jsp"/>
 
 </body>
 

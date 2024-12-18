@@ -1,5 +1,5 @@
 <jsp:useBean id="beltName" scope="request" type="java.lang.String"/>
-<jsp:useBean id="review" scope="request" type="com.thomas.dao.model.Review"/>
+<jsp:useBean id="reviews" scope="request" type="com.thomas.dao.model.Reviews"/>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -147,7 +147,7 @@
                     >Người dùng</a
                     >
                     <a class="collapse-item active"
-                       href="${pageContext.request.contextPath}/admin/table/products">Sản
+                       href="${pageContext.request.contextPath}/admin/table/belts">Sản
                         phẩm</a>
                     <a class="collapse-item"
                        href="${pageContext.request.contextPath}/admin/table/reviews"
@@ -177,7 +177,7 @@
         <div id="content">
 
             <div class="container-fluid px-0">
-                <h1 class="title-create-edit mb-2 mt-5 ml-3">Xem chi tiết review</h1>
+                <h1 class="title-create-edit mb-2 mt-5 ml-3">Xem chi tiết reviews</h1>
                 <form id="productForm" method="POST"
                       class="d-flex flex-column justify-content-between" enctype="multipart/form-data">
 
@@ -188,7 +188,7 @@
                             <div class="d-flex flex-column mt-5">
                                 <div class="mt-5 ms-5">
                                     <h1 class="fw-bold">
-                                        Xem review #${param.reviewId}
+                                        Xem reviews #${param.reviewId}
                                     </h1>
                                 </div>
                             </div>
@@ -222,7 +222,7 @@
                                                 name="beltName"
                                                 type="text"
                                                 class="col form-control form-control-lg custom_design custom__border"
-                                                value="${review.reviewerName}"
+                                                value="${reviews.reviewerName}"
                                                 disabled
                                         />
                                     </div>
@@ -236,7 +236,7 @@
                                                 name="tags"
                                                 class="col form-control form-control-lg custom_design custom__border"
                                                 disabled
-                                        >${review.content}</textarea>
+                                        >${reviews.content}</textarea>
                                     </div>
                                     <div class="row mb-3">
                                         <p
@@ -249,7 +249,7 @@
                                                 type="number"
                                                 class="col form-control form-control-lg custom_design custom__border"
                                                 placeholder="Nhập tên sản phẩm"
-                                                value="${review.reviewerStar}"
+                                                value="${reviews.reviewerStar}"
                                                 disabled
 
                                         />
@@ -259,11 +259,11 @@
                                         <p
                                                 class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
                                         >
-                                            Ngày review
+                                            Ngày reviews
                                         </p>
                                         <input name="releaseDate" type="date"
                                                class="col form-control form-control-lg custom_design custom__border"
-                                               value="${review.createdAt}"
+                                               value="${reviews.createdAt}"
                                                disabled
                                         />
                                     </div>

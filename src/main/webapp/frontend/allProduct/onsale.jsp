@@ -177,7 +177,7 @@
 </div>
 <!-- Product Header -->
 <div class="container">
-    <div class="product-header">Sản Phẩm</div>
+    <div class="belts-header">Sản Phẩm</div>
 </div>
 
 <!-- Filter and Sort -->
@@ -220,9 +220,9 @@
                 <!-- Sản phẩm -->
                 <div class="col product__col">
                     <a href="../productDetail/productDetail.jsp">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="../assets/images/product/Images/46/1.webp"
+                                <img src="../assets/images/belts/Images/46/1.webp"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -235,9 +235,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="../productDetail/productDetail.jsp">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="../assets/images/product/Images/58/formal-belt-in-brown-olive-qamila-blackberrys-clothing-2_1024x1024.webp"
+                                <img src="../assets/images/belts/Images/58/formal-belt-in-brown-olive-qamila-blackberrys-clothing-2_1024x1024.webp"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -250,9 +250,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="../productDetail/productDetail.jsp">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="../assets/images/product/Images/43/1.webp"
+                                <img src="../assets/images/belts/Images/43/1.webp"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -265,9 +265,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="../productDetail/productDetail.jsp">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="../assets/images/product/Images/41/1.webp"
+                                <img src="../assets/images/belts/Images/41/1.webp"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -280,9 +280,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="../productDetail/productDetail.jsp">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="../assets/images/product/Images/40/1.webp"
+                                <img src="../assets/images/belts/Images/40/1.webp"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -295,9 +295,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="../productDetail/productDetail.jsp">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="../assets/images/product/Images/42/1.webp"
+                                <img src="../assets/images/belts/Images/42/1.webp"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -310,9 +310,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="../productDetail/productDetail.jsp">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="../assets/images/product/Images/45/1.webp"
+                                <img src="../assets/images/belts/Images/45/1.webp"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -325,9 +325,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="../productDetail/productDetail.jsp">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="../assets/images/product/Images/45/1.webp"
+                                <img src="../assets/images/belts/Images/45/1.webp"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -340,9 +340,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="../productDetail/productDetail.jsp">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="../assets/images/product/Images/44/1.webp"
+                                <img src="../assets/images/belts/Images/44/1.webp"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -355,9 +355,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="../productDetail/productDetail.jsp">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="../assets/images/product/Images/47/1.webp"
+                                <img src="../assets/images/belts/Images/47/1.webp"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -370,9 +370,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="../productDetail/productDetail.jsp">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="../assets/images/product/Images/48/Leather_Wine_Solid_Belt_Uratak-BT000567E1-image1_1024x1024.webp"
+                                <img src="../assets/images/belts/Images/48/Leather_Wine_Solid_Belt_Uratak-BT000567E1-image1_1024x1024.webp"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -385,9 +385,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="../productDetail/productDetail.jsp">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="../assets/images/product/Images/49/Leather_Brown_Solid_Belt_Urraco-BT000555C1-image1_1024x1024.webp"
+                                <img src="../assets/images/belts/Images/49/Leather_Brown_Solid_Belt_Urraco-BT000555C1-image1_1024x1024.webp"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">

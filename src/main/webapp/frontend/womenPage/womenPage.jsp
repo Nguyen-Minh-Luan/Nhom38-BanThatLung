@@ -257,7 +257,7 @@
 
   <!-- Product Header -->
   <div class="container">
-    <div class="product-header">Thắt Lưng Vải Canvas Nữ</div>
+    <div class="belts-header">Thắt Lưng Vải Canvas Nữ</div>
   </div>
 
   <!-- Filter and Sort -->
@@ -312,10 +312,10 @@
           <!-- Sản phẩm -->
           <div class="col product__col">
             <a href="../productDetail/productDetail.jsp">
-              <div class="product">
+              <div class="belts">
                 <div class="product__image">
                   <img
-                          src="${pageContext.request.contextPath}/assets/images/product/Images/women/canvas/ae91a035409527d29e8128c91e5ded54.webp"
+                          src="${pageContext.request.contextPath}/assets/images/belts/Images/women/canvas/ae91a035409527d29e8128c91e5ded54.webp"
                           class="img-fluid"
                           alt="Leather Belt"
                   />
@@ -329,10 +329,10 @@
           </div>
           <div class="col product__col">
             <a href="">
-              <div class="product">
+              <div class="belts">
                 <div class="product__image">
                   <img
-                          src="${pageContext.request.contextPath}/assets/images/product/Images/women/canvas/cn-11134301-7qukw-lk7scdx4n8nx7e.webp"
+                          src="${pageContext.request.contextPath}/assets/images/belts/Images/women/canvas/cn-11134301-7qukw-lk7scdx4n8nx7e.webp"
                           class="img-fluid"
                           alt="Leather Belt"
                   />
@@ -348,10 +348,10 @@
           </div>
           <div class="col product__col">
             <a href="">
-              <div class="product">
+              <div class="belts">
                 <div class="product__image">
                   <img
-                          src="${pageContext.request.contextPath}/assets/images/product/Images/women/canvas/sg-11134201-7qvf5-lk9zb07pnyaub0.webp"
+                          src="${pageContext.request.contextPath}/assets/images/belts/Images/women/canvas/sg-11134201-7qvf5-lk9zb07pnyaub0.webp"
                           class="img-fluid"
                           alt="Leather Belt"
                   />
@@ -367,10 +367,10 @@
           </div>
           <div class="col product__col">
             <a href="">
-              <div class="product">
+              <div class="belts">
                 <div class="product__image">
                   <img
-                          src="${pageContext.request.contextPath}/assets/images/product/Images/women/canvas/sg-11134301-7rcde-lt7tud1mcy4z7f.webp"
+                          src="${pageContext.request.contextPath}/assets/images/belts/Images/women/canvas/sg-11134301-7rcde-lt7tud1mcy4z7f.webp"
                           class="img-fluid"
                           alt="Leather Belt"
                   />
@@ -384,10 +384,10 @@
           </div>
           <div class="col product__col">
             <a href="">
-              <div class="product">
+              <div class="belts">
                 <div class="product__image">
                   <img
-                          src="${pageContext.request.contextPath}/assets/images/product/Images/women/canvas/sg-11134201-7qvf5-lk9zb07pnyaub0.webp"
+                          src="${pageContext.request.contextPath}/assets/images/belts/Images/women/canvas/sg-11134201-7qvf5-lk9zb07pnyaub0.webp"
                           class="img-fluid"
                           alt="Leather Belt"
                   />
@@ -403,10 +403,10 @@
           </div>
           <div class="col product__col">
             <a href="">
-              <div class="product">
+              <div class="belts">
                 <div class="product__image">
                   <img
-                          src="${pageContext.request.contextPath}/assets/images/product/Images/women/canvas/sg-11134301-7rcde-lt7tud1mcy4z7f.webp"
+                          src="${pageContext.request.contextPath}/assets/images/belts/Images/women/canvas/sg-11134301-7rcde-lt7tud1mcy4z7f.webp"
                           class="img-fluid"
                           alt="Leather Belt"
                   />
@@ -421,10 +421,10 @@
 
           <div class="col product__col">
             <a href="../productDetail/productDetail.jsp">
-              <div class="product">
+              <div class="belts">
                 <div class="product__image">
                   <img
-                          src="${pageContext.request.contextPath}/assets/images/product/Images/women/canvas/ae91a035409527d29e8128c91e5ded54.webp"
+                          src="${pageContext.request.contextPath}/assets/images/belts/Images/women/canvas/ae91a035409527d29e8128c91e5ded54.webp"
                           class="img-fluid"
                           alt="Leather Belt"
                   />
@@ -438,10 +438,10 @@
           </div>
           <div class="col product__col">
             <a href="">
-              <div class="product">
+              <div class="belts">
                 <div class="product__image">
                   <img
-                          src="${pageContext.request.contextPath}/assets/images/product/Images/women/canvas/cn-11134301-7qukw-lk7scdx4n8nx7e.webp"
+                          src="${pageContext.request.contextPath}/assets/images/belts/Images/women/canvas/cn-11134301-7qukw-lk7scdx4n8nx7e.webp"
                           class="img-fluid"
                           alt="Leather Belt"
                   />
@@ -457,10 +457,10 @@
           </div>
           <div class="col product__col">
             <a href="">
-              <div class="product">
+              <div class="belts">
                 <div class="product__image">
                   <img
-                          src="${pageContext.request.contextPath}/assets/images/product/Images/women/canvas/sg-11134301-7rcde-lt7tud1mcy4z7f.webp"
+                          src="${pageContext.request.contextPath}/assets/images/belts/Images/women/canvas/sg-11134301-7rcde-lt7tud1mcy4z7f.webp"
                           class="img-fluid"
                           alt="Leather Belt"
                   />
@@ -474,10 +474,10 @@
           </div>
           <div class="col product__col">
             <a href="">
-              <div class="product">
+              <div class="belts">
                 <div class="product__image">
                   <img
-                          src="${pageContext.request.contextPath}/assets/images/product/Images/women/canvas/sg-11134201-7qvf5-lk9zb07pnyaub0.webp"
+                          src="${pageContext.request.contextPath}/assets/images/belts/Images/women/canvas/sg-11134201-7qvf5-lk9zb07pnyaub0.webp"
                           class="img-fluid"
                           alt="Leather Belt"
                   />
@@ -494,10 +494,10 @@
 
           <div class="col product__col">
             <a href="">
-              <div class="product">
+              <div class="belts">
                 <div class="product__image">
                   <img
-                          src="${pageContext.request.contextPath}/assets/images/product/Images/women/canvas/cn-11134301-7qukw-lk7scdx4n8nx7e.webp"
+                          src="${pageContext.request.contextPath}/assets/images/belts/Images/women/canvas/cn-11134301-7qukw-lk7scdx4n8nx7e.webp"
                           class="img-fluid"
                           alt="Leather Belt"
                   />
@@ -513,10 +513,10 @@
           </div>
           <div class="col product__col">
             <a href="../productDetail/productDetail.jsp">
-              <div class="product">
+              <div class="belts">
                 <div class="product__image">
                   <img
-                          src="${pageContext.request.contextPath}/assets/images/product/Images/women/canvas/ae91a035409527d29e8128c91e5ded54.webp"
+                          src="${pageContext.request.contextPath}/assets/images/belts/Images/women/canvas/ae91a035409527d29e8128c91e5ded54.webp"
                           class="img-fluid"
                           alt="Leather Belt"
                   />

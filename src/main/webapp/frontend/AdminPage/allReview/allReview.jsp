@@ -140,7 +140,7 @@
                     >Người dùng</a
                     >
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/admin/table/products">Sản
+                       href="${pageContext.request.contextPath}/admin/table/belts">Sản
                         phẩm</a>
                     <a class="collapse-item active"
                        href="${pageContext.request.contextPath}/admin/table/reviews"
@@ -413,17 +413,17 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <jsp:useBean id="reviewList" scope="request" type="java.util.List"/>
-                                <c:forEach var="review" items="${reviewList}">
+                                <jsp:useBean id="reviewsList" scope="request" type="java.util.List"/>
+                                <c:forEach var="reviews" items="${reviewsList}">
                                     <tr>
-                                        <td class="reviewId">${review.id}</td>
-                                        <td>${review.reviewerName}</td>
-                                        <td>${review.beltName}</td>
-                                        <td>${review.createdAt}</td>
-                                        <td>${review.reviewerStar}</td>
+                                        <td class="reviewId">${reviews.id}</td>
+                                        <td>${reviews.reviewerName}</td>
+                                        <td>${reviews.beltName}</td>
+                                        <td>${reviews.createdAt}</td>
+                                        <td>${reviews.reviewerStar}</td>
                                         <td class="text-center">
                                             <a
-                                                    href="${pageContext.request.contextPath}/admin/table/reviews/reviewDetail?reviewId=${review.id}"
+                                                    href="${pageContext.request.contextPath}/admin/table/reviews/reviewDetail?reviewId=${reviews.id}"
                                                     class="btn btn-dark fa-solid fa-pen-to-square"
 
                                             ></a>
@@ -508,7 +508,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title removeUser" id="removeModal">
-                        Bạn có muốn xóa review này?
+                        Bạn có muốn xóa reviews này?
                     </h5>
                     <button
                             type="button"

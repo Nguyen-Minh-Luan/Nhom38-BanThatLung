@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class Product implements Serializable {
+public class belts implements Serializable {
     private int id;
     private String name;
     private String description;
@@ -20,11 +20,11 @@ public class Product implements Serializable {
     private String materialBelt;
     private List<String> image;
 
-    public Product() {
+    public belts() {
 
     }
 
-    public Product(int id, String name, String description, double price, String gender, int stockQuantity, LocalDate releaseDate, LocalDate createdDate, LocalDate updatedDate, int isDeleted, double discountPercent, String materialBelt) {
+    public belts(int id, String name, String description, double price, String gender, int stockQuantity, LocalDate releaseDate, LocalDate createdDate, LocalDate updatedDate, int isDeleted, double discountPercent, String materialBelt) {
         this.id = id;
         this.name = name;
         this.description = description;

@@ -7,9 +7,10 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "productDescController", value = "/admin/table/products/createProductDescription")
+@WebServlet(name = "productDescController", value = "/admin/table/belts/createProductDescription")
 public class productDescController extends HttpServlet {
     UploadProductService uploadProductService = new UploadProductService();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/frontend/AdminPage/updateProductDescription/updateProductDesc.jsp").forward(request, response);
@@ -17,10 +18,10 @@ public class productDescController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        String description = request.getParameter("Description");
-        uploadProductService.saveDesc(id,description);
-        response.sendRedirect("/admin/table/products");
+        int id = Integer.parseInt(request.getParameter("beltId"));
+        String description = request.getParameter("desc");
+        uploadProductService.saveDesc(id, description);
+        response.sendRedirect("/admin/table/belts");
     }
 }
 

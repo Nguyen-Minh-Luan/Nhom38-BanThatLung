@@ -27,6 +27,10 @@ public class UploadUserService {
         return userDao.deleteUserById(userId);
     }
 
+    public boolean softDeleteUser(int userId) {
+        return userDao.softDeleteUser(userId);
+    }
+
     public boolean updateUser(int userId, String userName, String email, String gender, int role, LocalDate birthDate, long phone, int isDeleted) {
         User user = new User();
         user.setId(userId);
@@ -34,7 +38,7 @@ public class UploadUserService {
         user.setEmail(email);
         user.setGender(gender);
         user.setRole(role);
-        user.setPhone(phone);
+        user.setPhoneNumber(phone);
         user.setIsDeleted(isDeleted);
         user.setDateOfBirth(birthDate);
         return userDao.updateUser(user);
@@ -50,7 +54,7 @@ public class UploadUserService {
         user.setPassword(password);
         user.setGender(gender);
         user.setRole(role);
-        user.setPhone(phone);
+        user.setPhoneNumber(phone);
         user.setIsDeleted(isDeleted);
         user.setDateOfBirth(birthDate);
         user.setCreateAt(LocalDate.now());
@@ -79,10 +83,11 @@ public class UploadUserService {
         userDao.updateUserImage(user);
     }
 
-    public void updateUserInfo(int userId, String gender, LocalDate birthday) {
+    public void updateUserInfo(int userId, String gender, LocalDate birthday, long phoneNumber) {
         User user = userDao.findUserById(userId);
         user.setGender(gender);
         user.setDateOfBirth(birthday);
+        user.setPhoneNumber(phoneNumber);
         userDao.updateUser(user);
     }
 }

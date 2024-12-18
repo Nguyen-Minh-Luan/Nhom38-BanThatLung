@@ -1,7 +1,7 @@
 package com.thomas.services;
 
 import com.thomas.dao.ReviewDao;
-import com.thomas.dao.model.Review;
+import com.thomas.dao.model.Reviews;
 
 import java.util.List;
 
@@ -12,14 +12,14 @@ public class UploadReviewService {
         reviewDao = new ReviewDao();
     }
 
-    public List<Review> getReviews() {
+    public List<Reviews> getReviews() {
         return reviewDao.getReviews();
     }
 
-    public void setReviewerName(Review review) {
-        if (review != null) {
-            String reviewerName = reviewDao.getReviewerName(review.getUserId());
-            review.setReviewerName(reviewerName);
+    public void setReviewerName(Reviews reviews) {
+        if (reviews != null) {
+            String reviewerName = reviewDao.getReviewerName(reviews.getUserId());
+            reviews.setReviewerName(reviewerName);
         }
     }
 
@@ -27,18 +27,22 @@ public class UploadReviewService {
         return reviewDao.deleteReview(reviewId);
     }
 
-    public Review findReview(int reviewId) {
+    public Reviews findReview(int reviewId) {
         return reviewDao.getReview(reviewId);
     }
 
-    public void setProductName(Review review) {
-        if (review != null) {
-            String reviewerName = reviewDao.findProductNameByReviewId(review.getBeltId());
-            review.setBeltName(reviewerName);
+    public void setProductName(Reviews reviews) {
+        if (reviews != null) {
+            String reviewerName = reviewDao.findProductNameByReviewId(reviews.getBeltId());
+            reviews.setBeltName(reviewerName);
         }
     }
 
     public String findProductName(int reviewId) {
         return reviewDao.findProductNameByReviewId(reviewId);
+    }
+
+    public List<Reviews> getReviewsByBeltId(int beltId) {
+        return reviewDao.getAllReviewById(beltId);
     }
 }

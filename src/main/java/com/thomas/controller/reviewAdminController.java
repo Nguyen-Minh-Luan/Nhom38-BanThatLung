@@ -1,7 +1,6 @@
 package com.thomas.controller;
 
-import com.thomas.dao.model.Product;
-import com.thomas.dao.model.Review;
+import com.thomas.dao.model.Reviews;
 import com.thomas.services.UploadReviewService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -17,14 +16,14 @@ public class reviewAdminController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Review> reviewList = uploadReviewService.getReviews();
+        List<Reviews> reviewsList = uploadReviewService.getReviews();
         List<String> beltNames = new ArrayList<String>();
 
-        for (Review review : reviewList) {
-            uploadReviewService.setReviewerName(review);
-            uploadReviewService.setProductName(review);
+        for (Reviews reviews : reviewsList) {
+            uploadReviewService.setReviewerName(reviews);
+            uploadReviewService.setProductName(reviews);
         }
-        request.setAttribute("reviewList", reviewList);
+        request.setAttribute("reviewList", reviewsList);
         request.getRequestDispatcher("/frontend/AdminPage/allReview/allReview.jsp").forward(request, response);
     }
 

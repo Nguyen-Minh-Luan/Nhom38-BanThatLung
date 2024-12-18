@@ -1,7 +1,7 @@
 package com.thomas.dao;
 
 import com.thomas.dao.db.JDBIConnect;
-import com.thomas.dao.model.Review;
+import com.thomas.dao.model.Reviews;
 import org.jdbi.v3.core.Handle;
 
 import java.sql.ResultSet;
@@ -10,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReviewDao {
-    public List<Review> getReviews() {
+    public List<Reviews> getReviews() {
         return JDBIConnect.get().withHandle(handle -> {
             String sql = "select * from reviews";
-            List<Review> reviews = new ArrayList<>();
+            List<Reviews> reviews = new ArrayList<>();
             try (Handle h = handle) {
                 h.execute(sql);
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
                 while (rs.next()) {
-                    Review review = new Review();
+                    Reviews review = new Reviews();
                     review.setId(rs.getInt("id"));
                     review.setBeltId(rs.getInt("beltId"));
                     review.setUserId(rs.getInt("userId"));
@@ -48,24 +48,24 @@ public class ReviewDao {
 
     }
 
-    public Review getReview(int reviewId) {
+    public Reviews getReview(int reviewId) {
         return JDBIConnect.get().withHandle(h -> {
             String sql = "SELECT * FROM reviews WHERE id = :reviewId";
 
             return h.createQuery(sql)
                     .bind("reviewId", reviewId)
                     .map((rs, ctx) -> {
-                        Review review = new Review();
-                        review.setId(rs.getInt("id"));
-                        review.setBeltId(rs.getInt("beltId"));
-                        review.setUserId(rs.getInt("userId"));
-                        review.setContent(rs.getString("content"));
-                        review.setReviewerStar(rs.getInt("ratingStar"));
-                        review.setCreatedAt(rs.getDate("createdAt").toLocalDate());
-                        return review;
+                        Reviews reviews = new Reviews();
+                        reviews.setId(rs.getInt("id"));
+                        reviews.setBeltId(rs.getInt("beltId"));
+                        reviews.setUserId(rs.getInt("userId"));
+                        reviews.setContent(rs.getString("content"));
+                        reviews.setReviewerStar(rs.getInt("ratingStar"));
+                        reviews.setCreatedAt(rs.getDate("createdAt").toLocalDate());
+                        return reviews;
                     })
-                    .findOne() // Lấy kết quả nếu tồn tại
-                    .orElse(null); // Trả về null nếu không tìm thấy
+                    .findOne()
+                    .orElse(null);
         });
     }
 
@@ -95,4 +95,25 @@ public class ReviewDao {
             return productName;
         });
     }
+
+    public List<Reviews> getAllReviewById(int beltId) {
+        String sql = "SELECT * FROM reviews WHERE beltId = :beltId";
+
+        return JDBIConnect.get().withHandle(handle ->
+                handle.createQuery(sql)
+                        .bind("beltId", beltId)
+                        .map((rs, ctx) -> new Reviews(
+                                rs.getInt("id"),
+                                rs.getInt("beltId"),
+                                rs.getInt("userId"),
+                                rs.getString("content"),
+                                rs.getTimestamp("createdAt").toLocalDateTime().toLocalDate(),
+                                rs.getInt("ratingStar"),
+                                rs.getString("reviewerName"),
+                                rs.getString("beltName")
+                        ))
+                        .list()
+        );
+    }
+
 }

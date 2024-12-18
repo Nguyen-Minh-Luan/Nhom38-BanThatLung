@@ -41,7 +41,7 @@ public class uploadController extends HttpServlet {
         if (request.getContentType() != null && request.getContentType().startsWith("multipart/")) {
 
             // Get the upload path
-            String uploadPath = getServletContext().getRealPath("") + File.separator + ULOAD_DIR;
+            String uploadPath = getServletContext().getRealPath("") + ULOAD_DIR + File.separator + "_" + "belt" + beltId;
 
             // Create the upload directory if it doesn't exist
             File uploadDir = new File(uploadPath);
@@ -76,7 +76,7 @@ public class uploadController extends HttpServlet {
                         // Save the file to the server
                         part.write(filePath);
                         part.write(serverDirectory + File.separator + uniqueFileName);
-                        descImage.add(File.separator + ULOAD_DIR + File.separator + beltId + File.separator + uniqueFileName);
+                        descImage.add(File.separator + ULOAD_DIR + File.separator + "_" + "belt" + beltId + File.separator + uniqueFileName);
                         // Append file details to the JSON response
                         if (!firstFile) {
                             jsonResponse.append(",");

@@ -143,7 +143,7 @@
                     >Người dùng</a
                     >
                     <a class="collapse-item active"
-                       href="${pageContext.request.contextPath}/admin/table/products">Sản
+                       href="${pageContext.request.contextPath}/admin/table/belts">Sản
                         phẩm</a>
                     <a class="collapse-item"
                        href="${pageContext.request.contextPath}/admin/table/reviews"
@@ -184,7 +184,7 @@
                                 <div class="d-inline-block p-3">
                                     <a
                                             class="text-decoration-none fs-4"
-                                            href="${pageContext.request.contextPath}/admin/table/products/createProduct?id=${param.id}&message=update"
+                                            href="${pageContext.request.contextPath}/admin/table/belts/createProduct?id=${param.id}&message=update"
                                             style="font-size: 32px"
                                     >Tổng quan</a
                                     >
@@ -192,7 +192,7 @@
                                 <div class="d-inline-block p-3 ms-0">
                                     <a
                                             class="text-decoration-none custom_active"
-                                            href="${pageContext.request.contextPath}/admin/table/products/createProductDescription?id=${param.id}&message=update"
+                                            href="${pageContext.request.contextPath}/admin/table/belts/createProductDescription?id=${param.id}&message=update"
                                             style="font-size: 32px"
                                     >Mô tả</a>
 
@@ -203,14 +203,15 @@
 
                     </div>
                 </div>
-                <form id="productForm" method="POST"
-                      class="d-flex flex-column justify-content-between" enctype="multipart/form-data">
-
+                <form id="productForm"
+                      action="${pageContext.request.contextPath}/admin/table/belts/createProductDescription"
+                      method="POST"
+                      class="d-flex flex-column justify-content-between">
                     <input type="hidden" name="message" value="<c:choose>
     <c:when test='${param.message == "update"}'>update</c:when>
     <c:otherwise>create</c:otherwise>
 </c:choose>"/>
-                    <input type="hidden" name="productId"/>
+                    <input type="hidden" name="beltId" value="${param.id}"/>
                     <div class="d-flex w-100">
                         <div class="col-12 bg-white">
                             <div
@@ -223,8 +224,12 @@
                                     </p>
                                     <div class="document-editor col pr-0">
                                         <div class="document-editor__toolbar"></div>
-                                        <div class="document-editor__editing" name="Description"></div>
+                                        <div class="document-editor__editing"
+                                        ></div>
                                     </div>
+                                    <input type="hidden" name="desc" id="editorContent">
+                                    <!-- Hidden input to hold CKEditor content -->
+
                                 </div>
                                 <div class="row d-flex justify-content-end mb-3 ps-sm-5">
                                     <button type="submit" class="btn btn-dark "
@@ -354,10 +359,19 @@
             const toolbarContainer = document.querySelector('.document-editor__toolbar');
             toolbarContainer.appendChild(editor.ui.view.toolbar.element);
             window.editor = editor;
+            document.getElementById('productForm').addEventListener('submit', function (e) {
+                let editorContent = editor.getData(); // Get the content from CKEditor
+                console.log(editorContent)
+                editorContent = editorContent.replace(/<figure class="image">.*?<\/figure>/g, "");
+
+                document.getElementById('editorContent').value = editorContent; // Set the hidden input value
+                console.log($("#editorContent").val())
+            });
         })
         .catch(error => {
             console.error('Error initializing CKEditor:', error);
         });
+
 </script>
 
 </body>

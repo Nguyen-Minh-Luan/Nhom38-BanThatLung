@@ -169,7 +169,7 @@
                                 <a href="frontend/productDetail/productDetail.jsp">
                                     <div class="card" style="width: 14rem; height: 23.5rem">
                                         <img
-                                                src="${pageContext.request.contextPath}/assets/images/product/Images/46/1.webp"
+                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/46/1.webp"
                                                 class="card-img-top"
                                                 alt="..."
                                                 style="height: 14rem"
@@ -191,7 +191,7 @@
                                             style="width: 14rem; height: 23.5rem; height: 23.5rem"
                                     >
                                         <img
-                                                src="${pageContext.request.contextPath}/assets/images/product/Images/58/formal-belt-in-brown-olive-qamila-blackberrys-clothing-2_1024x1024.webp"
+                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/58/formal-belt-in-brown-olive-qamila-blackberrys-clothing-2_1024x1024.webp"
                                                 class="card-img-top"
                                                 alt="..."
                                                 style="height: 14rem"
@@ -208,7 +208,7 @@
                                 <a href="frontend/productDetail/productDetail.jsp">
                                     <div class="card" style="width: 14rem; height: 23.5rem">
                                         <img
-                                                src="${pageContext.request.contextPath}/assets/images/product/Images/43/1.webp"
+                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/43/1.webp"
                                                 class="card-img-top"
                                                 alt="..."
                                                 style="height: 14rem"
@@ -227,7 +227,7 @@
                                 <a href="frontend/productDetail/productDetail.jsp">
                                     <div class="card" style="width: 14rem; height: 23.5rem">
                                         <img
-                                                src="${pageContext.request.contextPath}/assets/images/product/Images/41/1.webp"
+                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/41/1.webp"
                                                 class="card-img-top"
                                                 alt="..."
                                                 style="height: 14rem"
@@ -250,7 +250,7 @@
                                 <a href="frontend/productDetail/productDetail.jsp">
                                     <div class="card" style="width: 14rem; height: 23.5rem">
                                         <img
-                                                src="${pageContext.request.contextPath}/assets/images/product/Images/40/1.webp"
+                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/40/1.webp"
                                                 class="card-img-top"
                                                 alt="..."
                                                 style="height: 14rem"
@@ -269,7 +269,7 @@
                                 <a href="frontend/productDetail/productDetail.jsp">
                                     <div class="card" style="width: 14rem; height: 23.5rem">
                                         <img
-                                                src="${pageContext.request.contextPath}/assets/images/product/Images/42/1.webp"
+                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/42/1.webp"
                                                 class="card-img-top"
                                                 alt="..."
                                                 style="height: 14rem"
@@ -288,7 +288,7 @@
                                 <a href="frontend/productDetail/productDetail.jsp">
                                     <div class="card" style="width: 14rem; height: 23.5rem">
                                         <img
-                                                src="${pageContext.request.contextPath}/assets/images/product/Images/45/1.webp"
+                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/45/1.webp"
                                                 class="card-img-top"
                                                 alt="..."
                                                 style="height: 14rem"
@@ -307,7 +307,7 @@
                                 <a href="frontend/productDetail/productDetail.jsp">
                                     <div class="card" style="width: 14rem; height: 23.5rem">
                                         <img
-                                                src="${pageContext.request.contextPath}/assets/images/product/Images/44/1.webp"
+                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/44/1.webp"
                                                 class="card-img-top"
                                                 alt="..."
                                                 style="height: 14rem"
@@ -330,7 +330,7 @@
                                 <a href="frontend/productDetail/productDetail.jsp">
                                     <div class="card" style="width: 14rem; height: 23.5rem">
                                         <img
-                                                src="${pageContext.request.contextPath}/assets/images/product/Images/47/1.webp"
+                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/47/1.webp"
                                                 class="card-img-top"
                                                 alt="..."
                                                 style="height: 14rem"
@@ -349,7 +349,7 @@
                                 <a href="frontend/productDetail/productDetail.jsp">
                                     <div class="card" style="width: 14rem; height: 23.5rem">
                                         <img
-                                                src="${pageContext.request.contextPath}/assets/images/product/Images/48/Leather_Wine_Solid_Belt_Uratak-BT000567E1-image1_1024x1024.webp"
+                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/48/Leather_Wine_Solid_Belt_Uratak-BT000567E1-image1_1024x1024.webp"
                                                 class="card-img-top"
                                                 alt="..."
                                                 style="height: 14rem"
@@ -368,7 +368,7 @@
                                 <a href="frontend/productDetail/productDetail.jsp">
                                     <div class="card" style="width: 14rem; height: 23.5rem">
                                         <img
-                                                src="${pageContext.request.contextPath}/assets/images/product/Images/49/Leather_Brown_Solid_Belt_Urraco-BT000555C1-image1_1024x1024.webp"
+                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/49/Leather_Brown_Solid_Belt_Urraco-BT000555C1-image1_1024x1024.webp"
                                                 class="card-img-top"
                                                 alt="..."
                                                 style="height: 14rem"
@@ -387,7 +387,7 @@
                                 <a href="frontend/productDetail/productDetail.jsp">
                                     <div class="card" style="width: 14rem; height: 23.5rem">
                                         <img
-                                                src="${pageContext.request.contextPath}/assets/images/product/Images/50/textured-leather-belt-in-black-new-grabirde-blackberrys-clothing-2_aed61a4c-e796-4446-bf5a-4396f427caf6_1024x1024.webp"
+                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/50/textured-leather-belt-in-black-new-grabirde-blackberrys-clothing-2_aed61a4c-e796-4446-bf5a-4396f427caf6_1024x1024.webp"
                                                 class="card-img-top"
                                                 alt="..."
                                                 style="height: 14rem"
@@ -536,7 +536,7 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                           <span
@@ -546,7 +546,7 @@
 
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/51/Textured_Leather_Belt_In_Wine_Tarak-BTPM0508E1ZA23FA-image1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/51/Textured_Leather_Belt_In_Wine_Tarak-BTPM0508E1ZA23FA-image1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -565,7 +565,7 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                           <span
@@ -575,7 +575,7 @@
 
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/52/Textured_Reversible_Belt_In_Black_Tan_Tetra-BTPM0520Z1ZA23FA-image1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/52/Textured_Reversible_Belt_In_Black_Tan_Tetra-BTPM0520Z1ZA23FA-image1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -594,7 +594,7 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                           <span
@@ -604,7 +604,7 @@
 
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/53/Reversible_Belt_In_Tan_Navy_Tangle-BTPM0526N1ZA23FA-image1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/53/Reversible_Belt_In_Tan_Navy_Tangle-BTPM0526N1ZA23FA-image1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -623,7 +623,7 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                           <span
@@ -633,7 +633,7 @@
 
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/54/techpro-textured-elastic-belt-in-grey-salyer-blackberrys-clothing-1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/54/techpro-textured-elastic-belt-in-grey-salyer-blackberrys-clothing-1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -652,7 +652,7 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                           <span
@@ -662,7 +662,7 @@
 
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/56/leather-belt-in-black-son-blackberrys-clothing-1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/56/leather-belt-in-black-son-blackberrys-clothing-1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -681,7 +681,7 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                           <span
@@ -691,7 +691,7 @@
 
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/57/leather-belt-in-brown-son-blackberrys-clothing-1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/57/leather-belt-in-brown-son-blackberrys-clothing-1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -710,7 +710,7 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                           <span
@@ -720,7 +720,7 @@
 
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/58/formal-belt-in-brown-olive-qamila-blackberrys-clothing-1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/58/formal-belt-in-brown-olive-qamila-blackberrys-clothing-1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -739,7 +739,7 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                           <span
@@ -749,7 +749,7 @@
 
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/59/Textured_Single_Side_Belt_In_Black_New-BTPM0369Z1ZA21FA-image1_68e65068-0c68-4810-9a12-6e9129b09017_1024x1024.webp"
+                                                        src="assets/images/belts/Images/59/Textured_Single_Side_Belt_In_Black_New-BTPM0369Z1ZA21FA-image1_68e65068-0c68-4810-9a12-6e9129b09017_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -788,12 +788,12 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/51/Textured_Leather_Belt_In_Wine_Tarak-BTPM0508E1ZA23FA-image1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/51/Textured_Leather_Belt_In_Wine_Tarak-BTPM0508E1ZA23FA-image1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -812,12 +812,12 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/52/Textured_Reversible_Belt_In_Black_Tan_Tetra-BTPM0520Z1ZA23FA-image1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/52/Textured_Reversible_Belt_In_Black_Tan_Tetra-BTPM0520Z1ZA23FA-image1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -836,12 +836,12 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/53/Reversible_Belt_In_Tan_Navy_Tangle-BTPM0526N1ZA23FA-image1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/53/Reversible_Belt_In_Tan_Navy_Tangle-BTPM0526N1ZA23FA-image1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -860,12 +860,12 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/54/techpro-textured-elastic-belt-in-grey-salyer-blackberrys-clothing-1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/54/techpro-textured-elastic-belt-in-grey-salyer-blackberrys-clothing-1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -884,12 +884,12 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/52/Textured_Reversible_Belt_In_Black_Tan_Tetra-BTPM0520Z1ZA23FA-image1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/52/Textured_Reversible_Belt_In_Black_Tan_Tetra-BTPM0520Z1ZA23FA-image1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -908,12 +908,12 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/53/Reversible_Belt_In_Tan_Navy_Tangle-BTPM0526N1ZA23FA-image1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/53/Reversible_Belt_In_Tan_Navy_Tangle-BTPM0526N1ZA23FA-image1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -932,12 +932,12 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/51/Textured_Leather_Belt_In_Wine_Tarak-BTPM0508E1ZA23FA-image1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/51/Textured_Leather_Belt_In_Wine_Tarak-BTPM0508E1ZA23FA-image1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"
@@ -956,12 +956,12 @@
                                 <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
-                                                class="product position-relative"
+                                                class="belts position-relative"
                                                 style="width: 19rem"
                                         >
                                             <div class="product__image">
                                                 <img
-                                                        src="assets/images/product/Images/54/techpro-textured-elastic-belt-in-grey-salyer-blackberrys-clothing-1_1024x1024.webp"
+                                                        src="assets/images/belts/Images/54/techpro-textured-elastic-belt-in-grey-salyer-blackberrys-clothing-1_1024x1024.webp"
                                                         class="img-fluid"
                                                         alt="Leather Belt"
                                                         style="width: 19rem"

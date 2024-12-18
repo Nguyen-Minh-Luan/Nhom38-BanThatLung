@@ -1,6 +1,6 @@
 package com.thomas.controller;
 
-import com.thomas.dao.model.Product;
+import com.thomas.dao.model.belts;
 import com.thomas.services.UploadProductService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -11,10 +11,9 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-@WebServlet(name = "createProductController", value = "/admin/table/products/createProduct")
+@WebServlet(name = "createProductController", value = "/admin/table/belts/createProduct")
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2,
         maxFileSize = 1024 * 1024 * 10,
@@ -30,11 +29,11 @@ public class createProductController extends HttpServlet {
         String beltIdParam = request.getParameter("id");
         if (beltIdParam != null) {
             int beltId = Integer.parseInt(beltIdParam);
-            Product product = uploadProductService.getProductById(beltId);
-            String[] image = uploadProductService.getProductImages(beltId);
+            belts belts = uploadProductService.getProductById(beltId);
+            List<String> image = uploadProductService.getProductImages(beltId);
             String[] tagsArray = uploadProductService.getTags(beltId);
-            if (product != null) {
-                request.setAttribute("product", product);
+            if (belts != null) {
+                request.setAttribute("product", belts);
                 int count = 0;
                 for (String s : image) {
                     request.setAttribute("image" + count, s);
@@ -54,10 +53,10 @@ public class createProductController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
         int productId = 0;
-        if (request.getParameter("beltId") != null) {
+        if (request.getParameter("beltId") != null && !request.getParameter("beltId").isEmpty()) {
             productId = Integer.parseInt(request.getParameter("beltId"));
         }
-        String message = request.getParameter("message");
+        String message = request.getParameter("message").trim();
         String productName = request.getParameter("beltName");
         String[] tags = request.getParameter("tags").split(" ");
         String releaseDateString = request.getParameter("releaseDate");

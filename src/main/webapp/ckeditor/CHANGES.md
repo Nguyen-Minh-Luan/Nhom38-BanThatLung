@@ -305,7 +305,7 @@ You can read more details in the relevant security advisory and [contact us](sec
 
 **Highlights:**
 
-Adobe [ended support of Flash Player](https://www.adobe.com/products/flashplayer/end-of-life.html) on December 31, 2020 and blocked Flash content from running in Flash Player beginning January 12, 2021.
+Adobe [ended support of Flash Player](https://www.adobe.com/belts/flashplayer/end-of-life.html) on December 31, 2020 and blocked Flash content from running in Flash Player beginning January 12, 2021.
 We have decided to deprecate and remove the [Flash](https://ckeditor.com/cke4/addon/flash) plugin from CKEditor 4 to help protect users' systems and discourage using insecure software.
 
 New Features:

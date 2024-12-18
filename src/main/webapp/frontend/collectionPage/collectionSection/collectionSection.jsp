@@ -59,11 +59,11 @@
     <div class="container">
         <div class="row">
             <div class="col-6 image__Collumn">
-                <img src="${pageContext.request.contextPath}/assets/images/product/product detail/image1 (1).jpg"
+                <img src="${pageContext.request.contextPath}/assets/images/belts/belts detail/image1 (1).jpg"
                      alt=""/>
             </div>
             <div class="col-6 image__Collumn">
-                <img src="${pageContext.request.contextPath}/assets/images/product/product detail/image1 (1).jpg"
+                <img src="${pageContext.request.contextPath}/assets/images/belts/belts detail/image1 (1).jpg"
                      alt=""/>
             </div>
         </div>

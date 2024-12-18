@@ -41,7 +41,8 @@ public class userProfileController extends HttpServlet {
             String birthdayString = request.getParameter("birthDate");
             LocalDate birthday = LocalDate.parse(birthdayString, formatter);
             String username = request.getParameter("userName");
-            uploadUserService.updateUserInfo(userId, gender, birthday);
+            long phoneNumber = Long.parseLong(request.getParameter("phoneNumber"));
+            uploadUserService.updateUserInfo(userId, gender, birthday, phoneNumber);
             String uploadPath = request.getServletContext().getRealPath("") + File.separator + ULOAD_DIR;
             handleFileUpload(request, username, uploadPath, uploadUserService, userId);
             response.sendRedirect("/userProfile");

@@ -255,7 +255,7 @@
 
     <!-- Product Header -->
     <div class="container">
-      <div class="product-header">Sản Phẩm</div>
+      <div class="belts-header">Sản Phẩm</div>
     </div>
 
     <!-- Filter and Sort -->
@@ -310,10 +310,10 @@
             <!-- Sản phẩm -->
             <div class="col product__col">
               <a href="../productDetail/productDetail.jsp">
-                <div class="product">
+                <div class="belts">
                   <div class="product__image">
                     <img
-                      src="${pageContext.request.contextPath}/assets/images/product/Images/32/1.avif"
+                      src="${pageContext.request.contextPath}/assets/images/belts/Images/32/1.avif"
                       class="img-fluid"
                       alt="Leather Belt"
                     />
@@ -329,10 +329,10 @@
             </div>
             <div class="col product__col">
               <a href="../productDetail/productDetail.jsp">
-                <div class="product">
+                <div class="belts">
                   <div class="product__image">
                     <img
-                      src="${pageContext.request.contextPath}/assets/images/product/Images/31/1.avif"
+                      src="${pageContext.request.contextPath}/assets/images/belts/Images/31/1.avif"
                       class="img-fluid"
                       alt="Leather Belt"
                     />
@@ -346,10 +346,10 @@
             </div>
             <div class="col product__col">
               <a href="../productDetail/productDetail.jsp">
-                <div class="product">
+                <div class="belts">
                   <div class="product__image">
                     <img
-                      src="${pageContext.request.contextPath}/assets/images/product/Images/canvas/that-lung-vai-H001-4.jpg"
+                      src="${pageContext.request.contextPath}/assets/images/belts/Images/canvas/that-lung-vai-H001-4.jpg"
                       class="img-fluid"
                       alt="Leather Belt"
                     />
@@ -363,10 +363,10 @@
             </div>
             <div class="col product__col">
               <a href="../productDetail/productDetail.jsp">
-                <div class="product">
+                <div class="belts">
                   <div class="product__image">
                     <img
-                      src="../assets/images/product/Images/27/1.avif"
+                      src="../assets/images/belts/Images/27/1.avif"
                       class="img-fluid"
                       alt="Leather Belt"
                     />
@@ -380,10 +380,10 @@
             </div>
             <div class="col product__col">
               <a href="../productDetail/productDetail.jsp">
-                <div class="product" style="width: 23.5rem">
+                <div class="belts" style="width: 23.5rem">
                   <div class="product__image">
                     <img
-                      src="../assets/images/product/Images/women/leather/that-lung-day-ban-nhan-chi-noi---wai-0041---mau-be-dam__78782__1732785622-medium.jpg"
+                      src="../assets/images/belts/Images/women/leather/that-lung-day-ban-nhan-chi-noi---wai-0041---mau-be-dam__78782__1732785622-medium.jpg"
                       class="img-fluid"
                       alt="Leather Belt"
                     />
@@ -399,10 +399,10 @@
             </div>
             <div class="col product__col">
               <a href="../productDetail/productDetail.jsp">
-                <div class="product" style="width: 23.5rem">
+                <div class="belts" style="width: 23.5rem">
                   <div class="product__image">
                     <img
-                      src="../assets/images/product/Images/women/leather/that-lung-day-ban-nhan-chi-noi---wai-0041---mau-den__78784__1732785701-medium.jpg"
+                      src="../assets/images/belts/Images/women/leather/that-lung-day-ban-nhan-chi-noi---wai-0041---mau-den__78784__1732785701-medium.jpg"
                       class="img-fluid"
                       alt="Leather Belt"
                     />
@@ -416,10 +416,10 @@
             </div>
             <div class="col product__col">
               <a href="../productDetail/productDetail.jsp">
-                <div class="product">
+                <div class="belts">
                   <div class="product__image">
                     <img
-                      src="../assets/images/product/Images/women/canvas/ae91a035409527d29e8128c91e5ded54.webp"
+                      src="../assets/images/belts/Images/women/canvas/ae91a035409527d29e8128c91e5ded54.webp"
                       class="img-fluid"
                       alt="Leather Belt"
                     />
@@ -433,10 +433,10 @@
             </div>
             <div class="col product__col">
               <a href="../productDetail/productDetail.jsp">
-                <div class="product">
+                <div class="belts">
                   <div class="product__image">
                     <img
-                      src="../assets/images/product/Images/28/1.avif"
+                      src="../assets/images/belts/Images/28/1.avif"
                       class="img-fluid"
                       alt="Leather Belt"
                     />
@@ -450,10 +450,10 @@
             </div>
             <div class="col product__col">
               <a href="../productDetail/productDetail.jsp">
-                <div class="product">
+                <div class="belts">
                   <div class="product__image">
                     <img
-                      src="../assets/images/product/Images/canvas/that-lung-vai-H006-4.jpg"
+                      src="../assets/images/belts/Images/canvas/that-lung-vai-H006-4.jpg"
                       class="img-fluid"
                       alt="Leather Belt"
                     />
@@ -469,10 +469,10 @@
             </div>
             <div class="col product__col">
               <a href="../productDetail/productDetail.jsp">
-                <div class="product">
+                <div class="belts">
                   <div class="product__image">
                     <img
-                      src="../assets/images/product/Images/30/1.avif"
+                      src="../assets/images/belts/Images/30/1.avif"
                       class="img-fluid"
                       alt="Leather Belt"
                     />
@@ -486,10 +486,10 @@
             </div>
             <div class="col product__col">
               <a href="../productDetail/productDetail.jsp">
-                <div class="product">
+                <div class="belts">
                   <div class="product__image">
                     <img
-                      src="../assets/images/product/Images/31/1.avif"
+                      src="../assets/images/belts/Images/31/1.avif"
                       class="img-fluid"
                       alt="Leather Belt"
                     />
@@ -503,10 +503,10 @@
             </div>
             <div class="col product__col">
               <a href="../productDetail/productDetail.jsp">
-                <div class="product">
+                <div class="belts">
                   <div class="product__image">
                     <img
-                      src="../assets/images/product/Images/32/1.avif"
+                      src="../assets/images/belts/Images/32/1.avif"
                       class="img-fluid"
                       alt="Leather Belt"
                     />

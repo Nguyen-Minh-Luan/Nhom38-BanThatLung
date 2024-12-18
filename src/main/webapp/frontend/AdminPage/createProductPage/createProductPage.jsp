@@ -4,7 +4,6 @@
 <c:choose>
     <c:when test="${param.id!=null}">
         <jsp:useBean id="tags" scope="request" type="java.lang.String"/>
-        <jsp:useBean id="product" scope="request" type="com.thomas.dao.model.Product"/>
     </c:when>
 </c:choose>
 <!DOCTYPE html>
@@ -150,7 +149,7 @@
                     >Người dùng</a
                     >
                     <a class="collapse-item active"
-                       href="${pageContext.request.contextPath}/admin/table/products">Sản
+                       href="${pageContext.request.contextPath}/admin/table/belts">Sản
                         phẩm</a>
                     <a class="collapse-item"
                        href="${pageContext.request.contextPath}/admin/table/reviews"
@@ -202,7 +201,7 @@
                                 <div class="d-inline-block p-3">
                                     <a
                                             class="text-decoration-none fs-4 custom_active"
-                                            href="${pageContext.request.contextPath}/admin/table/products/createProduct?id=${param.id}&message=update"
+                                            href="${pageContext.request.contextPath}/admin/table/belts/createProduct?id=${param.id}&message=update"
                                             style="font-size: 32px"
                                     >Tổng quan</a
                                     >
@@ -210,7 +209,7 @@
                                 <div class="d-inline-block p-3 ms-0">
                                     <a
                                             class="text-decoration-none"
-                                            href="${pageContext.request.contextPath}/admin/table/products/createProductDescription?id=${param.id}&message=update"
+                                            href="${pageContext.request.contextPath}/admin/table/belts/createProductDescription?id=${param.id}&message=update"
                                             style="font-size: 32px"
                                     >Mô tả</a>
 
@@ -415,7 +414,7 @@
                                                 type="text"
                                                 class="col form-control form-control-lg custom_design custom__border"
                                                 placeholder="Nhập tên sản phẩm"
-                                                value="${product.name}"
+                                                value="${belts.name}"
 
                                         />
                                     </div>
@@ -457,7 +456,7 @@
                                         </p>
                                         <input name="releaseDate" type="date"
                                                class="col form-control form-control-lg custom_design custom__border"
-                                               value="${product.releaseDate}"
+                                               value="${belts.releaseDate}"
                                         />
                                     </div>
                                     <div class="row mb-3">
@@ -471,7 +470,7 @@
                                                 type="number"
                                                 class="col form-control form-control-lg custom_design custom__border"
                                                 placeholder="Nhập giá sản phẩm"
-                                                value="${product.price}"
+                                                value="${belts.price}"
                                         />
                                     </div>
                                     <div class="row mb-3">
@@ -485,7 +484,7 @@
                                                 type="number"
                                                 class="col form-control form-control-lg custom_design custom__border"
                                                 placeholder="Nhập số lượng khách hàng có thể chọn"
-                                                value="${product.stockQuantity}"
+                                                value="${belts.stockQuantity}"
                                         />
                                     </div>
                                     <div class="row mb-3">
@@ -502,7 +501,7 @@
                                                         name="gender"
                                                         id="exampleRadios1"
                                                         value="M"
-                                                ${product.gender == 'M' ? 'checked' : ''}
+                                                ${belts.gender == 'M' ? 'checked' : ''}
                                                 />
                                                 <label class="form-check-label mb-1 p-sm-1 fs-5"
                                                        for="exampleRadios1">
@@ -516,7 +515,7 @@
                                                         name="gender"
                                                         id="exampleRadios2"
                                                         value="N"
-                                                ${product.gender == 'N' ? 'checked' : ''}
+                                                ${belts.gender == 'N' ? 'checked' : ''}
                                                 />
                                                 <label class="form-check-label mb-1 p-sm-1 fs-5"
                                                        for="exampleRadios2">
@@ -534,7 +533,7 @@
                                                 id="isDeleted"
                                                 name="isDeleted"
                                                 value="1"
-                                        ${product.isDeleted == 1 ? "checked" : ""}
+                                        ${belts.isDeleted == 1 ? "checked" : ""}
                                         />
                                         <input type="hidden" name="isDeleted" value="0"/>
                                     </div>
@@ -548,7 +547,7 @@
                                                 type="number"
                                                 name="discountPercent"
                                                 class="col form-control form-control-lg custom_design custom__border"
-                                                value="${product.discountPercent}"
+                                                value="${belts.discountPercent}"
                                         />
                                     </div>
                                     <%--                                    <div class="row mb-3">--%>

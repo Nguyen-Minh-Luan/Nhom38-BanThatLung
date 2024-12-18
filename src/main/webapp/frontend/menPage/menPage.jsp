@@ -177,7 +177,7 @@
 
 <!-- Product Header -->
 <div class="container">
-    <div class="product-header">Thắt Lưng Vải Canvas Nam</div>
+    <div class="belts-header">Thắt Lưng Vải Canvas Nam</div>
 </div>
 
 <!-- Filter and Sort -->
@@ -221,9 +221,9 @@
                 <!-- Sản phẩm -->
                 <div class="col product__col">
                     <a href="../productDetail/productDetail.jsp">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="${pageContext.request.contextPath}/assets/images/product/Images/canvas/that-lung-vai-H001-4.jpg"
+                                <img src="${pageContext.request.contextPath}/assets/images/belts/Images/canvas/that-lung-vai-H001-4.jpg"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -235,9 +235,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="${pageContext.request.contextPath}/assets/images/product/Images/canvas/that-lung-vai-H002-8.jpg"
+                                <img src="${pageContext.request.contextPath}/assets/images/belts/Images/canvas/that-lung-vai-H002-8.jpg"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -249,9 +249,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="${pageContext.request.contextPath}/assets/images/product/Images/canvas/that-lung-vai-H003-3.jpg"
+                                <img src="${pageContext.request.contextPath}/assets/images/belts/Images/canvas/that-lung-vai-H003-3.jpg"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -263,9 +263,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="${pageContext.request.contextPath}/assets/images/product/Images/canvas/that-lung-vai-H006-4.jpg"
+                                <img src="${pageContext.request.contextPath}/assets/images/belts/Images/canvas/that-lung-vai-H006-4.jpg"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -277,9 +277,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="${pageContext.request.contextPath}/assets/images/product/Images/canvas/that-lung-vai-H007-5.jpg"
+                                <img src="${pageContext.request.contextPath}/assets/images/belts/Images/canvas/that-lung-vai-H007-5.jpg"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -291,9 +291,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="${pageContext.request.contextPath}/assets/images/product/Images/canvas/that-lung-vai-H008-3.jpg"
+                                <img src="${pageContext.request.contextPath}/assets/images/belts/Images/canvas/that-lung-vai-H008-3.jpg"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -305,9 +305,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="${pageContext.request.contextPath}/assets/images/product/Images/canvas/that-lung-vai-H001-4.jpg"
+                                <img src="${pageContext.request.contextPath}/assets/images/belts/Images/canvas/that-lung-vai-H001-4.jpg"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -319,9 +319,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="${pageContext.request.contextPath}/assets/images/product/Images/canvas/that-lung-vai-H008-3.jpg"
+                                <img src="${pageContext.request.contextPath}/assets/images/belts/Images/canvas/that-lung-vai-H008-3.jpg"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -333,9 +333,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="${pageContext.request.contextPath}/assets/images/product/Images/canvas/that-lung-vai-H002-8.jpg"
+                                <img src="${pageContext.request.contextPath}/assets/images/belts/Images/canvas/that-lung-vai-H002-8.jpg"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -347,9 +347,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="${pageContext.request.contextPath}/assets/images/product/Images/canvas/that-lung-vai-H003-3.jpg"
+                                <img src="${pageContext.request.contextPath}/assets/images/belts/Images/canvas/that-lung-vai-H003-3.jpg"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -362,9 +362,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="${pageContext.request.contextPath}/assets/images/product/Images/canvas/that-lung-vai-H006-4.jpg"
+                                <img src="${pageContext.request.contextPath}/assets/images/belts/Images/canvas/that-lung-vai-H006-4.jpg"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">
@@ -376,9 +376,9 @@
                 </div>
                 <div class="col product__col">
                     <a href="">
-                        <div class="product">
+                        <div class="belts">
                             <div class="product__image">
-                                <img src="${pageContext.request.contextPath}/assets/images/product/Images/canvas/that-lung-vai-H007-5.jpg"
+                                <img src="${pageContext.request.contextPath}/assets/images/belts/Images/canvas/that-lung-vai-H007-5.jpg"
                                      class="img-fluid" alt="Leather Belt">
                             </div>
                             <div class="product__title">

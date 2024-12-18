@@ -2,7 +2,7 @@ package com.thomas.dao.model;
 
 import java.time.LocalDate;
 
-public class Review implements java.io.Serializable {
+public class Reviews implements java.io.Serializable {
     private int id;
     private int beltId;
     private int userId;
@@ -11,11 +11,11 @@ public class Review implements java.io.Serializable {
     private int reviewerStar;
     private String reviewerName;
     private String beltName;
-    public Review() {
+    public Reviews() {
 
     }
 
-    public Review(int id, int beltId, int userId, String content, LocalDate createdAt, int reviewerStar, String reviewerName, String beltName) {
+    public Reviews(int id, int beltId, int userId, String content, LocalDate createdAt, int reviewerStar, String reviewerName, String beltName) {
         this.id = id;
         this.beltId = beltId;
         this.userId = userId;

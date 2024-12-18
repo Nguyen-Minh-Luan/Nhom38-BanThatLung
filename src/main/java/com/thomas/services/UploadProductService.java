@@ -3,12 +3,13 @@ package com.thomas.services;
 import com.thomas.dao.BeltCategoryDao;
 import com.thomas.dao.CategoryDao;
 import com.thomas.dao.ProductDao;
-import com.thomas.dao.db.JDBIConnect;
 import com.thomas.dao.model.BeltCategory;
+import com.thomas.dao.model.belts;
 import com.thomas.dao.model.Category;
-import com.thomas.dao.model.Product;
 
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class UploadProductService {
@@ -22,11 +23,11 @@ public class UploadProductService {
         beltCategoryDao = new BeltCategoryDao();
     }
 
-    public List<Product> getProducts() {
+    public List<belts> getProducts() {
         return productDao.getAllProducts();
     }
 
-    public String[] getProductImages(int beltId) {
+    public List<String> getProductImages(int beltId) {
         return productDao.getProductImages(beltId);
 
     }
@@ -41,16 +42,16 @@ public class UploadProductService {
 
     public void saveProduct(String productName, String[] tags, double discountPercent, LocalDate releaseDate, String gender, double price, int stockQuantity, String material, int isDeleted) {
 
-        Product product = new Product();
-        product.setName(productName);
-        product.setPrice(price);
-        product.setReleaseDate(releaseDate);
-        product.setGender(gender);
-        product.setStockQuantity(stockQuantity);
-        product.setMaterialBelt(material);
-        product.setIsDeleted(isDeleted);
-        product.setDiscountPercent(discountPercent);
-        boolean isCreated = productDao.createProduct(product);
+        belts belts = new belts();
+        belts.setName(productName);
+        belts.setPrice(price);
+        belts.setReleaseDate(releaseDate);
+        belts.setGender(gender);
+        belts.setStockQuantity(stockQuantity);
+        belts.setMaterialBelt(material);
+        belts.setIsDeleted(isDeleted);
+        belts.setDiscountPercent(discountPercent);
+        boolean isCreated = productDao.createProduct(belts);
         int id = 0;
         if (isCreated) {
             id = productDao.getLatestProductId();
@@ -87,21 +88,21 @@ public class UploadProductService {
         return bc;
     }
 
-    public Product getProductById(int productId) {
+    public belts getProductById(int productId) {
         return productDao.getProduct(productId);
     }
 
     public void updateProduct(int id, String productName, String[] tags, double discountPercent, LocalDate releaseDate, String gender, double price, int stockQuantity, String material, int isDeleted) {
-        Product product = productDao.findById(id);
-        product.setName(productName);
-        product.setPrice(price);
-        product.setReleaseDate(releaseDate);
-        product.setGender(gender);
-        product.setStockQuantity(stockQuantity);
-        product.setMaterialBelt(material);
-        product.setDiscountPercent(discountPercent);
-        product.setIsDeleted(isDeleted);
-        int beltId = productDao.findById(product.getId()).getId();
+        belts belts = productDao.findById(id);
+        belts.setName(productName);
+        belts.setPrice(price);
+        belts.setReleaseDate(releaseDate);
+        belts.setGender(gender);
+        belts.setStockQuantity(stockQuantity);
+        belts.setMaterialBelt(material);
+        belts.setDiscountPercent(discountPercent);
+        belts.setIsDeleted(isDeleted);
+        int beltId = productDao.findById(belts.getId()).getId();
         if (beltId <= 0) {
             return;
         }
@@ -113,7 +114,7 @@ public class UploadProductService {
             }
         }
 
-        productDao.updateProduct(product);
+        productDao.updateProduct(belts);
     }
 
     public boolean deleteProduct(int productId) {
@@ -153,7 +154,28 @@ public class UploadProductService {
             }
 
         }
-
     }
 
+    public List<belts> getNewArrivalProducts() {
+        List<belts> newArrivalBelts = productDao.getAllProducts();
+        for (belts belt : newArrivalBelts) {
+            belt.setImage(productDao.getProductImages(belt.getId()));
+
+        }
+        Collections.sort(newArrivalBelts, new Comparator<belts>() {
+            @Override
+            public int compare(belts o1, belts o2) {
+                return o1.getCreatedDate().compareTo(o2.getCreatedDate());
+            }
+        });
+        return newArrivalBelts;
+    }
+
+    public List<Category> getAllCategoriesById(int beltId) {
+        return beltCategoryDao.getCategoriesByBeltIdAndCategoryId(beltId);
+    }
+
+    public List<String> getAllDescImage(int beltId) {
+        return productDao.getDescImage(beltId);
+    }
 }

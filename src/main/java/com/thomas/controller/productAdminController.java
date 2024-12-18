@@ -1,19 +1,15 @@
 package com.thomas.controller;
 
-import com.thomas.dao.model.Product;
+import com.thomas.dao.model.belts;
 import com.thomas.services.UploadProductService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "productAdminController", value = "/admin/table/products")
+@WebServlet(name = "productAdminController", value = "/admin/table/belts")
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2,
         maxFileSize = 1024 * 1024 * 10,
@@ -25,7 +21,7 @@ public class productAdminController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product> beltList = uploadProductService.getProducts();
+        List<belts> beltList = uploadProductService.getProducts();
         request.setAttribute("beltList", beltList);
         request.getRequestDispatcher("/frontend/AdminPage/allProduct/allProduct.jsp").forward(request, response);
     }

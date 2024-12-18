@@ -41,7 +41,7 @@ public class UserDao {
                     .bind("email", user.getEmail())
                     .bind("gender", user.getGender())
                     .bind("dateOfBirth", user.getDateOfBirth())
-                    .bind("phone", user.getPhone())
+                    .bind("phone", user.getPhoneNumber())
                     .bind("role", user.getRole())
                     .bind("isDeleted", user.getIsDeleted())
                     .bind("userId", user.getId())
@@ -80,7 +80,7 @@ public class UserDao {
                     user.setCreateAt(rs.getDate("createAt").toLocalDate());
                     user.setIsDeleted(rs.getInt("isDeleted"));
                     user.setGender(rs.getString("gender"));
-                    user.setPhone(rs.getLong("phoneNumber"));
+                    user.setPhoneNumber(rs.getLong("phoneNumber"));
                     user.setRole(rs.getInt("role"));
                     userList.add(user);
                 }
@@ -137,7 +137,7 @@ public class UserDao {
                     .bind("isDeleted", user.getIsDeleted())
                     .bind("role", user.getRole())
                     .bind("gender", user.getGender())
-                    .bind("phoneNumber", user.getPhone())
+                    .bind("phoneNumber", user.getPhoneNumber())
                     .bind("isActive", user.getIsActive())
                     .execute() > 0;
         });
@@ -160,6 +160,13 @@ public class UserDao {
         JDBIConnect.get().withHandle(h -> {
             String sql = "Update users SET image = :image WHERE id = :id";
             return h.createUpdate(sql).bind("image", user.getImage()).bind("id", user.getId()).execute() > 0;
+        });
+    }
+
+    public boolean softDeleteUser(int userId) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "UPDATE users SET isDeleted = 1 WHERE id = :id";
+            return h.createUpdate(sql).bind("id", userId).execute() > 0;
         });
     }
 }

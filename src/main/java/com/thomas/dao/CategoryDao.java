@@ -27,4 +27,5 @@ public class CategoryDao {
             return h.createQuery(sql).mapTo(Integer.class).first();
         });
     }
+
 }

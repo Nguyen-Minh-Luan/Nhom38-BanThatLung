@@ -142,7 +142,7 @@
                     >Người dùng</a
                     >
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/admin/table/products">Sản
+                       href="${pageContext.request.contextPath}/admin/table/belts">Sản
                         phẩm</a>
                     <a
                             class="collapse-item"

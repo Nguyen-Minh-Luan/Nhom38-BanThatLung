@@ -143,7 +143,7 @@
                     >Người dùng</a
                     >
                     <a class="collapse-item active"
-                       href="${pageContext.request.contextPath}/admin/table/products">Sản
+                       href="${pageContext.request.contextPath}/admin/table/belts">Sản
                         phẩm</a>
                     <a class="collapse-item"
                        href="${pageContext.request.contextPath}/admin/table/reviews"
@@ -447,7 +447,7 @@
                                         <td class="text-center">
                                             <input type="hidden" name="beltId" value="${belt.id}"/>
                                             <input type="hidden" name="message" value="update"/>
-                                            <a href="${pageContext.request.contextPath}/admin/table/products/createProduct?id=${belt.id}&message=update"
+                                            <a href="${pageContext.request.contextPath}/admin/table/belts/createProduct?id=${belt.id}&message=update"
                                                class="btn btn-dark fa-solid fa-pen-to-square"></a>
 
                                             <button
@@ -531,7 +531,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <form class="deleteBtn" action="/admin/table/products" method="post">
+                    <form class="deleteBtn" action="/admin/table/belts" method="post">
                         <button type="submit" class="btn btn-danger">Xóa</button>
                     </form>
                 </div>

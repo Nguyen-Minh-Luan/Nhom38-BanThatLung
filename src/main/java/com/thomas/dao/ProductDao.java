@@ -1,7 +1,7 @@
 package com.thomas.dao;
 
 import com.thomas.dao.db.JDBIConnect;
-import com.thomas.dao.model.Product;
+import com.thomas.dao.model.belts;
 import org.jdbi.v3.core.Handle;
 
 import java.sql.ResultSet;
@@ -9,16 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDao {
-    public boolean createProduct(Product product) {
+    public boolean createProduct(belts belts) {
         return JDBIConnect.get().withHandle(h -> {
-            String sql = "INSERT INTO belts ( name, releaseDate, gender, price,stockQuantity ,materialBelt,isDeleted) VALUES (:productName,:description,:releaseDate,:gender,:price,:stockQuantity,:material,:isDeleted)";
-            return h.createUpdate(sql).bind("productName", product.getName())
-                    .bind("releaseDate", product.getReleaseDate())
-                    .bind("gender", product.getGender())
-                    .bind("price", product.getPrice())
-                    .bind("stockQuantity", product.getStockQuantity())
-                    .bind("material", product.getMaterialBelt())
-                    .bind("isDeleted", product.getIsDeleted())
+            String sql = "INSERT INTO belts ( name, releaseDate, gender, price,stockQuantity ,materialBelt,isDeleted) VALUES (:productName,:releaseDate,:gender,:price,:stockQuantity,:material,:isDeleted)";
+            return h.createUpdate(sql).bind("productName", belts.getName())
+                    .bind("releaseDate", belts.getReleaseDate())
+                    .bind("gender", belts.getGender())
+                    .bind("price", belts.getPrice())
+                    .bind("stockQuantity", belts.getStockQuantity())
+                    .bind("material", belts.getMaterialBelt())
+                    .bind("isDeleted", belts.getIsDeleted())
                     .execute() > 0;
         });
     }
@@ -42,17 +42,16 @@ public class ProductDao {
     }
 
 
-    public String[] getProductImages(int beltId) {
-        return JDBIConnect.get().withHandle(handle -> {
-            List<String> imagePaths = handle.createQuery(
-                            "SELECT imagePath FROM imageEntry WHERE beltId = :beltId AND imageType IN ('main', 'extra')")
-                    .bind("beltId", beltId)
-                    .mapTo(String.class)
-                    .list();
-
-            return imagePaths.toArray(new String[0]);
-        });
+    public List<String> getProductImages(int beltId) {
+        return JDBIConnect.get().withHandle(handle ->
+                handle.createQuery(
+                                "SELECT imagePath FROM imageEntry WHERE beltId = :beltId AND imageType IN ('main', 'extra')")
+                        .bind("beltId", beltId)
+                        .mapTo(String.class)
+                        .list()
+        );
     }
+
 
     public void saveDesc(int beltId, String desc) {
         JDBIConnect.get().withHandle(h -> {
@@ -65,74 +64,73 @@ public class ProductDao {
     }
 
 
-    public Product getProduct(int id) {
-        Product product = new Product();
+    public belts getProduct(int id) {
+        belts belts = new belts();
         return JDBIConnect.get().withHandle(handle -> {
             String sql = "SELECT * FROM belts ORDER BY id DESC";
             try (Handle h = handle) {
-                h.execute(sql);
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
                 while (rs.next()) {
-                    product.setId(rs.getInt("id"));
-                    product.setName(rs.getString("name"));
-                    product.setDescription(rs.getString("description"));
-                    product.setPrice(rs.getDouble("price"));
-                    product.setGender(rs.getString("gender"));
-                    product.setStockQuantity(rs.getInt("stockQuantity"));
-                    product.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
-                    product.setCreateDate(rs.getDate("createdAt").toLocalDate());
-                    product.setUpdatedDate(rs.getDate("updatedAt").toLocalDate());
-                    product.setIsDeleted(rs.getInt("isDeleted"));
-                    product.setDiscountPercent(rs.getDouble("discountPercent"));
-                    product.setMaterialBelt(rs.getString("materialBelt"));
-                    product.setIsDeleted(rs.getInt("isDeleted"));
+                    belts.setId(rs.getInt("id"));
+                    belts.setName(rs.getString("name"));
+                    belts.setDescription(rs.getString("description"));
+                    belts.setPrice(rs.getDouble("price"));
+                    belts.setGender(rs.getString("gender"));
+                    belts.setStockQuantity(rs.getInt("stockQuantity"));
+                    belts.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
+                    belts.setCreateDate(rs.getDate("createdAt").toLocalDate());
+                    belts.setUpdatedDate(rs.getDate("updatedAt").toLocalDate());
+                    belts.setIsDeleted(rs.getInt("isDeleted"));
+                    belts.setDiscountPercent(rs.getDouble("discountPercent"));
+                    belts.setMaterialBelt(rs.getString("materialBelt"));
+                    belts.setIsDeleted(rs.getInt("isDeleted"));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return product;
+            return belts;
         });
     }
 
-    public List<Product> getAllProducts() {
+    public List<belts> getAllProducts() {
         return JDBIConnect.get().withHandle(handle -> {
             String sql = "SELECT * FROM belts ORDER BY id DESC";
-            List<Product> products = new ArrayList<>();
+            List<belts> belts = new ArrayList<>();
             try (Handle h = handle) {
                 h.execute(sql);
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
                 while (rs.next()) {
-                    Product product = new Product();
-                    product.setId(rs.getInt("id"));
-                    product.setName(rs.getString("name"));
-                    product.setDescription(rs.getString("description"));
-                    product.setPrice(rs.getDouble("price"));
-                    product.setGender(rs.getString("gender"));
-                    product.setStockQuantity(rs.getInt("stockQuantity"));
-                    product.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
-                    product.setCreateDate(rs.getDate("createdAt").toLocalDate());
-                    product.setUpdatedDate(rs.getDate("updatedAt").toLocalDate());
-                    product.setIsDeleted(rs.getInt("isDeleted"));
-                    product.setDiscountPercent(rs.getDouble("discountPercent"));
-                    product.setMaterialBelt(rs.getString("materialBelt"));
-                    product.setIsDeleted(rs.getInt("isDeleted"));
-                    products.add(product);
+                    com.thomas.dao.model.belts belt = new belts();
+                    belt.setId(rs.getInt("id"));
+                    belt.setName(rs.getString("name"));
+                    belt.setDescription(rs.getString("description"));
+                    belt.setPrice(rs.getDouble("price"));
+                    belt.setGender(rs.getString("gender"));
+                    belt.setStockQuantity(rs.getInt("stockQuantity"));
+                    belt.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
+                    belt.setCreateDate(rs.getDate("createdAt").toLocalDate());
+                    belt.setUpdatedDate(rs.getDate("updatedAt").toLocalDate());
+                    belt.setIsDeleted(rs.getInt("isDeleted"));
+                    belt.setDiscountPercent(rs.getDouble("discountPercent"));
+                    belt.setMaterialBelt(rs.getString("materialBelt"));
+                    belt.setIsDeleted(rs.getInt("isDeleted"));
+                    belts.add(belt);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return products;
+            return belts;
         });
     }
 
-    public Product findById(int id) {
+    public belts findById(int id) {
         return JDBIConnect.get().withHandle(h -> {
             String sql = "SELECT * FROM belts WHERE id = :id";
-            return h.createQuery(sql).bind("id", id).mapToBean(Product.class).findFirst().orElse(null);
+            return h.createQuery(sql).bind("id", id).mapToBean(belts.class).findFirst().orElse(null);
         });
     }
 
-    public boolean updateProduct(Product product) {
+    public boolean updateProduct(belts belts) {
         return JDBIConnect.get().withHandle(h -> {
             String sql = "UPDATE belts SET name = :productName, " +
                     "releaseDate = :releaseDate, " +
@@ -144,14 +142,14 @@ public class ProductDao {
                     "WHERE id = :id";
 
             return h.createUpdate(sql)
-                    .bind("productName", product.getName())
-                    .bind("releaseDate", product.getReleaseDate())
-                    .bind("gender", product.getGender())
-                    .bind("price", product.getPrice())
-                    .bind("stockQuantity", product.getStockQuantity())
-                    .bind("material", product.getMaterialBelt())
-                    .bind("id", product.getId())
-                    .bind("isDeleted", product.getIsDeleted())
+                    .bind("productName", belts.getName())
+                    .bind("releaseDate", belts.getReleaseDate())
+                    .bind("gender", belts.getGender())
+                    .bind("price", belts.getPrice())
+                    .bind("stockQuantity", belts.getStockQuantity())
+                    .bind("material", belts.getMaterialBelt())
+                    .bind("id", belts.getId())
+                    .bind("isDeleted", belts.getIsDeleted())
                     .execute() > 0;
         });
     }
@@ -196,4 +194,10 @@ public class ProductDao {
         });
     }
 
+    public List<String> getDescImage(int beltId) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "SELECT imagePath from imageEntry where beltId = :beltId AND imageType = 'description'";
+            return h.createQuery(sql).bind("beltId", beltId).mapTo(String.class).list();
+        });
+    }
 }

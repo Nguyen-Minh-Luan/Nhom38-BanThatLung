@@ -70,14 +70,14 @@
         <div class="d-inline-block fw-bold" style="padding: 12px">
             <a
                     class="text-dark text-decoration-none custom_size--19"
-                    href="${pageContext.request.contextPath}/frontend/userInfoPage/address/address.jsp"
+                    href="${pageContext.request.contextPath}/userAddress?userId=${sessionScope.auth.id}"
             >Địa chỉ</a
             >
         </div>
         <div class="d-inline-block fw-bold" style="padding: 12px">
             <a
                     class="text-dark text-decoration-none custom_size--19"
-                    href="${pageContext.request.contextPath}/frontend/userInfoPage/privacy/privacy.jsp"
+                    href="${pageContext.request.contextPath}/userPrivacy"
             >Riêng tư</a
             >
         </div>
@@ -140,6 +140,19 @@
                             type="date"
                             name="birthDate"
                             placeholder="birthDate"
+
+                    />
+                </div>
+            </div>
+            <div class="d-flex mt-3">
+                <p class="font-weight-bold mr-5">Số điện thoại:</p>
+                <div class="d-flex justify-content-center align-items-center ml-3">
+                    <input
+                            value="${sessionScope.auth.phoneNumber}"
+                            class="mb-3 ms-4"
+                            type="text"
+                            name="phoneNumber"
+                            placeholder="Số điện thoại"
 
                     />
                 </div>

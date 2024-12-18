@@ -47,7 +47,7 @@
     </nav>
 </div>
 <div class="container">
-    <div class="product-header">Bộ sưu tập</div>
+    <div class="belts-header">Bộ sưu tập</div>
 </div>
 <div class="container">
     <img src="${pageContext.request.contextPath}/assets/images/collection.png" alt="" style="width: 100%"/>

@@ -66,7 +66,7 @@
               <img
                 src="${pageContext.request.contextPath}/assets/images/victor_sample1.png"
                 alt="Product Image"
-                class="product-img img-fluid"
+                class="belts-img img-fluid"
               />
               Thắt Lưng Hai Mặt LV Heritage 35MM
             </td>
@@ -84,7 +84,7 @@
               <img
                 src="${pageContext.request.contextPath}/assets/images/victor_sample1.png"
                 alt="Product Image"
-                class="product-img img-fluid"
+                class="belts-img img-fluid"
               />
               Thắt Lưng Hai Mặt LV Heritage 35MM
             </td>
@@ -102,7 +102,7 @@
               <img
                 src="${pageContext.request.contextPath}/assets/images/victor_sample1.png"
                 alt="Product Image"
-                class="product-img img-fluid"
+                class="belts-img img-fluid"
               />
               Thắt Lưng Hai Mặt LV Heritage 35MM
             </td>

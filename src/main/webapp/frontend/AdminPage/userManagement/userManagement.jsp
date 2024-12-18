@@ -142,7 +142,7 @@
                     >Người dùng</a
                     >
                     <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/admin/table/products">Sản
+                       href="${pageContext.request.contextPath}/admin/table/belts">Sản
                         phẩm</a>
                     <a class="collapse-item"
                        href="${pageContext.request.contextPath}/admin/table/reviews"
@@ -476,7 +476,7 @@
                         <div class="card shadow mb-4">
                             <div class="card-header py-3" style="background-color: black">
                                 <h6 class="m-0 font-weight-bold" style="color: white">
-                                    Người dùng review nhiều nhất
+                                    Người dùng reviews nhiều nhất
                                 </h6>
                             </div>
                             <div class="card-body">

@@ -39,7 +39,7 @@ public class userAdminController extends HttpServlet {
                     out.write("\"gender\": \"" + user.getGender() + "\",");
                     out.write("\"role\": " + user.getRole() + ",");
                     out.write("\"birthDate\": \"" + user.getDateOfBirth() + "\",");
-                    out.write("\"phoneNumber\": \"" + user.getPhone() + "\",");
+                    out.write("\"phoneNumber\": \"" + user.getPhoneNumber() + "\",");
                     out.write("\"isDeleted\": \"" + user.getIsDeleted() + "\"");
                     out.write("}");
                     out.flush();

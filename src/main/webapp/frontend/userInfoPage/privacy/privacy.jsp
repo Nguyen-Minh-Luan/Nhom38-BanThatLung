@@ -54,28 +54,28 @@
         <div class="d-inline-block fw-bold mb-4" style="padding: 12px">
             <a
                     class="text-dark text-decoration-none custom_size--19"
-                    href="${pageContext.request.contextPath}/frontend/userInfoPage/account/userinfo.jsp"
+                    href="${pageContext.request.contextPath}/userInfo"
             >Tài khoản</a
             >
         </div>
         <div class="d-inline-block fw-bold" style="padding: 12px">
             <a
                     class="text-dark text-decoration-none custom_size--19"
-                    href="${pageContext.request.contextPath}/frontend/userInfoPage/profile/profile.jsp"
+                    href="${pageContext.request.contextPath}/userProfile"
             >Hồ sơ</a
             >
         </div>
         <div class="d-inline-block fw-bold" style="padding: 12px">
             <a
                     class="text-dark text-decoration-none custom_size--19"
-                    href="${pageContext.request.contextPath}/frontend/userInfoPage/address/address.jsp"
+                    href="${pageContext.request.contextPath}/userAddress?userId=${sessionScope.auth.id}"
             >Địa chỉ</a
             >
         </div>
         <div class="d-inline-block fw-bold custom_active" style="padding: 12px">
             <a
                     class="text-dark text-decoration-none custom_size--19"
-                    href="${pageContext.request.contextPath}/frontend/userInfoPage/privacy/privacy.jsp"
+                    href="${pageContext.request.contextPath}/userPrivacy"
             >Riêng tư</a
             >
         </div>
@@ -187,7 +187,7 @@
                                     ></button>
                                 </div>
                                 <div class="modal-body fs-4 fw-bold">
-                                    <p>Bạn có chắc muốn xóa tài khoản</p>
+                                    <p style="font-size: 32px;">Bạn có chắc muốn xóa tài khoản</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button
@@ -195,11 +195,15 @@
                                             class="btn btn-secondary"
                                             data-bs-dismiss="modal"
                                     >
-                                        Close
+                                        Hủy
                                     </button>
-                                    <button type="button" class="btn btn-dark">
-                                        Save changes
-                                    </button>
+                                    <form action="${pageContext.request.contextPath}/userPrivacy" method="post">
+                                        <input type="hidden" name="userId" value="${sessionScope.auth.id}">
+                                        <button type="submit" class="btn btn-dark rounded">
+                                            Xóa
+                                        </button>
+                                    </form>
+
                                 </div>
                             </div>
                         </div>
