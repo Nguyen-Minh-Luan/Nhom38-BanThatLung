@@ -11,7 +11,6 @@ public class Review implements java.io.Serializable {
     private int reviewerStar;
     private String reviewerName;
     private String beltName;
-
     public Review() {
 
     }

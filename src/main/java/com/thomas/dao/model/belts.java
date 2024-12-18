@@ -3,6 +3,7 @@ package com.thomas.dao.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Product implements Serializable {
     private int id;
@@ -17,6 +18,7 @@ public class Product implements Serializable {
     private int isDeleted;
     private double discountPercent;
     private String materialBelt;
+    private List<String> image;
 
     public Product() {
 
@@ -144,5 +146,13 @@ public class Product implements Serializable {
 
     public String getFormattedUpdateDate() {
         return updatedDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+    }
+
+    public List<String> getImage() {
+        return image;
+    }
+
+    public void setImage(List<String> image) {
+        this.image = image;
     }
 }
