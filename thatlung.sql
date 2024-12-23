@@ -176,5 +176,6 @@ CREATE TABLE beltViews
     id        INT AUTO_INCREMENT PRIMARY KEY,
     beltId    INT      NOT NULL,
     viewDate  DATETIME NOT NULL,
-    viewCount INT default 1
+    viewCount INT default 1,
+    CONSTRAINT unique_belt_view UNIQUE (beltId, viewDate);
 )

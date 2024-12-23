@@ -160,11 +160,13 @@
                 <i class="fa-solid fa-magnifying-glass fa-l"></i>
             </button>
         </div>
-
-        <a class="nav-item favorite" href="${pageContext.request.contextPath}/frontend/favoritePage/favoritePage.jsp">
-            <img class="nav-icon" src="${pageContext.request.contextPath}/assets/icons/favorite.svg" alt=""/>
-            <span class="favorite__count">0</span>
-        </a>
+        <c:if test="${sessionScope.auth!=null}">
+            <a class="nav-item favorite"
+               href="${pageContext.request.contextPath}/favorite?userId=${sessionScope.auth.id}">
+                <img class="nav-icon" src="${pageContext.request.contextPath}/assets/icons/favorite.svg" alt=""/>
+                <span id="favorite_receive" class="favorite__count">0</span>
+            </a>
+        </c:if>
         <a class="nav-item user user__dropdown" href="#">
             <div class="dropdown text-end dropdown-hover">
                 <c:if test="${sessionScope.auth !=null}">
@@ -248,14 +250,15 @@
             </div>
         </a>
 
-        <a class="nav-item cart" href="${pageContext.request.contextPath}/frontend/cartPage/cartPage.jsp">
+        <a class="nav-item cart" href="${pageContext.request.contextPath}/Cart">
+            <input type="hidden" class="userId" value="${sessionScope.auth.id}">
             <img
                     class="nav-icon"
                     src="${pageContext.request.contextPath}/assets/icons/cart.svg"
                     alt=""
                     style="width: 26px; height: 26px"
             />
-            <span class="nav-item favorite__count">0</span>
+            <span id="cart_received" class="nav-item favorite__count">0</span>
         </a>
     </div>
 </nav>

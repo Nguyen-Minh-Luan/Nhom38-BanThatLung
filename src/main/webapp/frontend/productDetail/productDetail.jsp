@@ -21,11 +21,13 @@
             rel="stylesheet"
             href="${pageContext.request.contextPath}/css/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.css"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css"/>
     <script src="${pageContext.request.contextPath}/js/productDetail.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css"/>
-
+    <script src="${pageContext.request.contextPath}/js/favorite.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/favorite.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/productDetail.css"/>
 </head>
 
@@ -80,8 +82,10 @@
             </div>
         </div>
 
-        <div class="col-md-6" style="position: relative">
-            <h2>${belt.name}</h2>
+        <div class="col-md-6 beltProp" style="position: relative">\
+            <input type="hidden" class="beltId" value="${belt.id}">
+            <input type="hidden" class="userId" value="${sessionScope.auth.id}">
+            <h2 class="product_detail--name">${belt.name}</h2>
             <c:choose>
                 <c:when test="${belt.discountPercent > 0}">
                     <p class="belts-price text-danger">
@@ -103,6 +107,7 @@
             </div>
             <div class="mb-3 mt-3">
                 <label for="quantity" class="form-label"><strong>Số Lượng:</strong></label>
+                <input type="hidden" class="quantity_belt" name="quantity" value="${belt.stockQuantity}">
                 <div class="quantity__control input-group quantity-controls">
                     <button class="btn btn-outline-secondary" type="button" id="decrement">-</button>
                     <input type="text" class="form-control" id="quantity" value="1">
@@ -159,9 +164,10 @@
                          class="accordion-collapse collapse"
                          aria-labelledby="headingCareLabel"
                          data-bs-parent="#productAccordion">
-                        <div class="accordion-body overflow-auto" style="height: 500px;">
+                        <div class="accordion-body overflow-auto d-flex justify-content-center flex-column align-items-center"
+                             style="height: 500px;">
                             <c:forEach var="image" items="${descBeltImage}" varStatus="status">
-                                <img src="${pageContext.request.contextPath}${image}" alt="${status.index}"
+                                <img class="mb-5" src="${pageContext.request.contextPath}${image}" alt="${status.index}"
                                      style="width: 75%">
                             </c:forEach>
                         </div>
@@ -172,194 +178,128 @@
     </div>
 </div>
 <div class="container p-5">
+    <input id="beltIdReviews" type="hidden" name="beltId" value="${belt.id}">
     <div class="col-7">
-        <p class="fs-4">${fn:length(reviewsList)} đánh giá</p>
+        <p class="fs-4">${totalReview} đánh giá</p>
         <div class="d-flex border-bottom mb-3">
             <p class="mb-0">Đánh giá cho sản phẩm này</p>
-            <span class="ps-3 pe-3 pb-1 pt-1 ms-2 bg-light rounded-pill mb-2">${fn:length(reviewsList)}</span>
+            <span class="ps-3 pe-3 pb-1 pt-1 ms-2 bg-light rounded-pill mb-2">${totalReview}</span>
         </div>
-        <c:forEach var="reviews" items="${reviewsList}">
-            <div class="d-flex flex-column">
-                <div class="star-rating animated-stars">
-                    <c:forEach begin="1" end="5" var="star">
-                        <label class="${star <= reviews.ratingStar ? 'bi bi-star-fill text-warning' : 'bi bi-star'}"></label>
-                    </c:forEach>
-                </div>
-                <div class="content_review mt-2">
-                    <p class="mb-1">
-                            ${reviews.content}
-                    </p>
-                </div>
-                <div class="d-flex author_review mt-0 border-bottom">
-                    <p class="fw-light fs-6 text-decoration-underline">
-                            ${reviews.reviewerName}
-                    </p>
-                    <p class="fw-light fs-6 ms-2">${reviews.createdAt}</p>
-                </div>
-            </div>
-        </c:forEach>
+        <div id="reviewsContainer">
+
+        </div>
     </div>
     <section class="mt-3">
         <nav aria-label="Page__navigation__example" id="pagination__bar">
             <div class="container paginationWrapper ps-0">
                 <ul class="pagination pagination__Ul">
-                    <li class="page-item custom_trans">
-                        <a class="page-link text-dark" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link text-dark" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link text-dark" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link text-dark" href="#">3</a>
-                    </li>
-                    <li class="page-item custom_trans">
-                        <a class="page-link text-dark" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
+
                 </ul>
             </div>
         </nav>
     </section>
-    <div class="d-flex flex-column mt-5 custom_bg p-4" style="width: 60%">
-        <h2>Viết đánh giá</h2>
-
-        <div class="row mt-2">
-            <div class="d-flex align-item-center">
-                <img src="${pageContext.request.contextPath}${belt.image[0]}" class=""
-                     alt="..." width="200px"/>
-                <div class="ms-4">
-                    <h5 class="card-title text-start fs-6">
-                        ${belt.name}
-                    </h5>
-                    <div class="star">
-                        <input type="radio" id="star5" name="rating" value="5">
-                        <label for="star5" class="bi bi-star-fill"></label>
-                        <input type="radio" id="star4" name="rating" value="4">
-                        <label for="star4" class="bi bi-star-fill"></label>
-                        <input type="radio" id="star3" name="rating" value="3">
-                        <label for="star3" class="bi bi-star-fill"></label>
-                        <input type="radio" id="star2" name="rating" value="2">
-                        <label for="star2" class="bi bi-star-fill"></label>
-                        <input type="radio" id="star1" name="rating" value="1">
-                        <label for="star1" class="bi bi-star-fill"></label>
-                    </div>
-                    <textarea class="pt-4 ps-1 mt-4" cols="50" rows="3" style="resize: none"
-                              placeholder="Viết đánh giá vào đây">
+    <c:if test="${sessionScope.auth.id!=null}">
+        <div class="d-flex flex-column mt-5 custom_bg p-4" style="width: 60%">
+            <form action="${pageContext.request.contextPath}/productDetails" method="POST">
+                <input type="hidden" name="userId" value="${sessionScope.auth.id}">
+                <input type="hidden" name="message" value="postComment">
+                <input type="hidden" name="beltId" value="${belt.id}">
+                <h2>Viết đánh giá</h2>
+                <div class="row mt-2">
+                    <div class="d-flex align-item-center">
+                        <img src="${pageContext.request.contextPath}${belt.image[0]}" class=""
+                             alt="..." width="200px"/>
+                        <div class="ms-4">
+                            <h5 class="card-title text-start fs-6">
+                                    ${belt.name}
+                            </h5>
+                            <div class="rating-card ">
+                                <div class="star-rating animated-stars">
+                                    <input type="radio" id="star5" name="rating" value="5">
+                                    <label for="star5" class="bi bi-star-fill"></label>
+                                    <input type="radio" id="star4" name="rating" value="4">
+                                    <label for="star4" class="bi bi-star-fill"></label>
+                                    <input type="radio" id="star3" name="rating" value="3">
+                                    <label for="star3" class="bi bi-star-fill"></label>
+                                    <input type="radio" id="star2" name="rating" value="2">
+                                    <label for="star2" class="bi bi-star-fill"></label>
+                                    <input type="radio" id="star1" name="rating" value="1">
+                                    <label for="star1" class="bi bi-star-fill"></label>
+                                </div>
+                            </div>
+                            <textarea name="desc" class="pt-2 ps-1 mt-4" cols="50" rows="5" style="resize: none">
               </textarea>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="d-flex ms-3">
+                    <c:choose>
+                        <c:when test="${sessionScope.auth.image == null}">
+                            <img src="${pageContext.request.contextPath}/assets/icons/default_profile.svg"
+                                 alt="User Avatar"
+
+                                 class="mt-3" width="50px" height="50px">
+                        </c:when>
+                        <c:otherwise>
+                            <img src="${sessionScope.auth.image}"
+                                 alt="User Avatar"
+
+                                 class="mt-3" width="50px" height="50px">
+                        </c:otherwise>
+                    </c:choose>
+                    <p class="mt-4 ms-3">Đánh giá bởi ${sessionScope.auth.name}</p>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <c:choose>
+                        <c:when test="${sessionScope.auth.image != null}">
+                            <button type="submit" class="btn btn-dark me-4 p-2 px-3 mt-3">Gửi đánh giá</button>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="${pageContext.request.contextPath}/login" class="btn btn-dark me-4 p-2 px-3 mt-3">Gửi
+                                đánh giá</a>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+
+            </form>
+
+
         </div>
 
-        <div class="d-flex">
-            <c:choose>
-                <c:when test="${sessionScope.auth.image == null}">
-                    <img src="${pageContext.request.contextPath}/assets/icons/default_profile.svg"
-                         alt="User Avatar"
-
-                         class="mt-3" width="50px" height="50px">
-                </c:when>
-                <c:otherwise>
-                    <img src="${sessionScope.auth.image}"
-                         alt="User Avatar"
-
-                         class="mt-3" width="50px" height="50px">
-                </c:otherwise>
-            </c:choose>
-            <p class="mt-4 ms-3">Đánh giá bởi</p>
-        </div>
-        <div class="d-flex justify-content-end">
-            <button class="btn btn-dark me-4 p-2 px-3 mt-3">Gửi đánh giá</button>
-            <button class="btn btn-dark mt-3 px-3">Hủy</button>
-        </div>
-    </div>
+    </c:if>
 </div>
 <div class="viewed__component container rounded ps-5 pt-3 mt-5 youmightlike__component mb-5 pe-0 pb-5">
     <p class="viewed__title ms-0 fs-2">Bạn có thể thích</p>
     <div class="d-flex justify-content-between">
         <div class="card-wrapper cardWrapper">
-            <div class="card" style="position: relative">
-                <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
-                    <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px"
-                         viewBox="0 -960 960 960"
-                         width="24px" fill="#000000">
-                        <path
-                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                    </svg>
-                </div>
-                <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..."/>
-                <a href="../productDetail/productDetail.html">
-                    <div class="card-body text-start">
-                        <h5 class="card-title text-start">
-                            Thắt Lưng Hai Mặt LV Heritage 35MM
-                        </h5>
-                        <p class="card-text text-start">100.000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="card" style="position: relative">
-                <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
-                    <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px"
-                         viewBox="0 -960 960 960"
-                         width="24px" fill="#000000">
-                        <path
-                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                    </svg>
-                </div>
-                <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..."/>
-                <a href="../productDetail/productDetail.html">
-                    <div class="card-body text-start">
-                        <h5 class="card-title text-start">
-                            Thắt Lưng Hai Mặt LV Heritage 35MM
-                        </h5>
-                        <p class="card-text text-start">100.000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
+            <c:forEach var="belt" items="${randomBelts}">
+                <div class="card" style="position: relative">
+                    <input class="beltId" type="hidden" name="beltId" value="${belt.id}">
+                    <input class="userId" type="hidden" name="userId" value="${sessionScope.auth.id}">
+                    <c:if test="${sessionScope.auth!=null}">
+                        <button class="btn bg-light favorite-button pt-2 px-2"
+                                style="position: absolute; top: 10px; right: 10px; z-index: 10; border-radius: 50%; border: none;">
+                            <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px"
+                                 viewBox="0 -960 960 960"
+                                 width="24px" fill="#000000">
+                                <path
+                                        d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                        </button>
+                    </c:if>
 
-            <div class="card" style="position: relative">
-                <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
-                    <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px"
-                         viewBox="0 -960 960 960"
-                         width="24px" fill="#000000">
-                        <path
-                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                    </svg>
+
+                    <img src="${pageContext.request.contextPath}${belt.image[0]}" class="card-img-top" alt="..."/>
+                    <a href="../productDetail/productDetail.html">
+                        <div class="card-body text-start">
+                            <h5 class="card-title text-start">
+                                    ${belt.name}
+                            </h5>
+                            <p class="card-text text-start">${belt.price} VNĐ</p>
+                        </div>
+                    </a>
                 </div>
-                <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..."/>
-                <a href="../productDetail/productDetail.html">
-                    <div class="card-body text-start">
-                        <h5 class="card-title text-start">
-                            Thắt Lưng Hai Mặt LV Heritage 35MM
-                        </h5>
-                        <p class="card-text text-start">100.000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="card" style="position: relative">
-                <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
-                    <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px"
-                         viewBox="0 -960 960 960"
-                         width="24px" fill="#000000">
-                        <path
-                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                    </svg>
-                </div>
-                <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..."/>
-                <a href="../productDetail/productDetail.html">
-                    <div class="card-body text-start">
-                        <h5 class="card-title text-start">
-                            Thắt Lưng Hai Mặt LV Heritage 35MM
-                        </h5>
-                        <p class="card-text text-start">100.000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
+            </c:forEach>
         </div>
     </div>
 </div>
@@ -368,83 +308,27 @@
     <p class="viewed__title ms-0 fs-2">Sản phẩm đã xem</p>
     <div class="d-flex justify-content-between">
         <div class="card-wrapper cardWrapper">
-            <div class="card" style="position: relative">
-                <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
-                    <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px"
-                         viewBox="0 -960 960 960"
-                         width="24px" fill="#000000">
-                        <path
-                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                    </svg>
-                </div>
-                <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..."/>
-                <a href="../productDetail/productDetail.html">
-                    <div class="card-body text-start">
-                        <h5 class="card-title text-start">
-                            Thắt Lưng Hai Mặt LV Heritage 35MM
-                        </h5>
-                        <p class="card-text text-start">100.000 VNĐ</p>
+            <c:forEach var="belt" items="${beltViewCount}">
+                <div class="card" style="position: relative">
+                    <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
+                        <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px"
+                             viewBox="0 -960 960 960"
+                             width="24px" fill="#000000">
+                            <path
+                                    d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                        </svg>
                     </div>
-                </a>
-            </div>
-            <div class="card" style="position: relative">
-                <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
-                    <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px"
-                         viewBox="0 -960 960 960"
-                         width="24px" fill="#000000">
-                        <path
-                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                    </svg>
+                    <img src="${pageContext.request.contextPath}${belt.image[0]}" class="card-img-top" alt="..."/>
+                    <a href="../productDetail?beltId=${belt.id}">
+                        <div class="card-body text-start">
+                            <h5 class="card-title text-start">
+                                    ${belt.name}
+                            </h5>
+                            <p class="card-text text-start">${belt.price} VNĐ</p>
+                        </div>
+                    </a>
                 </div>
-                <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..."/>
-                <a href="../productDetail/productDetail.html">
-                    <div class="card-body text-start">
-                        <h5 class="card-title text-start">
-                            Thắt Lưng Hai Mặt LV Heritage 35MM
-                        </h5>
-                        <p class="card-text text-start">100.000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="card" style="position: relative">
-                <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
-                    <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px"
-                         viewBox="0 -960 960 960"
-                         width="24px" fill="#000000">
-                        <path
-                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                    </svg>
-                </div>
-                <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..."/>
-                <a href="../productDetail/productDetail.html">
-                    <div class="card-body text-start">
-                        <h5 class="card-title text-start">
-                            Thắt Lưng Hai Mặt LV Heritage 35MM
-                        </h5>
-                        <p class="card-text text-start">100.000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="card" style="position: relative">
-                <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
-                    <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px"
-                         viewBox="0 -960 960 960"
-                         width="24px" fill="#000000">
-                        <path
-                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                    </svg>
-                </div>
-                <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..."/>
-                <a href="../productDetail/productDetail.html">
-                    <div class="card-body text-start">
-                        <h5 class="card-title text-start">
-                            Thắt Lưng Hai Mặt LV Heritage 35MM
-                        </h5>
-                        <p class="card-text text-start">100.000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
+            </c:forEach>
         </div>
     </div>
 </div>

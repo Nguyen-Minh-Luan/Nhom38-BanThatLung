@@ -19,6 +19,8 @@ public class belts implements Serializable {
     private double discountPercent;
     private String materialBelt;
     private List<String> image;
+    private int totalQuantity;
+    private List<Category> categories;
 
     public belts() {
 
@@ -38,6 +40,14 @@ public class belts implements Serializable {
         this.discountPercent = discountPercent;
         this.materialBelt = materialBelt;
 
+    }
+
+    public void setTag(List<Category> allCategoriesById) {
+        this.categories = allCategoriesById;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
     }
 
     public int getId() {
@@ -150,6 +160,14 @@ public class belts implements Serializable {
 
     public List<String> getImage() {
         return image;
+    }
+
+    public int getTotalQuantity() {
+        return totalQuantity;
+    }
+
+    public void setTotalQuantity(int totalQuantity) {
+        this.totalQuantity = totalQuantity;
     }
 
     public void setImage(List<String> image) {

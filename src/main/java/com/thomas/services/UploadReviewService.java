@@ -3,6 +3,7 @@ package com.thomas.services;
 import com.thomas.dao.ReviewDao;
 import com.thomas.dao.model.Reviews;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class UploadReviewService {
@@ -42,7 +43,21 @@ public class UploadReviewService {
         return reviewDao.findProductNameByReviewId(reviewId);
     }
 
-    public List<Reviews> getReviewsByBeltId(int beltId) {
-        return reviewDao.getAllReviewById(beltId);
+    public List<Reviews> getReviewsByBeltIdPagination(int beltId, int offset, int size) {
+        return reviewDao.getReviewsByBeltIdPagination(beltId, offset, size);
+    }
+
+    public boolean createReview(int rating, String content, int beltId, int userId) {
+        Reviews review = new Reviews();
+        review.setBeltId(beltId);
+        review.setUserId(userId);
+        review.setContent(content);
+        review.setReviewerStar(rating);
+        review.setCreatedAt(LocalDate.now());
+        return reviewDao.createReview(review);
+    }
+
+    public int getTotalReviewsCount(int beltId) {
+        return reviewDao.getAllReviewByIdSize(beltId);
     }
 }

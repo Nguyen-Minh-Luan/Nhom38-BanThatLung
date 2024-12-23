@@ -9,10 +9,11 @@ public class SignUpService {
 
     public boolean signUp(String email, String password, String name, String middleName, LocalDate birthDate) {
         UserDao userDao = new UserDao();
-        if (userDao.findUserEmail(email) != null) {
+        User u = new User();
+        u = userDao.findUserEmail(email);
+        if (u != null) {
             return false;
         }
-        User u = new User();
         u.setEmail(email);
         u.setPassword(MD5Service.hashPassword(password));
         u.setName(middleName + " " + name);

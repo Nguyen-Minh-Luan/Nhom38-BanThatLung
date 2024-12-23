@@ -40,6 +40,10 @@ public class UploadCouponService {
         return couponDao.getCouponById(couponId);
     }
 
+    public double getCouponByCode(String couponCode) {
+        return couponDao.getDiscountRate(couponCode);
+    }
+
     public boolean updateCoupon(int couponId, LocalDate startDate, LocalDate endDate, String couponCode, double discountPercentage, int isActive) {
         Coupon coupon = new Coupon();
         coupon.setStartDate(startDate);

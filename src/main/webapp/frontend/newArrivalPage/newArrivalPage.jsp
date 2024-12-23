@@ -211,9 +211,18 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item active" href="#">Mặc Định</a></li>
-                            <li><a class="dropdown-item" href="#">Giá Tăng Dần</a></li>
-                            <li><a class="dropdown-item" href="#">Giá Giảm Dần</a></li>
-                            <li><a class="dropdown-item" href="#">Bán Chạy Nhất</a></li>
+                            <li><a class="dropdown-item"
+                                   href="${pageContext.request.contextPath}/newArrival?page=${param.page}&descPrice=increase">Giá
+                                Tăng
+                                Dần</a></li>
+                            <li><a class="dropdown-item"
+                                   href="${pageContext.request.contextPath}/newArrival?page=${param.page}&descPrice=decrease">Giá
+                                Giảm
+                                Dần</a></li>
+                            <li><a class="dropdown-item"
+                                   href="${pageContext.request.contextPath}/newArrival?page=${param.page}&descPrice=hotSelling">Bán
+                                Chạy
+                                Nhất</a></li>
                         </ul>
                     </li>
                 </div>
@@ -226,8 +235,8 @@
         <div class="list__product__element">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="list__product__row">
                 <!-- Sản phẩm -->
-                <jsp:useBean id="newArrivalBelts" scope="request" type="java.util.List"/>
-                <c:forEach var="belt" items="${newArrivalBelts}">
+                <jsp:useBean id="beltsForPage" scope="request" type="java.util.List"/>
+                <c:forEach var="belt" items="${beltsForPage}">
                     <div class="col product__col">
                         <a href="${pageContext.request.contextPath}/productDetails?beltId=${belt.id}">
                             <div class="belts">
@@ -251,21 +260,32 @@
 
 <section>
     <nav aria-label="Page__navigation__example" id="pagination__bar">
-        <div class=" container paginationWrapper">
+        <div class="container paginationWrapper">
             <ul class="pagination pagination__Ul">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
+                <!-- Previous Button -->
+                <li class="page-item ${currentPage == 1 ? 'disabled' : ''}">
+                    <a class="page-link"
+                       href="${pageContext.request.contextPath}/newArrival?page=${currentPage > 1 ? currentPage - 1 : 1}${not empty param.descPrice ? '&descPrice='.concat(param.descPrice) : ''}"
+                    ${currentPage == 1 ? 'aria-disabled="true"' : ''}
+                       aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li class="page-item pageNumber active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item pageNumber"><a class="page-link" href="#">2</a></li>
-                <li class="page-item pageNumber"><a class="page-link" href="#">3</a></li>
-                <li class="page-item pageNumber"><a class="page-link" href="#">...</a></li>
-                <li class="page-item pageNumber"><a class="page-link" href="#">10</a></li>
-                <li class="page-item pageNumber"><a class="page-link" href="#">11</a></li>
-                <li class="page-item pageNumber">
-                    <a class="page-link" href="#" aria-label="Next">
+
+                <!-- Loop to display page numbers -->
+                <c:forEach var="i" begin="1" end="${totalPages}" step="1">
+                    <li class="page-item ${i == currentPage ? 'active' : ''}">
+                        <a class="page-link"
+                           href="${pageContext.request.contextPath}/newArrival?page=${i}${not empty param.descPrice ? '&descPrice='.concat(param.descPrice) : ''}">${i}</a>
+                    </li>
+                </c:forEach>
+
+                <!-- Next Button -->
+                <li class="page-item ${currentPage == totalPages ? 'disabled' : ''}">
+                    <a class="page-link"
+                       href="${pageContext.request.contextPath}/newArrival?page=${currentPage < totalPages ? currentPage + 1 : totalPages}${not empty param.descPrice ? '&descPrice='.concat(param.descPrice) : ''}"
+                    ${currentPage == totalPages ? 'aria-disabled="true"' : ''}
+                       aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>

@@ -4,6 +4,8 @@ import com.thomas.dao.db.JDBIConnect;
 import com.thomas.dao.model.Reviews;
 import org.jdbi.v3.core.Handle;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -96,24 +98,78 @@ public class ReviewDao {
         });
     }
 
-    public List<Reviews> getAllReviewById(int beltId) {
-        String sql = "SELECT * FROM reviews WHERE beltId = :beltId";
+    public int getAllReviewByIdSize(int beltId) {
+        String sql = "SELECT * FROM reviews WHERE beltId = ?";
+        List<Reviews> reviewsList = new ArrayList<>();
 
-        return JDBIConnect.get().withHandle(handle ->
-                handle.createQuery(sql)
-                        .bind("beltId", beltId)
-                        .map((rs, ctx) -> new Reviews(
-                                rs.getInt("id"),
-                                rs.getInt("beltId"),
-                                rs.getInt("userId"),
-                                rs.getString("content"),
-                                rs.getTimestamp("createdAt").toLocalDateTime().toLocalDate(),
-                                rs.getInt("ratingStar"),
-                                rs.getString("reviewerName"),
-                                rs.getString("beltName")
-                        ))
-                        .list()
-        );
+        JDBIConnect.get().useHandle(handle -> {
+            // Lấy Connection thô từ Handle
+            try (Connection conn = handle.getConnection();
+                 PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+                stmt.setInt(1, beltId);
+                try (ResultSet rs = stmt.executeQuery()) {
+                    while (rs.next()) {
+                        Reviews review = new Reviews();
+                        review.setId(rs.getInt("id"));
+                        review.setBeltId(rs.getInt("beltId"));
+                        review.setUserId(rs.getInt("userId"));
+                        review.setContent(rs.getString("content"));
+                        review.setReviewerStar(rs.getInt("ratingStar"));
+                        review.setCreatedAt(rs.getDate("createdAt").toLocalDate());
+                        reviewsList.add(review);
+                    }
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException("Error querying reviews", e);
+            }
+        });
+
+        return reviewsList.size();
     }
 
+    public boolean createReview(Reviews review) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "INSERT INTO reviews (beltId,userId,content,ratingStar,createdAt) VALUES (:beltId,:userId,:content,:ratingStar,:createdAt)";
+            return h.createUpdate(sql)
+                    .bind("beltId", review.getBeltId())
+                    .bind("userId", review.getUserId())
+                    .bind("content", review.getContent())
+                    .bind("ratingStar", review.getReviewerStar())
+                    .bind("createdAt", review.getCreatedAt()).execute() > 0;
+        });
+    }
+
+    public List<Reviews> getReviewsByBeltIdPagination(int beltId, int offset, int size) {
+        String sql = "SELECT * FROM reviews WHERE beltId = ? LIMIT ? OFFSET ?";
+        List<Reviews> reviewsList = new ArrayList<>();
+
+        JDBIConnect.get().useHandle(handle -> {
+            // Lấy Connection thô từ Handle
+            try (Connection conn = handle.getConnection();
+                 PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+                stmt.setInt(1, beltId); // Set the beltId parameter
+                stmt.setInt(2, size); // Set the page size (limit)
+                stmt.setInt(3, offset); // Set the offset for pagination
+
+                try (ResultSet rs = stmt.executeQuery()) {
+                    while (rs.next()) {
+                        Reviews review = new Reviews();
+                        review.setId(rs.getInt("id"));
+                        review.setBeltId(rs.getInt("beltId"));
+                        review.setUserId(rs.getInt("userId"));
+                        review.setContent(rs.getString("content"));
+                        review.setReviewerStar(rs.getInt("ratingStar"));
+                        review.setCreatedAt(rs.getDate("createdAt").toLocalDate());
+                        reviewsList.add(review);
+                    }
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException("Error querying reviews", e);
+            }
+        });
+
+        return reviewsList;
+    }
 }

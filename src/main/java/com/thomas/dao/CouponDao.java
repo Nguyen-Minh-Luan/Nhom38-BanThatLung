@@ -59,14 +59,18 @@ public class CouponDao {
             return h.createQuery(sql).bind("id", id).mapToBean(Coupon.class).findFirst().orElse(null);
         });
     }
-
+    public double getDiscountRate(String code) {
+        String sql = "SELECT discountRate FROM coupons WHERE code = :code";
+        return JDBIConnect.get().withHandle(h -> {
+            return h.createQuery(sql).bind("code", code).mapTo(Double.class).findFirst().orElse(null);
+        });
+    }
     public Coupon getCouponByCode(String code) {
         String sql = "SELECT * FROM coupons WHERE code = :code";
         return JDBIConnect.get().withHandle(h -> {
-            return h.createQuery(sql).bind("code", code).mapToBean(Coupon.class).findFirst().orElse(null);
+            return h.createQuery(sql).bind("code", code).mapTo(Coupon.class).findFirst().orElse(null);
         });
     }
-
     public boolean updateCoupon(Coupon coupon) {
         return JDBIConnect.get().withHandle(h -> {
             String sql = "UPDATE coupons " +

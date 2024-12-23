@@ -3,6 +3,7 @@ package com.thomas.controller;
 import com.thomas.dao.model.Category;
 import com.thomas.dao.model.Reviews;
 import com.thomas.dao.model.belts;
+import com.thomas.services.UploadFavoriteService;
 import com.thomas.services.UploadProductService;
 import com.thomas.services.UploadReviewService;
 import jakarta.servlet.*;
@@ -16,17 +17,23 @@ import java.util.List;
 public class productDetailsController extends HttpServlet {
     UploadProductService uploadProductService = new UploadProductService();
     UploadReviewService uploadReviewService = new UploadReviewService();
+    UploadFavoriteService uploadFavoriteService = new UploadFavoriteService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int beltId = Integer.parseInt(request.getParameter("beltId"));
+        uploadProductService.saveBeltView(beltId);
         belts belt = uploadProductService.getProductById(beltId);
         belt.setImage(uploadProductService.getProductImages(beltId));
         List<Category> beltCategory = uploadProductService.getAllCategoriesById(beltId);
-        List<Reviews> reviewsList = uploadReviewService.getReviewsByBeltId(beltId);
+        int totalReview = uploadReviewService.getTotalReviewsCount(beltId);
         List<String> descBeltImage = uploadProductService.getAllDescImage(beltId);
+        List<belts> randomBelts = uploadProductService.getRandomBelts();
+        List<belts> beltViewCount = uploadProductService.getBeltByViewCount();
+        request.setAttribute("beltViewCount", beltViewCount);
+        request.setAttribute("randomBelts", randomBelts);
         request.setAttribute("descBeltImage", descBeltImage);
-        request.setAttribute("reviewList", reviewsList);
+        request.setAttribute("totalReview", totalReview);
         request.setAttribute("beltCategory", beltCategory);
         request.setAttribute("belt", belt);
         request.getRequestDispatcher("/frontend/productDetail/productDetail.jsp").forward(request, response);
@@ -34,6 +41,16 @@ public class productDetailsController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String message = request.getParameter("message");
+        if (message.equals("postComment")) {
+            int userId = Integer.parseInt(request.getParameter("userId"));
+            int rating = Integer.parseInt(request.getParameter("rating"));
+            String content = request.getParameter("desc");
+            int beltId = Integer.parseInt(request.getParameter("beltId"));
+            if (uploadReviewService.createReview(rating, content, beltId, userId)) {
+                response.sendRedirect("/productDetails?beltId=" + beltId);
+            }
+        }
     }
 }
 

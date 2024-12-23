@@ -178,4 +178,20 @@ public class UploadProductService {
     public List<String> getAllDescImage(int beltId) {
         return productDao.getDescImage(beltId);
     }
+
+    public List<belts> getRandomBelts() {
+        return productDao.getRandomBelts();
+    }
+
+    public void saveBeltView(int beltId) {
+        productDao.saveBeltView(beltId);
+    }
+
+    public List<belts> getBeltByViewCount() {
+        return productDao.getBeltsByViewCount();
+    }
+
+    public List<belts> getNewArrivalProductsHotSeliing() {
+        return productDao.getNewArrivalProductsHotSelling();
+    }
 }

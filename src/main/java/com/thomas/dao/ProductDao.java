@@ -200,4 +200,126 @@ public class ProductDao {
             return h.createQuery(sql).bind("beltId", beltId).mapTo(String.class).list();
         });
     }
+
+    public List<belts> getRandomBelts() {
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT * FROM belts ORDER BY RAND() LIMIT 4";
+            List<belts> belts = new ArrayList<>();
+            try (Handle h = handle) {
+                h.execute(sql);
+                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
+                while (rs.next()) {
+                    com.thomas.dao.model.belts belt = new belts();
+                    belt.setId(rs.getInt("id"));
+                    belt.setName(rs.getString("name"));
+                    belt.setDescription(rs.getString("description"));
+                    belt.setPrice(rs.getDouble("price"));
+                    belt.setGender(rs.getString("gender"));
+                    belt.setStockQuantity(rs.getInt("stockQuantity"));
+                    belt.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
+                    belt.setCreateDate(rs.getDate("createdAt").toLocalDate());
+                    belt.setUpdatedDate(rs.getDate("updatedAt").toLocalDate());
+                    belt.setIsDeleted(rs.getInt("isDeleted"));
+                    belt.setDiscountPercent(rs.getDouble("discountPercent"));
+                    belt.setMaterialBelt(rs.getString("materialBelt"));
+                    belt.setIsDeleted(rs.getInt("isDeleted"));
+                    belts.add(belt);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return belts;
+        });
+    }
+
+    public void saveBeltView(int beltId) {
+        JDBIConnect.get().withHandle(h -> {
+            String sql = "INSERT INTO beltViews (beltId, viewDate, viewCount)" +
+                    "VALUES (:beltId, CURDATE(), 1)" +
+                    "ON DUPLICATE KEY UPDATE viewCount = viewCount + 1;";
+            return h.createUpdate(sql).bind("beltId", beltId).execute() > 0;
+        });
+    }
+
+    public List<belts> getBeltsByViewCount() {
+        return JDBIConnect.get().withHandle(handle -> {
+            // SQL query to get the top 4 belts ordered by viewCount in descending order
+            String sql = "SELECT b.* FROM belts b " +
+                    "JOIN beltViews bv ON b.id = bv.beltId " +
+                    "ORDER BY bv.viewCount DESC " +
+                    "LIMIT 4";
+
+            List<belts> beltsList = new ArrayList<>();
+            try (Handle h = handle) {
+                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
+                while (rs.next()) {
+                    com.thomas.dao.model.belts belt = new belts();
+                    belt.setId(rs.getInt("id"));
+                    belt.setName(rs.getString("name"));
+                    belt.setDescription(rs.getString("description"));
+                    belt.setPrice(rs.getDouble("price"));
+                    belt.setGender(rs.getString("gender"));
+                    belt.setStockQuantity(rs.getInt("stockQuantity"));
+                    belt.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
+                    belt.setCreateDate(rs.getDate("createdAt").toLocalDate());
+                    belt.setUpdatedDate(rs.getDate("updatedAt").toLocalDate());
+                    belt.setIsDeleted(rs.getInt("isDeleted"));
+                    belt.setDiscountPercent(rs.getDouble("discountPercent"));
+                    belt.setMaterialBelt(rs.getString("materialBelt"));
+                    beltsList.add(belt);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return beltsList;
+        });
+    }
+
+    public List<belts> getNewArrivalProductsHotSelling() {
+        return JDBIConnect.get().withHandle(handle -> {
+            // SQL query to get the top 4 belts ordered by viewCount in descending order
+            String sql = "SELECT " +
+                    "    b.id AS beltId, " +
+                    "    b.name AS beltName, " +
+                    "    b.createdAt AS beltCreatedAt, " +
+                    "    SUM(od.quantity) AS totalQuantitySold" +
+                    "FROM " +
+                    "    orderDetails od" +
+                    "JOIN " +
+                    "    orders o ON od.orderId = o.id" +
+                    "JOIN " +
+                    "    belts b ON od.beltId = b.id" +
+                    "WHERE " +
+                    "    o.isDeleted = 0" +
+                    "GROUP BY " +
+                    "    b.id, b.name, b.createdAt\n" +
+                    "ORDER BY " +
+                    "    totalQuantitySold DESC, b.createdAt DESC;";
+
+            List<belts> beltsList = new ArrayList<>();
+            try (Handle h = handle) {
+                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
+                while (rs.next()) {
+                    com.thomas.dao.model.belts belt = new belts();
+                    belt.setId(rs.getInt("id"));
+                    belt.setName(rs.getString("name"));
+                    belt.setDescription(rs.getString("description"));
+                    belt.setPrice(rs.getDouble("price"));
+                    belt.setGender(rs.getString("gender"));
+                    belt.setStockQuantity(rs.getInt("stockQuantity"));
+                    belt.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
+                    belt.setCreateDate(rs.getDate("createdAt").toLocalDate());
+                    belt.setUpdatedDate(rs.getDate("updatedAt").toLocalDate());
+                    belt.setIsDeleted(rs.getInt("isDeleted"));
+                    belt.setDiscountPercent(rs.getDouble("discountPercent"));
+                    belt.setMaterialBelt(rs.getString("materialBelt"));
+                    belt.setTotalQuantity(rs.getInt("totalQuantitySold"));
+                    beltsList.add(belt);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return beltsList;
+        });
+    }
 }

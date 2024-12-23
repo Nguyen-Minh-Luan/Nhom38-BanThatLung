@@ -337,5 +337,10 @@ a {
 .star-rating label:hover,
 .star-rating label:hover ~ label,
 .star-rating input:checked ~ label {
-    color: #ffc107;
+    color: black;
+}
+
+.text-warning {
+    --bs-text-opacity: 1;
+    color: black !important;
 }
