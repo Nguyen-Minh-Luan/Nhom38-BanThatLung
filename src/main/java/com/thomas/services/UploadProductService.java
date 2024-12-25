@@ -7,6 +7,7 @@ import com.thomas.dao.model.BeltCategory;
 import com.thomas.dao.model.belts;
 import com.thomas.dao.model.Category;
 
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Comparator;
@@ -194,4 +195,9 @@ public class UploadProductService {
     public List<belts> getNewArrivalProductsHotSeliing() {
         return productDao.getNewArrivalProductsHotSelling();
     }
+
+    public List<belts> getNewArrivals() {
+        return productDao.getNewArrivals();
+    }
+
 }

@@ -4,6 +4,7 @@ import com.thomas.dao.db.JDBIConnect;
 import com.thomas.dao.model.belts;
 import org.jdbi.v3.core.Handle;
 
+import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -322,4 +323,18 @@ public class ProductDao {
             return beltsList;
         });
     }
+    public List<belts> getNewArrivals(){
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT b.id,b.name,b.price,i.imagePath,b.discountPercent " +
+                    "FROM belts b " +
+                    "INNER JOIN imageEntry i " +
+                    "ON b.id = i.beltId " +
+                    "WHERE b.isDeleted = 0 " +
+                    "ORDER BY YEAR(b.releaseDate) " +
+                    "DESC " +
+                    "LIMIT 4";
+            return handle.createQuery(sql).mapToBean(belts.class).list();
+        });
+    }
+
 }
