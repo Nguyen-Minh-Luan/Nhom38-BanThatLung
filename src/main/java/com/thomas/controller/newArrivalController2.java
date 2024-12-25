@@ -15,15 +15,15 @@ import java.util.List;
 @WebServlet(name = "newArrivalController2", value = "/newArrival2")
 public class newArrivalController2 extends HttpServlet {
     UploadProductService uploadProductService = new UploadProductService();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        String button = request.getParameter("seeMore");
+//        String button = request.getParameter("seeMore");
         List<belts> newArrivalsList = uploadProductService.getNewArrivals();
         out.println(newArrivalsList);
         request.setAttribute("newArrivalsList", newArrivalsList);
-        request.getRequestDispatcher("newArrivalPage.jsp").forward(request, response);
-
+        request.getRequestDispatcher("/frontend/newArrivalPage/newArrival2.jsp").forward(request, response);
     }
 
     @Override
