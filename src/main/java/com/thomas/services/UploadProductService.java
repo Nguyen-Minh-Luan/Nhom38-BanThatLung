@@ -9,6 +9,7 @@ import com.thomas.dao.model.Category;
 
 import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -199,5 +200,14 @@ public class UploadProductService {
     public List<belts> getNewArrivals() {
         return productDao.getNewArrivals();
     }
-
+    public List<belts> getSortedListBelts(String type) {
+        List<belts> list = new ArrayList<belts>();
+        if ("increase".equals(type)) {
+            list = productDao.getAscendByPrice();
+        }
+        if ("decrease".equals(type)) {
+            list = productDao.getDescendByPrice();
+        }
+        return list;
+    }
 }

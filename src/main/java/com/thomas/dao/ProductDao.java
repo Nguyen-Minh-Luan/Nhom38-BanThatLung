@@ -331,8 +331,7 @@ public class ProductDao {
                     "ON b.id = i.beltId " +
                     "WHERE b.isDeleted = 0 " +
                     "ORDER BY YEAR(b.releaseDate) " +
-                    "DESC " +
-                    "LIMIT 4";
+                    "DESC ";
             return handle.createQuery(sql).mapToBean(belts.class).list();
         });
     }
