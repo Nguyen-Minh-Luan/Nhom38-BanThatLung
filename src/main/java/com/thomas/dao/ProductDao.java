@@ -336,5 +336,28 @@ public class ProductDao {
             return handle.createQuery(sql).mapToBean(belts.class).list();
         });
     }
-
+    public List<belts> getAscendByPrice(){
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT b.id,b.name,b.price,i.imagePath " +
+                    "FROM belts b " +
+                    "INNER JOIN imageEntry i " +
+                    "ON b.id = i.beltId " +
+                    "WHERE b.isDeleted = 0 " +
+                    "ORDER BY b.price " +
+                    "ASC";
+            return handle.createQuery(sql).mapToBean(belts.class).list();
+        });
+    }
+    public List<belts> getDescendByPrice(){
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT b.id,b.name,b.price,i.imagePath " +
+                    "FROM belts b " +
+                    "INNER JOIN imageEntry i " +
+                    "ON b.id = i.beltId " +
+                    "WHERE b.isDeleted = 0 " +
+                    "ORDER BY b.price " +
+                    "DESC";
+            return handle.createQuery(sql).mapToBean(belts.class).list();
+        });
+    }
 }
