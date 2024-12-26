@@ -278,23 +278,37 @@
                 alt=""
                 style="height: 20px"
               />
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Sắp Xếp
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item active" href="#">Mặc Định</a></li>
-                  <li><a class="dropdown-item" href="#">Giá Tăng Dần</a></li>
-                  <li><a class="dropdown-item" href="#">Giá Giảm Dần</a></li>
-                  <li><a class="dropdown-item" href="#">Bán Chạy Nhất</a></li>
-                </ul>
+
+              <li class="nav-item">
+                <form method="get" action="${pageContext.request.contextPath}/sort" class="d-inline">
+                  <div class="dropdown">
+                    <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                    >
+                      Sắp Xếp
+                    </a>
+                    <div class="dropdown-menu p-3">
+                      <select
+                              id="sortSelect"
+                              name="desPrice"
+                              class="form-select"
+                              onchange="this.form.submit()"
+                              style="width: 10rem;"
+                      >
+                        <option value="default" selected>Mặc Định</option>
+                        <option value="increase">Giá Tăng Dần</option>
+                        <option value="decrease">Giá Giảm Dần</option>
+                        <option value="hotSelling">Bán Chạy Nhất</option>
+                      </select>
+                    </div>
+                  </div>
+                </form>
               </li>
+
             </div>
           </div>
         </div>
