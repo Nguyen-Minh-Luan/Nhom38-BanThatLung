@@ -7,7 +7,6 @@ import com.thomas.dao.model.BeltCategory;
 import com.thomas.dao.model.belts;
 import com.thomas.dao.model.Category;
 
-import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -200,13 +199,30 @@ public class UploadProductService {
     public List<belts> getNewArrivals() {
         return productDao.getNewArrivals();
     }
+
+    public List<belts> getAllProductsForDisplaying() {
+        return productDao.getAllProductForDisplaying();
+    }
+
     public List<belts> getSortedListBelts(String type) {
-        List<belts> list = new ArrayList<belts>();
+        List<belts> list = getAllProductsForDisplaying();
         if ("increase".equals(type)) {
-            list = productDao.getAscendByPrice();
+            list.sort(new Comparator<belts>() {
+                @Override
+                public int compare(belts o1, belts o2) {
+                    double i = o1.getPrice() - o2.getPrice();
+                    return (int) i;
+                }
+            });
         }
         if ("decrease".equals(type)) {
-            list = productDao.getDescendByPrice();
+            list.sort(new Comparator<belts>() {
+                @Override
+                public int compare(belts o1, belts o2) {
+                    double i = o2.getPrice() - o1.getPrice();
+                    return (int) i;
+                }
+            });
         }
         return list;
     }

@@ -9,7 +9,6 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "sortProductController", value = "/sort")
@@ -20,7 +19,8 @@ public class sortProductController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         String sort = request.getParameter("desPrice");
-        out.println(sort);
+        List<belts> sortedList = uploadProductService.getSortedListBelts(sort);
+        out.print(sortedList);
 
     }
 
