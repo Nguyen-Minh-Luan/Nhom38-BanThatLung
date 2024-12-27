@@ -9,7 +9,13 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebFilter(filterName = "userFilter", urlPatterns = "/userInfo/*")
+@WebFilter(filterName = "userFilter", urlPatterns = {
+        "/userInfo",
+        "/userProfile",
+        "/userAddress",
+        "/userPrivacy",
+        "/viewOrders"
+})
 public class userFilter implements Filter {
 
     public void init(FilterConfig config) throws ServletException {

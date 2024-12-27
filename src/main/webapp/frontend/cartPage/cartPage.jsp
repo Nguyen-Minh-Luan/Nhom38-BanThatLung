@@ -93,8 +93,8 @@
                                                 class="form-select w-25 p-3 border border-dark"
                                                 aria-label="Select a number"
                                         >
-                                            <option selected>1</option>
-                                            <c:forEach var="i" begin="2" end="${entry.value.quantity}">
+                                            <option selected>${entry.value.quantity}</option>
+                                            <c:forEach var="i" begin="1" end="${entry.value.belt.stockQuantity}">
                                                 <option value="${i}">${i}</option>
                                             </c:forEach>
                                         </select>
@@ -122,11 +122,11 @@
 
             </c:forEach>
         </div>
-        <div class="col-3 mb-5 mt-4 ps-5 custom_insert">
-            <div class="row">
+        <div class="col-3 mb-5 mt-4 ps-5">
+            <div class="row custom_insert">
                 <a
-                        href="${pageContext.request.contextPath}/frontend/cartPage/checkoutPage/checkoutPage.jsp"
-                        class="btn btn-dark p-3 fs-5 custom_button"
+                        href="${pageContext.request.contextPath}/checkout"
+                        class="btn btn-dark p-3 fs-5 custom_button checkoutPage"
                 >Tiến hành thanh toán
                     <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -156,12 +156,14 @@
                     <div class="d-flex justify-content-between mb-2">
                         <p class="mb-0">Vận chuyển</p>
                         <c:set var="totalOrders" value="15000"/>
-                        <p class="mb-0 totalOrdersDisplay">${totalOrders*cart.size()} VNĐ</p>
+                        <p class="mb-0 shipmentDisplay">${formattedShipmentPrice} VNĐ</p>
                     </div>
                     <div class="border-top pt-2">
                         <div class="d-flex justify-content-between fw-bold mb-2">
                             <p class="mb-0">Tổng cộng</p>
-                            <p class="mb-0 totalCostDisplay">${totalPrice+30.000} VNĐ</p>
+                            <p class="mb-0 totalCostDisplay">
+                                ${grandTotal} VNĐ
+                            </p>
                         </div>
                         <p class="text-muted small mb-0">(bao gồm cả thuế)</p>
                     </div>
@@ -218,7 +220,8 @@
                                         <h5 class="card-title text-start">
                                                 ${belt.name}
                                         </h5>
-                                        <p class="card-text text-start">${belt.price} VNĐ</p>
+                                        <p class="card-text text-start">${belt.price}
+                                        </p>
                                     </div>
                                 </a>
                             </div>

@@ -3,6 +3,7 @@ package com.thomas.dao;
 import com.thomas.dao.db.JDBIConnect;
 import com.thomas.dao.model.Order;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,4 +84,65 @@ public class OrderDao {
             return h.createUpdate(sql).bind("id", orderId).execute() > 0;
         });
     }
+
+    public boolean createOrder(Order order) {
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "INSERT INTO orders (userID, paymentMethodId, addressesId, orderTotal, orderStatus) " +
+                    "VALUES (?, ?, ?, ?, ?)";
+
+            int result = handle.createUpdate(sql)
+                    .bind(0, order.getUserId())
+                    .bind(1, order.getPaymentMethodId())
+                    .bind(2, order.getAddressId())
+                    .bind(3, order.getOrderTotal())
+                    .bind(4, order.getOrderStatus())
+                    .execute();
+            return result > 0;
+        });
+    }
+
+    public Order getOrderLatestOrder() {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "SELECT * FROM orders ORDER BY id DESC LIMIT 1";
+
+            return h.createQuery(sql)
+                    .map((rs, ctx) -> {
+                        Order latestOrder = new Order();
+                        latestOrder.setId(rs.getInt("id"));
+                        latestOrder.setUserId(rs.getInt("userID"));
+                        latestOrder.setPaymentMethodId(rs.getInt("paymentMethodId"));
+                        latestOrder.setAddressId(rs.getInt("addressesId"));
+                        latestOrder.setOrderTotal(rs.getDouble("orderTotal"));
+                        latestOrder.setOrderStatus(rs.getString("orderStatus"));
+                        latestOrder.setOrderDate(rs.getDate("orderDate").toLocalDate());
+                        latestOrder.setIsDeleted(rs.getInt("isDeleted"));
+                        return latestOrder;
+                    })
+                    .one();
+        });
+    }
+
+    public List<Order> getAllOrderByUserId(int userId) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "SELECT * FROM orders WHERE userID = ? AND isDeleted = 0";
+
+            return h.createQuery(sql)
+                    .bind(0, userId)
+                    .map((rs, ctx) -> {
+                        Order order = new Order();
+                        order.setId(rs.getInt("id"));
+                        order.setUserId(rs.getInt("userID"));
+                        order.setPaymentMethodId(rs.getInt("paymentMethodId"));
+                        order.setAddressId(rs.getInt("addressesId"));
+                        order.setOrderTotal(rs.getDouble("orderTotal"));
+                        order.setOrderStatus(rs.getString("orderStatus"));
+                        order.setOrderDate(rs.getDate("orderDate").toLocalDate());
+                        order.setIsDeleted(rs.getInt("isDeleted"));
+                        return order;
+                    })
+                    .list();
+        });
+    }
+
+
 }

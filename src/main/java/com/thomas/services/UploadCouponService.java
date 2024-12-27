@@ -40,7 +40,7 @@ public class UploadCouponService {
         return couponDao.getCouponById(couponId);
     }
 
-    public double getCouponByCode(String couponCode) {
+    public Coupon getCouponByCode(String couponCode) {
         return couponDao.getDiscountRate(couponCode);
     }
 

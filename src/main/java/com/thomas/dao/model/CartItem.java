@@ -1,21 +1,23 @@
 package com.thomas.dao.model;
 
+import java.math.BigDecimal;
+
 public class CartItem {
-    private belts belt;
+    private Belts belt;
     private int quantity;
     private double price;
 
-    public CartItem(belts belt, int quantity, double price) {
+    public CartItem(Belts belt, int quantity, double price) {
         this.belt = belt;
         this.quantity = quantity;
         this.price = price;
     }
 
-    public belts getBelt() {
+    public Belts getBelt() {
         return belt;
     }
 
-    public void setBelt(belts belt) {
+    public void setBelt(Belts belt) {
         this.belt = belt;
     }
 

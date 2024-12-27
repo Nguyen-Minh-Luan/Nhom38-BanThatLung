@@ -10,8 +10,7 @@ public class SignUpService {
     public boolean signUp(String email, String password, String name, String middleName, LocalDate birthDate) {
         UserDao userDao = new UserDao();
         User u = new User();
-        u = userDao.findUserEmail(email);
-        if (u != null) {
+        if (userDao.findUserEmail(email) != null) {
             return false;
         }
         u.setEmail(email);

@@ -1,8 +1,7 @@
 package com.thomas.controller;
 
 import com.thomas.dao.model.Category;
-import com.thomas.dao.model.Reviews;
-import com.thomas.dao.model.belts;
+import com.thomas.dao.model.Belts;
 import com.thomas.services.UploadFavoriteService;
 import com.thomas.services.UploadProductService;
 import com.thomas.services.UploadReviewService;
@@ -23,13 +22,13 @@ public class productDetailsController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int beltId = Integer.parseInt(request.getParameter("beltId"));
         uploadProductService.saveBeltView(beltId);
-        belts belt = uploadProductService.getProductById(beltId);
+        Belts belt = uploadProductService.getProductById(beltId);
         belt.setImage(uploadProductService.getProductImages(beltId));
         List<Category> beltCategory = uploadProductService.getAllCategoriesById(beltId);
         int totalReview = uploadReviewService.getTotalReviewsCount(beltId);
         List<String> descBeltImage = uploadProductService.getAllDescImage(beltId);
-        List<belts> randomBelts = uploadProductService.getRandomBelts();
-        List<belts> beltViewCount = uploadProductService.getBeltByViewCount();
+        List<Belts> randomBelts = uploadProductService.getRandomBelts();
+        List<Belts> beltViewCount = uploadProductService.getBeltByViewCount();
         request.setAttribute("beltViewCount", beltViewCount);
         request.setAttribute("randomBelts", randomBelts);
         request.setAttribute("descBeltImage", descBeltImage);

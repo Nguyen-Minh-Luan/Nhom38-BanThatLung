@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,10 +43,9 @@
         <!-- Sidebar - Brand -->
         <a
                 class="sidebar-brand d-flex align-items-center justify-content-center"
-                href="index.html"
+                href="${pageContext.request.contextPath}/"
         >
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
             </div>
             <div class="sidebar-brand-text mx-3">THOMAS Admin</div>
         </a>
@@ -55,7 +55,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="admin.html">
+            <a class="nav-link" href="${pageContext.request.contextPath}/admin">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a
             >
@@ -245,30 +245,30 @@
                                 aria-expanded="false"
                         >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                  >Douglas McGee</span
+                  >${sessionScope.auth.name}</span
                   >
-                            <img
-                                    class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg"
-                            />
+                            <c:choose>
+                                <c:when test="${sessionScope.auth.image!=null}">
+                                    <img
+                                            src="${pageContext.request.contextPath}${sessionScope.auth.image}"
+                                            alt=" User Avatar"
+                                            width="35"
+                                            height="35"
+                                            class="rounded-circle me-2"
+                                    />
+                                </c:when>
+                                <c:otherwise>
+                                    <img
+                                            src="${pageContext.request.contextPath}/assets/icons/user.svg"
+                                            alt=" User Avatar"
+                                            width="35"
+                                            height="35"
+                                            class="rounded-circle me-2"
+                                    />
+                                </c:otherwise>
+                            </c:choose>
+
                         </a>
-                        <!-- Dropdown - User Information -->
-                        <div
-                                class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown"
-                        >
-                            <a
-                                    class="dropdown-item"
-                                    href="#"
-                                    data-toggle="modal"
-                                    data-target="#logoutModal"
-                            >
-                                <i
-                                        class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
-                                ></i>
-                                Logout
-                            </a>
-                        </div>
                     </li>
                 </ul>
             </nav>
@@ -301,7 +301,7 @@
                                         >
                                             Tổng số đơn hàng
                                         </div>
-                                        <div class="h5 mb-0 font-weight-bold">999 đơn</div>
+                                        <div class="h5 mb-0 font-weight-bold">${totalOrder} đơn</div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -332,7 +332,7 @@
                                                 class="h5 mb-0 font-weight-bold"
                                                 style="color: white"
                                         >
-                                            215,000 vnđ
+                                            ${totalOrderMoney} vnđ
                                         </div>
                                     </div>
                                     <div class="col-auto">
@@ -361,7 +361,7 @@
                                                 class="h5 mb-0 font-weight-bold"
                                                 style="color: white"
                                         >
-                                            99 reviews
+                                            ${reviewTotal} reviews
                                         </div>
                                     </div>
                                     <div class="col-auto">
@@ -391,7 +391,7 @@
                                                 class="h5 mb-0 font-weight-bold"
                                                 style="color: white"
                                         >
-                                            18
+                                            ${outofStockNumber}
                                         </div>
                                     </div>
                                     <div class="col-auto">

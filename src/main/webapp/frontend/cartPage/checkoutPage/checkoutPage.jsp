@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,11 +46,25 @@
         <div class="col d-flex custom-width custom__boxshadow p-0 m-0">
             <div class="col-sm pr-0 mt-4">
                 <h4 class="ms-4">Thông tin thanh toán</h4>
-                <p class="ms-4">huỳnh minh thắng</p>
-                <p class="ms-4">ktx khu b</p>
-                <p class="ms-4">THÀNH PHỐ HỒ CHÍ MINH</p>
-                <p class="ms-4">Hồ Chí Minh 700000</p>
-                <p class="ms-4">+84 35-617-6054</p>
+                <p class="ms-4">${sessionScope.auth.name}</p>
+                <div class="addressDetail">
+                    <c:choose>
+                        <c:when test="${userAddresses!=null}">
+                            <c:forEach var="address" items="${userAddresses}">
+                                <c:if test="${address.isUse == 1}">
+                                    <p class="ms-4">${address.addressStreet}</p>
+                                    <p class="ms-4">${address.addressCity}</p>
+                                </c:if>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <p class="ms-4">Bạn chưa có địa chỉ</p>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+
+
+                <p class="ms-4">${sessionScope.phoneNumber}</p>
                 <button
                         class="p-2 border-dark rounded custom_hover ms-4 mt-2 fw-bold"
                         id="openFormButton"
@@ -61,8 +76,8 @@
                 <h4 class="mt-4">Phương thức thanh toán</h4>
                 <div class="w-5 h-5">
                     <img
-                            class="w-5 h-5"
-                            src="${pageContext.request.contextPath}/assets/icons/gPay.svg"
+                            class="w-5 h-5 method-image-display"
+                            src="${pageContext.request.contextPath}/assets/icons/GooglePay.svg"
                             alt="googlePay"
                             style="max-width: 50px"
                     />
@@ -80,133 +95,123 @@
                 <div class="popup-content--title">
                     <p>Chọn địa chỉ giao hàng</p>
                 </div>
-
-                <div class="popup-content--desc">
-                    <div class="popup--content--userInfo--action">
-                        <div class="popup--content--userdesc">
-                            <span>Mặc định</span>
-                            <p class="name__field1">huynhminhthang</p>
-                            <p class="address__field1">ktx khu b</p>
-                            <p class="city__field1">THÀNH PHỐ HỒ CHÍ MINH</p>
-                            <p class="number__field1">+84356176054</p>
-                        </div>
-                        <div class="popup--content--right">
-                            <div class="popup--content--button">
-                                <button
-                                        class="popup--content--submit custom__btn"
-                                        id="submit1"
-                                >
-                                    Giao đến đây
-                                </button>
+                <c:if test="${userAddresses!=null}">
+                    <c:forEach var="address" items="${userAddresses}">
+                        <input type="hidden" name="userId" value="${sessionScope.auth.id}"/>
+                        <input type="hidden" name="addressId" value="${address.id}"/>
+                        <c:if test="${address.isUse ==0}">
+                            <div class="popup-content--desc">
+                                <div class="popup--content--userInfo--action">
+                                    <div class="popup--content--userdesc">
+                                        <span>Mặc định</span>
+                                        <p class="name__field1">${sessionScope.auth.name}</p>
+                                        <p class="address__field1">${address.addressStreet}</p>
+                                        <p class="city__field1">${address.addressCity}</p>
+                                        <p class="number__field1">${sessionScope.auth.phoneNumber}</p>
+                                    </div>
+                                    <div class="popup--content--right">
+                                        <div class="popup--content--button">
+                                            <button
+                                                    class="popup--content--submit custom__btn"
+                                                    id="submit1"
+                                            >
+                                                Giao đến đây
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="popup-content--desc">
-                    <div class="popup--content--userInfo--action">
-                        <div class="popup--content--userdesc">
-                            <span>Mặc định</span>
-                            <p class="name__field1">huynhminhthang</p>
-                            <p class="address__field1">ktx khu b</p>
-                            <p class="city__field1">THÀNH PHỐ HỒ CHÍ MINH</p>
-                            <p class="number__field1">+84356176054</p>
-                        </div>
-                        <div class="popup--content--right">
-                            <div class="popup--content--button">
-                                <button
-                                        class="popup--content--submit custom__btn"
-                                        id="submit2"
-                                >
-                                    Giao đến đây
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        </c:if>
+                    </c:forEach>
+                </c:if>
             </div>
         </div>
 
         <div id="popUpPayment" class="popup">
             <div class="popup-content">
-                <div class="popup-content--desc">
-                    <div class="popup--content--userInfo--action">
-                        <div class="popup--content--userdesc">
-                            <span class="paymentMethod">Google Pay</span>
-                            <img src="${pageContext.request.contextPath}/assets/icons/gPay.svg" alt="googlepay"/>
-                        </div>
-                        <div class="popup--content--right">
-                            <div class="popup--content--button">
-                                <button class="popup--content--submitPayment" id="submit2">
-                                    Sử dụng
-                                </button>
+                <c:forEach var="method" items="${paymentMethods}">
+                    <c:if test="${method.isActive==1}">
+                        <div class="popup-content--desc">
+                            <div class="popup--content--userInfo--action">
+                                <div class="popup--content--userdesc">
+                                    <span class="paymentMethod">
+                                            <c:choose>
+                                                <c:when test="${method.name=='Delivery'}">
+                                                    Thanh toán khi nhận hàng
+                                                </c:when>
+                                                <c:otherwise>
+                                            ${method.name}</span>
+                                    </c:otherwise>
+                                    </c:choose>
+
+
+                                    <img src="${pageContext.request.contextPath}/assets/icons/${method.name}.svg"
+                                         alt="${method.name}"/>
+
+                                </div>
+                                <div class="popup--content--right">
+                                    <div class="popup--content--button">
+                                        <button class="popup--content--submitPayment">
+                                            Sử dụng
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="popup-content--desc">
-                    <div class="popup--content--userInfo--action">
-                        <div class="popup--content--userdesc">
-                            <span class="paymentMethod">Bank</span>
-                            <img
-                                    src="${pageContext.request.contextPath}/assets/icons/footer_trustbadge 1.svg"
-                                    alt="googlepay"
-                                    style="margin-top: 6px"
-                            />
-                        </div>
-                        <div class="popup--content--right">
-                            <div class="popup--content--button">
-                                <button class="popup--content--submitPayment" id="submit2">
-                                    Sử dụng
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="popup-content--desc">
-                    <div class="popup--content--userInfo--action">
-                        <div
-                                class="popup--content--userdesc d-flex justify-content-center align-items-center"
-                        >
-                            <span class="paymentMethod">Thanh toán khi nhận hàng</span>
-                        </div>
-                        <div class="popup--content--right">
-                            <div class="popup--content--button">
-                                <button class="popup--content--submitPayment" id="submit2">
-                                    Sử dụng
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                    </c:if>
+
+                </c:forEach>
             </div>
         </div>
-        <div class="col-6 ms-5 ps-0">
+        <div class="col-6 ms-5 ps-0 custom_insert">
             <div class="border-bottom pb-2 mb-3">
                 <h5 class="fw-bold">Tóm tắt đơn hàng</h5>
             </div>
             <div class="d-flex justify-content-between mb-2">
-                <p class="mb-0">2 sản phẩm</p>
-                <p class="mb-0">1,360,000₫</p>
+                <p class="mb-0">${cartSize} sản phẩm</p>
+                <p class="mb-0">
+                    ${totalPrice} VNĐ
+                </p>
             </div>
             <div class="d-flex justify-content-between mb-2">
                 <p class="mb-0">Vận chuyển</p>
-                <p class="mb-0">70,000₫</p>
+                <p class="mb-0">${shipmentPrice} VNĐ</p>
             </div>
             <div class="border-top pt-2">
                 <div class="d-flex justify-content-between fw-bold mb-2">
                     <p class="mb-0">Tổng cộng</p>
-                    <p class="mb-0">1,430,000₫</p>
+                    <p class="mb-0 totalCostDisplay">
+                        ${grandTotal} VNĐ
                 </div>
                 <p class="text-muted small mb-0">(bao gồm cả thuế)</p>
             </div>
-            <a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-dark mt-4 fs-4 custom__btn w-100"
-               id="openFormButtonPayment">
-                Thanh toán với Google
-            </a>
+            <c:choose>
+                <c:when test="${userAddresses == null || paymentMethods == null || paymentMethods.isEmpty()}">
+                    <button
+                            class="btn btn-dark mt-4 fs-4 custom__btn w-100" disabled
+                            id="openFormButtonPayment">
+                        Thanh toán với Google
+                    </button>
+                </c:when>
+                <c:otherwise>
+                    <form method="POST" action="${request.context.path}/Order">
+                    <input class="submitPaymentMethod" type="hidden" name="paymentMethod" value="GooglePay">
+                    <button type="submit"
+                            class="btn btn-dark mt-4 fs-4 custom__btn w-100"
+                            id="openFormButtonPayment">
+                        Thanh toán với Google
+                    </button>
+                    </form>
+
+                </c:otherwise>
+            </c:choose>
+
+
             <div class="input-group custom_input_group custom_input--btn mt-4">
                 <input
                         type="text"
-                        class="form-control custom_input--btn-group__input rounded-pill-start fs-5"
+                        class="form-control custom_input--btn-group__input rounded-pill-start fs-5 couponValue"
                         placeholder="Nhập coupon"
                 />
                 <button

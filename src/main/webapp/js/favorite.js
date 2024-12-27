@@ -8,6 +8,7 @@ $(document).ready(function () {
     $(".favorite-button").on('click', function () {
         const beltId = $(this).closest(".card").find(".beltId").val();
         const userId = $(this).closest(".card").find(".userId").val();
+        $("#liveToast").removeClass("hide").addClass("show")
         console.log(beltId);
         console.log(userId);
         $.ajax({
@@ -19,7 +20,7 @@ $(document).ready(function () {
                 message: "addFavorite"
             },
             success: function () {
-                console.log("Favorite added successfully.");
+                $("#liveToast").removeClass("hide").addClass("show")
                 if (!isFavoriteUpdated && !$(this).hasClass("active")) {
                     const favoriteCount = parseInt($("#favorite_receive").text(), 10) + 1
                     $("#favorite_receive").text(favoriteCount)
@@ -27,7 +28,8 @@ $(document).ready(function () {
                 }
             },
             error: function (xhr) {
-                $button.toggleClass("active");
+                $(".custom_toast_text").text("Thêm vào yêu thích thất bại")
+                $("#liveToast").removeClass("hide").addClass("show")
             }
         })
     })
@@ -45,15 +47,18 @@ $(document).ready(function () {
                 message: "addFavorite"
             },
             success: function () {
-                console.log("Favorite added successfully.");
+                $("#liveToast").removeClass("hide").addClass("show")
                 if (!isFavoriteUpdated && !$(this).hasClass("active")) {
                     const favoriteCount = parseInt($("#favorite_receive").text(), 10) + 1
                     $("#favorite_receive").text(favoriteCount)
                     isFavoriteUpdated = true;
                 }
+
+
             },
             error: function (xhr) {
-                $button.toggleClass("active");
+                $(".custom_toast_text").text("Thêm vào yêu thích thất bại")
+                $("#liveToast").removeClass("hide").addClass("show")
             }
         })
     })

@@ -2,16 +2,13 @@ package com.thomas.dao;
 
 import com.thomas.dao.db.JDBIConnect;
 import com.thomas.dao.model.Favorite;
-import com.thomas.dao.model.belts;
-import org.jdbi.v3.core.Handle;
+import com.thomas.dao.model.Belts;
 
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 
 public class FavoriteDao {
 
-    public List<belts> getAllFavoriteBelts(int userId) {
+    public List<Belts> getAllFavoriteBelts(int userId) {
         return JDBIConnect.get().withHandle(handle -> {
             String sql = "SELECT b.*" +
                     "FROM beltfavorites bf " +
@@ -22,7 +19,7 @@ public class FavoriteDao {
             return handle.createQuery(sql)
                     .bind("userId", userId)
                     .map((rs, ctx) -> {
-                        belts belt = new belts();
+                        Belts belt = new Belts();
                         belt.setId(rs.getInt("id"));
                         belt.setName(rs.getString("name"));
                         belt.setDescription(rs.getString("description"));

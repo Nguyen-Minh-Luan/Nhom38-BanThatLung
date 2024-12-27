@@ -37,4 +37,20 @@ public class OrderDetailsDao {
             return h.createUpdate(sql).bind("orderItemId", orderItemId).execute() > 0;
         });
     }
+
+    public void createOrderDetail(OrderDetails od) {
+        JDBIConnect.get().withHandle(handle -> {
+            String sql = "INSERT INTO orderDetails (orderId, price, beltId, quantity) " +
+                    "VALUES (?, ?, ?, ?)";
+
+            handle.createUpdate(sql)
+                    .bind(0, od.getOrderId())
+                    .bind(1, od.getPrice())
+                    .bind(2, od.getBeltId())
+                    .bind(3, od.getQuantity())
+                    .execute();
+            return null;
+        });
+    }
+
 }

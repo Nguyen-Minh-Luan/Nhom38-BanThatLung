@@ -1,6 +1,6 @@
 package com.thomas.controller;
 
-import com.thomas.dao.model.belts;
+import com.thomas.dao.model.Belts;
 import com.thomas.services.UploadFavoriteService;
 import com.thomas.services.UploadProductService;
 import jakarta.servlet.*;
@@ -28,8 +28,8 @@ public class favoriteController extends HttpServlet {
                 return;
             }
         }
-        List<belts> favoriteBelts = uploadFavoriteService.getFavoritesBeltByUserId(userId);
-        for (belts favoriteBelt : favoriteBelts) {
+        List<Belts> favoriteBelts = uploadFavoriteService.getFavoritesBeltByUserId(userId);
+        for (Belts favoriteBelt : favoriteBelts) {
             favoriteBelt.setImage(uploadProductService.getProductImages(favoriteBelt.getId()));
         }
         request.setAttribute("favoriteBelts", favoriteBelts);

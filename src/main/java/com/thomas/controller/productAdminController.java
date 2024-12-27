@@ -1,6 +1,6 @@
 package com.thomas.controller;
 
-import com.thomas.dao.model.belts;
+import com.thomas.dao.model.Belts;
 import com.thomas.services.UploadProductService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -21,7 +21,7 @@ public class productAdminController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<belts> beltList = uploadProductService.getProducts();
+        List<Belts> beltList = uploadProductService.getProducts();
         request.setAttribute("beltList", beltList);
         request.getRequestDispatcher("/frontend/AdminPage/allProduct/allProduct.jsp").forward(request, response);
     }

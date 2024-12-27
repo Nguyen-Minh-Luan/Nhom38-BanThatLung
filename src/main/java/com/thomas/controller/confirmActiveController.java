@@ -12,12 +12,16 @@ public class confirmActiveController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String message = request.getParameter("messageRedirect");
         TokenService tokenService = new TokenService();
         String token = request.getParameter("token");
         boolean isValid = tokenService.verifyToken(token);
         boolean active = tokenService.activeUser(token);
         if (isValid && active) {
             request.setAttribute("active", 1);
+        }
+        if (message != null) {
+            request.setAttribute("messageRedirect", message);
         }
         request.getRequestDispatcher("/frontend/signInPage/confirmSuccessSignUp/confirmSuccess.jsp").forward(request, response);
     }

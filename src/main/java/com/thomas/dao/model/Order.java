@@ -2,11 +2,14 @@ package com.thomas.dao.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Order implements Serializable {
     private int id;
     private int userId;
     private int paymentMethodId;
+    private int addressId;
     private LocalDate orderDate;
     private double orderTotal;
     private String orderStatus;
@@ -14,18 +17,21 @@ public class Order implements Serializable {
     private String userName;
     private String paymentMethod;
     private String addresse;
+    private List<OrderDetails> orderDetails;
+    private LocalDate shippingDate;
 
     public Order() {
 
     }
 
-    public Order(int id, int userId, LocalDate orderDate, double orderTotal, String orderStatus, int isDeleted) {
+    public Order(int id, int userId, LocalDate orderDate, double orderTotal, String orderStatus, int isDeleted, int addressId) {
         this.id = id;
         this.userId = userId;
         this.orderDate = orderDate;
         this.orderTotal = orderTotal;
         this.orderStatus = orderStatus;
         this.isDeleted = isDeleted;
+        this.addressId = addressId;
     }
 
     public int getId() {
@@ -58,6 +64,7 @@ public class Order implements Serializable {
 
     public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
+        setShippingDate();
     }
 
     public double getOrderTotal() {
@@ -106,5 +113,34 @@ public class Order implements Serializable {
 
     public void setAddresse(String addresse) {
         this.addresse = addresse;
+    }
+
+    public int getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(int addressId) {
+        this.addressId = addressId;
+    }
+
+    public List<OrderDetails> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetails> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
+    public String getShippingDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-M-yyyy");
+        return this.shippingDate.format(formatter);
+    }
+
+    public void setShippingDate() {
+        if (this.orderDate != null) {
+            this.shippingDate = this.orderDate.plusDays(7);
+        } else {
+            throw new IllegalStateException("Ngày đặt hàng phải được set trước đã");
+        }
     }
 }

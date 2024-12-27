@@ -23,7 +23,7 @@ public class reviewAdminController extends HttpServlet {
             uploadReviewService.setReviewerName(reviews);
             uploadReviewService.setProductName(reviews);
         }
-        request.setAttribute("reviewList", reviewsList);
+        request.setAttribute("reviewsList", reviewsList);
         request.getRequestDispatcher("/frontend/AdminPage/allReview/allReview.jsp").forward(request, response);
     }
 

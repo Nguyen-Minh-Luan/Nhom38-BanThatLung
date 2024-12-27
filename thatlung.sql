@@ -20,7 +20,7 @@ CREATE TABLE belts
     createdAt     DATETIME DEFAULT CURRENT_TIMESTAMP,
     updatedAt     DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     isDeleted     INT      DEFAULT 0,
-    discountPercent DOUBLE DEFAULT 0.0,
+    discountPercent double DEFAULT 0.0,
     materialBelt  VARCHAR(255)
 );
 CREATE TABLE users
@@ -155,7 +155,7 @@ CREATE TABLE coupons
 (
     id        INT AUTO_INCREMENT PRIMARY KEY,
     code      VARCHAR(50) NOT NULL,
-    discountRate DOUBLE NOT NULL,
+    discountPercent double DEFAULT 0.0,
     startDate DATETIME,
     endDate   DATETIME,
     isActive  INT
@@ -177,5 +177,5 @@ CREATE TABLE beltViews
     beltId    INT      NOT NULL,
     viewDate  DATETIME NOT NULL,
     viewCount INT default 1,
-    CONSTRAINT unique_belt_view UNIQUE (beltId, viewDate);
+    CONSTRAINT unique_belt_view UNIQUE (beltId, viewDate)
 )

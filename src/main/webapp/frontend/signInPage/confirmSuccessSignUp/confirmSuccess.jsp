@@ -47,6 +47,15 @@
                                     >Quay về trang chủ
                                     </a>
                                 </c:when>
+                                <c:when test="${messageRedirect !=null}">
+                                    <h2 class="fw-bold mb-2 text-uppercase">Đơn hàng của bạn đã được tiếp nhận</h2>
+                                    <i class="bi bi-check2"></i>
+
+                                    <a href="${pageContext.request.contextPath}/"
+                                       class="btn border-dark btn-lg px-5 text-dark"
+                                    >Quay về trang chủ
+                                    </a>
+                                </c:when>
                                 <c:otherwise>
                                     <h2 class="fw-bold mb-2 text-uppercase">Chúng tôi đã gửi email xác nhận cho bạn</h2>
                                     <p class="text-dark mb-5">vui lòng kiểm tra email</p>

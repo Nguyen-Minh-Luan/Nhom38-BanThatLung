@@ -1,7 +1,7 @@
 package com.thomas.dao;
 
 import com.thomas.dao.db.JDBIConnect;
-import com.thomas.dao.model.belts;
+import com.thomas.dao.model.Belts;
 import org.jdbi.v3.core.Handle;
 
 import java.sql.ResultSet;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDao {
-    public boolean createProduct(belts belts) {
+    public boolean createProduct(Belts belts) {
         return JDBIConnect.get().withHandle(h -> {
             String sql = "INSERT INTO belts ( name, releaseDate, gender, price,stockQuantity ,materialBelt,isDeleted) VALUES (:productName,:releaseDate,:gender,:price,:stockQuantity,:material,:isDeleted)";
             return h.createUpdate(sql).bind("productName", belts.getName())
@@ -64,8 +64,8 @@ public class ProductDao {
     }
 
 
-    public belts getProduct(int id) {
-        belts belts = new belts();
+    public Belts getProduct(int id) {
+        Belts belts = new Belts();
         return JDBIConnect.get().withHandle(handle -> {
             String sql = "SELECT * FROM belts ORDER BY id DESC";
             try (Handle h = handle) {
@@ -92,15 +92,15 @@ public class ProductDao {
         });
     }
 
-    public List<belts> getAllProducts() {
+    public List<Belts> getAllProducts() {
         return JDBIConnect.get().withHandle(handle -> {
-            String sql = "SELECT * FROM belts ORDER BY id DESC";
-            List<belts> belts = new ArrayList<>();
+            String sql = "SELECT * FROM belts WHERE isDeleted=0 ORDER BY id DESC";
+            List<Belts> belts = new ArrayList<>();
             try (Handle h = handle) {
                 h.execute(sql);
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
                 while (rs.next()) {
-                    com.thomas.dao.model.belts belt = new belts();
+                    Belts belt = new Belts();
                     belt.setId(rs.getInt("id"));
                     belt.setName(rs.getString("name"));
                     belt.setDescription(rs.getString("description"));
@@ -123,14 +123,14 @@ public class ProductDao {
         });
     }
 
-    public belts findById(int id) {
+    public Belts findById(int id) {
         return JDBIConnect.get().withHandle(h -> {
             String sql = "SELECT * FROM belts WHERE id = :id";
-            return h.createQuery(sql).bind("id", id).mapToBean(belts.class).findFirst().orElse(null);
+            return h.createQuery(sql).bind("id", id).mapToBean(Belts.class).findFirst().orElse(null);
         });
     }
 
-    public boolean updateProduct(belts belts) {
+    public boolean updateProduct(Belts belts) {
         return JDBIConnect.get().withHandle(h -> {
             String sql = "UPDATE belts SET name = :productName, " +
                     "releaseDate = :releaseDate, " +
@@ -201,15 +201,15 @@ public class ProductDao {
         });
     }
 
-    public List<belts> getRandomBelts() {
+    public List<Belts> getRandomBelts() {
         return JDBIConnect.get().withHandle(handle -> {
             String sql = "SELECT * FROM belts ORDER BY RAND() LIMIT 4";
-            List<belts> belts = new ArrayList<>();
+            List<Belts> belts = new ArrayList<>();
             try (Handle h = handle) {
                 h.execute(sql);
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
                 while (rs.next()) {
-                    com.thomas.dao.model.belts belt = new belts();
+                    Belts belt = new Belts();
                     belt.setId(rs.getInt("id"));
                     belt.setName(rs.getString("name"));
                     belt.setDescription(rs.getString("description"));
@@ -241,7 +241,7 @@ public class ProductDao {
         });
     }
 
-    public List<belts> getBeltsByViewCount() {
+    public List<Belts> getBeltsByViewCount() {
         return JDBIConnect.get().withHandle(handle -> {
             // SQL query to get the top 4 belts ordered by viewCount in descending order
             String sql = "SELECT b.* FROM belts b " +
@@ -249,11 +249,11 @@ public class ProductDao {
                     "ORDER BY bv.viewCount DESC " +
                     "LIMIT 4";
 
-            List<belts> beltsList = new ArrayList<>();
+            List<Belts> beltsList = new ArrayList<>();
             try (Handle h = handle) {
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
                 while (rs.next()) {
-                    com.thomas.dao.model.belts belt = new belts();
+                    Belts belt = new Belts();
                     belt.setId(rs.getInt("id"));
                     belt.setName(rs.getString("name"));
                     belt.setDescription(rs.getString("description"));
@@ -275,9 +275,8 @@ public class ProductDao {
         });
     }
 
-    public List<belts> getNewArrivalProductsHotSelling() {
+    public List<Belts> getNewArrivalProductsHotSelling() {
         return JDBIConnect.get().withHandle(handle -> {
-            // SQL query to get the top 4 belts ordered by viewCount in descending order
             String sql = "SELECT " +
                     "    b.id AS beltId, " +
                     "    b.name AS beltName, " +
@@ -296,11 +295,11 @@ public class ProductDao {
                     "ORDER BY " +
                     "    totalQuantitySold DESC, b.createdAt DESC;";
 
-            List<belts> beltsList = new ArrayList<>();
+            List<Belts> beltsList = new ArrayList<>();
             try (Handle h = handle) {
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
                 while (rs.next()) {
-                    com.thomas.dao.model.belts belt = new belts();
+                    Belts belt = new Belts();
                     belt.setId(rs.getInt("id"));
                     belt.setName(rs.getString("name"));
                     belt.setDescription(rs.getString("description"));

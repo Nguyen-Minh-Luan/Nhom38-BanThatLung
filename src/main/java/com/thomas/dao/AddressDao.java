@@ -93,4 +93,12 @@ public class AddressDao {
                     .mapToBean(Address.class).findFirst().orElse(null) != null;
         });
     }
+
+    public Address getAddressByUserId(int userId) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "SELECT * FROM addresses WHERE userId = :userId AND isUse = 1";
+            return h.createQuery(sql).bind("userId", userId)
+                    .mapToBean(Address.class).findFirst().orElse(null);
+        });
+    }
 }

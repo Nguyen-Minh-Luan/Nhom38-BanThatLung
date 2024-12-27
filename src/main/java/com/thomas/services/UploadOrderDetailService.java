@@ -28,4 +28,22 @@ public class UploadOrderDetailService {
     public boolean deleteOrderDetail(int orderItemId) {
         return orderDetailsDao.deleteOrderDetail(orderItemId);
     }
+
+    public void createOrderDetail(int id, double price, int beltId, int quantity) {
+        OrderDetails od = new OrderDetails();
+        od.setOrderId(id);
+        od.setPrice(price);
+        od.setBeltId(beltId);
+        od.setQuantity(quantity);
+        orderDetailsDao.createOrderDetail(od);
+    }
+
+    public List<OrderDetails> orderDetailsList(int orderId) {
+        return orderDetailsDao.findByOrderId(orderId);
+    }
+
+    public void setOrderDetails(Order order) {
+        order.setOrderDetails(orderDetailsList(order.getId()));
+    }
+
 }

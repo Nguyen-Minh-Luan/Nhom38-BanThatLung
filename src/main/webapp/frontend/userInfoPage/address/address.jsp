@@ -83,7 +83,7 @@
         <div class="d-inline-block fw-bold" style="padding: 12px">
             <a
                     class="text-dark text-decoration-none custom_size--19"
-                    href="${pageContext.request.contextPath}/frontend/orderView/ordersView.jsp"
+                    href="${pageContext.request.contextPath}/viewOrders"
             >Đơn hàng</a
             >
         </div>

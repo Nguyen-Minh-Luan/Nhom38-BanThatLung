@@ -1,11 +1,12 @@
 package com.thomas.dao.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class belts implements Serializable {
+public class Belts implements Serializable {
     private int id;
     private String name;
     private String description;
@@ -22,11 +23,11 @@ public class belts implements Serializable {
     private int totalQuantity;
     private List<Category> categories;
 
-    public belts() {
+    public Belts() {
 
     }
 
-    public belts(int id, String name, String description, double price, String gender, int stockQuantity, LocalDate releaseDate, LocalDate createdDate, LocalDate updatedDate, int isDeleted, double discountPercent, String materialBelt) {
+    public Belts(int id, String name, String description, double price, String gender, int stockQuantity, LocalDate releaseDate, LocalDate createdDate, LocalDate updatedDate, int isDeleted, double discountPercent, String materialBelt) {
         this.id = id;
         this.name = name;
         this.description = description;

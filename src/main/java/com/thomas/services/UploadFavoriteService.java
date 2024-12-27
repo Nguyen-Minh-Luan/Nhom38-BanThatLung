@@ -2,7 +2,7 @@ package com.thomas.services;
 
 import com.thomas.dao.FavoriteDao;
 import com.thomas.dao.model.Favorite;
-import com.thomas.dao.model.belts;
+import com.thomas.dao.model.Belts;
 
 import java.util.List;
 
@@ -13,13 +13,13 @@ public class UploadFavoriteService {
         favoriteDao = new FavoriteDao();
     }
 
-    public List<belts> getFavoritesBeltByUserId(int userId) {
+    public List<Belts> getFavoritesBeltByUserId(int userId) {
         return favoriteDao.getAllFavoriteBelts(userId);
     }
 
     public boolean addFavoriteByUserId(int userId, int beltId) {
-        List<belts> favoriteBelts = getFavoritesBeltByUserId(userId);
-        for (belts belt : favoriteBelts) {
+        List<Belts> favoriteBelts = getFavoritesBeltByUserId(userId);
+        for (Belts belt : favoriteBelts) {
             if (belt.getId() == beltId) {
                 return false;
             }

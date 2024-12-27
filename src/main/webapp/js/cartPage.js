@@ -2,8 +2,15 @@ $(document).ready(function () {
 
     $(".custom_input--btn-group__btn").on("click", function () {
         const couponCode = $(".couponValue").val();
+        const cartReceived = $("#cart_received").text()
+        $(".custom_insert").remove(".custom_alert")
         if (couponCode === "") {
-            $(".custom_insert").append("<p class='text-danger'>Chưa nhập coupon</p>")
+            $(".custom_insert").append("<p class='text-danger custom_alert w-100'>Chưa nhập coupon</p>")
+            return;
+        } else if (cartReceived === "0") {
+            $(".custom_insert").append("<p class='text-danger custom_alert w-100'>Chưa có sản phẩm</p>")
+            return;
+
         } else {
             $.ajax({
                 url: `/coupon?code=${couponCode}`,
@@ -14,12 +21,10 @@ $(document).ready(function () {
                 },
                 success(responseData) {
                     const data = responseData;
-                    const totalCost = $(".totalCostDisplay").text().replace("VNĐ", "").trim();
-                    console.log(totalCost);
-                    $(".totalCostDisplay").text(totalCost - (totalCost * data.discountPercent / 100));
+                    $(".totalCostDisplay").text((data.grandTotal) + "VNĐ");
                 },
                 error(responseData) {
-                    $(".custom_input_group").append("<h3 class='text-danger'>Coupon không tồn tại</h3>")
+                    $(".custom_input_group").append("<p class='text-danger custom_alert w-100'>Coupon không tồn tại</p>")
 
                 }
             })
@@ -40,11 +45,11 @@ $(document).ready(function () {
                 $this.closest(".custom_remove").fadeOut(300, function () {
                     $(this).remove();
                 });
-                $(".totalOrdersCountDisplay").text(`Tổng [${data.totalOrders / 15000} đơn hàng]`)
-                $(".totalOrdersDisplayBelts").text(`${data.totalOrders / 15000} sản phẩm`)
-                $(".totalPriceDisplay").text(data.totalPrice.toString() + " VNĐ");
-                $(".totalOrdersDisplay").text(data.totalOrders * $("#quantitySelect").val().toString() + " VNĐ")
-                $(".totalCostDisplay").text(data.totalCost.toString() + " VNĐ")
+                $(".totalOrdersCountDisplay").text(`Tổng [${data.cartSize} đơn hàng]`);
+                $(".totalOrdersDisplayBelts").text(`${data.cartSize} sản phẩm`);
+                $(".totalPriceDisplay").text((data.totalPrice));
+                $(".shipmentDisplay").text((data.shipmentPrice));
+                $(".totalCostDisplay").text((data.grandTotal));
                 const cartCount = parseInt($("#cart_received").text(), 10) - 1
                 $("#cart_received").text(cartCount)
             },
@@ -53,6 +58,8 @@ $(document).ready(function () {
             }
         })
     })
+
+
     $("#quantitySelect").on("change", function () {
         const selectedQuantity = $(this).val();
 
@@ -68,16 +75,16 @@ $(document).ready(function () {
             success: function (response) {
                 console.log("Quantity updated successfully!");
                 const data = response;
-                $(".totalOrdersCountDisplay").text(`Tổng [${data.totalOrders / 15000} đơn hàng]`)
-                $(".totalOrdersDisplayBelts").text(`${data.totalOrders / 15000} sản phẩm`)
-                $(".totalPriceDisplay").text(data.totalPrice.toString() + " VNĐ");
-                $(".totalOrdersDisplay").text(data.totalOrders * $("#quantitySelect").val().toString() + " VNĐ")
-                $(".totalCostDisplay").text(data.totalCost.toString() + " VNĐ")
+                $(".totalOrdersCountDisplay").text(`Tổng [${data.cartSize} đơn hàng]`);
+                $(".totalOrdersDisplayBelts").text(`${data.cartSize} sản phẩm`);
+                $(".totalPriceDisplay").text((data.totalPrice) + "VNĐ");
+                $(".shipmentDisplay").text((data.shipmentPrice) + "VNĐ");
+                $(".totalCostDisplay").text((data.grandTotal) + "VNĐ");
             },
+
             error: function (xhr, status, error) {
                 console.error("Error while updating quantity:", error);
             }
         });
     });
-
 });

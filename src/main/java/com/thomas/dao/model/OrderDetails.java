@@ -1,6 +1,7 @@
 package com.thomas.dao.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class OrderDetails implements Serializable {
     private int id;
@@ -9,6 +10,8 @@ public class OrderDetails implements Serializable {
     private int beltId;
     private int quantity;
     private String beltName;
+    private List<String> beltImages;
+    private List<Category> categories;
 
     public OrderDetails() {
 
@@ -68,5 +71,21 @@ public class OrderDetails implements Serializable {
 
     public void setBeltName(String beltName) {
         this.beltName = beltName;
+    }
+
+    public List<String> getBeltImages() {
+        return beltImages;
+    }
+
+    public void setBeltImages(List<String> beltImages) {
+        this.beltImages = beltImages;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 }

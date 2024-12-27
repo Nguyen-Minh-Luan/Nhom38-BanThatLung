@@ -1,6 +1,7 @@
 package com.thomas.dao.db;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
+import com.thomas.dao.model.Coupon;
 import org.jdbi.v3.core.Jdbi;
 
 import java.sql.SQLException;
@@ -26,5 +27,7 @@ public class JDBIConnect {
             e.printStackTrace();
         }
         jdbi = Jdbi.create(ds);
+        jdbi.registerRowMapper(Coupon.class, new CouponMapper());
+
     }
 }

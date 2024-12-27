@@ -1,6 +1,6 @@
 package com.thomas.controller;
 
-import com.thomas.dao.model.belts;
+import com.thomas.dao.model.Belts;
 import com.thomas.services.UploadProductService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class createProductController extends HttpServlet {
         String beltIdParam = request.getParameter("id");
         if (beltIdParam != null) {
             int beltId = Integer.parseInt(beltIdParam);
-            belts belts = uploadProductService.getProductById(beltId);
+            Belts belts = uploadProductService.getProductById(beltId);
             List<String> image = uploadProductService.getProductImages(beltId);
             String[] tagsArray = uploadProductService.getTags(beltId);
             if (belts != null) {

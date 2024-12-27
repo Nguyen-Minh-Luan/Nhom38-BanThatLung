@@ -4,9 +4,10 @@ import com.thomas.dao.BeltCategoryDao;
 import com.thomas.dao.CategoryDao;
 import com.thomas.dao.ProductDao;
 import com.thomas.dao.model.BeltCategory;
-import com.thomas.dao.model.belts;
+import com.thomas.dao.model.Belts;
 import com.thomas.dao.model.Category;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Comparator;
@@ -23,7 +24,7 @@ public class UploadProductService {
         beltCategoryDao = new BeltCategoryDao();
     }
 
-    public List<belts> getProducts() {
+    public List<Belts> getProducts() {
         return productDao.getAllProducts();
     }
 
@@ -42,7 +43,7 @@ public class UploadProductService {
 
     public void saveProduct(String productName, String[] tags, double discountPercent, LocalDate releaseDate, String gender, double price, int stockQuantity, String material, int isDeleted) {
 
-        belts belts = new belts();
+        Belts belts = new Belts();
         belts.setName(productName);
         belts.setPrice(price);
         belts.setReleaseDate(releaseDate);
@@ -88,12 +89,12 @@ public class UploadProductService {
         return bc;
     }
 
-    public belts getProductById(int productId) {
+    public Belts getProductById(int productId) {
         return productDao.getProduct(productId);
     }
 
     public void updateProduct(int id, String productName, String[] tags, double discountPercent, LocalDate releaseDate, String gender, double price, int stockQuantity, String material, int isDeleted) {
-        belts belts = productDao.findById(id);
+        Belts belts = productDao.findById(id);
         belts.setName(productName);
         belts.setPrice(price);
         belts.setReleaseDate(releaseDate);
@@ -156,15 +157,15 @@ public class UploadProductService {
         }
     }
 
-    public List<belts> getNewArrivalProducts() {
-        List<belts> newArrivalBelts = productDao.getAllProducts();
-        for (belts belt : newArrivalBelts) {
+    public List<Belts> getNewArrivalProducts() {
+        List<Belts> newArrivalBelts = productDao.getAllProducts();
+        for (Belts belt : newArrivalBelts) {
             belt.setImage(productDao.getProductImages(belt.getId()));
 
         }
-        Collections.sort(newArrivalBelts, new Comparator<belts>() {
+        Collections.sort(newArrivalBelts, new Comparator<Belts>() {
             @Override
-            public int compare(belts o1, belts o2) {
+            public int compare(Belts o1, Belts o2) {
                 return o1.getCreatedDate().compareTo(o2.getCreatedDate());
             }
         });
@@ -179,7 +180,7 @@ public class UploadProductService {
         return productDao.getDescImage(beltId);
     }
 
-    public List<belts> getRandomBelts() {
+    public List<Belts> getRandomBelts() {
         return productDao.getRandomBelts();
     }
 
@@ -187,11 +188,22 @@ public class UploadProductService {
         productDao.saveBeltView(beltId);
     }
 
-    public List<belts> getBeltByViewCount() {
+    public List<Belts> getBeltByViewCount() {
         return productDao.getBeltsByViewCount();
     }
 
-    public List<belts> getNewArrivalProductsHotSeliing() {
+    public List<Belts> getNewArrivalProductsHotSeliing() {
         return productDao.getNewArrivalProductsHotSelling();
+    }
+
+    public int numberOfOutOfStockProducts() {
+        List<Belts> allProducts = productDao.getAllProducts();
+        int count = 0;
+        for (Belts belt : allProducts) {
+            if (belt.getStockQuantity() <= 0) {
+                count++;
+            }
+        }
+        return count;
     }
 }

@@ -11,11 +11,11 @@
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/icons/favicon.svg" type="image/png"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link
             rel="stylesheet"
@@ -89,16 +89,19 @@
             <c:choose>
                 <c:when test="${belt.discountPercent > 0}">
                     <p class="belts-price text-danger">
-                            ${belt.price - (belt.price * belt.discountPercent / 100)} vnđ
-                        <span class="belts-old-price text-muted text-decoration-line-through">${belt.price} vnđ</span>
+                            ${belt.price - (belt.price * belt.discountPercent / 100)} VNĐ
+                        <span class="belts-old-price text-muted text-decoration-line-through">
+                                ${belt.price} VNĐ
+                        </span>
                     </p>
                 </c:when>
                 <c:otherwise>
                     <p class="belts-price">
-                            ${belt.price} vnđ
+                            ${belt.price} VNĐ
                     </p>
                 </c:otherwise>
             </c:choose>
+
 
             <div class="mb-3">
                 <c:forEach var="category" items="${beltCategory}">
@@ -107,7 +110,7 @@
             </div>
             <div class="mb-3 mt-3">
                 <label for="quantity" class="form-label"><strong>Số Lượng:</strong></label>
-                <input type="hidden" class="quantity_belt" name="quantity" value="${belt.stockQuantity}">
+                <input type="hidden" class="quantity_belt" name="quantity" value="">
                 <div class="quantity__control input-group quantity-controls">
                     <button class="btn btn-outline-secondary" type="button" id="decrement">-</button>
                     <input type="text" class="form-control" id="quantity" value="1">
@@ -119,10 +122,10 @@
                 <a href="" class="buyNow__button btn btn-dark w-100 mb-4">
                     Mua Ngay
                 </a>
-                <button class="addToCart__button btn-white me-2 w-100 mb-3">
+                <button class="addToCart__button btn-white me-2 w-100 mb-3" id="liveToastBtn" type="button">
                     Thêm vào giỏ hàng
                 </button>
-                <button class="favorite_button btn me-2 w-100 mb-3 rounded">
+                <button type="button" class="favorite_button btn me-2 w-100 mb-3 rounded" id="liveToastBtn">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                          fill="#000000">
                         <path
@@ -290,12 +293,13 @@
 
 
                     <img src="${pageContext.request.contextPath}${belt.image[0]}" class="card-img-top" alt="..."/>
-                    <a href="../productDetail/productDetail.html">
+                    <a href="/productDetails?beltId=${belt.id}">
                         <div class="card-body text-start">
                             <h5 class="card-title text-start">
                                     ${belt.name}
                             </h5>
-                            <p class="card-text text-start">${belt.price} VNĐ</p>
+                            <p class="card-text text-start">${belt.price}"
+                            </p>
                         </div>
                     </a>
                 </div>
@@ -308,27 +312,44 @@
     <p class="viewed__title ms-0 fs-2">Sản phẩm đã xem</p>
     <div class="d-flex justify-content-between">
         <div class="card-wrapper cardWrapper">
-            <c:forEach var="belt" items="${beltViewCount}">
+            <c:forEach var="belt" items="${randomBelts}">
                 <div class="card" style="position: relative">
-                    <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
-                        <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px"
-                             viewBox="0 -960 960 960"
-                             width="24px" fill="#000000">
-                            <path
-                                    d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                    </div>
+                    <input class="beltId" type="hidden" name="beltId" value="${belt.id}">
+                    <input class="userId" type="hidden" name="userId" value="${sessionScope.auth.id}">
+                    <c:if test="${sessionScope.auth!=null}">
+                        <button class="btn bg-light favorite-button pt-2 px-2"
+                                style="position: absolute; top: 10px; right: 10px; z-index: 10; border-radius: 50%; border: none;">
+                            <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px"
+                                 viewBox="0 -960 960 960"
+                                 width="24px" fill="#000000">
+                                <path
+                                        d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                        </button>
+                    </c:if>
+
+
                     <img src="${pageContext.request.contextPath}${belt.image[0]}" class="card-img-top" alt="..."/>
-                    <a href="../productDetail?beltId=${belt.id}">
+                    <a href="/productDetails?beltId=${belt.id}">
                         <div class="card-body text-start">
                             <h5 class="card-title text-start">
                                     ${belt.name}
                             </h5>
-                            <p class="card-text text-start">${belt.price} VNĐ</p>
+                            <p class="card-text text-start">${belt.price}
+                            </p>
                         </div>
                     </a>
                 </div>
             </c:forEach>
+        </div>
+    </div>
+</div>
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast hide bg-white" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body fs-5 p-3 d-flex justify-content-between border-end border-dark border-5 align-items-center">
+            <i class="bi bi-info-circle"></i>
+            <p class="fs-5 m-0 custom_toast_text">Thêm vào thành công</p>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
 </div>

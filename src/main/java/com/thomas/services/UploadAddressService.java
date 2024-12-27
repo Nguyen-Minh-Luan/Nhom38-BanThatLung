@@ -38,6 +38,12 @@ public class UploadAddressService {
         return addressDao.setIsUse(addressId, userId) && setUnUse;
     }
 
+    public Address setIsUseAddressDisplay(int addressId, int userId) {
+        boolean setUnUse = addressDao.setAllunUse(userId);
+        addressDao.setIsUse(addressId, userId);
+        return addressDao.getAddress(addressId);
+    }
+
     public void setUserName(Address ad) {
         if (ad != null) {
             String userName = addressDao.getUserName(ad.getId(), ad.getUserId());
@@ -61,5 +67,9 @@ public class UploadAddressService {
         if (!addressDao.checkAddress(address)) {
             addressDao.addAddress(address);
         }
+    }
+
+    public Address getAddressByUserId(int userId) {
+        return addressDao.getAddressByUserId(userId);
     }
 }

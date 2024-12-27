@@ -43,10 +43,9 @@
     >
         <a
                 class="sidebar-brand d-flex align-items-center justify-content-center"
-                href="${pageContext.request.contextPath}/admin"
+                href="${pageContext.request.contextPath}/"
         >
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
             </div>
             <div class="sidebar-brand-text mx-3">THOMAS Admin</div>
         </a>
@@ -365,30 +364,29 @@
                                 aria-expanded="false"
                         >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                  >Douglas McGee</span
+                  >${sessionScope.auth.name}</span
                   >
-                            <img
-                                    class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg"
-                            />
+                            <c:choose>
+                                <c:when test="${sessionScope.auth.image!=null}">
+                                    <img
+                                            src="${pageContext.request.contextPath}${sessionScope.auth.image}"
+                                            alt=" User Avatar"
+                                            width="35"
+                                            height="35"
+                                            class="rounded-circle me-2"
+                                    />
+                                </c:when>
+                                <c:otherwise>
+                                    <img
+                                            src="${pageContext.request.contextPath}/assets/icons/user.svg"
+                                            alt=" User Avatar"
+                                            width="35"
+                                            height="35"
+                                            class="rounded-circle me-2"
+                                    />
+                                </c:otherwise>
+                            </c:choose>
                         </a>
-                        <!-- Dropdown - User Information -->
-                        <div
-                                class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown"
-                        >
-                            <a
-                                    class="dropdown-item"
-                                    href="#"
-                                    data-toggle="modal"
-                                    data-target="#logoutModal"
-                            >
-                                <i
-                                        class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
-                                ></i>
-                                Logout
-                            </a>
-                        </div>
                     </li>
                 </ul>
             </nav>

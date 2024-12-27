@@ -3,6 +3,7 @@ package com.thomas.services;
 import com.thomas.dao.OrderDao;
 import com.thomas.dao.model.Order;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class UploadOrderService {
@@ -44,4 +45,40 @@ public class UploadOrderService {
     public boolean deteleOrder(int orderId) {
         return orderDao.deleteOrderById(orderId);
     }
+
+    public boolean createOrder(int userId, int paymentMethodId, int addressId, LocalDate orderDate, double grandTotal, String state, int isDeleted) {
+        Order order = new Order();
+        order.setUserId(userId);
+        order.setPaymentMethodId(paymentMethodId);
+        order.setAddressId(addressId);
+        order.setOrderDate(orderDate);
+        order.setOrderTotal(grandTotal);
+        order.setOrderStatus(state);
+        order.setIsDeleted(isDeleted);
+        return orderDao.createOrder(order);
+    }
+
+    public Order getLatestOrder() {
+        return orderDao.getOrderLatestOrder();
+    }
+
+    public int getOrderCount() {
+        return getAllOrders().size();
+    }
+
+    public double getTotalOrderMoney() {
+        List<Order> allOrders = getAllOrders();
+        double total = 0;
+        for (Order order : allOrders) {
+            if (order.getOrderStatus().equals("Đã giao")) {
+                total += order.getOrderTotal();
+            }
+        }
+        return total;
+    }
+
+    public List<Order> getAllOrdersByUserId(int userId) {
+        return orderDao.getAllOrderByUserId(userId);
+    }
+
 }

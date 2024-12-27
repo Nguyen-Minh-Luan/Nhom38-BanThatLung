@@ -1,6 +1,6 @@
 package com.thomas.controller;
 
-import com.thomas.dao.model.belts;
+import com.thomas.dao.model.Belts;
 import com.thomas.services.UploadProductService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -8,7 +8,6 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
@@ -23,16 +22,16 @@ public class newArrivalController extends HttpServlet {
         String descPrice = request.getParameter("descPrice");
 
         // Get all products first
-        List<belts> newArrivalBelts = uploadProductService.getNewArrivalProducts();
+        List<Belts> newArrivalBelts = uploadProductService.getNewArrivalProducts();
 
         // Apply sorting if descPrice parameter exists and is not empty
         if (descPrice != null && !descPrice.trim().isEmpty()) {
             switch (descPrice.trim()) {
                 case "increase":
-                    newArrivalBelts.sort(Comparator.comparing(belts::getPrice));
+                    newArrivalBelts.sort(Comparator.comparing(Belts::getPrice));
                     break;
                 case "decrease":
-                    newArrivalBelts.sort(Comparator.comparing(belts::getPrice).reversed());
+                    newArrivalBelts.sort(Comparator.comparing(Belts::getPrice).reversed());
                     break;
                 case "hotSelling":
                     newArrivalBelts = uploadProductService.getNewArrivalProductsHotSeliing();
@@ -65,7 +64,7 @@ public class newArrivalController extends HttpServlet {
         int endIndex = Math.min(startIndex + itemsPerPage, totalItems);
 
         // Get sublist for current page
-        List<belts> beltsForPage = startIndex < totalItems
+        List<Belts> beltsForPage = startIndex < totalItems
                 ? newArrivalBelts.subList(startIndex, endIndex)
                 : new ArrayList<>();
 

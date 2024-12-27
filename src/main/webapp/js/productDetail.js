@@ -1,7 +1,9 @@
 $(document).ready(function () {
+
+    $(".quantity_belt").val($("#quantity").val());
+
     var currentPage = 1;
     var reviewsPerPage = 5;
-
     window.loadReviews = function (page) {
         var beltId = $("#beltIdReviews").val();
         $.ajax({
@@ -27,7 +29,7 @@ $(document).ready(function () {
             const quantity = $(".quantity_belt").val();
             const fullText = $(".belts-price").clone().children().remove().end().text().trim();
             const beltId = $("#beltIdReviews").val();
-            const price = fullText.replace('vnđ', '').trim();
+            const price = fullText.replace('VNĐ', '').trim();
             $.ajax({
                 url: `/Cart?message=add&beltName=${beltName}`,
                 type: 'POST',
@@ -39,12 +41,16 @@ $(document).ready(function () {
                     price: price,
                 },
                 success: function (response) {
-                    console.log("OK");
+                    $("#liveToast").removeClass("hide").addClass("show")
                     if (!isCartUpdated) {
                         let cartCount = parseInt($("#cart_received").text(), 10) + 1;
                         $("#cart_received").text(cartCount)
                         isCartUpdated = true;
                     }
+                },
+                error(xhr) {
+                    $(".custom_toast_text").text("Thêm vào giỏ hàng thất bại")
+                    $("#liveToast").removeClass("hide").addClass("show")
                 }
             })
 
