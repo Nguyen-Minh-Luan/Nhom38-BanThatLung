@@ -196,31 +196,37 @@ public class UploadProductService {
         return productDao.getNewArrivalProductsHotSelling();
     }
 
-    public int numberOfOutOfStockProducts() {
-        List<Belts> allProducts = productDao.getAllProducts();
-        for (Belts belt : allProducts) {
-            if (belt.getStockQuantity() <= 0) {
-                allProducts.add(belt);
-            }
-        }
-        return allProducts.size();
-    }
-
-    public List<Belts> getSortedListBelts(String type) {
-        List<Belts> list = new ArrayList<Belts>();
-        if ("increase".equals(type)) {
-            list = productDao.getAscendByPrice();
-        }
-        if ("decrease".equals(type)) {
-            list = productDao.getDescendByPrice();
-        }
-        return list;
+    public List<Belts> getNewArrivals() {
+        return productDao.getNewArrivals();
     }
 
     public List<Belts> getAllProductsForDisplaying() {
         return productDao.getAllProductForDisplaying();
     }
-    public List<Belts> getNewArrivals() {
-        return productDao.getNewArrivals();
+
+    public List<Belts> getSortedListBelts(String type) {
+        List<Belts> list = getAllProductsForDisplaying();
+        if ("default".equals(type)) {
+
+        }
+        if ("increase".equals(type)) {
+            list.sort(new Comparator<Belts>() {
+                @Override
+                public int compare(Belts o1, Belts o2) {
+                    double i = o1.getPrice() - o2.getPrice();
+                    return (int) i;
+                }
+            });
+        }
+        if ("decrease".equals(type)) {
+            list.sort(new Comparator<Belts>() {
+                @Override
+                public int compare(Belts o1, Belts o2) {
+                    double i = o2.getPrice() - o1.getPrice();
+                    return (int) i;
+                }
+            });
+        }
+        return list;
     }
 }
