@@ -196,6 +196,10 @@ public class UploadProductService {
         return productDao.getNewArrivalProductsHotSelling();
     }
 
+    public List<Belts> getHotSeliingProducts() {
+        return productDao.getHotSellingProducts();
+    }
+
     public int numberOfOutOfStockProducts() {
         List<Belts> allProducts = productDao.getAllProducts();
         for (Belts belt : allProducts) {
@@ -220,6 +224,7 @@ public class UploadProductService {
     public List<Belts> getAllProductsForDisplaying() {
         return productDao.getAllProductForDisplaying();
     }
+
     public List<Belts> getNewArrivals() {
         return productDao.getNewArrivals();
     }

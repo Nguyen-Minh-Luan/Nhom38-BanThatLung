@@ -63,56 +63,6 @@
         <hr class="sidebar-divider"/>
 
         <!-- Heading -->
-        <div class="sidebar-heading">Interface</div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a
-                    class="nav-link collapsed"
-                    href="#"
-                    data-toggle="collapse"
-                    data-target="#collapseTwo"
-                    aria-expanded="true"
-                    aria-controls="collapseTwo"
-            >
-                <i class="fas fa-fw fa-list-check"></i>
-                <span>Quản lý</span>
-            </a>
-            <div
-                    id="collapseTwo"
-                    class="collapse"
-                    aria-labelledby="headingTwo"
-                    data-parent="#accordionSidebar"
-            >
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Các đối tượng:</h6>
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/userManagement/userManagement.jsp"
-                    >Người dùng</a
-                    >
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/productManagement/productManagement.jsp"
-                    >Sản phẩm</a
-                    >
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/reviewManagement/reviewManagement.jsp"
-                    >Đánh giá</a
-                    >
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/couponManagement/couponManagement.jsp"
-                    >Coupon</a
-                    >
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/orderManagement/orderManagement.jsp"
-                    >Đơn hàng</a
-                    >
-                </div>
-        </li>
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item active">

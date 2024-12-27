@@ -73,54 +73,6 @@
                     class="nav-link collapsed"
                     href="#"
                     data-toggle="collapse"
-                    data-target="#collapseTwo"
-                    aria-expanded="true"
-                    aria-controls="collapseTwo"
-            >
-                <i class="fas fa-fw fa-list-check"></i>
-                <span>Quản lý</span>
-            </a>
-            <div
-                    id="collapseTwo"
-                    class="collapse"
-                    aria-labelledby="headingTwo"
-                    data-parent="#accordionSidebar"
-            >
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Các đối tượng:</h6>
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/userManagement/userManagement.jsp"
-                    >Người dùng</a
-                    >
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/productManagement/productManagement.jsp"
-                    >Sản phẩm</a
-                    >
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/reviewManagement/reviewManagement.jsp"
-                    >Đánh giá</a
-                    >
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/couponManagement/couponManagement.jsp"
-                    >Coupon</a
-                    >
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/orderManagement/orderManagement.jsp"
-                    >Đơn hàng</a
-                    >
-                </div>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a
-                    class="nav-link collapsed"
-                    href="#"
-                    data-toggle="collapse"
                     data-target="#collapseUtilities"
                     aria-expanded="true"
                     aria-controls="collapseUtilities"
@@ -404,19 +356,59 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-xl-12 col-lg-7">
+
+                    <!-- Area Chart -->
+                    <div class="col-xl-8 col-lg-7">
                         <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
                             <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
-                                    style="background-color: black"
-                            >
-                                <h6 class="m-0 font-weight-bold" style="color: white">
-                                    Đơn hàng nhiều tiền nhất
-                                </h6>
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Doanh số tổng quát</h6>
+                                <div class="dropdown no-arrow">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                    </a>
+                                </div>
                             </div>
+                            <!-- Card Body -->
                             <div class="card-body">
                                 <div class="chart-area">
                                     <canvas id="myAreaChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pie Chart -->
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Lượt xem sản phẩm</h6>
+                                <div class="dropdown no-arrow">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="chart-pie pt-4 pb-2">
+                                    <canvas id="myPieChart"></canvas>
+                                </div>
+                                <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-primary"></i> Direct
+                                        </span>
+                                    <span class="mr-2">
+                                            <i class="fas fa-circle text-success"></i> Social
+                                        </span>
+                                    <span class="mr-2">
+                                            <i class="fas fa-circle text-info"></i> Referral
+                                        </span>
                                 </div>
                             </div>
                         </div>
@@ -547,5 +539,11 @@
 
 <!-- Custom scripts for all pages-->
 <script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
+<!-- Page level plugins -->
+<script src="${pageContext.request.contextPath}/js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="${pageContext.request.contextPath}/js/chart-area-demo.js"></script>
+<script src="${pageContext.request.contextPath}/js/chart-pie-demo.js"></script>
 </body>
 </html>

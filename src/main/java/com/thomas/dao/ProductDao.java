@@ -277,49 +277,40 @@ public class ProductDao {
     public List<Belts> getNewArrivalProductsHotSelling() {
         return JDBIConnect.get().withHandle(handle -> {
             String sql = "SELECT " +
-                    "    b.id AS beltId, " +
-                    "    b.name AS beltName, " +
-                    "    b.createdAt AS beltCreatedAt, " +
-                    "    SUM(od.quantity) AS totalQuantitySold" +
+                    "    b.id, " +
+                    "    b.name, " +
+                    "    b.price, " +
+                    "    b.createdAt, " +
+                    "    b.materialBelt, " +
+                    "    SUM(od.quantity) AS totalQuantitySold " +
                     "FROM " +
-                    "    orderDetails od" +
+                    "    orderDetails od " +
                     "JOIN " +
-                    "    orders o ON od.orderId = o.id" +
+                    "    orders o ON od.orderId = o.id " +
                     "JOIN " +
-                    "    belts b ON od.beltId = b.id" +
+                    "    belts b ON od.beltId = b.id " +
                     "WHERE " +
-                    "    o.isDeleted = 0" +
+                    "    o.isDeleted = 0 AND b.stockQuantity > 0 AND b.isDeleted = 0 " +
                     "GROUP BY " +
-                    "    b.id, b.name, b.createdAt\n" +
+                    "    b.id, b.name, b.price, b.createdAt, b.materialBelt " +
                     "ORDER BY " +
-                    "    totalQuantitySold DESC, b.createdAt DESC;";
+                    "    totalQuantitySold DESC, b.createdAt DESC";
 
-            List<Belts> beltsList = new ArrayList<>();
-            try (Handle h = handle) {
-                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
-                while (rs.next()) {
-                    Belts belt = new Belts();
-                    belt.setId(rs.getInt("id"));
-                    belt.setName(rs.getString("name"));
-                    belt.setDescription(rs.getString("description"));
-                    belt.setPrice(rs.getDouble("price"));
-                    belt.setGender(rs.getString("gender"));
-                    belt.setStockQuantity(rs.getInt("stockQuantity"));
-                    belt.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
-                    belt.setCreateDate(rs.getDate("createdAt").toLocalDate());
-                    belt.setUpdatedDate(rs.getDate("updatedAt").toLocalDate());
-                    belt.setIsDeleted(rs.getInt("isDeleted"));
-                    belt.setDiscountPercent(rs.getDouble("discountPercent"));
-                    belt.setMaterialBelt(rs.getString("materialBelt"));
-                    belt.setTotalQuantity(rs.getInt("totalQuantitySold"));
-                    beltsList.add(belt);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return beltsList;
+            return handle.createQuery(sql)
+                    .map((rs, ctx) -> {
+                        Belts belt = new Belts();
+                        belt.setId(rs.getInt("id"));
+                        belt.setName(rs.getString("name"));
+                        belt.setPrice(rs.getDouble("price"));
+                        belt.setCreateDate(rs.getDate("createdAt").toLocalDate());
+                        belt.setMaterialBelt(rs.getString("materialBelt"));
+                        belt.setTotalQuantity(rs.getInt("totalQuantitySold"));
+                        return belt;
+                    })
+                    .list();
         });
     }
+
 
     public List<Belts> getNewArrivals() {
         return JDBIConnect.get().withHandle(handle -> {
@@ -370,6 +361,34 @@ public class ProductDao {
                     "ORDER BY b.price " +
                     "DESC";
             return handle.createQuery(sql).mapToBean(Belts.class).list();
+        });
+    }
+
+    public List<Belts> getHotSellingProducts() {
+        List<Belts> beltsList = new ArrayList<>();
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT b.id, b.name, b.createdAt, SUM(od.quantity) AS totalQuantitySold " +
+                    "FROM orderDetails od " +
+                    "JOIN orders o ON od.orderId = o.id " +
+                    "JOIN belts b ON od.beltId = b.id " +
+                    "WHERE o.isDeleted = 0 AND b.stockQuantity > 0 AND b.isDeleted = 0 " +
+                    "GROUP BY b.id, b.name, b.createdAt " +
+                    "ORDER BY totalQuantitySold DESC LIMIT 5";
+
+            try (Handle h = handle) {
+                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
+                while (rs.next()) {
+                    Belts belt = new Belts();
+                    belt.setId(rs.getInt("id"));
+                    belt.setName(rs.getString("name"));
+                    belt.setCreateDate(rs.getDate("createdAt").toLocalDate());
+                    belt.setTotalQuantity(rs.getInt("totalQuantitySold"));
+                    beltsList.add(belt);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return beltsList;
         });
     }
 }
