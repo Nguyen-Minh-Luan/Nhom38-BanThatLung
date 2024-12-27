@@ -43,7 +43,7 @@ public class createProductController extends HttpServlet {
                 String tags = String.join(" ", tagsArray);
                 request.setAttribute("tags", tags);
             } else {
-                response.sendRedirect(request.getContextPath() + "/admin/table/products");
+                response.sendRedirect(request.getContextPath() + "/admin/table/belts");
                 return;
             }
         }
@@ -81,7 +81,7 @@ public class createProductController extends HttpServlet {
             uploadDir.mkdirs();
         }
         handleFileUpload(request, productName, uploadPath, message, uploadProductService, productId);
-        response.sendRedirect(request.getContextPath() + "/admin/table/products");
+        response.sendRedirect(request.getContextPath() + "/admin/table/belts");
     }
 
     private void handleFileUpload(HttpServletRequest request, String productName, String uploadPath, String message, UploadProductService uploadProductService, int productId) throws ServletException, IOException {
@@ -103,7 +103,7 @@ public class createProductController extends HttpServlet {
                 String fieldName = part.getName();
                 String fileName = extractedFile(part);
 
-                if (fileName != null && !fileName.isEmpty()) {
+                if (fileName != null && !fileName.isEmpty() && part.getSize() > 0) {
                     String uniqueFileName = productName + "_" + count + "_" + System.currentTimeMillis() + getFileExtension(fileName);
                     String filePath = productDirectory.getAbsolutePath() + File.separator + uniqueFileName;
                     count++;

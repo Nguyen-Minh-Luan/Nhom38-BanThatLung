@@ -66,32 +66,30 @@ public class ProductDao {
 
 
     public Belts getProduct(int id) {
-        Belts belts = new Belts();
-        return JDBIConnect.get().withHandle(handle -> {
-            String sql = "SELECT * FROM belts ORDER BY id DESC";
-            try (Handle h = handle) {
-                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
-                while (rs.next()) {
-                    belts.setId(rs.getInt("id"));
-                    belts.setName(rs.getString("name"));
-                    belts.setDescription(rs.getString("description"));
-                    belts.setPrice(rs.getDouble("price"));
-                    belts.setGender(rs.getString("gender"));
-                    belts.setStockQuantity(rs.getInt("stockQuantity"));
-                    belts.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
-                    belts.setCreateDate(rs.getDate("createdAt").toLocalDate());
-                    belts.setUpdatedDate(rs.getDate("updatedAt").toLocalDate());
-                    belts.setIsDeleted(rs.getInt("isDeleted"));
-                    belts.setDiscountPercent(rs.getDouble("discountPercent"));
-                    belts.setMaterialBelt(rs.getString("materialBelt"));
-                    belts.setIsDeleted(rs.getInt("isDeleted"));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return belts;
-        });
+        String sql = "SELECT * FROM belts WHERE id = :id ORDER BY id DESC";
+        return JDBIConnect.get().withHandle(handle ->
+                handle.createQuery(sql)
+                        .bind("id", id)
+                        .map((rs, ctx) -> {
+                            Belts belts = new Belts();
+                            belts.setId(rs.getInt("id"));
+                            belts.setName(rs.getString("name"));
+                            belts.setDescription(rs.getString("description"));
+                            belts.setPrice(rs.getDouble("price"));
+                            belts.setGender(rs.getString("gender"));
+                            belts.setStockQuantity(rs.getInt("stockQuantity"));
+                            belts.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
+                            belts.setCreateDate(rs.getDate("createdAt").toLocalDate());
+                            belts.setUpdatedDate(rs.getDate("updatedAt").toLocalDate());
+                            belts.setIsDeleted(rs.getInt("isDeleted"));
+                            belts.setDiscountPercent(rs.getDouble("discountPercent"));
+                            belts.setMaterialBelt(rs.getString("materialBelt"));
+                            return belts;
+                        })
+                        .one()
+        );
     }
+
 
     public List<Belts> getAllProducts() {
         return JDBIConnect.get().withHandle(handle -> {
@@ -322,7 +320,8 @@ public class ProductDao {
             return beltsList;
         });
     }
-    public List<Belts> getNewArrivals(){
+
+    public List<Belts> getNewArrivals() {
         return JDBIConnect.get().withHandle(handle -> {
             String sql = "SELECT b.id,b.name,b.price,i.imagePath,b.discountPercent " +
                     "FROM belts b " +
@@ -334,7 +333,8 @@ public class ProductDao {
             return handle.createQuery(sql).mapToBean(Belts.class).list();
         });
     }
-    public List<Belts> getAllProductForDisplaying(){
+
+    public List<Belts> getAllProductForDisplaying() {
         return JDBIConnect.get().withHandle(handle -> {
             String sql = "SELECT b.id,b.name,b.price,i.imagePath " +
                     "FROM belts b " +
@@ -346,7 +346,8 @@ public class ProductDao {
             return handle.createQuery(sql).mapToBean(Belts.class).list();
         });
     }
-    public List<Belts> getAscendByPrice(){
+
+    public List<Belts> getAscendByPrice() {
         return JDBIConnect.get().withHandle(handle -> {
             String sql = "SELECT b.id,b.name,b.price,i.imagePath " +
                     "FROM belts b " +
@@ -358,7 +359,8 @@ public class ProductDao {
             return handle.createQuery(sql).mapToBean(Belts.class).list();
         });
     }
-    public List<Belts> getDescendByPrice(){
+
+    public List<Belts> getDescendByPrice() {
         return JDBIConnect.get().withHandle(handle -> {
             String sql = "SELECT b.id,b.name,b.price,i.imagePath " +
                     "FROM belts b " +

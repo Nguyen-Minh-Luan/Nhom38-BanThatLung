@@ -124,23 +124,46 @@
         </div>
         <div class="col-3 mb-5 mt-4 ps-5">
             <div class="row custom_insert">
-                <a
-                        href="${pageContext.request.contextPath}/checkout"
-                        class="btn btn-dark p-3 fs-5 custom_button checkoutPage"
-                >Tiến hành thanh toán
-                    <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="24px"
-                            viewBox="0 -960 960 960"
-                            width="24px"
-                            fill="#EFEFEF"
-                    >
-                        <path
-                                d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"
-                        />
-                    </svg
-                    >
-                </a>
+                <c:choose>
+                    <c:when test="${empty sessionScope.cart}">
+                        <a
+                                href="#"
+                                class="btn btn-dark p-3 fs-5 custom_button checkoutPage disabled"
+                                style="pointer-events: none;"
+                        >Tiến hành thanh toán
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    height="24px"
+                                    viewBox="0 -960 960 960"
+                                    width="24px"
+                                    fill="#EFEFEF"
+                            >
+                                <path
+                                        d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"
+                                />
+                            </svg>
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <a
+                                href="${pageContext.request.contextPath}/checkout"
+                                class="btn btn-dark p-3 fs-5 custom_button checkoutPage"
+                        >Tiến hành thanh toán
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    height="24px"
+                                    viewBox="0 -960 960 960"
+                                    width="24px"
+                                    fill="#EFEFEF"
+                            >
+                                <path
+                                        d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"
+                                />
+                            </svg>
+                        </a>
+                    </c:otherwise>
+                </c:choose>
+
                 <div class="containe mt-5 ps-0">
                     <div class="border-bottom pb-2 mb-3">
                         <h5 class="fw-bold">Tóm tắt đơn hàng</h5>

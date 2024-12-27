@@ -127,7 +127,7 @@
         <div class="userInfo__content--middle mb-5">
             <h2 class="mt-4 mb-4 fw-light">Các đơn hàng mà bạn đã đặt</h2>
             <c:forEach var="order" items="${orders}">
-                <div class="border rounded p-3 container-sm">
+                <div class="border rounded p-3 container-sm mb-2">
                     <h2 class="ms-1 fw-light custom_size--19">Order#${order.id}</h2>
                     <h2 class="ms-1 fw-light custom_size--16">
                         Tổng tiền: ${order.orderTotal} vnđ
@@ -138,10 +138,10 @@
                                 <div class="col-sm col-md-6 col-lg-12">
                                     <div class="ps-0 row-sm d-lg-flex container-fluid pr-sm-0">
                                         <div
-                                                class="col-sm col-md-2 col-lg-2 ps-sm-0 d-flex justify-content-center"
+                                                class="col-sm col-md-2 col-lg-2 ps-sm-0 d-flex justify-content-center me-2"
                                         >
                                             <img
-                                                    class="w-50 img-fluid"
+                                                    class="img-fluid"
                                                     src="${pageContext.request.contextPath}${item.beltImages[0]}"
                                                     alt="black belt"
                                                     height="200px"

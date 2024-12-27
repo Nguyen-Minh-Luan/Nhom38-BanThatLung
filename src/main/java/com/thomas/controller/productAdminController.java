@@ -32,11 +32,11 @@ public class productAdminController extends HttpServlet {
         if (message.equals("delete")) {
             int beltId = Integer.parseInt(request.getParameter("beltId"));
             uploadProductService.deleteProduct(beltId);
-            response.sendRedirect(request.getContextPath() + "/admin/table/products");
+            response.sendRedirect(request.getContextPath() + "/admin/table/belts");
             return;
         }
 
 
-        response.sendRedirect("/admin/table/products/createProduct");
+        response.sendRedirect("/admin/table/belts/createProduct");
     }
 }

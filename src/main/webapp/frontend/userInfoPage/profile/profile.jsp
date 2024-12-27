@@ -96,7 +96,7 @@
         <div class="container container-sm border rounded">
             <div class="d-flex mt-3">
                 <p>Ảnh đại diện</p>
-                <input type="file" name="uploadProfileImage" class="ms-3"/>
+                <input type="file" name="uploadProfileImage" class="ms-3 uploadImage"/>
             </div>
             <div class="d-flex flex-column border-bottom">
                 <img

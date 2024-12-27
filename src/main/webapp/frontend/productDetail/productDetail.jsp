@@ -110,7 +110,7 @@
             </div>
             <div class="mb-3 mt-3">
                 <label for="quantity" class="form-label"><strong>Số Lượng:</strong></label>
-                <input type="hidden" class="quantity_belt" name="quantity" value="">
+                <input type="hidden" class="quantity_belt" name="quantity" value="${belt.stockQuantity}">
                 <div class="quantity__control input-group quantity-controls">
                     <button class="btn btn-outline-secondary" type="button" id="decrement">-</button>
                     <input type="text" class="form-control" id="quantity" value="1">
@@ -119,9 +119,23 @@
             </div>
 
             <div class="mb-3 d-flex flex-column align-item-center">
-                <a href="" class="buyNow__button btn btn-dark w-100 mb-4">
-                    Mua Ngay
-                </a>
+                <form method="POST" action="/buyNow">
+                    <input type="hidden" name="beltId" value="${belt.id}">
+                    <c:choose>
+                        <c:when test="${belt.discountPercent > 0}">
+                            <input type="hidden" name="price"
+                                   value=" ${belt.price - (belt.price * belt.discountPercent / 100)}">
+                        </c:when>
+                        <c:otherwise>
+                            <input type="hidden" name="price"
+                                   value=" ${belt.price}">
+                        </c:otherwise>
+                    </c:choose>
+                    <button type="submit" href="" class="buyNow__button btn btn-dark w-100 mb-4">
+                        Mua Ngay
+                    </button>
+                </form>
+
                 <button class="addToCart__button btn-white me-2 w-100 mb-3" id="liveToastBtn" type="button">
                     Thêm vào giỏ hàng
                 </button>
@@ -361,6 +375,22 @@
                 this.style.transform = 'scale(1)';
             }, 200);
         });
+    });
+</script>
+<script>
+    document.querySelector("#increment").addEventListener("click", () => {
+        const stockQuantity = $(".quantity_belt").val();
+        let quantity = document.querySelector("#quantity");
+        if (parseInt(quantity.value) < stockQuantity) {
+            quantity.value = parseInt(quantity.value) + 1;
+        }
+    });
+
+    document.querySelector("#decrement").addEventListener("click", () => {
+        let quantity = document.querySelector("#quantity");
+        if (parseInt(quantity.value) > 1) {
+            quantity.value = parseInt(quantity.value) - 1;
+        }
     });
 </script>
 <jsp:include page="/frontend/header_footer/footer.jsp"/>

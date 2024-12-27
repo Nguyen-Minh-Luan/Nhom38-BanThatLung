@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-    $(".quantity_belt").val($("#quantity").val());
-
     var currentPage = 1;
     var reviewsPerPage = 5;
     window.loadReviews = function (page) {
@@ -23,39 +21,51 @@ $(document).ready(function () {
                 alert('Error loading reviews.');
             }
         });
-        let isCartUpdated = false;
-        $(".addToCart__button").on("click", function () {
-            const beltName = $(".product_detail--name").text();
-            const quantity = $(".quantity_belt").val();
-            const fullText = $(".belts-price").clone().children().remove().end().text().trim();
-            const beltId = $("#beltIdReviews").val();
-            const price = fullText.replace('VNĐ', '').trim();
-            $.ajax({
-                url: `/Cart?message=add&beltName=${beltName}`,
-                type: 'POST',
-                data: {
-                    message: "add",
-                    beltId: beltId,
-                    beltName: beltName,
-                    quantity: quantity,
-                    price: price,
-                },
-                success: function (response) {
-                    $("#liveToast").removeClass("hide").addClass("show")
-                    if (!isCartUpdated) {
-                        let cartCount = parseInt($("#cart_received").text(), 10) + 1;
-                        $("#cart_received").text(cartCount)
-                        isCartUpdated = true;
-                    }
-                },
-                error(xhr) {
-                    $(".custom_toast_text").text("Thêm vào giỏ hàng thất bại")
-                    $("#liveToast").removeClass("hide").addClass("show")
-                }
-            })
 
-        })
+
     };
+    $(".addToCart__button").on("click", function () {
+        const $button = $(this);
+        const originalContent = $button.html();
+        const loadingSpinner = `
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Đang xử lý...
+    `;
+
+        $button.html(loadingSpinner).prop("disabled", true);
+
+        const beltName = $(".product_detail--name").text();
+        const quantity = $("#quantity").val();
+        const fullText = $(".belts-price").clone().children().remove().end().text().trim();
+        const beltId = $("#beltIdReviews").val();
+        const price = fullText.replace('VNĐ', '').trim();
+
+        $.ajax({
+            url: `/Cart?message=add&beltName=${beltName}`,
+            type: 'POST',
+            data: {
+                message: "add",
+                beltId: beltId,
+                beltName: beltName,
+                quantity: quantity,
+                price: price,
+            },
+            success: function (response) {
+                $("#liveToast").removeClass("hide").addClass("show");
+
+                let cartCount = parseInt($("#cart_received").text(), 10) + 1;
+                $("#cart_received").text(cartCount);
+
+                $button.html(originalContent).prop("disabled", false);
+            },
+            error: function (xhr) {
+                $(".custom_toast_text").text("Thêm vào giỏ hàng thất bại");
+                $("#liveToast").removeClass("hide").addClass("show");
+
+                $button.html(originalContent).prop("disabled", false);
+            }
+        });
+    });
 
     function updatePagination(totalPages, currentPage) {
         var paginationHtml = '';
@@ -81,18 +91,4 @@ $(document).ready(function () {
 
     loadReviews(currentPage)
 
-    document.querySelector("#increment").addEventListener("click", () => {
-        const stockQuantity = $(".quantity_belt").val();
-        let quantity = document.querySelector("#quantity");
-        if (quantity < stockQuantity) {
-            quantity.value = parseInt(quantity.value) + 1;
-        }
-    });
-
-    document.querySelector("#decrement").addEventListener("click", () => {
-        let quantity = document.querySelector("#quantity");
-        if (parseInt(quantity.value) > 1) {
-            quantity.value = parseInt(quantity.value) - 1;
-        }
-    });
 });

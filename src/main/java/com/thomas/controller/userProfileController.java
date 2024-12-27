@@ -44,7 +44,11 @@ public class userProfileController extends HttpServlet {
             long phoneNumber = Long.parseLong(request.getParameter("phoneNumber"));
             uploadUserService.updateUserInfo(userId, gender, birthday, phoneNumber);
             String uploadPath = request.getServletContext().getRealPath("") + File.separator + ULOAD_DIR;
-            handleFileUpload(request, username, uploadPath, uploadUserService, userId);
+            Part filePart = request.getPart("uploadProfileImage");
+            if (filePart != null && filePart.getSize() > 0) {
+                handleFileUpload(request, username, uploadPath, uploadUserService, userId);
+
+            }
             response.sendRedirect("/userProfile");
         }
 

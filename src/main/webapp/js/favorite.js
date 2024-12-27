@@ -34,10 +34,18 @@ $(document).ready(function () {
         })
     })
     $(".favorite_button").on('click', function () {
+        const $button = $(this);
+        const originalContent = $button.html();
+        const loadingSpinner = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
+
+        $button.html(loadingSpinner).prop("disabled", true);
+
         const beltId = $(this).closest(".beltProp").find(".beltId").val();
         const userId = $(this).closest(".beltProp").find(".userId").val();
+
         console.log(beltId);
         console.log(userId);
+
         $.ajax({
             url: `/favorite`,
             type: "POST",
@@ -47,19 +55,24 @@ $(document).ready(function () {
                 message: "addFavorite"
             },
             success: function () {
-                $("#liveToast").removeClass("hide").addClass("show")
-                if (!isFavoriteUpdated && !$(this).hasClass("active")) {
-                    const favoriteCount = parseInt($("#favorite_receive").text(), 10) + 1
-                    $("#favorite_receive").text(favoriteCount)
+                $("#liveToast").removeClass("hide").addClass("show");
+
+                if (!isFavoriteUpdated && !$button.hasClass("active")) {
+                    const favoriteCount = parseInt($("#favorite_receive").text(), 10) + 1;
+                    $("#favorite_receive").text(favoriteCount);
                     isFavoriteUpdated = true;
                 }
 
-
+                $button.addClass("active");
             },
             error: function (xhr) {
-                $(".custom_toast_text").text("Thêm vào yêu thích thất bại")
-                $("#liveToast").removeClass("hide").addClass("show")
+                $(".custom_toast_text").text("Thêm vào yêu thích thất bại");
+                $("#liveToast").removeClass("hide").addClass("show");
+            },
+            complete: function () {
+                $button.html(originalContent).prop("disabled", false);
             }
-        })
-    })
+        });
+    });
+
 })

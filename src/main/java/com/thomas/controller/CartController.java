@@ -85,6 +85,7 @@ public class CartController extends HttpServlet {
             int quantity = Integer.parseInt(request.getParameter("quantity"));
             int beltId = Integer.parseInt(request.getParameter("beltId"));
             Belts belt = uploadProductService.getProductById(beltId);
+            belt.setImage(uploadProductService.getProductImages(beltId));
             belt.setTag(uploadProductService.getAllCategoriesById(beltId));
 
             CartItem item = cart.get(beltId);
