@@ -762,16 +762,15 @@
                                         </div>
                                     </a>
                                 </div>
-                                <a
-                                        href="frontend/newArrivalPage/newArrivalPage.jsp"
-                                        class="btn seeMore"
-                                >Xem Thêm</a
-                                >
+                                <form action="newArrival2" method="get">
+                                    <button name="seeMore" class="btn seeMore">Xem Thêm</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div
                     class="tab-pane tab__Pane2"
                     id="fill-tabpanel-1"
@@ -976,14 +975,15 @@
                                         </div>
                                     </a>
                                 </div>
-                                <a href="frontend/allProduct/allProduct1.jsp" class="btn seeMore"
-                                >Xem Thêm</a
-                                >
+                                <form action="mostPopular" method="get">
+                                <button name="seeMore" class="btn seeMore">Xem Thêm</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>

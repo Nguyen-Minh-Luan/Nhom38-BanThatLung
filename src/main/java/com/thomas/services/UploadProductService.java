@@ -7,8 +7,8 @@ import com.thomas.dao.model.BeltCategory;
 import com.thomas.dao.model.Belts;
 import com.thomas.dao.model.Category;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -198,12 +198,29 @@ public class UploadProductService {
 
     public int numberOfOutOfStockProducts() {
         List<Belts> allProducts = productDao.getAllProducts();
-        int count = 0;
         for (Belts belt : allProducts) {
             if (belt.getStockQuantity() <= 0) {
-                count++;
+                allProducts.add(belt);
             }
         }
-        return count;
+        return allProducts.size();
+    }
+
+    public List<Belts> getSortedListBelts(String type) {
+        List<Belts> list = new ArrayList<Belts>();
+        if ("increase".equals(type)) {
+            list = productDao.getAscendByPrice();
+        }
+        if ("decrease".equals(type)) {
+            list = productDao.getDescendByPrice();
+        }
+        return list;
+    }
+
+    public List<Belts> getAllProductsForDisplaying() {
+        return productDao.getAllProductForDisplaying();
+    }
+    public List<Belts> getNewArrivals() {
+        return productDao.getNewArrivals();
     }
 }

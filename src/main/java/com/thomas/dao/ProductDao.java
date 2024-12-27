@@ -4,6 +4,7 @@ import com.thomas.dao.db.JDBIConnect;
 import com.thomas.dao.model.Belts;
 import org.jdbi.v3.core.Handle;
 
+import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -321,4 +322,53 @@ public class ProductDao {
             return beltsList;
         });
     }
+    public List<Belts> getNewArrivals(){
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT b.id,b.name,b.price,i.imagePath,b.discountPercent " +
+                    "FROM belts b " +
+                    "INNER JOIN imageEntry i " +
+                    "ON b.id = i.beltId " +
+                    "WHERE b.isDeleted = 0 " +
+                    "ORDER BY YEAR(b.releaseDate) " +
+                    "DESC ";
+            return handle.createQuery(sql).mapToBean(Belts.class).list();
+        });
+    }
+    public List<Belts> getAllProductForDisplaying(){
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT b.id,b.name,b.price,i.imagePath " +
+                    "FROM belts b " +
+                    "INNER JOIN imageEntry i " +
+                    "ON b.id = i.beltId " +
+                    "WHERE b.isDeleted = 0 " +
+                    "ORDER BY b.id " +
+                    "DESC";
+            return handle.createQuery(sql).mapToBean(Belts.class).list();
+        });
+    }
+    public List<Belts> getAscendByPrice(){
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT b.id,b.name,b.price,i.imagePath " +
+                    "FROM belts b " +
+                    "INNER JOIN imageEntry i " +
+                    "ON b.id = i.beltId " +
+                    "WHERE b.isDeleted = 0 " +
+                    "ORDER BY b.price " +
+                    "ASC";
+            return handle.createQuery(sql).mapToBean(Belts.class).list();
+        });
+    }
+    public List<Belts> getDescendByPrice(){
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT b.id,b.name,b.price,i.imagePath " +
+                    "FROM belts b " +
+                    "INNER JOIN imageEntry i " +
+                    "ON b.id = i.beltId " +
+                    "WHERE b.isDeleted = 0 " +
+                    "ORDER BY b.price " +
+                    "DESC";
+            return handle.createQuery(sql).mapToBean(Belts.class).list();
+        });
+    }
 }
+
