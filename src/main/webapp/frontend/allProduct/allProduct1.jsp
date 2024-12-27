@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -322,6 +323,8 @@
             id="list__product__row"
           >
             <!-- Sản phẩm -->
+            <jsp:useBean id="allProductList" scope="request" type="java.util.List"/>
+            <c:forEach var="b" items="beltsList">
             <div class="col product__col">
               <a href="../productDetail/productDetail.jsp">
                 <div class="belts">
@@ -334,206 +337,15 @@
                   </div>
                   <div class="product__title">
                     <h4 class="title">
-                      Thắt lưng da màu đen không mặt có hoạ tiết
+                      ${b.name}
                     </h4>
-                    <p class="product__price">830.000VNĐ</p>
+                    <p class="product__price">${b.price}</p>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col product__col">
-              <a href="../productDetail/productDetail.jsp">
-                <div class="belts">
-                  <div class="product__image">
-                    <img
-                      src="${pageContext.request.contextPath}/assets/images/belts/Images/31/1.avif"
-                      class="img-fluid"
-                      alt="Leather Belt"
-                    />
-                  </div>
-                  <div class="product__title">
-                    <h4 class="title">Thắt lưng da màu đen trơn</h4>
-                    <p class="product__price">935.000VNĐ</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col product__col">
-              <a href="../productDetail/productDetail.jsp">
-                <div class="belts">
-                  <div class="product__image">
-                    <img
-                      src="${pageContext.request.contextPath}/assets/images/belts/Images/canvas/that-lung-vai-H001-4.jpg"
-                      class="img-fluid"
-                      alt="Leather Belt"
-                    />
-                  </div>
-                  <div class="product__title">
-                    <h4 class="title">Thắt lưng vải dù khóa hợp kim nhôm</h4>
-                    <p class="product__price">230.000VNĐ</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col product__col">
-              <a href="../productDetail/productDetail.jsp">
-                <div class="belts">
-                  <div class="product__image">
-                    <img
-                      src="../assets/images/belts/Images/27/1.avif"
-                      class="img-fluid"
-                      alt="Leather Belt"
-                    />
-                  </div>
-                  <div class="product__title">
-                    <h4 class="title">Thắt lưng da đan màu đen</h4>
-                    <p class="product__price">750.000VNĐ</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col product__col">
-              <a href="../productDetail/productDetail.jsp">
-                <div class="belts" style="width: 23.5rem">
-                  <div class="product__image">
-                    <img
-                      src="../assets/images/belts/Images/women/leather/that-lung-day-ban-nhan-chi-noi---wai-0041---mau-be-dam__78782__1732785622-medium.jpg"
-                      class="img-fluid"
-                      alt="Leather Belt"
-                    />
-                  </div>
-                  <div class="product__title">
-                    <h4 class="title">
-                      Thắt lưng da màu đen không mặt có hoạ tiết
-                    </h4>
-                    <p class="product__price">830.000VNĐ</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col product__col">
-              <a href="../productDetail/productDetail.jsp">
-                <div class="belts" style="width: 23.5rem">
-                  <div class="product__image">
-                    <img
-                      src="../assets/images/belts/Images/women/leather/that-lung-day-ban-nhan-chi-noi---wai-0041---mau-den__78784__1732785701-medium.jpg"
-                      class="img-fluid"
-                      alt="Leather Belt"
-                    />
-                  </div>
-                  <div class="product__title">
-                    <h4 class="title">Thắt lưng da màu đen trơn</h4>
-                    <p class="product__price">935.000VNĐ</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col product__col">
-              <a href="../productDetail/productDetail.jsp">
-                <div class="belts">
-                  <div class="product__image">
-                    <img
-                      src="../assets/images/belts/Images/women/canvas/ae91a035409527d29e8128c91e5ded54.webp"
-                      class="img-fluid"
-                      alt="Leather Belt"
-                    />
-                  </div>
-                  <div class="product__title">
-                    <h4 class="title">Thắt lưng vải canvas đan khoá hợp kim</h4>
-                    <p class="product__price">230.000VNĐ</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col product__col">
-              <a href="../productDetail/productDetail.jsp">
-                <div class="belts">
-                  <div class="product__image">
-                    <img
-                      src="../assets/images/belts/Images/28/1.avif"
-                      class="img-fluid"
-                      alt="Leather Belt"
-                    />
-                  </div>
-                  <div class="product__title">
-                    <h4 class="title">Thắt lưng da màu đen trơn có hoạ tiết</h4>
-                    <p class="product__price">860.000VNĐ</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col product__col">
-              <a href="../productDetail/productDetail.jsp">
-                <div class="belts">
-                  <div class="product__image">
-                    <img
-                      src="../assets/images/belts/Images/canvas/that-lung-vai-H006-4.jpg"
-                      class="img-fluid"
-                      alt="Leather Belt"
-                    />
-                  </div>
-                  <div class="product__title">
-                    <h4 class="title">
-                      Dây lưng thời trang vải cao cấp bền đẹp mắt
-                    </h4>
-                    <p class="product__price">250.000VNĐ</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col product__col">
-              <a href="../productDetail/productDetail.jsp">
-                <div class="belts">
-                  <div class="product__image">
-                    <img
-                      src="../assets/images/belts/Images/30/1.avif"
-                      class="img-fluid"
-                      alt="Leather Belt"
-                    />
-                  </div>
-                  <div class="product__title">
-                    <h4 class="title">Thắt lưng da màu nâu đậm có hoạ tiết</h4>
-                    <p class="product__price">790.000VNĐ</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col product__col">
-              <a href="../productDetail/productDetail.jsp">
-                <div class="belts">
-                  <div class="product__image">
-                    <img
-                      src="../assets/images/belts/Images/31/1.avif"
-                      class="img-fluid"
-                      alt="Leather Belt"
-                    />
-                  </div>
-                  <div class="product__title">
-                    <h4 class="title">Thắt lưng da màu đen trơn</h4>
-                    <p class="product__price">990.000VNĐ</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col product__col">
-              <a href="../productDetail/productDetail.jsp">
-                <div class="belts">
-                  <div class="product__image">
-                    <img
-                      src="../assets/images/belts/Images/32/1.avif"
-                      class="img-fluid"
-                      alt="Leather Belt"
-                    />
-                  </div>
-                  <div class="product__title">
-                    <h4 class="title">
-                      Thắt lưng da màu đen không mặt có hoạ tiết
-                    </h4>
-                    <p class="product__price">840.000VNĐ</p>
-                  </div>
-                </div>
-              </a>
-            </div>
+            </c:forEach>
+
           </div>
         </div>
       </div>

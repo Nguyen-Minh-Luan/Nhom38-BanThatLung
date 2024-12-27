@@ -211,12 +211,27 @@ public class UploadProductService {
     }
 
     public List<Belts> getSortedListBelts(String type) {
-        List<Belts> list = new ArrayList<Belts>();
+        List<Belts> list = getAllProductsForDisplaying();
+        if ("default".equals(type)) {
+
+        }
         if ("increase".equals(type)) {
-            list = productDao.getAscendByPrice();
+            list.sort(new Comparator<Belts>() {
+                @Override
+                public int compare(Belts o1, Belts o2) {
+                    double i = o1.getPrice() - o2.getPrice();
+                    return (int) i;
+                }
+            });
         }
         if ("decrease".equals(type)) {
-            list = productDao.getDescendByPrice();
+            list.sort(new Comparator<Belts>() {
+                @Override
+                public int compare(Belts o1, Belts o2) {
+                    double i = o2.getPrice() - o1.getPrice();
+                    return (int) i;
+                }
+            });
         }
         return list;
     }
