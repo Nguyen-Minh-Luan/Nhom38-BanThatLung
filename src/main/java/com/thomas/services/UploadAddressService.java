@@ -69,6 +69,10 @@ public class UploadAddressService {
         }
     }
 
+    public Address getLatestAddress(int userId, String addressCity, String addressStreet) {
+        return addressDao.getLatestAddress(userId, addressCity, addressStreet);
+    }
+
     public Address getAddressByUserId(int userId) {
         return addressDao.getAddressByUserId(userId);
     }

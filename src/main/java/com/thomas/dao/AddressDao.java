@@ -101,4 +101,19 @@ public class AddressDao {
                     .mapToBean(Address.class).findFirst().orElse(null);
         });
     }
+
+    public Address getLatestAddress(int userId, String addressCity, String addressStreet) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "SELECT * FROM addresses WHERE userId = :userId AND addressCity = :addressCity AND addressStreet = :addressStreet";
+
+            return h.createQuery(sql)
+                    .bind("userId", userId)
+                    .bind("addressCity", addressCity)
+                    .bind("addressStreet", addressStreet)
+                    .mapToBean(Address.class)
+                    .findFirst()
+                    .orElse(null);
+        });
+    }
+
 }

@@ -1,4 +1,3 @@
-<jsp:useBean id="order" scope="request" type="com.thomas.dao.model.Order"/>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -236,7 +235,21 @@
                                                 </td>
                                             </tr>
                                         </c:forEach>
-
+                                        <tr>
+                                            <form id="addOrderForm">
+                                                <input type="hidden" name="orderId" id="orderId" value="${param.id}"/>
+                                                <td></td>
+                                                <td><input type="text" name="productName" id="productName"
+                                                           placeholder="Tên sản phẩm" required/></td>
+                                                <td><input type="number" name="quantity" id="quantity"
+                                                           placeholder="Số lượng" required min="1"/></td>
+                                                <td><input type="number" name="price" id="price" placeholder="Giá"
+                                                           required min="0" step="0.01"/></td>
+                                                <td>
+                                                    <button type="submit" class="btn btn-success">Thêm</button>
+                                                </td>
+                                            </form>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -346,57 +359,9 @@
 
 </script>
 <script>
-    const {
-        ClassicEditor,
-        Essentials,
-        Paragraph,
-        Bold,
-        Italic,
-        Font,
-        DecoupledEditor, SimpleUploadAdapter, Image, ImageUpload
-    } = CKEDITOR;
-
-    ClassicEditor
-        .create(document.querySelector('.document-editor__editing'), {
-            licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NjU2NzAzOTksImp0aSI6IjU3ZjA1MWMwLTIyZmMtNDNjYy1hYTM4LTY5NjIyODQ1OGYzOCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkJPWCJdLCJ2YyI6IjIxMzg3ZTM2In0.2zYk8hnu1hlPu3OCtlLbUqaXqpzQEJVr0vCU_cihJ6f7lsKvqtTMNXiYUwxN9_HlskEP8jb-U3mGF_e-PHnS3w',
-            plugins: [Essentials, Paragraph, Bold, Italic, Font, SimpleUploadAdapter, Image, ImageUpload],
-            toolbar: {
-                items: [
-                    'undo', 'redo', '|', 'bold', 'italic', 'link', '|',
-                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor',
-                    'bulletedList', 'numberedList', '|',
-                    'imageUpload', '|',
-                    'undo', 'redo'
-                ]
-            },
-            simpleUpload: {
-                uploadUrl: '/upload',
-                withCredentials: false,
-
-            },
-            image: {
-                toolbar: [
-                    'imageTextAlternative',
-                    'imageStyle:full',
-                    'imageStyle:side'
-                ]
-            }
-        })
-        .then(editor => {
-            const toolbarContainer = document.querySelector('.document-editor__toolbar');
-            toolbarContainer.appendChild(editor.ui.view.toolbar.element);
-            window.editor = editor;
-        })
-        .catch(error => {
-            console.error('Error initializing CKEditor:', error);
-        });
-</script>
-<script>
-    // Reference to the checkbox and hidden input
     const checkbox = document.getElementById('isDeleted');
     const hiddenInput = document.getElementById('hiddenIsDeleted');
 
-    // Update hidden input value when checkbox state changes
     checkbox.addEventListener('change', function () {
         hiddenInput.value = this.checked ? 1 : 0;
     });

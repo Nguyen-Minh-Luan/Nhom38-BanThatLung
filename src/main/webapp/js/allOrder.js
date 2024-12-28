@@ -64,4 +64,47 @@ $(document).ready(function () {
         $(".createOrUpdate").text("Tạo");
         $(".createOrUpdate input[name='couponId']").remove();
     });
+    const $userId = $('#userId');
+    const $suggestionList = $('#suggestionList');
+    $userId.on('input', function () {
+        const query = $(this).val();
+
+        if (query.length >= 2) {
+            $.ajax({
+                url: '/search-users',
+                method: 'GET',
+                data: {query: query},
+                dataType: 'json',
+                success: function (users) {
+                    $suggestionList.empty().show();
+
+                    if (users.length > 0) {
+                        $.each(users, function (index, user) {
+                            const listItem = `<li class="list-group-item">${user.id} - ${user.name}</li>`;
+                            $suggestionList.append(listItem);
+                        });
+                    } else {
+                        $suggestionList.append('<li class="list-group-item">Không tìm thấy kết quả</li>');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Lỗi khi tìm kiếm người dùng:', error);
+                    $suggestionList.hide();
+                },
+            });
+        } else {
+            $suggestionList.hide();
+        }
+    });
+    $suggestionList.on('click', 'li', function () {
+        const selectedUser = $(this).text().split(' - ')[0];
+        $userId.val(selectedUser);
+        $suggestionList.hide();
+    });
+
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest('#userId, #suggestionList').length) {
+            $suggestionList.hide();
+        }
+    });
 });

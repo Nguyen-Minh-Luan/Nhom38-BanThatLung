@@ -3,6 +3,7 @@ package com.thomas.dao;
 import com.thomas.dao.db.JDBIConnect;
 import com.thomas.dao.model.User;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -169,4 +170,31 @@ public class UserDao {
             return h.createUpdate(sql).bind("id", userId).execute() > 0;
         });
     }
+
+    public List<User> searchUser(String query) {
+        List<User> userList = new ArrayList<>();
+        String sql = "SELECT id, name " +
+                "FROM users WHERE name LIKE ? AND isDeleted = 0";
+
+        JDBIConnect.get().withHandle(handle -> {
+            try (PreparedStatement ps = handle.getConnection().prepareStatement(sql)) {
+                ps.setString(1, "%" + query + "%");
+
+                try (ResultSet rs = ps.executeQuery()) {
+                    while (rs.next()) {
+                        User user = new User();
+                        user.setId(rs.getInt("id"));
+                        user.setName(rs.getString("name"));
+                        userList.add(user);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        });
+
+        return userList;
+    }
+
 }

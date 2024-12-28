@@ -87,19 +87,21 @@ public class OrderDao {
 
     public boolean createOrder(Order order) {
         return JDBIConnect.get().withHandle(handle -> {
-            String sql = "INSERT INTO orders (userID, paymentMethodId, addressesId, orderTotal, orderStatus) " +
-                    "VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO orders (userID, paymentMethodId, addressesId,orderDate, orderTotal, orderStatus,isDeleted) " +
+                    "VALUES (:userId, :paymentMethodId, :addressId,:orderDate, :orderTotal, :orderStatus,:isDeleted)";
 
-            int result = handle.createUpdate(sql)
-                    .bind(0, order.getUserId())
-                    .bind(1, order.getPaymentMethodId())
-                    .bind(2, order.getAddressId())
-                    .bind(3, order.getOrderTotal())
-                    .bind(4, order.getOrderStatus())
-                    .execute();
-            return result > 0;
+            return handle.createUpdate(sql)
+                    .bind("userId", order.getUserId())
+                    .bind("paymentMethodId", order.getPaymentMethodId())
+                    .bind("addressId", order.getAddressId())
+                    .bind("orderTotal", order.getOrderTotal())
+                    .bind("orderStatus", order.getOrderStatus())
+                    .bind("isDeleted", order.getIsDeleted())
+                    .bind("orderDate", order.getOrderDate())
+                    .execute() > 0;
         });
     }
+
 
     public Order getOrderLatestOrder() {
         return JDBIConnect.get().withHandle(h -> {

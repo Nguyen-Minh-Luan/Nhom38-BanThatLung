@@ -90,4 +90,8 @@ public class UploadUserService {
         user.setPhoneNumber(phoneNumber);
         userDao.updateUser(user);
     }
+
+    public List<User> searchUser(String query) {
+        return userDao.searchUser(query);
+    }
 }

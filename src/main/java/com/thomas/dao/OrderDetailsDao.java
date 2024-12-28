@@ -53,4 +53,17 @@ public class OrderDetailsDao {
         });
     }
 
+    public boolean addOrderDetails(OrderDetails newOrderDetail) {
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "INSERT INTO orderDetails (orderId, price, beltId, quantity) " +
+                    "VALUES (:orderId, :price, :beltId, :quantity)";
+
+            return handle.createUpdate(sql)
+                    .bind("orderId", newOrderDetail.getOrderId())
+                    .bind("price", newOrderDetail.getPrice())
+                    .bind("quantity", newOrderDetail.getQuantity())
+                    .bind("beltId", newOrderDetail.getBeltId())
+                    .execute() > 0;
+        });
+    }
 }
