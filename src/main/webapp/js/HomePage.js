@@ -23,5 +23,16 @@ $(document).ready(function () {
     $(".custom_show").addClass("hide");
     $(".custom_show").addClass("toast ");
   })
+
+  $.ajax({
+    type: "GET",
+    url: 'IndexServlet',
+    success(res) {
+      if($("#is_reloaded").length === 0) {
+        document.location.reload();
+      }
+    }
+  });
+
 });
 

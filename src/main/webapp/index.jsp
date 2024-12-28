@@ -1,7 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@ page import="java.util.List" %>
+<%@ page import="com.thomas.dao.model.Belts" %>
+<% List<Belts> beltsList = (List<Belts>) session.getAttribute("newArrivalsList");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -530,19 +532,56 @@
                 <div class="list__product container">
                     <div class="row" id="list__product__row">
                         <div class="list__product__element">
-                            <div
-                                    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4"
-                            >
-                                <div class="col product__col">
+                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                                <%if (beltsList != null) {%>
+                                    <%for (Belts n: beltsList) {%>
+                                <%--<jsp:useBean id="newArrivalsList" scope="request" type="java.util.List"/>
+                                <c:if test="${newArrivalsList}">
+                                <c:forEach var="n" items="${newArrivalsList}">--%>
+                                        <div id="is_reloaded"></div>
+                                        <div class="col product__col">
+                                            <a href="frontend/productDetail/productDetail.jsp">
+                                                <div
+                                                        class="belts position-relative"
+                                                        style="width: 19rem"
+                                                >
+                                      <span
+                                              class="badge bg-danger position-absolute top-0 end-0 m-2"
+                                      >NEW</span
+                                      >
+
+                                                    <div class="product__image">
+                                                        <img
+                                                                src="assets/images/belts/Images/51/Textured_Leather_Belt_In_Wine_Tarak-BTPM0508E1ZA23FA-image1_1024x1024.webp"
+                                                                class="img-fluid"
+                                                                alt="Leather Belt"
+                                                                style="width: 19rem"
+                                                        />
+                                                    </div>
+                                                    <div class="product__title">
+                                                        <h5 class="title">
+                                                            <%=n.getName()%>
+                                                            <%--${n.name}--%>
+                                                        </h5>
+                                                        <p class="product__price"><%=n.getPrice()%> <%--${n.price}--%> VND</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    <%}%>
+                                <%}%>
+                                <%--</c:forEach>
+                                </c:if>--%>
+                                <%--<div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
                                         <div
                                                 class="belts position-relative"
                                                 style="width: 19rem"
                                         >
-                          <span
-                                  class="badge bg-danger position-absolute top-0 end-0 m-2"
-                          >NEW</span
-                          >
+                                  <span
+                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
+                                  >NEW</span
+                                  >
 
                                             <div class="product__image">
                                                 <img
@@ -568,10 +607,10 @@
                                                 class="belts position-relative"
                                                 style="width: 19rem"
                                         >
-                          <span
-                                  class="badge bg-danger position-absolute top-0 end-0 m-2"
-                          >NEW</span
-                          >
+                                  <span
+                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
+                                  >NEW</span
+                                  >
 
                                             <div class="product__image">
                                                 <img
@@ -597,10 +636,10 @@
                                                 class="belts position-relative"
                                                 style="width: 19rem"
                                         >
-                          <span
-                                  class="badge bg-danger position-absolute top-0 end-0 m-2"
-                          >NEW</span
-                          >
+                                  <span
+                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
+                                  >NEW</span
+                                  >
 
                                             <div class="product__image">
                                                 <img
@@ -626,10 +665,10 @@
                                                 class="belts position-relative"
                                                 style="width: 19rem"
                                         >
-                          <span
-                                  class="badge bg-danger position-absolute top-0 end-0 m-2"
-                          >NEW</span
-                          >
+                                  <span
+                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
+                                  >NEW</span
+                                  >
 
                                             <div class="product__image">
                                                 <img
@@ -655,10 +694,10 @@
                                                 class="belts position-relative"
                                                 style="width: 19rem"
                                         >
-                          <span
-                                  class="badge bg-danger position-absolute top-0 end-0 m-2"
-                          >NEW</span
-                          >
+                                  <span
+                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
+                                  >NEW</span
+                                  >
 
                                             <div class="product__image">
                                                 <img
@@ -684,10 +723,10 @@
                                                 class="belts position-relative"
                                                 style="width: 19rem"
                                         >
-                          <span
-                                  class="badge bg-danger position-absolute top-0 end-0 m-2"
-                          >NEW</span
-                          >
+                                  <span
+                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
+                                  >NEW</span
+                                  >
 
                                             <div class="product__image">
                                                 <img
@@ -713,10 +752,10 @@
                                                 class="belts position-relative"
                                                 style="width: 19rem"
                                         >
-                          <span
-                                  class="badge bg-danger position-absolute top-0 end-0 m-2"
-                          >NEW</span
-                          >
+                                  <span
+                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
+                                  >NEW</span
+                                  >
 
                                             <div class="product__image">
                                                 <img
@@ -742,10 +781,10 @@
                                                 class="belts position-relative"
                                                 style="width: 19rem"
                                         >
-                          <span
-                                  class="badge bg-danger position-absolute top-0 end-0 m-2"
-                          >NEW</span
-                          >
+                                  <span
+                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
+                                  >NEW</span
+                                  >
 
                                             <div class="product__image">
                                                 <img
@@ -761,7 +800,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                </div>
+                                </div>--%>
                                 <form action="newArrival2" method="get">
                                     <button name="seeMore" class="btn seeMore">Xem Thêm</button>
                                 </form>
