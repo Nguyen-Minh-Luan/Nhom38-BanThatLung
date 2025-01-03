@@ -12,7 +12,7 @@ import java.util.List;
 public class ProductDao {
     public boolean createProduct(Belts belts) {
         return JDBIConnect.get().withHandle(h -> {
-            String sql = "INSERT INTO belts ( name, releaseDate, gender, price,stockQuantity ,materialBelt,isDeleted) VALUES (:productName,:releaseDate,:gender,:price,:stockQuantity,:material,:isDeleted)";
+            String sql = "INSERT INTO belts ( name, releaseDate, gender, price,stockQuantity ,materialBelt,isDeleted,discountPercent) VALUES (:productName,:releaseDate,:gender,:price,:stockQuantity,:material,:isDeleted,:discountPercent)";
             return h.createUpdate(sql).bind("productName", belts.getName())
                     .bind("releaseDate", belts.getReleaseDate())
                     .bind("gender", belts.getGender())
@@ -20,6 +20,7 @@ public class ProductDao {
                     .bind("stockQuantity", belts.getStockQuantity())
                     .bind("material", belts.getMaterialBelt())
                     .bind("isDeleted", belts.getIsDeleted())
+                    .bind("discountPercent", belts.getDiscountPercent())
                     .execute() > 0;
         });
     }
@@ -137,7 +138,8 @@ public class ProductDao {
                     "price = :price, " +
                     "stockQuantity = :stockQuantity, " +
                     "materialBelt = :material, " +
-                    "isDeleted = :isDeleted " +
+                    "isDeleted = :isDeleted, " +
+                    "discountPercent = :discountPercent " +
                     "WHERE id = :id";
 
             return h.createUpdate(sql)
@@ -149,6 +151,7 @@ public class ProductDao {
                     .bind("material", belts.getMaterialBelt())
                     .bind("id", belts.getId())
                     .bind("isDeleted", belts.getIsDeleted())
+                    .bind("discountPercent", belts.getDiscountPercent())
                     .execute() > 0;
         });
     }
@@ -242,7 +245,6 @@ public class ProductDao {
 
     public List<Belts> getBeltsByViewCount() {
         return JDBIConnect.get().withHandle(handle -> {
-            // SQL query to get the top 4 belts ordered by viewCount in descending order
             String sql = "SELECT b.* FROM belts b " +
                     "JOIN beltViews bv ON b.id = bv.beltId " +
                     "ORDER BY bv.viewCount DESC " +
@@ -391,5 +393,17 @@ public class ProductDao {
             return beltsList;
         });
     }
+
+    public boolean isUserPurchased(int beltId, int userId) {
+        String sql = "SELECT EXISTS ( SELECT 1 FROM orders o INNER JOIN orderDetails od ON o.id = od.orderId WHERE o.userID = :userId AND od.beltId = :beltId)";
+        return JDBIConnect.get().withHandle(handle ->
+                handle.createQuery(sql)
+                        .bind("userId", userId)
+                        .bind("beltId", beltId)
+                        .mapTo(Boolean.class)
+                        .one()
+        );
+    }
+
 }
 

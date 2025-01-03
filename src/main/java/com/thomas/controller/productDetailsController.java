@@ -2,6 +2,7 @@ package com.thomas.controller;
 
 import com.thomas.dao.model.Category;
 import com.thomas.dao.model.Belts;
+import com.thomas.dao.model.User;
 import com.thomas.services.UploadFavoriteService;
 import com.thomas.services.UploadProductService;
 import com.thomas.services.UploadReviewService;
@@ -20,15 +21,29 @@ public class productDetailsController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("auth");
         int beltId = Integer.parseInt(request.getParameter("beltId"));
         uploadProductService.saveBeltView(beltId);
+        boolean isPurchasedBelt=false;
+        if (user != null) {
+            isPurchasedBelt = uploadProductService.isUserPurchased(beltId, user.getId());
+
+        }
         Belts belt = uploadProductService.getProductById(beltId);
         belt.setImage(uploadProductService.getProductImages(beltId));
         List<Category> beltCategory = uploadProductService.getAllCategoriesById(beltId);
         int totalReview = uploadReviewService.getTotalReviewsCount(beltId);
         List<String> descBeltImage = uploadProductService.getAllDescImage(beltId);
         List<Belts> randomBelts = uploadProductService.getRandomBelts();
+        for(Belts b : randomBelts) {
+            b.setImage(uploadProductService.getProductImages(b.getId()));
+        }
         List<Belts> beltViewCount = uploadProductService.getBeltByViewCount();
+        for(Belts b : beltViewCount) {
+            b.setImage(uploadProductService.getProductImages(b.getId()));
+        }
+        request.setAttribute("isPurchasedBelt", isPurchasedBelt);
         request.setAttribute("beltViewCount", beltViewCount);
         request.setAttribute("randomBelts", randomBelts);
         request.setAttribute("descBeltImage", descBeltImage);

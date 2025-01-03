@@ -414,6 +414,7 @@
                                                 class="col form-control form-control-lg custom_design custom__border"
                                                 placeholder="Nhập tên sản phẩm"
                                                 value="${product.name}"
+                                                required
 
                                         />
                                     </div>
@@ -424,10 +425,12 @@
                                             Nhập tags
                                         </p>
                                         <input
+                                                placeholder="các tag cách nhau bởi dấu cách"
                                                 name="tags"
                                                 type="text"
                                                 class="col form-control form-control-lg custom_design custom__border"
                                                 value="${tags}"
+                                                required
                                         />
                                     </div>
                                     <div class="row mb-3">
@@ -456,6 +459,7 @@
                                         <input name="releaseDate" type="date"
                                                class="col form-control form-control-lg custom_design custom__border"
                                                value="${product.releaseDate}"
+                                               required
                                         />
                                     </div>
                                     <div class="row mb-3">
@@ -465,11 +469,14 @@
                                             Giá
                                         </p>
                                         <input
+                                                id="price-input"
                                                 name="price"
-                                                type="number"
+                                                type="text"
                                                 class="col form-control form-control-lg custom_design custom__border"
                                                 placeholder="Nhập giá sản phẩm"
+                                                oninput="formatNumber(this)"
                                                 value="${product.price}"
+                                                required
                                         />
                                     </div>
                                     <div class="row mb-3">
@@ -484,6 +491,7 @@
                                                 class="col form-control form-control-lg custom_design custom__border"
                                                 placeholder="Nhập số lượng khách hàng có thể chọn"
                                                 value="${product.stockQuantity}"
+                                                required
                                         />
                                     </div>
                                     <div class="row mb-3">
@@ -701,14 +709,20 @@
         });
 </script>
 <script>
-    // Reference to the checkbox and hidden input
     const checkbox = document.getElementById('isDeleted');
     const hiddenInput = document.getElementById('hiddenIsDeleted');
 
-    // Update hidden input value when checkbox state changes
     checkbox.addEventListener('change', function () {
         hiddenInput.value = this.checked ? 1 : 0;
     });
+</script>
+
+<script>
+    function formatNumber(input) {
+        let value = input.value.replace(/\D/g, '');
+
+        input.value = new Intl.NumberFormat('vi-VN').format(value);
+    }
 </script>
 </body>
 </html>

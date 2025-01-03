@@ -61,7 +61,7 @@
             <div id="productCarousel" class="carousel slide border rounded col-2 belts w-75 p-5">
                 <div class="carousel-inner">
                     <c:forEach var="image" items="${belt.image}" varStatus="status">
-                        <div class="carousel-item active">
+                        <div class="carousel-item ${status.index ==0 ? "active":""}">
                             <img src="${pageContext.request.contextPath}${image}"
 
                                  class="img-fluid rounded" style="width: 520px; height: 520px"
@@ -82,7 +82,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 beltProp" style="position: relative">\
+        <div class="col-md-5 beltProp" style="position: relative">\
             <input type="hidden" class="beltId" value="${belt.id}">
             <input type="hidden" class="userId" value="${sessionScope.auth.id}">
             <h2 class="product_detail--name">${belt.name}</h2>
@@ -105,16 +105,16 @@
 
             <div class="mb-3">
                 <c:forEach var="category" items="${beltCategory}">
-                    <strong>${category.name}</strong>
+                    <strong class="p-2 me-2" style="background-color: #DFDFDF">${category.name}</strong>
                 </c:forEach>
             </div>
             <div class="mb-3 mt-3">
                 <label for="quantity" class="form-label"><strong>Số Lượng:</strong></label>
                 <input type="hidden" class="quantity_belt" name="quantity" value="${belt.stockQuantity}">
                 <div class="quantity__control input-group quantity-controls">
-                    <button class="btn btn-outline-secondary" type="button" id="decrement">-</button>
+                    <button class="btn btn-outline-secondary rounded-0" type="button" id="decrement">-</button>
                     <input type="text" class="form-control" id="quantity" value="1">
-                    <button class="btn btn-outline-secondary" type="button" id="increment">+</button>
+                    <button class="btn btn-outline-secondary rounded-0" type="button" id="increment">+</button>
                 </div>
             </div>
 
@@ -149,10 +149,10 @@
                 </button>
             </div>
 
-            <div class="accordion" id="productAccordion">
+            <div class="accordion" id="productAccordion" style="z-index: 1">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingDescription">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        <button class="accordion-button rounded-0" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseDescription" aria-expanded="true"
                                 aria-controls="collapseDescription">
                             Mô tả sản phẩm
@@ -168,7 +168,7 @@
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingCareLabel">
-                        <button class="accordion-button collapsed"
+                        <button class="accordion-button collapsed rounded-0"
                                 type="button"
                                 data-bs-toggle="collapse"
                                 data-bs-target="#collapseCareLabel"
@@ -215,7 +215,7 @@
             </div>
         </nav>
     </section>
-    <c:if test="${sessionScope.auth.id!=null}">
+    <c:if test="${sessionScope.auth.id!=null && isPurchasedBelt}">
         <div class="d-flex flex-column mt-5 custom_bg p-4" style="width: 60%">
             <form action="${pageContext.request.contextPath}/productDetails" method="POST">
                 <input type="hidden" name="userId" value="${sessionScope.auth.id}">
@@ -285,7 +285,7 @@
 
     </c:if>
 </div>
-<div class="viewed__component container rounded ps-5 pt-3 mt-5 youmightlike__component mb-5 pe-0 pb-5">
+<div class="viewed__component container rounded ps-5 pt-3 mt-5 youmightlike__component mb-5 pe-0 pb-5" style="margin-top: 100px">
     <p class="viewed__title ms-0 fs-2">Bạn có thể thích</p>
     <div class="d-flex justify-content-between">
         <div class="card-wrapper cardWrapper">
@@ -323,7 +323,7 @@
 </div>
 
 <div class="viewed__component container rounded ps-5 pt-3 mt-5 youmightlike__component mb-5 pe-0 pb-5">
-    <p class="viewed__title ms-0 fs-2">Sản phẩm đã xem</p>
+    <p class="viewed__title ms-0 fs-2">Sản phẩm xem nhiều nhất</p>
     <div class="d-flex justify-content-between">
         <div class="card-wrapper cardWrapper">
             <c:forEach var="belt" items="${randomBelts}">

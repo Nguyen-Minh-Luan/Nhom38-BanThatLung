@@ -22,6 +22,10 @@ public class confirmActiveController extends HttpServlet {
         }
         if (message != null) {
             request.setAttribute("messageRedirect", message);
+            if (message.equals("orderDetailSuccess")) {
+                HttpSession session = request.getSession();
+                session.removeAttribute("cart");
+            }
         }
         request.getRequestDispatcher("/frontend/signInPage/confirmSuccessSignUp/confirmSuccess.jsp").forward(request, response);
     }

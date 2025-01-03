@@ -33,7 +33,7 @@ public class OrderDetailsDao {
 
     public boolean deleteOrderDetail(int orderItemId) {
         return JDBIConnect.get().withHandle(h -> {
-            String sql = "DELETE FROM orderDetails WHERE orderId=:orderItemId";
+            String sql = "DELETE FROM orderDetails WHERE id=:orderItemId";
             return h.createUpdate(sql).bind("orderItemId", orderItemId).execute() > 0;
         });
     }
@@ -64,6 +64,13 @@ public class OrderDetailsDao {
                     .bind("quantity", newOrderDetail.getQuantity())
                     .bind("beltId", newOrderDetail.getBeltId())
                     .execute() > 0;
+        });
+    }
+
+    public OrderDetails findOrderDetailById(int orderItemId) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "SELECT * FROM orderDetails WHERE id=:orderItemId";
+            return h.createQuery(sql).bind("orderItemId", orderItemId).mapToBean(OrderDetails.class).findOne().orElse(null);
         });
     }
 }

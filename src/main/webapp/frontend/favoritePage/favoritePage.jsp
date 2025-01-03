@@ -76,16 +76,12 @@
                 </td>
                 <td class="text-center">${belt.price} vnđ</td>
                 <td class="text-center">${belt.stockQuantity !=0 ? "Còn hàng" : "Hết hàng"}</td>
-                <td>
-                    <button class="btn btn-outline-dark" ${belt.stockQuantity !=0 ? "" : "disable"}>Thêm vào giỏ hàng
-                    </button>
-                </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
     <div class="wishlist-footer d-flex justify-content-end" style="margin-right: 30px;">
-        <a href="../cartPage/cartPage.jsp" class="btn btn-dark text-white">Xem giỏ hàng</a>
+        <a href="/Cart" class="btn btn-dark text-white">Xem giỏ hàng</a>
     </div>
 </div>
 

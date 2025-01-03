@@ -65,7 +65,7 @@ public class userAdminController extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/admin/table/users");
             return;
         }
-        int userId = Integer.parseInt(request.getParameter("userId"));
+        int userId = request.getParameter("userId") != null ? Integer.parseInt(request.getParameter("userId")) : 0;
         DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
         String userName = request.getParameter("userName");
         String email = request.getParameter("Email");

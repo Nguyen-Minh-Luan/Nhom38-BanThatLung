@@ -93,7 +93,7 @@ public class OrderDao {
             return handle.createUpdate(sql)
                     .bind("userId", order.getUserId())
                     .bind("paymentMethodId", order.getPaymentMethodId())
-                    .bind("addressId", order.getAddressId())
+                    .bind("addressId", order.getAddressesId())
                     .bind("orderTotal", order.getOrderTotal())
                     .bind("orderStatus", order.getOrderStatus())
                     .bind("isDeleted", order.getIsDeleted())
@@ -113,7 +113,7 @@ public class OrderDao {
                         latestOrder.setId(rs.getInt("id"));
                         latestOrder.setUserId(rs.getInt("userID"));
                         latestOrder.setPaymentMethodId(rs.getInt("paymentMethodId"));
-                        latestOrder.setAddressId(rs.getInt("addressesId"));
+                        latestOrder.setAddressesId(rs.getInt("addressesId"));
                         latestOrder.setOrderTotal(rs.getDouble("orderTotal"));
                         latestOrder.setOrderStatus(rs.getString("orderStatus"));
                         latestOrder.setOrderDate(rs.getDate("orderDate").toLocalDate());
@@ -135,7 +135,7 @@ public class OrderDao {
                         order.setId(rs.getInt("id"));
                         order.setUserId(rs.getInt("userID"));
                         order.setPaymentMethodId(rs.getInt("paymentMethodId"));
-                        order.setAddressId(rs.getInt("addressesId"));
+                        order.setAddressesId(rs.getInt("addressesId"));
                         order.setOrderTotal(rs.getDouble("orderTotal"));
                         order.setOrderStatus(rs.getString("orderStatus"));
                         order.setOrderDate(rs.getDate("orderDate").toLocalDate());
@@ -147,4 +147,17 @@ public class OrderDao {
     }
 
 
+    public boolean updateOrder(Order order) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "UPDATE orders SET userID = :userID, paymentMethodId = :paymentMethodId, addressesId = :addressesId, orderDate = :orderDate, orderTotal = :orderTotal, orderStatus = :orderStatus, isDeleted = :isDeleted WHERE id = :id";
+            return h.createUpdate(sql).bind("userID", order.getUserId())
+                    .bind("paymentMethodId", order.getPaymentMethodId())
+                    .bind("addressesId", order.getAddressesId())
+                    .bind("orderDate", order.getOrderDate())
+                    .bind("orderTotal", order.getOrderTotal())
+                    .bind("orderStatus", order.getOrderStatus())
+                    .bind("isDeleted", order.getIsDeleted())
+                    .bind("id", order.getId()).execute() > 0;
+        });
+    }
 }

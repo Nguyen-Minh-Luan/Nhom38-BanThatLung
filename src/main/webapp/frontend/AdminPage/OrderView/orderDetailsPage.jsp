@@ -333,7 +333,8 @@
                 <form class="deleteBtn" action="${pageContext.request.contextPath}/admin/table/orders/details"
                       method="post">
                     <c:if test="${orderDetailsList.size()==1}"><input type="hidden" name="oneItem"
-                                                                      value="${order.id}"></c:if>
+                                                                      value="1"></c:if>
+                    <input type="hidden" name="orderId" value="${param.id}">
                     <button type="submit" class="btn btn-dark">Xóa</button>
                 </form>
             </div>
@@ -355,16 +356,5 @@
 <!-- Custom scripts for all pages-->
 <script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/orderDetails.js"></script>
-<script>
-
-</script>
-<script>
-    const checkbox = document.getElementById('isDeleted');
-    const hiddenInput = document.getElementById('hiddenIsDeleted');
-
-    checkbox.addEventListener('change', function () {
-        hiddenInput.value = this.checked ? 1 : 0;
-    });
-</script>
 </body>
 </html>

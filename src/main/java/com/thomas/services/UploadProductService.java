@@ -243,4 +243,8 @@ public class UploadProductService {
     public List<Belts> getNewArrivals() {
         return productDao.getNewArrivals();
     }
+
+    public boolean isUserPurchased(int beltId, int userId) {
+        return productDao.isUserPurchased(beltId,userId);
+    }
 }

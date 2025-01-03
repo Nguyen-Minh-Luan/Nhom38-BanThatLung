@@ -12,9 +12,8 @@ $(document).ready(function () {
             },
             dataType: "json",
             success: function (data, textStatus, xhr) {
-                console.log('AJAX Success:', data);  // Logs the data
-                console.log('Response Status:', textStatus);  // Logs the success status
-                // Populate modal fields with fetched data
+                console.log('AJAX Success:', data);
+                console.log('Response Status:', textStatus);
                 $(".modal-title").text(`Sửa user #${userId}`);
                 $(".messageCreateOrUpdate").val("update");
                 $("input[name='userName']").val(data.userName);
@@ -24,17 +23,14 @@ $(document).ready(function () {
                 $("input[name='birthDate']").val(data.birthDate);
                 $("input[name='phoneNumber']").val(data.phoneNumber);
                 $("input[name='showDeleted']").val(data.isDeleted);
-                // Change button text to 'Cập nhật'
                 $(".createOrUpdate").text("Cập nhật").prepend(`
                     <input type="hidden" name="userId" value="${userId}">
                 `);
 
-                // Show the modal
                 $("#createModal").modal("show");
             },
             error: function (xhr, textStatus, errorThrown) {
-                // Log the error details
-                console.error('AJAX Error:', textStatus, errorThrown);  // Logs the error
+                console.error('AJAX Error:', textStatus, errorThrown);
                 alert("Lỗi không lấy được dữ liệu , thử lại sau.");
             }
         });
@@ -69,14 +65,12 @@ $(document).ready(function () {
         $(".password-fields").show();
     });
     $('#createModal').on('shown.bs.modal', function () {
-        const message = $(".messageCreateOrUpdate").val(); // Check if it's create or update
+        const message = $(".messageCreateOrUpdate").val();
         console.log(message)
         if (message === "update") {
-            // Hide password fields for update
-            $(".password-fields").hide();
+            $(".password-fields").removeClass("d-flex").hide();
         } else {
-            // Show password fields for create
-            $(".password-fields").show();
+            $(".password-fields").addClass("d-flex").show();
         }
     });
 });

@@ -9,7 +9,7 @@ public class Order implements Serializable {
     private int id;
     private int userId;
     private int paymentMethodId;
-    private int addressId;
+    private int addressesId;
     private LocalDate orderDate;
     private double orderTotal;
     private String orderStatus;
@@ -24,14 +24,14 @@ public class Order implements Serializable {
 
     }
 
-    public Order(int id, int userId, LocalDate orderDate, double orderTotal, String orderStatus, int isDeleted, int addressId) {
+    public Order(int id, int userId, LocalDate orderDate, double orderTotal, String orderStatus, int isDeleted, int addressesId) {
         this.id = id;
         this.userId = userId;
         this.orderDate = orderDate;
         this.orderTotal = orderTotal;
         this.orderStatus = orderStatus;
         this.isDeleted = isDeleted;
-        this.addressId = addressId;
+        this.addressesId = addressesId;
     }
 
     public int getId() {
@@ -115,12 +115,12 @@ public class Order implements Serializable {
         this.addresse = addresse;
     }
 
-    public int getAddressId() {
-        return addressId;
+    public int getAddressesId() {
+        return addressesId;
     }
 
-    public void setAddressId(int addressId) {
-        this.addressId = addressId;
+    public void setAddressesId(int addressId) {
+        this.addressesId = addressId;
     }
 
     public List<OrderDetails> getOrderDetails() {

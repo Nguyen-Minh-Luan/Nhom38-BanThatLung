@@ -35,6 +35,9 @@ public class newArrivalController extends HttpServlet {
                     break;
                 case "hotSelling":
                     newArrivalBelts = uploadProductService.getNewArrivalProductsHotSeliing();
+                    for(Belts b : newArrivalBelts) {
+                        b.setImage(uploadProductService.getProductImages(b.getId()));
+                    }
                     break;
             }
         }
@@ -46,37 +49,29 @@ public class newArrivalController extends HttpServlet {
             try {
                 currentPage = Math.max(1, Integer.parseInt(pageParam.trim()));
             } catch (NumberFormatException e) {
-                // Log error but continue with default page 1
                 Logger.getLogger(getClass().getName()).warning("Invalid page parameter: " + pageParam);
             }
         }
 
-        // Calculate pagination
-        int itemsPerPage = 20;
+        int itemsPerPage = 10;
         int totalItems = newArrivalBelts.size();
         int totalPages = Math.max(1, (int) Math.ceil((double) totalItems / itemsPerPage));
 
-        // Ensure currentPage doesn't exceed totalPages
         currentPage = Math.min(currentPage, totalPages);
 
-        // Calculate indices
         int startIndex = (currentPage - 1) * itemsPerPage;
         int endIndex = Math.min(startIndex + itemsPerPage, totalItems);
 
-        // Get sublist for current page
         List<Belts> beltsForPage = startIndex < totalItems
                 ? newArrivalBelts.subList(startIndex, endIndex)
                 : new ArrayList<>();
 
-        // Set attributes
         request.setAttribute("beltsForPage", beltsForPage);
         request.setAttribute("currentPage", currentPage);
         request.setAttribute("totalPages", totalPages);
         request.setAttribute("descPrice", descPrice);
 
-        // Forward to JSP
-        request.getRequestDispatcher("/frontend/newArrivalPage/newArrivalPage.jsp")
-                .forward(request, response);
+        request.getRequestDispatcher("/frontend/newArrivalPage/newArrivalPage.jsp").forward(request, response);
 
     }
 

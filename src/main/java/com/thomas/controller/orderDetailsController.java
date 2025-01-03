@@ -38,14 +38,18 @@ public class orderDetailsController extends HttpServlet {
         String message = request.getParameter("message");
         if (message.equals("delete")) {
             int orderItemId = Integer.parseInt(request.getParameter("orderItemId"));
-            int orderId = 0;
+            int orderId = Integer.parseInt(request.getParameter("orderId"));
             if (request.getParameter("oneItem") != null) {
-                orderId = Integer.parseInt(request.getParameter("oneItem"));
                 uploadOrderService.deteleOrder(orderId);
                 response.sendRedirect("/admin/table/orders");
             }
-            if (uploadOrderDetailService.deleteOrderDetail(orderItemId)) {
-                response.sendRedirect("/admin/table/orders/details?id=" + orderItemId);
+            OrderDetails orderDetails = uploadOrderDetailService.findOrderDetailById(orderItemId);
+            if (orderDetails != null) {
+                Order order = uploadOrderService.getOrderById(orderId);
+                order.setOrderTotal(order.getOrderTotal() - orderDetails.getPrice());
+                uploadOrderService.updateOrder(order);
+                uploadOrderDetailService.deleteOrderDetail(orderItemId);
+                response.sendRedirect("/admin/table/orders/details?id=" + orderId);
             }
         }
 

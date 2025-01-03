@@ -12,7 +12,7 @@ CREATE TABLE belts
 (
     id            INT AUTO_INCREMENT PRIMARY KEY,
     name          VARCHAR(255) NOT NULL,
-    description   VARCHAR(500),
+    description   TEXT,
     price double NOT NULL,
     gender        VARCHAR(50)  NOT NULL,
     stockQuantity INT      DEFAULT 0,

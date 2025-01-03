@@ -50,7 +50,7 @@ public class UploadOrderService {
         Order order = new Order();
         order.setUserId(userId);
         order.setPaymentMethodId(paymentMethodId);
-        order.setAddressId(addressId);
+        order.setAddressesId(addressId);
         order.setOrderDate(orderDate);
         order.setOrderTotal(grandTotal);
         order.setOrderStatus(state);
@@ -81,4 +81,7 @@ public class UploadOrderService {
         return orderDao.getAllOrderByUserId(userId);
     }
 
+    public boolean updateOrder(Order order) {
+        return orderDao.updateOrder(order);
+    }
 }

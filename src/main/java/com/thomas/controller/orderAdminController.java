@@ -41,9 +41,7 @@ public class orderAdminController extends HttpServlet {
         String message = request.getParameter("message");
         if (message.equals("delete")) {
             int orderId = Integer.parseInt(request.getParameter("orderId"));
-            if (uploadOrderService.deteleOrder(orderId)) {
-                response.sendRedirect("/admin/table/orders");
-            }
+            uploadOrderService.deteleOrder(orderId);
         } else if (message.equals("create")) {
             int userId = Integer.parseInt(request.getParameter("userId"));
             String paymentName = request.getParameter("paymentMethod");

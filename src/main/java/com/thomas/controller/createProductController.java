@@ -64,6 +64,7 @@ public class createProductController extends HttpServlet {
         LocalDate releaseDate = LocalDate.parse(releaseDateString, formatter);
         String gender = request.getParameter("gender");
         double price = Double.parseDouble(request.getParameter("price"));
+        System.out.println(price);
         double discountPercent = Double.parseDouble(request.getParameter("discountPercent"));
         int stockQuantity = Integer.parseInt(request.getParameter("quantity"));
         int isDeleted = Integer.parseInt(request.getParameter("isDeleted"));

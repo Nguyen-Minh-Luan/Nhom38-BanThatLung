@@ -49,4 +49,8 @@ public class UploadOrderDetailService {
     public boolean addOrderDetails(OrderDetails newOrderDetail) {
         return orderDetailsDao.addOrderDetails(newOrderDetail);
     }
+
+    public OrderDetails findOrderDetailById(int orderItemId) {
+        return orderDetailsDao.findOrderDetailById(orderItemId);
+    }
 }

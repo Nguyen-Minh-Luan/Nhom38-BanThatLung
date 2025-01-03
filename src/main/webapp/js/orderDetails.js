@@ -56,7 +56,7 @@ $(document).ready(function () {
                 $('#quantity').val('');
                 $('#price').val('');
             }, error: function (xhr, status, error) {
-                console.error('AJAX Error:', status, error);  // Log errors if the request fails
+                console.error('AJAX Error:', status, error);
             }
         });
     });

@@ -1,8 +1,10 @@
 package com.thomas.controller;
 
 import com.thomas.dao.model.Belts;
+import com.thomas.dao.model.Order;
 import com.thomas.dao.model.OrderDetails;
 import com.thomas.services.UploadOrderDetailService;
+import com.thomas.services.UploadOrderService;
 import com.thomas.services.UploadProductService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -13,9 +15,10 @@ import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet(name = "orderDetailController", value = "/add-Order-details")
-public class orderDetailController extends HttpServlet {
+public class addOrderDetailController extends HttpServlet {
     UploadOrderDetailService uploadOrderDetailService = new UploadOrderDetailService();
     UploadProductService uploadProductService = new UploadProductService();
+    UploadOrderService uploadOrderService = new UploadOrderService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,7 +44,9 @@ public class orderDetailController extends HttpServlet {
         newOrderDetail.setBeltName(productName);
         newOrderDetail.setQuantity(quantity);
         newOrderDetail.setPrice(price);
-
+        Order order = uploadOrderService.getOrderById(orderId);
+        order.setOrderTotal(order.getOrderTotal() + newOrderDetail.getPrice());
+        uploadOrderService.updateOrder(order);
         boolean success = uploadOrderDetailService.addOrderDetails(newOrderDetail);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
