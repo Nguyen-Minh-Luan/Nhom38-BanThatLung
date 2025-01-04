@@ -147,15 +147,12 @@ public class UploadProductService {
     public void updateImagePath(int beltId, String filePath, List<String> extraImages) {
         if (extraImages != null && !extraImages.isEmpty()) {
 
-            if (productDao.updateImage(beltId, "main") > 0) {
-                productDao.saveImage(beltId, "main", filePath);
+            productDao.updateImage(beltId, "main");
+            productDao.saveImage(beltId, "main", filePath);
+            productDao.updateImage(beltId, "extra");
+            for (String extraImage : extraImages) {
+                productDao.saveImage(beltId, "extra", extraImage);
             }
-            if (productDao.updateImage(beltId, "extra") > 0) {
-                for (String extraImage : extraImages) {
-                    productDao.saveImage(beltId, "extra", extraImage);
-                }
-            }
-
 
         }
     }

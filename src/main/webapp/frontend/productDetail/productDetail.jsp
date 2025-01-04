@@ -46,9 +46,9 @@
     </nav>
 </div>
 
-<div class="my-5 bg-white rounded p-5 mb-0">
+<div class="my-5 bg-white rounded mb-0 ps-3 py-2 pe-4">
     <div class="d-flex">
-        <div class="col-md-8 d-flex">
+        <div class="col-md-9 d-flex">
             <div class="col-2 belts-thumbnails d-flex flex-column align-item-start justify-content-between mt-0 me-2">
                 <c:forEach var="image" items="${belt.image}" varStatus="status">
                     <img src="${pageContext.request.contextPath}${image}"
@@ -87,7 +87,7 @@
             <h2 class="product_detail--name">${belt.name}</h2>
             <c:choose>
                 <c:when test="${belt.discountPercent > 0}">
-                    <p class="belts-price text-danger fw-4">
+                    <p class="belts-price text-danger" style="font-size: 32px;">
                         <fmt:formatNumber value="${belt.price - (belt.price * belt.discountPercent / 100)}"
                                           type="number" maxFractionDigits="3"/>
                         VNĐ
@@ -113,11 +113,11 @@
                 <label for="quantity" class="form-label fw-5"><strong>Số Lượng:</strong></label>
                 <input type="hidden" class="quantity_belt" name="quantity" value="${belt.stockQuantity}">
                 <div class="quantity__control input-group quantity-controls">
-                    <button class="btn btn-outline-secondary rounded-0 p-4 border-end-0" type="button" id="decrement">
+                    <button class="btn btn-outline-secondary rounded-0 p-4 border-end-0 py-2 px-3" type="button" id="decrement">
                         -
                     </button>
-                    <input type="text" class="form-control p-3 border-start-0 border-end-0" id="quantity" value="1">
-                    <button class="btn btn-outline-secondary rounded-0 p-4 border-start-0" type="button" id="increment">
+                    <input type="text" class="px-1 py-2 border-start-0 border-end-0 w-25" id="quantity" value="1">
+                    <button class="btn btn-outline-secondary rounded-0 p-4 border-start-0 py-2 px-3" type="button" id="increment">
                         +
                     </button>
                 </div>
@@ -249,7 +249,7 @@
                                     <label for="star1" class="bi bi-star-fill"></label>
                                 </div>
                             </div>
-                            <textarea name="desc" class="pt-2 ps-1 mt-4" cols="50" rows="5" style="resize: none">
+                            <textarea name="desc" class="pt-2 ps-1 mt-4" cols="100" rows="5" style="resize: none">
               </textarea>
                         </div>
                     </div>

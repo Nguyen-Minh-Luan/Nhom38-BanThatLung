@@ -111,7 +111,6 @@ public class createProductController extends HttpServlet {
 
                     part.write(filePath);
                     part.write(serverDirectory + File.separator + uniqueFileName);
-                    // Assign to mainImage or add to extraImages
                     if (count == 1) {
                         mainImage = File.separator + ULOAD_DIR + File.separator + productName + File.separator + uniqueFileName;
                     } else {
@@ -120,7 +119,6 @@ public class createProductController extends HttpServlet {
                 }
             }
 
-            // Save image paths using the service
             if (mainImage != null) {
                 if ("create".equals(message)) {
                     int beltId = uploadProductService.getLatestProductId();

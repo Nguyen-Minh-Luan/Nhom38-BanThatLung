@@ -161,7 +161,6 @@ li {
 
 .list__product {
   cursor: pointer;
-  width: 1600px;
 }
 
 #list__product__row {
@@ -194,7 +193,7 @@ li {
 
 /* Đảm bảo tiêu đề và giá luôn được căn chỉnh */
 .product__title {
-  text-align: center;
+  text-align: start;
   margin-top: 10px;
 }
 

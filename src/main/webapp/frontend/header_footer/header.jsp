@@ -249,17 +249,19 @@
                 </c:if>
             </div>
         </a>
+        <c:if test="${sessionScope.auth!=null}">
+            <a class="nav-item cart" href="${pageContext.request.contextPath}/Cart">
+                <input type="hidden" class="userId" value="${sessionScope.auth.id}">
+                <img
+                        class="nav-icon"
+                        src="${pageContext.request.contextPath}/assets/icons/cart.svg"
+                        alt=""
+                        style="width: 26px; height: 26px"
+                />
+                <span id="cart_received" class="nav-item favorite__count">0</span>
+            </a>
+        </c:if>
 
-        <a class="nav-item cart" href="${pageContext.request.contextPath}/Cart">
-            <input type="hidden" class="userId" value="${sessionScope.auth.id}">
-            <img
-                    class="nav-icon"
-                    src="${pageContext.request.contextPath}/assets/icons/cart.svg"
-                    alt=""
-                    style="width: 26px; height: 26px"
-            />
-            <span id="cart_received" class="nav-item favorite__count">0</span>
-        </a>
     </div>
 </nav>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>

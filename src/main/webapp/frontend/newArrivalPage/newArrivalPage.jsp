@@ -230,7 +230,7 @@
         </div>
     </div>
 </div>
-<div class="list__product container-fluid">
+<div class="list__product mx-2">
     <div class="row" id="list__product__row">
         <div class="list__product__element">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="list__product__row">
@@ -244,7 +244,7 @@
                                     <img src="${pageContext.request.contextPath}${belt.image[0]}" alt="Product Image"
                                          class="img-fluid" alt="Leather Belt">
                                 </div>
-                                <div class="product__title">
+                                <div class="product__title ms-2">
                                     <h4 class="title">${belt.name}</h4>
                                     <p class="product__price">${belt.price}VNĐ</p>
                                 </div>

@@ -49,7 +49,7 @@ public class newArrivalController extends HttpServlet {
             }
         }
 
-        int itemsPerPage = 10;
+        int itemsPerPage = 12;
         int totalItems = newArrivalBelts.size();
         int totalPages = Math.max(1, (int) Math.ceil((double) totalItems / itemsPerPage));
 
