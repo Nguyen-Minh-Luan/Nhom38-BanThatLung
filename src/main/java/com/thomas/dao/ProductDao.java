@@ -403,5 +403,21 @@ public class ProductDao {
         );
     }
 
+    public List<Belts> getBestSellerProducts() {
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT i.imagePath, b.id, b.name, b.price, od.quantityn " +
+                    "FROM belts b " +
+                    "INNER JOIN imageentry i " +
+                    "ON b.id = i.beltId " +
+                    "INNER JOIN orderdetails od " +
+                    "ON b.id = od.beltId " +
+                    "INNER JOIN orders o " +
+                    "ON od.orderId = o.id " +
+                    "AND b.isDeleted = 0 AND o.isDeleted = 0 " +
+                    "ORDER BY od.quantity DESC ";
+            return handle.createQuery(sql).mapToBean(Belts.class).list();
+        });
+    }
+
 }
 
