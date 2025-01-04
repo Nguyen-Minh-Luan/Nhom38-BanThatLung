@@ -80,9 +80,10 @@
                                             </p>
                                             <p class="custom_size--16">${entry.value.price} VNĐ</p>
                                         </div>
-                                        <div class="d-flex justify-content-between mt-3">
+                                        <div class="d-flex mt-3">
                                             <c:forEach var="category" items="${entry.value.belt.categories}">
-                                                <p class="custom_size--16">${category}</p>
+                                                <p class="custom_size--16 p-2 me-2 fw-bold"
+                                                   style="background-color: #DFDFDF">${category}</p>
 
                                             </c:forEach>
                                         </div>
@@ -90,7 +91,7 @@
                                     <div class="d-flex">
                                         <select
                                                 id="quantitySelect"
-                                                class="form-select w-25 p-3 border border-dark"
+                                                class="form-select w-25 p-3 border border-dark quantitySelectCart"
                                                 aria-label="Select a number"
                                         >
                                             <option selected>${entry.value.quantity}</option>

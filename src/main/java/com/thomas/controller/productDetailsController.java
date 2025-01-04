@@ -31,6 +31,7 @@ public class productDetailsController extends HttpServlet {
 
         }
         Belts belt = uploadProductService.getProductById(beltId);
+        belt.setPrice(belt.getPrice());
         belt.setImage(uploadProductService.getProductImages(beltId));
         List<Category> beltCategory = uploadProductService.getAllCategoriesById(beltId);
         int totalReview = uploadReviewService.getTotalReviewsCount(beltId);

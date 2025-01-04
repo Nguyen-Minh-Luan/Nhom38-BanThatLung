@@ -44,7 +44,7 @@ $(document).ready(function () {
             labels.forEach((label, index) => {
                 legendHTML += `
             <span class="mr-2">
-                <i class="fas fa-circle"></i> ${label}
+                ${label}
             </span>
         `;
             });

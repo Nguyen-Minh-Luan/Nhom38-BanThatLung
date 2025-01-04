@@ -198,7 +198,7 @@
                 </div>
             </div>
             <div class="col-4  quantity__column">
-                <span>${beltsForPage.size()}</span> <span class="pix__text"> sản phẩm</span>
+                <span>${totalBelt}</span> <span class="pix__text"> sản phẩm</span>
             </div>
             <div class="col-4  sort__column">
                 <div class="sort__container">

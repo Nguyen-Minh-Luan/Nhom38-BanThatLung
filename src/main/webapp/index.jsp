@@ -440,7 +440,7 @@
     </div>
 </section>
 <div class="event__banner align-items-center">
-    <a href="frontend/newArrivalPage/newArrivalPage.jsp">
+    <a href="${pageContext.request.contextPath}/newArrival">
         <img src="assets/images/Group 4.svg" alt=""/>
     </a>
 </div>

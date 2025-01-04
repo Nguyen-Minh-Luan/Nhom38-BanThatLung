@@ -18,13 +18,10 @@ public class newArrivalController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Get sorting parameter
         String descPrice = request.getParameter("descPrice");
 
-        // Get all products first
         List<Belts> newArrivalBelts = uploadProductService.getNewArrivalProducts();
 
-        // Apply sorting if descPrice parameter exists and is not empty
         if (descPrice != null && !descPrice.trim().isEmpty()) {
             switch (descPrice.trim()) {
                 case "increase":
@@ -35,14 +32,13 @@ public class newArrivalController extends HttpServlet {
                     break;
                 case "hotSelling":
                     newArrivalBelts = uploadProductService.getNewArrivalProductsHotSeliing();
-                    for(Belts b : newArrivalBelts) {
+                    for (Belts b : newArrivalBelts) {
                         b.setImage(uploadProductService.getProductImages(b.getId()));
                     }
                     break;
             }
         }
 
-        // Safely parse page parameter
         int currentPage = 1;
         String pageParam = request.getParameter("page");
         if (pageParam != null && !pageParam.trim().isEmpty()) {
@@ -67,6 +63,7 @@ public class newArrivalController extends HttpServlet {
                 : new ArrayList<>();
 
         request.setAttribute("beltsForPage", beltsForPage);
+        request.setAttribute("totalBelt", newArrivalBelts.size());
         request.setAttribute("currentPage", currentPage);
         request.setAttribute("totalPages", totalPages);
         request.setAttribute("descPrice", descPrice);

@@ -21,7 +21,7 @@ $(document).ready(function () {
                 },
                 success(responseData) {
                     const data = responseData;
-                    $(".totalCostDisplay").text((data.grandTotal) + "VNĐ");
+                    $(".totalCostDisplay").text((data.grandTotal) + " VNĐ");
                 },
                 error(responseData) {
                     $(".custom_input_group").append("<p class='text-danger custom_alert w-100'>Coupon không tồn tại</p>")
@@ -47,9 +47,9 @@ $(document).ready(function () {
                 });
                 $(".totalOrdersCountDisplay").text(`Tổng [${data.cartSize} đơn hàng]`);
                 $(".totalOrdersDisplayBelts").text(`${data.cartSize} sản phẩm`);
-                $(".totalPriceDisplay").text((data.totalPrice));
-                $(".shipmentDisplay").text((data.shipmentPrice));
-                $(".totalCostDisplay").text((data.grandTotal));
+                $(".totalPriceDisplay").text((data.totalPrice)+" VNĐ");
+                $(".shipmentDisplay").text((data.shipmentPrice)+"VNĐ");
+                $(".totalCostDisplay").text((data.grandTotal)+" VNĐ");
                 const cartCount = parseInt($("#cart_received").text(), 10) - 1
                 $("#cart_received").text(cartCount)
             },
@@ -60,7 +60,7 @@ $(document).ready(function () {
     })
 
 
-    $("#quantitySelect").on("change", function () {
+    $(".quantitySelectCart").on("change", function () {
         const selectedQuantity = $(this).val();
 
         const beltId = $(this).closest(".custom_remove").find(".beltId").val();
@@ -77,9 +77,9 @@ $(document).ready(function () {
                 const data = response;
                 $(".totalOrdersCountDisplay").text(`Tổng [${data.cartSize} đơn hàng]`);
                 $(".totalOrdersDisplayBelts").text(`${data.cartSize} sản phẩm`);
-                $(".totalPriceDisplay").text((data.totalPrice) + "VNĐ");
-                $(".shipmentDisplay").text((data.shipmentPrice) + "VNĐ");
-                $(".totalCostDisplay").text((data.grandTotal) + "VNĐ");
+                $(".totalPriceDisplay").text((data.totalPrice) + " VNĐ");
+                $(".shipmentDisplay").text((data.shipmentPrice) + " VNĐ");
+                $(".totalCostDisplay").text((data.grandTotal) + " VNĐ");
             },
 
             error: function (xhr, status, error) {

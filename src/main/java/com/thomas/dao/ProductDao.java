@@ -176,14 +176,12 @@ public class ProductDao {
     }
 
 
-    public void updateImage(int beltId, String imageType, String imagePath) {
-        JDBIConnect.get().useHandle(handle -> {
-            String sql = "UPDATE imageEntry SET imagePath = :imagePath " +
-                    "WHERE beltId = :beltId AND imageType = :imageType";
-            handle.createUpdate(sql)
+    public int updateImage(int beltId, String imageType) {
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = " DELETE FROM imageEntry WHERE beltId = :beltId AND imageType = :imageType";
+            return handle.createUpdate(sql)
                     .bind("beltId", beltId)
-                    .bind("imageType", imageType)  // 'main', 'extra', or 'description'
-                    .bind("imagePath", imagePath)
+                    .bind("imageType", imageType)
                     .execute();
         });
     }

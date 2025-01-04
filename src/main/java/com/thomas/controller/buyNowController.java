@@ -26,6 +26,9 @@ public class buyNowController extends HttpServlet {
         double price = Double.parseDouble(request.getParameter("price"));
         HttpSession session = request.getSession();
         Map<Integer, CartItem> cart = (Map<Integer, CartItem>) session.getAttribute("cart");
+        if(cart == null) {
+            cart = new HashMap<>();
+        }
         Belts belt = uploadProductService.getProductById(beltId);
         CartItem item = new CartItem(belt, 1, price);
         cart.put(beltId, item);

@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,26 +46,24 @@
     </nav>
 </div>
 
-<div class="container my-5 bg-white rounded p-5 mb-0">
+<div class="my-5 bg-white rounded p-5 mb-0">
     <div class="d-flex">
         <div class="col-md-8 d-flex">
-            <div class="col-2 belts-thumbnails d-flex flex-column align-item-start justify-content-between mt-0">
+            <div class="col-2 belts-thumbnails d-flex flex-column align-item-start justify-content-between mt-0 me-2">
                 <c:forEach var="image" items="${belt.image}" varStatus="status">
                     <img src="${pageContext.request.contextPath}${image}"
-                         width="116px"
-                         height="116px"
-                         class="mb-2 border rounded"
+                         class="${status.index!=4 ? "mb-2":""}"
                          alt="Thumbnail ${status.index+1}" data-bs-target="#productCarousel"
                          data-bs-slide-to="${status.index}"/>
                 </c:forEach>
             </div>
-            <div id="productCarousel" class="carousel slide border rounded col-2 belts w-75 p-5">
-                <div class="carousel-inner">
+            <div id="productCarousel" class="carousel slide col-2 belts w-75 h-100">
+                <div class="carousel-inner h-100">
                     <c:forEach var="image" items="${belt.image}" varStatus="status">
-                        <div class="carousel-item ${status.index ==0 ? "active":""}">
+                        <div class="carousel-item h-100 ${status.index ==0 ? "active":""}">
                             <img src="${pageContext.request.contextPath}${image}"
 
-                                 class="img-fluid rounded" style="width: 520px; height: 520px"
+                                 class="img-fluid h-100"
                                  alt="Product Image ${status.index}"/>
                         </div>
                     </c:forEach>
@@ -82,14 +81,16 @@
             </div>
         </div>
 
-        <div class="col-md-5 beltProp" style="position: relative">\
+        <div class="col-md-3 beltProp" style="position: relative">
             <input type="hidden" class="beltId" value="${belt.id}">
             <input type="hidden" class="userId" value="${sessionScope.auth.id}">
             <h2 class="product_detail--name">${belt.name}</h2>
             <c:choose>
                 <c:when test="${belt.discountPercent > 0}">
-                    <p class="belts-price text-danger">
-                            ${belt.price - (belt.price * belt.discountPercent / 100)} VNĐ
+                    <p class="belts-price text-danger fw-4">
+                        <fmt:formatNumber value="${belt.price - (belt.price * belt.discountPercent / 100)}"
+                                          type="number" maxFractionDigits="3"/>
+                        VNĐ
                         <span class="belts-old-price text-muted text-decoration-line-through">
                                 ${belt.price} VNĐ
                         </span>
@@ -109,12 +110,16 @@
                 </c:forEach>
             </div>
             <div class="mb-3 mt-3">
-                <label for="quantity" class="form-label"><strong>Số Lượng:</strong></label>
+                <label for="quantity" class="form-label fw-5"><strong>Số Lượng:</strong></label>
                 <input type="hidden" class="quantity_belt" name="quantity" value="${belt.stockQuantity}">
                 <div class="quantity__control input-group quantity-controls">
-                    <button class="btn btn-outline-secondary rounded-0" type="button" id="decrement">-</button>
-                    <input type="text" class="form-control" id="quantity" value="1">
-                    <button class="btn btn-outline-secondary rounded-0" type="button" id="increment">+</button>
+                    <button class="btn btn-outline-secondary rounded-0 p-4 border-end-0" type="button" id="decrement">
+                        -
+                    </button>
+                    <input type="text" class="form-control p-3 border-start-0 border-end-0" id="quantity" value="1">
+                    <button class="btn btn-outline-secondary rounded-0 p-4 border-start-0" type="button" id="increment">
+                        +
+                    </button>
                 </div>
             </div>
 
@@ -149,7 +154,7 @@
                 </button>
             </div>
 
-            <div class="accordion" id="productAccordion" style="z-index: 1">
+            <div class="accordion" id="productAccordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingDescription">
                         <button class="accordion-button rounded-0" type="button" data-bs-toggle="collapse"
@@ -185,7 +190,7 @@
                              style="height: 500px;">
                             <c:forEach var="image" items="${descBeltImage}" varStatus="status">
                                 <img class="mb-5" src="${pageContext.request.contextPath}${image}" alt="${status.index}"
-                                     style="width: 75%">
+                                     style="width: 100%">
                             </c:forEach>
                         </div>
                     </div>
@@ -194,12 +199,12 @@
         </div>
     </div>
 </div>
-<div class="container p-5">
+<div class="p-5 my-5">
     <input id="beltIdReviews" type="hidden" name="beltId" value="${belt.id}">
     <div class="col-7">
-        <p class="fs-4">${totalReview} đánh giá</p>
+        <p class="fs-3">${totalReview} đánh giá</p>
         <div class="d-flex border-bottom mb-3">
-            <p class="mb-0">Đánh giá cho sản phẩm này</p>
+            <p class="mb-0 fs-4">Đánh giá cho sản phẩm này</p>
             <span class="ps-3 pe-3 pb-1 pt-1 ms-2 bg-light rounded-pill mb-2">${totalReview}</span>
         </div>
         <div id="reviewsContainer">
@@ -285,7 +290,8 @@
 
     </c:if>
 </div>
-<div class="viewed__component container rounded ps-5 pt-3 mt-5 youmightlike__component mb-5 pe-0 pb-5" style="margin-top: 100px">
+<div class="viewed__component ps-5 pt-3 youmightlike__component mb-5 pe-5 pb-5"
+     style="margin-top: 200px">
     <p class="viewed__title ms-0 fs-2">Bạn có thể thích</p>
     <div class="d-flex justify-content-between">
         <div class="card-wrapper cardWrapper">
@@ -312,7 +318,7 @@
                             <h5 class="card-title text-start">
                                     ${belt.name}
                             </h5>
-                            <p class="card-text text-start">${belt.price}"
+                            <p class="card-text text-start">${belt.price} VNĐ
                             </p>
                         </div>
                     </a>
@@ -322,7 +328,7 @@
     </div>
 </div>
 
-<div class="viewed__component container rounded ps-5 pt-3 mt-5 youmightlike__component mb-5 pe-0 pb-5">
+<div class="viewed__component ps-5 pt-3 youmightlike__component mb-5 pe-5 pb-5">
     <p class="viewed__title ms-0 fs-2">Sản phẩm xem nhiều nhất</p>
     <div class="d-flex justify-content-between">
         <div class="card-wrapper cardWrapper">
