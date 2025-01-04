@@ -210,17 +210,15 @@ public class UploadProductService {
         return allProducts.size();
     }
 
-    public List<Belts> getSortedListBelts(String type) {
-        List<Belts> list = getAllProductsForDisplaying();
+    public List<Belts> getSortedListBelts(String type, List<Belts> list ) {
         if ("default".equals(type)) {
-
+            return list ;
         }
         if ("increase".equals(type)) {
             list.sort(new Comparator<Belts>() {
                 @Override
                 public int compare(Belts o1, Belts o2) {
-                    double i = o1.getPrice() - o2.getPrice();
-                    return (int) i;
+                    return (int) (o1.getPrice() - o2.getPrice());
                 }
             });
         }
@@ -229,9 +227,12 @@ public class UploadProductService {
                 @Override
                 public int compare(Belts o1, Belts o2) {
                     double i = o2.getPrice() - o1.getPrice();
-                    return (int) i;
+                    return (int) (o2.getPrice() - o1.getPrice());
                 }
             });
+        }
+        if ("bestSeller".equals(type)) {
+            list = productDao.getBestSellerProducts();
         }
         return list;
     }
@@ -247,4 +248,5 @@ public class UploadProductService {
     public boolean isUserPurchased(int beltId, int userId) {
         return productDao.isUserPurchased(beltId, userId);
     }
+
 }

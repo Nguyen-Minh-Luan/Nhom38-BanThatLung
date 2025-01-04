@@ -303,7 +303,7 @@
                         <option value="default" selected>Mặc Định</option>
                         <option value="increase">Giá Tăng Dần</option>
                         <option value="decrease">Giá Giảm Dần</option>
-                        <option value="hotSelling">Bán Chạy Nhất</option>
+                        <option value="bestSeller">Bán Chạy Nhất</option>
                       </select>
                     </div>
                   </div>
