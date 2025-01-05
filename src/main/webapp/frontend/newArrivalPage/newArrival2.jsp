@@ -264,7 +264,7 @@
 
 <!-- Product Header -->
 <div class="container">
-    <div class="belts-header">Sản Phẩm</div>
+    <div class="belts-header display-4 text-center my-4">Sản Phẩm</div>
 </div>
 
 <!-- Filter and Sort -->

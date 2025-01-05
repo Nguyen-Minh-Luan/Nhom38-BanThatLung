@@ -2,6 +2,7 @@ package com.thomas.controller;
 
 import com.thomas.dao.ProductDao;
 //import com.thomas.dao.model.belts;
+import com.thomas.dao.model.Belts;
 import com.thomas.services.UploadProductService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -19,11 +20,11 @@ public class newArrivalController2 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-//        String button = request.getParameter("seeMore");
-//        List<belts> newArrivalsList = uploadProductService.getNewArrivals();
-//        out.println(newArrivalsList);
-//        request.setAttribute("newArrivalsList", newArrivalsList);
-//        request.getRequestDispatcher("/frontend/newArrivalPage/newArrival2.jsp").forward(request, response);
+        String button = request.getParameter("seeMore");
+        List<Belts> newArrivalsList = uploadProductService.getNewArrivals();
+        out.println(newArrivalsList);
+        request.setAttribute("newArrivalsList", newArrivalsList);
+        request.getRequestDispatcher("/frontend/newArrivalPage/newArrival2.jsp").forward(request, response);
     }
 
     @Override
