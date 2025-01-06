@@ -20,7 +20,9 @@ public class newArrivalController2 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        String button = request.getParameter("seeMore");
+//        String button = request.getParameter("seeMore");
+        String type = request.getParameter("descPriceNewArrival");
+        out.println("type");
         List<Belts> newArrivalsList = uploadProductService.getNewArrivals();
         out.println(newArrivalsList);
         request.setAttribute("newArrivalsList", newArrivalsList);

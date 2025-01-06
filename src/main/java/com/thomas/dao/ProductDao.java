@@ -2,6 +2,7 @@ package com.thomas.dao;
 
 import com.thomas.dao.db.JDBIConnect;
 import com.thomas.dao.model.Belts;
+import com.thomas.dao.model.BeltsDisplay;
 import org.jdbi.v3.core.Handle;
 
 import java.io.PrintWriter;
@@ -403,9 +404,9 @@ public class ProductDao {
         );
     }
 
-    public List<Belts> getBestSellerProducts() {
+    public List<BeltsDisplay> getBestSellerProducts() {
         return JDBIConnect.get().withHandle(handle -> {
-            String sql = "SELECT i.imagePath, b.id, b.name, b.price, od.quantityn " +
+            String sql = "SELECT i.imagePath, b.id, b.name, b.price, od.quantity " +
                     "FROM belts b " +
                     "INNER JOIN imageentry i " +
                     "ON b.id = i.beltId " +
@@ -415,7 +416,7 @@ public class ProductDao {
                     "ON od.orderId = o.id " +
                     "AND b.isDeleted = 0 AND o.isDeleted = 0 " +
                     "ORDER BY od.quantity DESC ";
-            return handle.createQuery(sql).mapToBean(Belts.class).list();
+            return handle.createQuery(sql).mapToBean(BeltsDisplay.class).list();
         });
     }
 

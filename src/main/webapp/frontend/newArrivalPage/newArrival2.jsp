@@ -271,44 +271,47 @@
 <div class="function__bar">
     <div class="container-fluid">
         <div class="row function__bar__row">
+            <!-- Filter Column -->
             <div class="col-4 filter__column">
                 <div class="filter__container">
                     <i class="fa-solid fa-filter" style="color: #171717"></i>
                     <span class="filter__title" id="filterToggle">Bộ lọc</span>
                 </div>
             </div>
+
+            <!-- Quantity Column -->
             <div class="col-4 quantity__column">
                 <span>90</span> <span class="pix__text"> sản phẩm</span>
             </div>
+
+            <!-- Sort Column -->
             <div class="col-4 sort__column">
-                <div class="sort__container">
-                    <img
-                            src="../assets/icons/sort (1).png"
-                            alt=""
-                            style="height: 20px"
-                    />
-                    <li class="nav-item dropdown">
-                        <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
+                <form method="get" action="newArrival2" class="d-flex align-items-center">
+                    <div class="sort__container">
+                        <img
+                                src="../assets/icons/sort (1).png"
+                                alt=""
+                                style="height: 20px"
+                        />
+                        <label for="sortSelect" class="form-label mb-0 me-2">Sắp Xếp:</label>
+                        <select
+                                id="sortSelect"
+                                name="descPriceNewArrival"
+                                class="form-select form-select-sm"
+                                onchange="this.form.submit()"
                         >
-                            Sắp Xếp
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item active" href="#">Mặc Định</a></li>
-                            <li><a class="dropdown-item" href="#">Giá Tăng Dần</a></li>
-                            <li><a class="dropdown-item" href="#">Giá Giảm Dần</a></li>
-                            <li><a class="dropdown-item" href="#">Bán Chạy Nhất</a></li>
-                        </ul>
-                    </li>
-                </div>
+                            <option value="default" selected>Mặc Định</option>
+                            <option value="increase">Giá Tăng Dần</option>
+                            <option value="decrease">Giá Giảm Dần</option>
+                            <option value="bestSeller">Bán Chạy Nhất</option>
+                        </select>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
 <div class="list__product container-fluid">
     <div class="row" id="list__product__row">
         <div class="list__product__element">
