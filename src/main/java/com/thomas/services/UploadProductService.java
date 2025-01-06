@@ -217,28 +217,28 @@ public class UploadProductService {
         if ("increase".equals(type)) {
             list.sort(new Comparator<Belts>() {
                 @Override
-                public int compare(Belts o1, Belts o2) {
-                    return (int) (o1.getPrice() - o2.getPrice());
-                }
+                public int compare(Belts o1, Belts o2) {return (int) (o1.getPrice() - o2.getPrice());}
             });
         }
         if ("decrease".equals(type)) {
             list.sort(new Comparator<Belts>() {
                 @Override
-                public int compare(Belts o1, Belts o2) {
-                    double i = o2.getPrice() - o1.getPrice();
-                    return (int) (o2.getPrice() - o1.getPrice());
-                }
+                public int compare(Belts o1, Belts o2) {return (int) (o2.getPrice() - o1.getPrice());}
             });
         }
         if ("bestSeller".equals(type)) {
-            list = productDao.getBestSellerProducts();
+            list.sort(new Comparator<Belts>() {
+                @Override
+                public int compare(Belts o1, Belts o2) {
+                    return o2.getReleaseDate().compareTo(o1.getReleaseDate());
+                }
+            });
         }
         return list;
     }
 
     public List<Belts> getAllProductsForDisplaying() {
-        return productDao.getAllProductForDisplaying();
+        return productDao.getAllProductForDisplay();
     }
 
     public List<Belts> getNewArrivals() {

@@ -312,19 +312,39 @@ public class ProductDao {
         });
     }
 
-
     public List<Belts> getNewArrivals() {
+        List<Belts> beltsList = new ArrayList<>();
         return JDBIConnect.get().withHandle(handle -> {
-            String sql = "SELECT b.id,b.name,b.price,i.imagePath,b.discountPercent " +
+            String sql = "SELECT b.id,b.name,b.price, b.releaseDate,i.imagePath, od.quantity " +
                     "FROM belts b " +
                     "INNER JOIN imageEntry i " +
                     "ON b.id = i.beltId " +
+                    "INNER JOIN orderdetails od " +
+                    "ON b.id = od.beltId " +
                     "WHERE b.isDeleted = 0 " +
                     "ORDER BY YEAR(b.releaseDate) " +
                     "DESC ";
-            return handle.createQuery(sql).mapToBean(Belts.class).list();
+
+            try (Handle h = handle) {
+                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
+                while (rs.next()) {
+                    Belts belt = new Belts();
+
+                    belt.setId(rs.getInt("id"));
+                    belt.setName(rs.getString("name"));
+                    belt.setPrice(rs.getDouble("price"));
+                    belt.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
+                    belt.setMainImage(rs.getString("imagePath"));
+                    belt.setTotalQuantity(rs.getInt("quantity"));
+                    beltsList.add(belt);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return beltsList;
         });
     }
+
 
     public List<Belts> getHotSellingProducts() {
         List<Belts> beltsList = new ArrayList<>();
@@ -374,9 +394,7 @@ public class ProductDao {
                     "ON b.id = i.beltId " +
                     "INNER JOIN orderdetails od " +
                     "ON b.id = od.beltId " +
-                    "INNER JOIN orders o " +
-                    "ON od.orderId = o.id " +
-                    "WHERE b.isDeleted = 0 AND o.isDeleted = 0 ";
+                    "WHERE b.isDeleted = 0";
             try (Handle h = handle) {
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
                 while (rs.next()) {

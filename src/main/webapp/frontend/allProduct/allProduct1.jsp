@@ -14,7 +14,7 @@
 <%
     UploadProductService uploadProductService = new UploadProductService();
     List<Belts> beltsList = uploadProductService.getAllProductsForDisplaying();
-    request.setAttribute("beltsList", beltsList);
+    session.setAttribute("beltsList", beltsList);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -294,7 +294,8 @@
 
             <!-- Sort Column -->
             <div class="col-4 sort__column">
-                <form id="form" method="get" action="${pageContext.request.contextPath}/allProduct" class="d-flex align-items-center">
+                <form id="form" method="get" action="${pageContext.request.contextPath}/allProduct"
+                      class="d-flex align-items-center">
                     <div class="sort__container">
                         <img
                                 src="../assets/icons/sort (1).png"
@@ -330,7 +331,8 @@
                         <a href="../productDetail/productDetail.jsp">
                             <div class="belts">
                                 <div class="product__image">
-                                    <img src="/assets/images/product/Images/8/1.jpg" class="img-fluid"
+                                    <img src="${pageContext.request.contextPath}/assets/images/product/Images/8/1.jpg"
+                                         class="img-fluid"
                                          alt="Leather Belt"/>
                                 </div>
                                 <div class="product__title">
