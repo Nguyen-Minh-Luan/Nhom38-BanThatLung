@@ -2,11 +2,11 @@ package com.thomas.dao;
 
 import com.thomas.dao.db.JDBIConnect;
 import com.thomas.dao.model.Belts;
-import com.thomas.dao.model.BeltsDisplay;
 import org.jdbi.v3.core.Handle;
 
 import java.io.PrintWriter;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -326,45 +326,6 @@ public class ProductDao {
         });
     }
 
-    public List<Belts> getAllProductForDisplaying() {
-        return JDBIConnect.get().withHandle(handle -> {
-            String sql = "SELECT b.id,b.name,b.price,i.imagePath " +
-                    "FROM belts b " +
-                    "INNER JOIN imageEntry i " +
-                    "ON b.id = i.beltId " +
-                    "WHERE b.isDeleted = 0 " +
-                    "ORDER BY b.id " +
-                    "DESC";
-            return handle.createQuery(sql).mapToBean(Belts.class).list();
-        });
-    }
-
-    public List<Belts> getAscendByPrice() {
-        return JDBIConnect.get().withHandle(handle -> {
-            String sql = "SELECT b.id,b.name,b.price,i.imagePath " +
-                    "FROM belts b " +
-                    "INNER JOIN imageEntry i " +
-                    "ON b.id = i.beltId " +
-                    "WHERE b.isDeleted = 0 " +
-                    "ORDER BY b.price " +
-                    "ASC";
-            return handle.createQuery(sql).mapToBean(Belts.class).list();
-        });
-    }
-
-    public List<Belts> getDescendByPrice() {
-        return JDBIConnect.get().withHandle(handle -> {
-            String sql = "SELECT b.id,b.name,b.price,i.imagePath " +
-                    "FROM belts b " +
-                    "INNER JOIN imageEntry i " +
-                    "ON b.id = i.beltId " +
-                    "WHERE b.isDeleted = 0 " +
-                    "ORDER BY b.price " +
-                    "DESC";
-            return handle.createQuery(sql).mapToBean(Belts.class).list();
-        });
-    }
-
     public List<Belts> getHotSellingProducts() {
         List<Belts> beltsList = new ArrayList<>();
         return JDBIConnect.get().withHandle(handle -> {
@@ -404,9 +365,10 @@ public class ProductDao {
         );
     }
 
-    public List<BeltsDisplay> getBestSellerProducts() {
+    public List<Belts> getAllProductForDisplay() {
+        List<Belts> beltsList = new ArrayList<>();
         return JDBIConnect.get().withHandle(handle -> {
-            String sql = "SELECT i.imagePath, b.id, b.name, b.price, od.quantity " +
+            String sql = "SELECT i.imagePath, b.id, b.name, b.price, b.gender , b.materialBelt , od.quantity " +
                     "FROM belts b " +
                     "INNER JOIN imageentry i " +
                     "ON b.id = i.beltId " +
@@ -416,9 +378,56 @@ public class ProductDao {
                     "ON od.orderId = o.id " +
                     "AND b.isDeleted = 0 AND o.isDeleted = 0 " +
                     "ORDER BY od.quantity DESC ";
-            return handle.createQuery(sql).mapToBean(BeltsDisplay.class).list();
+            try (Handle h = handle) {
+                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
+                while (rs.next()) {
+                    Belts belt = new Belts();
+                    belt.setMainImage(rs.getString("imagePath"));
+                    belt.setId(rs.getInt("id"));
+                    belt.setName(rs.getString("name"));
+                    belt.setPrice(rs.getDouble("price"));
+                    belt.setGender(rs.getString("gender"));
+                    belt.setMaterialBelt(rs.getString("materialBelt"));
+                    belt.setTotalQuantity(rs.getInt("quantity"));
+                    beltsList.add(belt);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return beltsList;
         });
     }
 
+    public List<Belts> getBestSellerProducts() {
+        List<Belts> beltsList = new ArrayList<>();
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT i.imagePath, b.id, b.name, b.price, b.gender , b.materialBelt , od.quantity " +
+                    "FROM belts b " +
+                    "INNER JOIN imageentry i " +
+                    "ON b.id = i.beltId " +
+                    "INNER JOIN orderdetails od " +
+                    "ON b.id = od.beltId " +
+                    "INNER JOIN orders o " +
+                    "ON od.orderId = o.id " +
+                    "AND b.isDeleted = 0 AND o.isDeleted = 0 " +
+                    "ORDER BY od.quantity DESC ";
+            try (Handle h = handle) {
+                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
+                while (rs.next()) {
+                    Belts belt = new Belts();
+                    belt.setMainImage(rs.getString("imagePath"));
+                    belt.setId(rs.getInt("id"));
+                    belt.setName(rs.getString("name"));
+                    belt.setPrice(rs.getDouble("price"));
+                    belt.setGender(rs.getString("gender"));
+                    belt.setMaterialBelt(rs.getString("materialBelt"));
+                    belt.setTotalQuantity(rs.getInt("quantity"));
+                    beltsList.add(belt);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return beltsList;
+        });
+    }
 }
-

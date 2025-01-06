@@ -22,12 +22,13 @@ public class Belts implements Serializable {
     private List<String> image;
     private int totalQuantity;
     private List<Category> categories;
+    private String mainImage;
 
     public Belts() {
 
     }
 
-    public Belts(int id, String name, String description, double price, String gender, int stockQuantity, LocalDate releaseDate, LocalDate createdDate, LocalDate updatedDate, int isDeleted, double discountPercent, String materialBelt) {
+    public Belts(int id, String name, String description, double price, String gender, int stockQuantity, LocalDate releaseDate, LocalDate createdDate, LocalDate updatedDate, int isDeleted, double discountPercent, String materialBelt, String mainImage) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -40,7 +41,7 @@ public class Belts implements Serializable {
         this.isDeleted = isDeleted;
         this.discountPercent = discountPercent;
         this.materialBelt = materialBelt;
-
+        this.mainImage = mainImage;
     }
 
     public void setTag(List<Category> allCategoriesById) {
@@ -174,4 +175,8 @@ public class Belts implements Serializable {
     public void setImage(List<String> image) {
         this.image = image;
     }
+
+    public String getMainImage() {return mainImage;}
+
+    public void setMainImage(String mainImage) {this.mainImage = mainImage;}
 }

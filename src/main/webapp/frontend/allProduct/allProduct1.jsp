@@ -294,7 +294,7 @@
 
             <!-- Sort Column -->
             <div class="col-4 sort__column">
-                <form id="form" method="get" action="allProduct" class="d-flex align-items-center">
+                <form id="form" method="get" action="${pageContext.request.contextPath}/allProduct" class="d-flex align-items-center">
                     <div class="sort__container">
                         <img
                                 src="../assets/icons/sort (1).png"
