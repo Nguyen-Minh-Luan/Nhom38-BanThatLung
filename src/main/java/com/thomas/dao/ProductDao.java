@@ -376,8 +376,7 @@ public class ProductDao {
                     "ON b.id = od.beltId " +
                     "INNER JOIN orders o " +
                     "ON od.orderId = o.id " +
-                    "AND b.isDeleted = 0 AND o.isDeleted = 0 " +
-                    "ORDER BY od.quantity DESC ";
+                    "WHERE b.isDeleted = 0 AND o.isDeleted = 0 ";
             try (Handle h = handle) {
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
                 while (rs.next()) {
@@ -409,7 +408,7 @@ public class ProductDao {
                     "ON b.id = od.beltId " +
                     "INNER JOIN orders o " +
                     "ON od.orderId = o.id " +
-                    "AND b.isDeleted = 0 AND o.isDeleted = 0 " +
+                    "WHERE b.isDeleted = 0 AND o.isDeleted = 0 " +
                     "ORDER BY od.quantity DESC ";
             try (Handle h = handle) {
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
