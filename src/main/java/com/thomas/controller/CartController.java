@@ -28,7 +28,10 @@ public class CartController extends HttpServlet {
         symbols.setDecimalSeparator('.');
         HttpSession session = request.getSession();
         Map<Integer, CartItem> cart = (Map<Integer, CartItem>) session.getAttribute("cart");
-
+        List<Belts> suggestionBelts = uploadProductService.getRandomBelts();
+        for (Belts b : suggestionBelts) {
+            b.setImage(uploadProductService.getProductImages(b.getId()));
+        }
         if (cart == null) {
             cart = new HashMap<Integer, CartItem>();
             session.setAttribute("cart", cart);
@@ -58,6 +61,7 @@ public class CartController extends HttpServlet {
             }
         }
 
+        request.setAttribute("suggestionBelts", suggestionBelts);
         request.setAttribute("formattedShipmentPrice", formattedShipmentPrice);
         request.setAttribute("grandTotal", grandTotal);
         request.setAttribute("totalPrice", totalPrice);

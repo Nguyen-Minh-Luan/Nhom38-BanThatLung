@@ -60,6 +60,7 @@ public class newArrivalController extends HttpServlet {
         request.setAttribute("totalPages", totalPages);
         request.setAttribute("descPrice", descPrice);
         request.getRequestDispatcher("/frontend/newArrivalPage/newArrivalPage.jsp").forward(request, response);
+
     }
 
     @Override

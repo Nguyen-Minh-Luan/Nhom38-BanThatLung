@@ -23,6 +23,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/cartPage.js"></script>
     <script src="${pageContext.request.contextPath}/js/favorite.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/favorite.css"/>
 
     <link
             rel="stylesheet"
@@ -50,7 +51,7 @@
 </div>
 <div class="custom_margin--container" style="margin-top: 250px">
     <div class="row">
-        <div class="col-5 mb-5 pe-5" style="margin-left: 196.25px">
+        <div class="col-6 mb-5 pe-5" style="margin-left: 196.25px">
             <div class="row">
                 <h1 class="ps-0">Giỏ hàng của bạn</h1>
                 <h3 class="ps-0 fw-light fs-5 totalOrdersCountDisplay">
@@ -58,7 +59,7 @@
                 </h3>
             </div>
             <c:forEach var="entry" items="${cart}">
-                <div class="row border border-dark mt-4 custom_remove">
+                <div class="row border border-dark mt-4 custom_remove" style="width: 719.58px; height: 242px">
                     <input type="hidden" class="beltId" name="beltId" value="${entry.key}">
                     <div class="col-4 p-0">
                         <img
@@ -123,14 +124,15 @@
 
             </c:forEach>
         </div>
-        <div class="col-3 mb-5 mt-4 ps-5">
+        <div class="col-3 mb-5 ps-5" style="width: 450px">
             <div class="row custom_insert">
                 <c:choose>
                     <c:when test="${empty sessionScope.cart}">
                         <a
                                 href="#"
-                                class="btn btn-dark p-3 fs-5 custom_button checkoutPage disabled"
-                                style="pointer-events: none;"
+                                class="btn btn-dark px-3 py-2 fs-5 custom_button checkoutPage disabled fw-bold"
+                                style="pointer-events: none; padding-top: 12px;
+                                padding-bottom: 12px;"
                         >Tiến hành thanh toán
                             <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +150,8 @@
                     <c:otherwise>
                         <a
                                 href="${pageContext.request.contextPath}/checkout"
-                                class="btn btn-dark p-3 fs-5 custom_button checkoutPage"
+                                class="btn btn-dark px-3 py-2 fs-5 custom_button checkoutPage fw-bold"
+                                style="padding-top: 12px;padding-bottom: 12px;"
                         >Tiến hành thanh toán
                             <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -165,31 +168,31 @@
                     </c:otherwise>
                 </c:choose>
 
-                <div class="containe mt-5 ps-0">
-                    <div class="border-bottom pb-2 mb-3">
-                        <h5 class="fw-bold">Tóm tắt đơn hàng</h5>
+                <div class="mt-4 ps-0">
+                    <div class="pb-2 mb-3">
+                        <h5 class="fw-bold fs-3">Tóm tắt đơn hàng</h5>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
-                        <p class="mb-0 totalOrdersDisplayBelts">${cart.size()} sản phẩm</p>
+                        <p class="mb-0 totalOrdersDisplayBelts fs-5">${cart.size()} sản phẩm</p>
                         <c:set var="totalPrice" value="0"/>
                         <c:forEach var="entry" items="${cart}">
                             <c:set var="totalPrice" value="${totalPrice + entry.value.price}"/>
                         </c:forEach>
-                        <p class="mb-0 totalPriceDisplay">${totalPrice} VNĐ</p>
+                        <p class="mb-0 totalPriceDisplay fs-5">${totalPrice} VNĐ</p>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
-                        <p class="mb-0">Vận chuyển</p>
+                        <p class="mb-0 fs-5">Vận chuyển</p>
                         <c:set var="totalOrders" value="15000"/>
-                        <p class="mb-0 shipmentDisplay">${formattedShipmentPrice} VNĐ</p>
+                        <p class="mb-0 shipmentDisplay fs-5">${formattedShipmentPrice} VNĐ</p>
                     </div>
-                    <div class="border-top pt-2">
+                    <div class="pt-2">
                         <div class="d-flex justify-content-between fw-bold mb-2">
-                            <p class="mb-0">Tổng cộng</p>
-                            <p class="mb-0 totalCostDisplay">
+                            <p class="mb-0 fw-bold">Tổng cộng</p>
+                            <p class="mb-0 totalCostDisplay fs-5">
                                 ${grandTotal} VNĐ
                             </p>
                         </div>
-                        <p class="text-muted small mb-0">(bao gồm cả thuế)</p>
+                        <p class="text-muted small mb-0 fs-6">(bao gồm cả thuế)</p>
                     </div>
                     <div
                             class="input-group custom_input_group custom_input--btn mt-4"
@@ -220,7 +223,7 @@
                             class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-between"
                     >
                         <c:forEach var="belt" items="${suggestionBelts}">
-                            <div class="card" style="position: relative">
+                            <div class="card p-0" style="position: relative">
                                 <input class="beltId" type="hidden" name="beltId" value="${belt.id}">
                                 <input class="userId" type="hidden" name="userId" value="${sessionScope.auth.id}">
                                 <c:if test="${sessionScope.auth!=null}">
@@ -239,12 +242,12 @@
 
                                 <img src="${pageContext.request.contextPath}${belt.image[0]}" class="card-img-top"
                                      alt="..."/>
-                                <a href="../productDetail/productDetail.html">
+                                <a href="/productDetails?beltId=${belt.id}">
                                     <div class="card-body text-start">
                                         <h5 class="card-title text-start">
                                                 ${belt.name}
                                         </h5>
-                                        <p class="card-text text-start">${belt.price}
+                                        <p class="card-text text-start">${belt.price} VNĐ
                                         </p>
                                     </div>
                                 </a>
