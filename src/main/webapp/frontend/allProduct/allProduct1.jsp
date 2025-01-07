@@ -11,11 +11,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%
-    UploadProductService uploadProductService = new UploadProductService();
-    List<Belts> beltsList = uploadProductService.getAllProductsForDisplaying();
-    session.setAttribute("beltsList", beltsList);
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +42,7 @@
     />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/allProduct.css"/>
+    <link rel="stylesheet" href="/css/allProduct.css"/>
     <script src="${pageContext.request.contextPath}/js/allProduct.js"></script>
 </head>
 
@@ -328,6 +323,7 @@
                 <!-- Sản phẩm -->
                 <c:forEach var="b" items="${beltsList}">
                     <div class="col product__col">
+                        <div id="is_reloaded"></div>
                         <a href="../productDetail/productDetail.jsp">
                             <div class="belts">
                                 <div class="product__image">

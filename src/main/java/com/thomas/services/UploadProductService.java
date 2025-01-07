@@ -248,5 +248,4 @@ public class UploadProductService {
     public boolean isUserPurchased(int beltId, int userId) {
         return productDao.isUserPurchased(beltId, userId);
     }
-
 }

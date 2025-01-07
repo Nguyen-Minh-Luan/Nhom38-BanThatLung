@@ -20,14 +20,16 @@ public class allProductController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
-        String type = request.getParameter("descPriceAllProduct");
-        List<Belts> beltsList = (List<Belts>) session.getAttribute("beltsList");
-        if(beltsList == null) {
-            out.println("beltsList is null");
-        }
+        UploadProductService uploadProductService = new UploadProductService();
+        List<Belts> beltsList = uploadProductService.getAllProductsForDisplaying();
+//        String type = request.getParameter("descPriceAllProduct");
+//        List<Belts> beltsList = (List<Belts>) session.getAttribute("beltsList");
+//        if(beltsList == null) {
+//            out.println("beltsList is null");
+//        }
 //        List<Belts> sortedList = uploadProductService.getSortedListBelts(type, beltsList);
-//        request.setAttribute("sortedList", sortedList);
-//        request.getRequestDispatcher("allProducts.jsp").forward(request, response);
+        request.setAttribute("beltsList", beltsList);
+        request.getRequestDispatcher("allProduct1.jsp").forward(request, response);
 
     }
 

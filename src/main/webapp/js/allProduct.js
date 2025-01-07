@@ -25,6 +25,19 @@ $(document).ready(function () {
     $("#overlay3").removeClass("active");
     $("#dimmer3").removeClass("active");
   });
+
+
+$.ajax({
+  type: "GET",
+  url: '/Nhom38_BanThatLung_war/allProduct',
+  success(res) {
+    if($("#is_reloaded").length === 0) {
+      document.location.reload();
+    }
+  }
+});
+
+
 })
 
 
