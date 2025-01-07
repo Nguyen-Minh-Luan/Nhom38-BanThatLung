@@ -13,23 +13,16 @@ import java.util.List;
 
 @WebServlet(name = "allProductController", value = "/allProduct")
 public class allProductController extends HttpServlet {
-    ProductDao productDao = new ProductDao();
     UploadProductService uploadProductService = new UploadProductService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
-        UploadProductService uploadProductService = new UploadProductService();
         List<Belts> beltsList = uploadProductService.getAllProductsForDisplaying();
-//        String type = request.getParameter("descPriceAllProduct");
-//        List<Belts> beltsList = (List<Belts>) session.getAttribute("beltsList");
-//        if(beltsList == null) {
-//            out.println("beltsList is null");
-//        }
-//        List<Belts> sortedList = uploadProductService.getSortedListBelts(type, beltsList);
-        request.setAttribute("beltsList", beltsList);
-        request.getRequestDispatcher("allProduct1.jsp").forward(request, response);
+        request.setAttribute("listBelt", beltsList);
+        session.setAttribute("beltsList", beltsList);
+        request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
 
     }
 

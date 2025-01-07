@@ -1,15 +1,20 @@
-<%@ page import="com.thomas.services.UploadProductService" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.thomas.dao.model.Belts" %><%--
-  Created by IntelliJ IDEA.
-  User: ADMIN
-  Date: 25/12/2024
-  Time: 7:17 PM
-  To change this template use File | Settings | File Templates.
+<%@ page import="com.thomas.dao.model.Belts" %>
+Created by IntelliJ IDEA.
+User: ADMIN
+Date: 25/12/2024
+Time: 7:17 PM
+To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
+<%
+    List<Belts> listBelt = (List<Belts>) session.getAttribute("beltsList");
+%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +47,7 @@
     />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css"/>
-    <link rel="stylesheet" href="/css/allProduct.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/allProduct.css"/>
     <script src="${pageContext.request.contextPath}/js/allProduct.js"></script>
 </head>
 
@@ -321,7 +326,7 @@
         <div class="list__product__element">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="list__product__row">
                 <!-- Sản phẩm -->
-                <c:forEach var="b" items="${beltsList}">
+                <c:forEach var="b" items="${listBelt}">
                     <div class="col product__col">
                         <div id="is_reloaded"></div>
                         <a href="../productDetail/productDetail.jsp">

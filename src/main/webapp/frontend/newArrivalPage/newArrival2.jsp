@@ -323,7 +323,7 @@
                     <a href="../productDetail/productDetail.jsp">
                         <div class="belts">
                             <div class="product__image">
-                                <img src="${pageContext.request.contextPath}+${n.imagePath}" class="img-fluid" alt="Leather Belt"/>
+                                <img src="/assets/images/product/Images/4/1.jpg" class="img-fluid" alt="Leather Belt"/>
                             </div>
                             <div class="product__title">
                                 <h4 class="title">

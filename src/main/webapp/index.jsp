@@ -1,9 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="f" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.thomas.dao.model.Belts" %>
-<% List<Belts> beltsList = (List<Belts>) session.getAttribute("newArrivalsList");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +39,7 @@
     <script src="js/header.js"></script>
 </head>
 <body>
-    <%@ include file="/frontend/header_footer/header.jsp" %>
+<%@ include file="/frontend/header_footer/header.jsp" %>
 <div
         class="position-fixed bottom-0 start-0 p-3 mb-3 ms-3 border custom_show"
         style="z-index: 11; background-color: white; border-radius: 10px"
@@ -533,274 +532,30 @@
                     <div class="row" id="list__product__row">
                         <div class="list__product__element">
                             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                                <%if (beltsList != null) {%>
-                                    <%for (Belts n: beltsList) {%>
-                                <%--<jsp:useBean id="newArrivalsList" scope="request" type="java.util.List"/>
-                                <c:if test="${newArrivalsList}">
-                                <c:forEach var="n" items="${newArrivalsList}">--%>
-                                        <div id="is_reloaded"></div>
-                                        <div class="col product__col">
-                                            <a href="frontend/productDetail/productDetail.jsp">
-                                                <div
-                                                        class="belts position-relative"
-                                                        style="width: 19rem"
-                                                >
-                                      <span
-                                              class="badge bg-danger position-absolute top-0 end-0 m-2"
-                                      >NEW</span
-                                      >
-
-                                                    <div class="product__image">
-                                                        <img
-                                                                src="assets/images/belts/Images/51/Textured_Leather_Belt_In_Wine_Tarak-BTPM0508E1ZA23FA-image1_1024x1024.webp"
-                                                                class="img-fluid"
-                                                                alt="Leather Belt"
-                                                                style="width: 19rem"
-                                                        />
-                                                    </div>
-                                                    <div class="product__title">
-                                                        <h5 class="title">
-                                                            <%=n.getName()%>
-                                                            <%--${n.name}--%>
-                                                        </h5>
-                                                        <p class="product__price"><%=n.getPrice()%> <%--${n.price}--%> VND</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    <%}%>
-                                <%}%>
-                                <%--</c:forEach>
-                                </c:if>--%>
-                                <%--<div class="col product__col">
+                                <%--                                <c:forEach var="n" items="${newArrivalsList}" end="7">--%>
+                                <div id="is_reloaded"></div>
+                                <div class="col product__col">
                                     <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                  <span
-                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
-                                  >NEW</span
-                                  >
-
+                                        <div class="belts position-relative" style="width: 19rem">
+                                            <span class="badge bg-danger position-absolute top-0 end-0 m-2">NEW</span>
                                             <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/51/Textured_Leather_Belt_In_Wine_Tarak-BTPM0508E1ZA23FA-image1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
+                                                <img src="assets/images/homepage/465131741_18466090996040427_4498527421517500506_n 1.png"
+                                                     class="img-fluid"
+                                                     alt="Leather Belt"
+                                                     style="width: 19rem">
                                             </div>
                                             <div class="product__title">
                                                 <h5 class="title">
-                                                    Thắt lưng da vuông rượu vang có họa tiết - Tarak
+                                                    ${n.name}
                                                 </h5>
-                                                <p class="product__price">100.000VNĐ</p>
+                                                <p class="product__price">${n.price}VND</p>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
+                                <%--                                </c:forEach>--%>
 
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                  <span
-                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
-                                  >NEW</span
-                                  >
 
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/52/Textured_Reversible_Belt_In_Black_Tan_Tetra-BTPM0520Z1ZA23FA-image1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
-                                            </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    Thắt lưng da mặt tròn hai mặt màu đen - Tetra
-                                                </h5>
-                                                <p class="product__price">100.000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                  <span
-                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
-                                  >NEW</span
-                                  >
-
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/53/Reversible_Belt_In_Tan_Navy_Tangle-BTPM0526N1ZA23FA-image1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
-                                            </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    Thắt lưng da hai mặt màu nâu sáng - Tuna
-                                                </h5>
-                                                <p class="product__price">100.000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                  <span
-                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
-                                  >NEW</span
-                                  >
-
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/54/techpro-textured-elastic-belt-in-grey-salyer-blackberrys-clothing-1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
-                                            </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    Thắt lưng cao su màu xanh có họa tiết - Salyer
-                                                </h5>
-                                                <p class="product__price">100.000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                  <span
-                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
-                                  >NEW</span
-                                  >
-
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/56/leather-belt-in-black-son-blackberrys-clothing-1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
-                                            </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    Thắt lưng da mặt vuông màu đen - Tiny
-                                                </h5>
-                                                <p class="product__price">100.000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                  <span
-                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
-                                  >NEW</span
-                                  >
-
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/57/leather-belt-in-brown-son-blackberrys-clothing-1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
-                                            </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    Thắt lưng da mặt vuông màu nâu đậm - Tiny
-                                                </h5>
-                                                <p class="product__price">100.000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                  <span
-                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
-                                  >NEW</span
-                                  >
-
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/58/formal-belt-in-brown-olive-qamila-blackberrys-clothing-1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
-                                            </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    Thắt lưng da cỡ lớn màu nâu đậm - Bigboi
-                                                </h5>
-                                                <p class="product__price">100.000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                  <span
-                                          class="badge bg-danger position-absolute top-0 end-0 m-2"
-                                  >NEW</span
-                                  >
-
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/59/Textured_Single_Side_Belt_In_Black_New-BTPM0369Z1ZA21FA-image1_68e65068-0c68-4810-9a12-6e9129b09017_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
-                                            </div>
-                                            <div class="product__title">
-                                                <h5 class="title">Thắt lưng da mặt nhỏ - Tiny</h5>
-                                                <p class="product__price">100.000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>--%>
                                 <form action="newArrival2" method="get">
                                     <button name="seeMore" class="btn seeMore">Xem Thêm</button>
                                 </form>
@@ -817,7 +572,7 @@
                     aria-labelledby="fill-tab-1"
             >
                 <div class="list__product container">
-                    <div class="row" id="list__product__row">
+                    <div class="row">
                         <div class="list__product__element">
                             <div
                                     class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4"
@@ -839,183 +594,16 @@
                                             </div>
                                             <div class="product__title">
                                                 <h5 class="title">
-                                                    Thắt lưng da vuông rượu vang có họa tiết - Tarak
+                                                    dây nịt
                                                 </h5>
-                                                <p class="product__price">100.000VNĐ</p>
+                                                <p class="product__price">1000VNĐ</p>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
 
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/52/Textured_Reversible_Belt_In_Black_Tan_Tetra-BTPM0520Z1ZA23FA-image1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
-                                            </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    Thắt lưng da mặt tròn hai mặt màu đen - Tetra
-                                                </h5>
-                                                <p class="product__price">100.000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/53/Reversible_Belt_In_Tan_Navy_Tangle-BTPM0526N1ZA23FA-image1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
-                                            </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    Thắt lưng da hai mặt màu nâu sáng - Tuna
-                                                </h5>
-                                                <p class="product__price">100.000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/54/techpro-textured-elastic-belt-in-grey-salyer-blackberrys-clothing-1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
-                                            </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    Thắt lưng cao su màu xanh có họa tiết - Salyer
-                                                </h5>
-                                                <p class="product__price">100.000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/52/Textured_Reversible_Belt_In_Black_Tan_Tetra-BTPM0520Z1ZA23FA-image1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
-                                            </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    Thắt lưng da mặt tròn hai mặt màu đen - Tetra
-                                                </h5>
-                                                <p class="product__price">100.000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/53/Reversible_Belt_In_Tan_Navy_Tangle-BTPM0526N1ZA23FA-image1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
-                                            </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    Thắt lưng da hai mặt màu nâu sáng - Tuna
-                                                </h5>
-                                                <p class="product__price">100.000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/51/Textured_Leather_Belt_In_Wine_Tarak-BTPM0508E1ZA23FA-image1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
-                                            </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    Thắt lưng da vuông rượu vang có họa tiết - Tarak
-                                                </h5>
-                                                <p class="product__price">100.000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/54/techpro-textured-elastic-belt-in-grey-salyer-blackberrys-clothing-1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
-                                            </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    Thắt lưng cao su màu xanh có họa tiết - Salyer
-                                                </h5>
-                                                <p class="product__price">100.000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
                                 <form action="mostPopular" method="get">
-                                <button name="seeMore" class="btn seeMore">Xem Thêm</button>
+                                    <button name="seeMore" class="btn seeMore">Xem Thêm</button>
                                 </form>
                             </div>
                         </div>
@@ -1068,7 +656,7 @@
     </div>
 </section>
 
-<jsp:include page = "/frontend/header_footer/footer.jsp" />
+<jsp:include page="/frontend/header_footer/footer.jsp"/>
 
 </body>
 </html>
