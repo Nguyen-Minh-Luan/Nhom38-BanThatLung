@@ -11,10 +11,6 @@ To change this template use File | Settings | File Templates.
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-<%
-    List<Belts> listBelt = (List<Belts>) session.getAttribute("beltsList");
-%>
-
 
 <!DOCTYPE html>
 <html lang="en">

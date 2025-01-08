@@ -8,7 +8,9 @@ import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ProductDao {
     public boolean createProduct(Belts belts) {
@@ -385,8 +387,8 @@ public class ProductDao {
         );
     }
 
-    public List<Belts> getAllProductForDisplay() {
-        List<Belts> beltsList = new ArrayList<>();
+    public Map<Integer, Belts> getAllProductForDisplay() {
+        Map<Integer, Belts> beltsList = new HashMap<>();
         return JDBIConnect.get().withHandle(handle -> {
             String sql = "SELECT b.id, b.name, bv.viewCount, bv.viewDate, b.description, b.price, b.gender, b.discountPercent, b.releaseDate , b.materialBelt , od.quantity, i.imagePath " +
                     "FROM belts b " +
@@ -413,7 +415,8 @@ public class ProductDao {
                     belt.setMaterialBelt(rs.getString("materialBelt"));
                     belt.setTotalQuantity(rs.getInt("quantity"));
                     belt.setMainImage(rs.getString("imagePath"));
-                    beltsList.add(belt);
+                    beltsList.put(belt.getId(), belt);
+
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -457,19 +460,11 @@ public class ProductDao {
     }
 
     public List<String> getImageProductDetail(int beltId) {
-        List<String> imageList = new ArrayList<>();
         return JDBIConnect.get().withHandle(handle -> {
-            String sql = "SELECT imagePath from imageEntry where beltId = :beltId AND imageType = 'description' ";
-            try (Handle h = handle) {
-                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
-                while (rs.next()) {
-                    String imagePath = rs.getString("imagePath");
-                    imageList.add(imagePath);
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            return imageList;
+            String sql = "SELECT imagePath from imageEntry where beltId = :beltId";
+            return handle.createQuery(sql).bind("beltId", beltId).mapTo(String.class).list();
         });
     }
+
+
 }

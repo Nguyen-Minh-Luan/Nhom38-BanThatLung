@@ -1,6 +1,5 @@
 package com.thomas.controller;
 
-import com.thomas.dao.ProductDao;
 import com.thomas.dao.model.Belts;
 import com.thomas.services.UploadProductService;
 import jakarta.servlet.*;
@@ -11,17 +10,21 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name = "allProductController", value = "/allProduct")
-public class allProductController extends HttpServlet {
+@WebServlet(name = "allProductController", value = "/navigate")
+public class NavigateController extends HttpServlet {
     UploadProductService uploadProductService = new UploadProductService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
-        List<Belts> beltsList = uploadProductService.getAllProductsForDisplay();
-        session.setAttribute("beltsList", beltsList);
-        request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
+        String type = request.getParameter("type");
+        List<Belts> beltsList;
+        if (type.equals("all")) {
+            beltsList = uploadProductService.getAllProductsForDisplay();
+            request.setAttribute("beltsList", beltsList);
+            request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
+        }
 
     }
 

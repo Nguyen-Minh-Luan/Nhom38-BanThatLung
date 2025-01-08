@@ -23,9 +23,9 @@ public class productDetailsController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("auth");
-        int beltId = Integer.parseInt(request.getParameter("beltId"));
+        int beltId = Integer.parseInt(request.getParameter("beltid"));
         uploadProductService.saveBeltView(beltId);
-        boolean isPurchasedBelt=false;
+        boolean isPurchasedBelt = false;
         if (user != null) {
             isPurchasedBelt = uploadProductService.isUserPurchased(beltId, user.getId());
 
@@ -37,11 +37,11 @@ public class productDetailsController extends HttpServlet {
         int totalReview = uploadReviewService.getTotalReviewsCount(beltId);
         List<String> descBeltImage = uploadProductService.getAllDescImage(beltId);
         List<Belts> randomBelts = uploadProductService.getRandomBelts();
-        for(Belts b : randomBelts) {
+        for (Belts b : randomBelts) {
             b.setImage(uploadProductService.getProductImages(b.getId()));
         }
         List<Belts> beltViewCount = uploadProductService.getBeltByViewCount();
-        for(Belts b : beltViewCount) {
+        for (Belts b : beltViewCount) {
             b.setImage(uploadProductService.getProductImages(b.getId()));
         }
         request.setAttribute("isPurchasedBelt", isPurchasedBelt);

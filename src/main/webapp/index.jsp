@@ -168,7 +168,7 @@
                         <div class="carousel-item active">
                             <div class="card-wrapper cardWrapper">
                                 <c:forEach var="a" items="${discountProductList}" begin="0" end="3">
-                                    <a href="productDetail?beltID=${a.id}">
+                                    <a href="productDetails?beltid=${a.id}">
                                         <div class="card" style="width: 14rem; height: 23.5rem">
                                             <img
                                                     src="${pageContext.request.contextPath}${a.mainImage}"
@@ -196,7 +196,7 @@
                         <div class="carousel-item">
                             <div class="card-wrapper cardWrapper">
                                 <c:forEach var="b" items="${discountProductList}" begin="4" end="7">
-                                    <a href="productDetail?beltID=${b.id}">
+                                    <a href="productDetails?beltID=${b.id}">
                                         <div class="card" style="width: 14rem; height: 23.5rem">
                                             <img
                                                     src="${pageContext.request.contextPath}${b.mainImage}"
@@ -222,7 +222,7 @@
                         <div class="carousel-item">
                             <div class="card-wrapper cardWrapper">
                                 <c:forEach var="c" items="${discountProductList}" begin="8" end="11">
-                                    <a href="productDetail?beltID=${c.id}">
+                                    <a href="productDetails?beltID=${c.id}">
                                         <div class="card" style="width: 14rem; height: 23.5rem">
                                             <img
                                                     src="${pageContext.request.contextPath}${c.mainImage}"

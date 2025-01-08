@@ -142,14 +142,14 @@
                 </li>
                 <li>
                     <a class="dropdown-item"
-                       href="${pageContext.request.contextPath}/frontend/womenPage/womenCanvas.jsp"
+                       href="${pageContext.request.contextPath}/navigate?type=womenCanvas"
                     >Thắt Lưng Vải Canvas Nữ</a
                     >
                 </li>
             </ul>
         </li>
         <li class="nav-item">
-            <a href="${pageContext.request.contextPath}/frontend/allProduct/allProduct1.jsp" class="nav-link">Sản
+            <a href="${pageContext.request.contextPath}/navigate?type=all" class="nav-link">Sản
                 Phẩm</a>
         </li>
     </ul>

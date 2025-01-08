@@ -20,7 +20,9 @@ public class productDetail2 extends HttpServlet {
         int beltId = Integer.parseInt(id);
         List<String> listImage = uploadProductService.getImageProductDetail(beltId);
         List<Belts> beltsList = uploadProductService.getAllProductsForDisplay();
+        Belts belts = uploadProductService.getBeltById(beltId);
         request.setAttribute("belt", uploadProductService.getBeltById(beltId));
+        request.setAttribute("listImage", listImage);
         request.getRequestDispatcher("/frontend/productDetail/productDetail2.jsp").forward(request, response);
     }
 

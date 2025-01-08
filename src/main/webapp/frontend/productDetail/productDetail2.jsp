@@ -1,725 +1,630 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:choose>
-    <c:when test="${param.id!=null}">
-        <jsp:useBean id="tags" scope="request" type="java.lang.String"/>
-    </c:when>
-</c:choose>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Detail</title>
+  <link rel="shortcut icon" href="../assets/icons/favicon.svg" type="image/png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="../productDetail/productDetail.css" />
+  <script src="../styles/general.js"></script>
+  <script src="../productDetail/productDetail.js"></script>
+  <link rel="stylesheet" href="../assets/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.css" />
+  <link rel="stylesheet" href="../styles/general.css" />
 
-    <title>THOMAS - Admin</title>
-    <link rel="icon" href="${pageContext.request.contextPath}/assets/icons/favicon.svg" type="image/x-icon"/>
-
-    <!-- Custom fonts for this template-->
-    <link
-            href="${pageContext.request.contextPath}/css/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css"
-            rel="stylesheet"
-            type="text/css"
-    />
-    <link
-            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-            rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.0.0/ckeditor5.css">
-
-    <!-- Custom styles for this template-->
-    <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet"/>
-    <script src="https://cdn.ckeditor.com/ckeditor5/44.0.0/ckeditor5.umd.js"></script>
-    <link href="${pageContext.request.contextPath}/css/adminGeneral.css" rel="stylesheet"/>
-
-
+  <link rel="stylesheet" href="../header footer/header__footer.css" />
+  <script src="../header footer/header__footer.js"></script>
+  <link rel="stylesheet" href="../header footer/header.css" />
+  <link rel="stylesheet" href="../header footer/footer.css" />
+  <link rel="stylesheet" href="../productDetail/productDetail.css" />
 </head>
 
-<body id="page-top">
-<div id="wrapper">
-    <ul
-            class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-            id="accordionSidebar"
-    >
-        <a
-                class="sidebar-brand d-flex align-items-center justify-content-center"
-                href="${pageContext.request.contextPath}/"
-        >
-            <div class="sidebar-brand-icon rotate-n-15">
-            </div>
-            <div class="sidebar-brand-text mx-3">THOMAS Admin</div>
-        </a>
+<body>
+  <header id="header"></header>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0"/>
-
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="${pageContext.request.contextPath}/admin">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a
-            >
+  <div class="breadcumb__container">
+    <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/homePage\HomePage.html">Trang chủ</a>
         </li>
+        <li class="breadcrumb-item active" aria-current="page">Sản phẩm</li>
+      </ol>
+    </nav>
+  </div>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider"/>
-
-        <!-- Heading -->
-        <div class="sidebar-heading">Interface</div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a
-                    class="nav-link collapsed"
-                    href="#"
-                    data-toggle="collapse"
-                    data-target="#collapseTwo"
-                    aria-expanded="true"
-                    aria-controls="collapseTwo"
-            >
-                <i class="fas fa-fw fa-list-check"></i>
-                <span>Quản lý</span>
-            </a>
-            <div
-                    id="collapseTwo"
-                    class="collapse"
-                    aria-labelledby="headingTwo"
-                    data-parent="#accordionSidebar"
-            >
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Các đối tượng:</h6>
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/userManagement/userManagement.jsp"
-                    >Người dùng</a
-                    >
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/productManagement/productManagement.jsp"
-                    >Sản phẩm</a
-                    >
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/reviewManagement/reviewManagement.jsp"
-                    >Đánh giá</a
-                    >
-                    <a
-                            class="collapse-itema"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/couponManagement/couponManagement.jsp"
-                    >Coupon</a
-                    >
-                    <a
-                            class="collapse-item"
-                            href="${pageContext.request.contextPath}/frontend/AdminPage/orderManagement/orderManagement.jsp"
-                    >Đơn hàng</a
-                    >
-                </div>
-            </div>
-        </li>
-
-        <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item active">
-            <a
-                    class="nav-link collapsed"
-                    href="#"
-                    data-toggle="collapse"
-                    data-target="#collapseUtilities"
-                    aria-expanded="true"
-                    aria-controls="collapseUtilities"
-            >
-                <i class="fas fa-fw fa-table"></i>
-                <span>Bảng</span>
-            </a>
-            <div
-                    id="collapseUtilities"
-                    class="collapse"
-                    aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar"
-            >
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/admin/table/users"
-                    >Người dùng</a
-                    >
-                    <a class="collapse-item active"
-                       href="${pageContext.request.contextPath}/admin/table/belts">Sản
-                        phẩm</a>
-                    <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/admin/table/reviews"
-                    >Đánh giá</a
-                    >
-                    <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/admin/table/coupons"
-                    >Coupon</a
-                    >
-                    <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/admin/table/orders"
-                    >Đơn hàng</a
-                    >
-                </div>
-            </div>
-        </li>
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block"/>
-
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+  <div class="container my-5 bg-white rounded p-5 mb-0">
+    <div class="d-flex">
+      <div class="col-md-8 d-flex">
+        <div class="col-2 product-thumbnails d-flex flex-column align-item-start justify-content-between mt-0">
+          <img src="../assets/images/product/product detail/victor/victor1 (1).webp" class="mb-2 border rounded"
+            alt="Thumbnail 1" data-bs-target="#productCarousel" data-bs-slide-to="0" />
+          <img src="../assets/images/product/product detail/victor/victor1 (2).webp" class="mb-2 border rounded"
+            alt="Thumbnail 1" data-bs-target="#productCarousel" data-bs-slide-to="1" />
+          <img src="../assets/images/product/product detail/victor/victor1 (3).webp" class="mb-2 border rounded"
+            alt="Thumbnail 1" data-bs-target="#productCarousel" data-bs-slide-to="2" />
+          <img src="../assets/images/product/product detail/victor/victor1 (4).webp" class="border rounded"
+            alt="Thumbnail 1" data-bs-target="#productCarousel" data-bs-slide-to="3" />
         </div>
-    </ul>
-
-    <div id="content-wrapper" class="d-flex flex-column">
-        <div id="content">
-
-            <div class="container-fluid px-0">
-                <h1 class="title-create-edit mb-2 mt-5 ml-3">
-                    <c:choose>
-                        <c:when test="${param.id!=null}">
-                            Chỉnh sửa sản phẩm
-                        </c:when>
-                        <c:otherwise>
-                            Tạo Sản phẩm
-                        </c:otherwise>
-                    </c:choose>
-
-
-                </h1>
-                <div class="d-flex w-100">
-                    <div class="col-12 bg-light">
-                        <c:if test="${param.id!=null}">
-                            <div
-                                    class="overflow-auto d-flex justify-content-center fs-3 mt-5"
-                                    style="white-space: nowrap;color:black"
-                            >
-                                <div class="d-inline-block p-3">
-                                    <a
-                                            class="text-decoration-none fs-4 custom_active"
-                                            href="${pageContext.request.contextPath}/admin/table/belts/createProduct?id=${param.id}&message=update"
-                                            style="font-size: 32px"
-                                    >Tổng quan</a
-                                    >
-                                </div>
-                                <div class="d-inline-block p-3 ms-0">
-                                    <a
-                                            class="text-decoration-none"
-                                            href="${pageContext.request.contextPath}/admin/table/belts/createProductDescription?id=${param.id}&message=update"
-                                            style="font-size: 32px"
-                                    >Mô tả</a>
-
-                                </div>
-
-                            </div>
-                        </c:if>
-
-                    </div>
-                </div>
-                <form id="productForm" method="POST"
-                      class="d-flex flex-column justify-content-between" enctype="multipart/form-data">
-                    <input type="hidden" name="beltId" value="${param.id}"/>
-                    <input type="hidden" name="message" value="<c:choose>
-    <c:when test='${param.message == "update"}'>update</c:when>
-    <c:otherwise>create</c:otherwise>
-</c:choose>"/>
-                    <input type="hidden" name="productId"/>
-                    <div class="d-flex w-100">
-                        <div class="col-12 bg-white">
-                            <div class="d-flex flex-column mt-5">
-                                <div class="mt-5 ms-5">
-                                    <h1 class="fw-bold">
-                                        <c:choose>
-                                            <c:when test="${param.id != null}">
-                                                Chỉnh sửa sản phẩm # ${param.id}
-                                            </c:when>
-                                            <c:otherwise>
-                                                Tạo sản phẩm
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </h1>
-                                </div>
-                            </div>
-                            <div
-                                    class="d-flex flex-column justify-content-left align-items-left"
-                            >
-                                <div class="d-flex flex-column mt-5 w-50">
-                                    <div class="row mb-3">
-                                        <p
-                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                        >
-                                            Ảnh bìa
-
-                                        </p>
-                                        <input
-                                                name="coverImage"
-                                                type="file"
-                                                class="col p-0 form-control form-control-lg custom_design custom__border"
-                                        />
-
-                                    </div>
-                                    <c:choose>
-                                        <c:when test="${image1 != null}">
-                                            <div class="row mb-3">
-                                                <p
-                                                        class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                                >
-                                                    Ảnh gốc
-
-                                                </p>
-                                                <input
-                                                        type="text"
-                                                        disabled
-                                                        class="col p-0 form-control form-control-lg custom_design custom__border"
-                                                        value="${image1}"
-                                                >
-                                            </div>
-                                        </c:when>
-                                    </c:choose>
-
-                                    <div class="row mb-3">
-                                        <p
-                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                        >
-                                            Ảnh 2
-
-                                        </p>
-                                        <input
-                                                name="coverImage"
-                                                type="file"
-                                                class="col p-0 form-control form-control-lg custom_design custom__border"
-                                        />
-                                    </div>
-                                    <c:choose>
-                                        <c:when test="${image2 != null}">
-                                            <div class="row mb-3">
-                                                <p
-                                                        class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                                >
-                                                    Ảnh gốc
-
-                                                </p>
-                                                <input
-                                                        type="text"
-                                                        disabled
-                                                        class="col p-0 form-control form-control-lg custom_design custom__border"
-                                                        value="${image2}"
-                                                >
-                                            </div>
-                                        </c:when>
-                                    </c:choose>
-                                    <div class="row mb-3">
-                                        <p
-                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                        >
-                                            Ảnh 3
-                                        </p>
-                                        <input
-                                                name="coverImage"
-                                                type="file"
-                                                class="col p-0 form-control form-control-lg custom_design custom__border"
-                                        />
-
-                                    </div>
-                                    <c:choose>
-                                        <c:when test="${image3 != null}">
-                                            <div class="row mb-3">
-                                                <p
-                                                        class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                                >
-                                                    Ảnh gốc
-
-                                                </p>
-                                                <input
-                                                        type="text"
-                                                        disabled
-                                                        class="col p-0 form-control form-control-lg custom_design custom__border"
-                                                        value="${image3}"
-                                                >
-                                            </div>
-                                        </c:when>
-                                    </c:choose>
-                                    <div class="row mb-3">
-                                        <p
-                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                        >
-                                            Ảnh 4
-                                        </p>
-                                        <input
-                                                name="coverImage"
-                                                type="file"
-                                                class="col p-0 form-control form-control-lg custom_design custom__border"
-                                        />
-                                    </div>
-                                    <c:choose>
-                                        <c:when test="${image4 != null}">
-                                            <div class="row mb-3">
-                                                <p
-                                                        class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                                >
-                                                    Ảnh gốc
-
-                                                </p>
-                                                <input
-                                                        type="text"
-                                                        disabled
-                                                        class="col p-0 form-control form-control-lg custom_design custom__border"
-                                                        value="${image4}"
-                                                >
-                                            </div>
-                                        </c:when>
-                                    </c:choose>
-                                    <div class="row mb-3">
-                                        <p
-                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                        >
-                                            Ảnh 5
-                                        </p>
-                                        <input
-                                                name="coverImage"
-                                                type="file"
-                                                class="col p-0 form-control form-control-lg custom_design custom__border"
-                                        />
-                                    </div>
-                                    <c:choose>
-                                        <c:when test="${image4 != null}">
-                                            <div class="row mb-3">
-                                                <p
-                                                        class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                                >
-                                                    Ảnh gốc
-
-                                                </p>
-                                                <input
-                                                        type="text"
-                                                        disabled
-                                                        class="col p-0 form-control form-control-lg custom_design custom__border"
-                                                        value="${image4}"
-                                                >
-                                            </div>
-                                        </c:when>
-                                    </c:choose>
-                                    <div class="row mb-3">
-                                        <p
-                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                        >
-                                            Tên sản phẩm
-                                        </p>
-                                        <input
-                                                name="beltName"
-                                                type="text"
-                                                class="col form-control form-control-lg custom_design custom__border"
-                                                placeholder="Nhập tên sản phẩm"
-                                                value="${product.name}"
-                                                required
-
-                                        />
-                                    </div>
-                                    <div class="row mb-3">
-                                        <p
-                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                        >
-                                            Nhập tags
-                                        </p>
-                                        <input
-                                                placeholder="các tag cách nhau bởi dấu cách"
-                                                name="tags"
-                                                type="text"
-                                                class="col form-control form-control-lg custom_design custom__border"
-                                                value="${tags}"
-                                                required
-                                        />
-                                    </div>
-                                    <div class="row mb-3">
-                                        <p
-                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                        >
-                                            Chất liệu
-                                        </p>
-                                        <select
-                                                style="color: black"
-                                                class="col form-control form-control-lg custom_design custom__border"
-                                                name="material"
-                                                aria-label="Default select example"
-                                        >
-                                            <option value="Da">Da</option>
-                                            <option value="Canvas">Canvas</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <p
-                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                        >
-                                            Ngày ra mắt
-                                        </p>
-                                        <input name="releaseDate" type="date"
-                                               class="col form-control form-control-lg custom_design custom__border"
-                                               value="${product.releaseDate}"
-                                               required
-                                        />
-                                    </div>
-                                    <div class="row mb-3">
-                                        <p
-                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                        >
-                                            Giá
-                                        </p>
-                                        <input
-                                                id="price-input"
-                                                name="price"
-                                                type="number"
-                                                type="text"
-                                                class="col form-control form-control-lg custom_design custom__border"
-                                                placeholder="Nhập giá sản phẩm"
-                                                oninput="formatNumber(this)"
-                                                value="${product.price}"
-                                                required
-                                        />
-                                    </div>
-                                    <div class="row mb-3">
-                                        <p
-                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                        >
-                                            Số lượng
-                                        </p>
-                                        <input
-                                                name="quantity"
-                                                type="number"
-                                                class="col form-control form-control-lg custom_design custom__border"
-                                                placeholder="Nhập số lượng khách hàng có thể chọn"
-                                                value="${product.stockQuantity}"
-                                                required
-                                        />
-                                    </div>
-                                    <div class="row mb-3">
-                                        <p
-                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                        >
-                                            Giới tính
-                                        </p>
-                                        <div class="col d-flex align-items-center">
-                                            <div class="form-check me-4 d-flex align-items-center">
-                                                <input
-                                                        class=" me-3 mb-1"
-                                                        type="radio"
-                                                        name="gender"
-                                                        id="exampleRadios1"
-                                                        value="M"
-                                                ${product.gender == 'M' ? 'checked' : ''}
-                                                />
-                                                <label class="form-check-label mb-1 p-sm-1 fs-5"
-                                                       for="exampleRadios1">
-                                                    Nam
-                                                </label>
-                                            </div>
-                                            <div class="form-check me-4 d-flex align-items-center">
-                                                <input
-                                                        class="me-3 mb-1"
-                                                        type="radio"
-                                                        name="gender"
-                                                        id="exampleRadios2"
-                                                        value="N"
-                                                ${product.gender == 'N' ? 'checked' : ''}
-                                                />
-                                                <label class="form-check-label mb-1 p-sm-1 fs-5"
-                                                       for="exampleRadios2">
-                                                    Nữ
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <p class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5">
-                                            Xóa mềm
-                                        </p>
-                                        <input
-                                                type="checkbox"
-                                                id="isDeleted"
-                                                name="isDeleted"
-                                                value="1"
-                                        ${product.isDeleted == 1 ? "checked" : ""}
-                                        />
-                                        <input type="hidden" name="isDeleted" value="0"/>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <p
-                                                class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
-                                        >
-                                            Giảm giá
-                                        </p>
-                                        <input
-                                                type="number"
-                                                name="discountPercent"
-                                                class="col form-control form-control-lg custom_design custom__border"
-                                                value="${product.discountPercent}"
-                                        />
-                                    </div>
-                                    <%--                                    <div class="row mb-3">--%>
-                                    <%--                                        <p class="col-3 mb-0 d-flex justify-content-end align-items-top fs-5">--%>
-                                    <%--                                            Mô tả--%>
-                                    <%--                                        </p>--%>
-                                    <%--                                        <div class="document-editor">--%>
-                                    <%--                                            <div class="document-editor__toolbar"></div>--%>
-                                    <%--                                            <div class="document-editor__editing" name="Description"></div>--%>
-                                    <%--                                        </div>--%>
-                                    <%--                                    </div>--%>
-                                    <div class="row d-flex justify-content-end mb-3 ps-sm-5">
-                                        <button type="submit" class="btn btn-dark "
-                                                style="width: 30%; height: 47px">
-                                            <c:choose>
-                                                <c:when test="${param.id != null}">
-                                                    Chỉnh sửa sản phẩm # ${param.id}
-                                                </c:when>
-                                                <c:otherwise>
-                                                    Tạo sản phẩm
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </form>
-
+        <div id="productCarousel" class="carousel slide border rounded col-2 product w-75">
+          <div class="carousel-inner h-100">
+            <div class="carousel-item active">
+              <img src="../assets/images/product/product detail/victor/victor1 (1).webp"
+                class="img-fluid border rounded" alt="Product Image 1" />
             </div>
+            <div class="carousel-item">
+              <img src="../assets/images/product/product detail/victor/victor1 (2).webp"
+                class="img-fluid border rounded" alt="Product Image 2" />
+            </div>
+            <div class="carousel-item">
+              <img src="../assets/images/product/product detail/victor/victor1 (3).webp"
+                class="img-fluid border rounded" alt="Product Image 3" />
+            </div>
+            <div class="carousel-item">
+              <img src="../assets/images/product/product detail/victor/victor1 (4).webp"
+                class="img-fluid border rounded" alt="Product Image 3" />
+            </div>
+          </div>
+          <button class="carousel-control-prev custom_shadow" type="button" data-bs-target="#productCarousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <h2>Dây Nịt Da</h2>
+        <p class="product-price text-danger">
+          480.000 VND
+          <span class="product-old-price text-muted text-decoration-line-through">560.000 VND</span>
+        </p>
+        <div class="mb-3">
+          <strong>Màu:</strong> Đen
+          <div class="mt-1">
+            <span class="badge bg-dark" style="
+                  width: 20px;
+                  height: 20px;
+                  border-radius: 50%;
+                  display: inline-block;
+                "></span>
+          </div>
+        </div>
+        <div class="size-options mt-4">
+          <h5>Chọn độ dài thắt lưng (cm):</h5>
+          <div class="choose_size mt-3">
+            <span>80</span><span>90</span><span>100</span><span>110</span><span>120</span>
+          </div>
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="quantity" class="form-label"><strong>Số Lượng:</strong></label>
+          <div class="quantity__control input-group quantity-controls">
+            <button class="btn btn-outline-secondary" type="button" id="decrement">-</button>
+            <input type="text" class="form-control" id="quantity" value="1">
+            <button class="btn btn-outline-secondary" type="button" id="increment">+</button>
+          </div>
         </div>
 
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; THOMAS 2021</span>
-                </div>
+        <div class="mb-3 d-flex flex-column align-item-center">
+          <button class="buyNow__button btn btn-dark w-100 mb-4">
+            Mua Ngay
+          </button>
+          <button class="addToCart__button btn-white me-2 w-100 mb-3">
+            Thêm vào giỏ hàng
+          </button>
+          <button class="favorite_button btn me-2 w-100 mb-3 rounded">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+              <path
+                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+            </svg>
+            Thêm vào yêu thích
+          </button>
+        </div>
+
+        <div class="accordion" id="productAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingDescription">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseDescription" aria-expanded="true" aria-controls="collapseDescription">
+                Mô tả sản phẩm
+              </button>
+            </h2>
+            <div id="collapseDescription" class="accordion-collapse collapse show" aria-labelledby="headingDescription"
+              data-bs-parent="#productAccordion">
+              <div class="accordion-body">
+                <ul>
+                  <li>
+                    Thắt lưng nam cao cấp tại hà nội với mặt khóa được làm từ
+                    chất liệu ngũ kim sáng bóng
+                  </li>
+                  <li>Thiết kế khóa trượt thời trang, tiện dụng</li>
+                  <li>Đường chỉ may tinh tế, chắc chắn</li>
+                  <li>
+                    Kích thước (độ rộng dây x độ dài dây): 3,5 cm x 110cm ~
+                    120 cm
+                  </li>
+                  <li>Màu sắc: Đen da trơn</li>
+                </ul>
+              </div>
             </div>
-        </footer>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingCareLabel">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseCareLabel" aria-expanded="false" aria-controls="collapseCareLabel">
+                Cách thức bảo quản
+              </button>
+            </h2>
+            <div id="collapseCareLabel" class="accordion-collapse collapse" aria-labelledby="headingCareLabel"
+              data-bs-parent="#productAccordion">
+              <div class="accordion-body">
+                <ul>
+                  <li>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Quasi reiciendis laborum quis quae recusandae, placeat
+                    quibusdam excepturi cumque non totam obcaecati,
+                    praesentium cupiditate iusto voluptatibus, similique
+                    eveniet aut incidunt tempora?
+                  </li>
+                  <li>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Quasi reiciendis laborum quis quae recusandae, placeat
+                    quibusdam excepturi cumque non totam obcaecati,
+                    praesentium cupiditate iusto voluptatibus, similique
+                    eveniet aut incidunt tempora?
+                  </li>
+                  <li>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Quasi reiciendis laborum quis quae recusandae, placeat
+                    quibusdam excepturi cumque non totam obcaecati,
+                    praesentium cupiditate iusto voluptatibus, similique
+                    eveniet aut incidunt tempora?
+                  </li>
+                  <li>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Quasi reiciendis laborum quis quae recusandae, placeat
+                    quibusdam excepturi cumque non totam obcaecati,
+                    praesentium cupiditate iusto voluptatibus, similique
+                    eveniet aut incidunt tempora?
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSpecial">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseSpecial" aria-expanded="false" aria-controls="collapseSpecial">
+                Đặc Biệt
+              </button>
+            </h2>
+            <div id="collapseSpecial" class="accordion-collapse collapse" aria-labelledby="headingSpecial"
+              data-bs-parent="#productAccordion">
+              <div class="accordion-body">
+                <ul>
+                  <li>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Quasi reiciendis laborum quis quae recusandae, placeat
+                    quibusdam excepturi cumque non totam obcaecati,
+                    praesentium cupiditate iusto voluptatibus, similique
+                    eveniet aut incidunt tempora?
+                  </li>
+                  <li>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Quasi reiciendis laborum quis quae recusandae, placeat
+                    quibusdam excepturi cumque non totam obcaecati,
+                    praesentium cupiditate iusto voluptatibus, similique
+                    eveniet aut incidunt tempora?
+                  </li>
+                  <li>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Quasi reiciendis laborum quis quae recusandae, placeat
+                    quibusdam excepturi cumque non totam obcaecati,
+                    praesentium cupiditate iusto voluptatibus, similique
+                    eveniet aut incidunt tempora?
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<div
-        class="modal fade"
-        id="logoutModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
->
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                    Ready to Leave?
-                </h5>
-                <button
-                        class="close"
-                        type="button"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                >
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Select "Logout" below if you are ready to end your current
-                session.
-            </div>
-            <div class="modal-footer">
-                <button
-                        class="btn btn-secondary"
-                        type="button"
-                        data-dismiss="modal"
-                >
-                    Cancel
-                </button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
-            </div>
+  </div>
+  <div class="container p-5">
+    <div class="col-7">
+      <p class="fs-4">3,734 đánh giá</p>
+      <div class="d-flex border-bottom mb-3">
+        <p class="mb-0">Đánh giá cho sản phẩm này</p>
+        <span class="ps-3 pe-3 pb-1 pt-1 ms-2 bg-light rounded-pill mb-2">448</span>
+      </div>
+      <div class="d-flex flex-column">
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
         </div>
+        <div class="content_review mt-2">
+          <p class="mb-1">
+            Chính xác như mô tả! Chất lượng rất cao và được đóng gói đẹp mắt!
+            Cảm ơn bạn 😊
+          </p>
+        </div>
+        <div class="d-flex author_review mt-0 border-bottom">
+          <p class="fw-light fs-6 text-decoration-underline">
+            Huynh Minh Thang
+          </p>
+          <p class="fw-light fs-6 ms-2">Ngày 11 tháng 99 năm 2044</p>
+        </div>
+      </div>
+      <div class="d-flex flex-column">
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
+        </div>
+        <div class="content_review mt-2">
+          <p class="mb-1">
+            Chính xác như mô tả! Chất lượng rất cao và được đóng gói đẹp mắt!
+            Cảm ơn bạn 😊
+          </p>
+        </div>
+        <div class="d-flex author_review mt-0 border-bottom">
+          <p class="fw-light fs-6 text-decoration-underline">
+            Huynh Minh Thang
+          </p>
+          <p class="fw-light fs-6 ms-2">Ngày 11 tháng 99 năm 2044</p>
+        </div>
+      </div>
+      <div class="d-flex flex-column">
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path
+              d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+          </svg>
+        </div>
+        <div class="content_review mt-2">
+          <p class="mb-1">
+            Chính xác như mô tả! Chất lượng rất cao và được đóng gói đẹp mắt!
+            Cảm ơn bạn 😊
+          </p>
+        </div>
+        <div class="d-flex author_review mt-0 border-bottom">
+          <p class="fw-light fs-6 text-decoration-underline">
+            Huynh Minh Thang
+          </p>
+          <p class="fw-light fs-6 ms-2">Ngày 11 tháng 99 năm 2044</p>
+        </div>
+      </div>
     </div>
-</div>
+    <section class="mt-3">
+      <nav aria-label="Page__navigation__example" id="pagination__bar">
+        <div class="container paginationWrapper ps-0">
+          <ul class="pagination pagination__Ul">
+            <li class="page-item custom_trans">
+              <a class="page-link text-dark" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link text-dark" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link text-dark" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link text-dark" href="#">3</a>
+            </li>
+            <li class="page-item custom_trans">
+              <a class="page-link text-dark" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+    <div class="d-flex flex-column mt-5 custom_bg p-4" style="width: 60%">
+      <h2>Viết đánh giá</h2>
 
-</div>
+      <div class="row mt-2">
+        <div class="d-flex align-item-center">
+          <img src="../assets/images/victor_sample1.png" class="" alt="..." width="200px" />
+          <div class="ms-4">
+            <h5 class="card-title text-start fs-6">
+              Thắt Lưng Hai Mặt LV Heritage 35MM
+            </h5>
+            <div class="star">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                fill="#000000">
+                <path
+                  d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                fill="#000000">
+                <path
+                  d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                fill="#000000">
+                <path
+                  d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                fill="#000000">
+                <path
+                  d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                fill="#000000">
+                <path
+                  d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+              </svg>
+            </div>
+            <textarea class="pt-4 ps-1 mt-4" cols="50" rows="3" style="resize: none"
+              placeholder="Viết đánh giá vào đây">
+              </textarea>
+          </div>
+        </div>
+      </div>
 
-<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"
-></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
+      <div class="d-flex">
+        <img src="../assets/images/sampleProfile1.jpg" alt="choose_file" class="mt-3" width="50px" height="50px"
+          style="border-radius: 50%" />
+        <p class="mt-4 ms-3">Đánh giá bởi</p>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-dark me-4 p-2 px-3 mt-3">Gửi đánh giá</button>
+        <button class="btn btn-dark mt-3 px-3">Hủy</button>
+      </div>
+    </div>
+  </div>
+  <div class="viewed__component container rounded ps-5 pt-3 mt-5 youmightlike__component mb-5 pe-0 pb-5">
+    <p class="viewed__title ms-0 fs-2">Bạn có thể thích</p>
+    <div class="d-flex justify-content-between">
+      <div class="card-wrapper cardWrapper">
+        <div class="card" style="position: relative">
+          <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
+            <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+              width="24px" fill="#000000">
+              <path
+                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+            </svg>
+          </div>
+          <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..." />
+          <a href="../productDetail/productDetail.html">
+            <div class="card-body text-start">
+              <h5 class="card-title text-start">
+                Thắt Lưng Hai Mặt LV Heritage 35MM
+              </h5>
+              <p class="card-text text-start">100.000 VNĐ</p>
+            </div>
+          </a>
+        </div>
+        <div class="card" style="position: relative">
+          <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
+            <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+              width="24px" fill="#000000">
+              <path
+                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+            </svg>
+          </div>
+          <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..." />
+          <a href="../productDetail/productDetail.html">
+            <div class="card-body text-start">
+              <h5 class="card-title text-start">
+                Thắt Lưng Hai Mặt LV Heritage 35MM
+              </h5>
+              <p class="card-text text-start">100.000 VNĐ</p>
+            </div>
+          </a>
+        </div>
 
-<!-- Core plugin JavaScript-->
-<script src="${pageContext.request.contextPath}/js/jquery.easing.min.js"></script>
+        <div class="card" style="position: relative">
+          <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
+            <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+              width="24px" fill="#000000">
+              <path
+                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+            </svg>
+          </div>
+          <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..." />
+          <a href="../productDetail/productDetail.html">
+            <div class="card-body text-start">
+              <h5 class="card-title text-start">
+                Thắt Lưng Hai Mặt LV Heritage 35MM
+              </h5>
+              <p class="card-text text-start">100.000 VNĐ</p>
+            </div>
+          </a>
+        </div>
+        <div class="card" style="position: relative">
+          <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
+            <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+              width="24px" fill="#000000">
+              <path
+                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+            </svg>
+          </div>
+          <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..." />
+          <a href="../productDetail/productDetail.html">
+            <div class="card-body text-start">
+              <h5 class="card-title text-start">
+                Thắt Lưng Hai Mặt LV Heritage 35MM
+              </h5>
+              <p class="card-text text-start">100.000 VNĐ</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<!-- Custom scripts for all pages-->
-<script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
-<script>
-</script>
-<script>
-    const {
-        ClassicEditor,
-        Essentials,
-        Paragraph,
-        Bold,
-        Italic,
-        Font,
-        DecoupledEditor, SimpleUploadAdapter, Image, ImageUpload
-    } = CKEDITOR;
-    ClassicEditor
-        .create(document.querySelector('.document-editor__editing'), {
-            licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NjU2NzAzOTksImp0aSI6IjU3ZjA1MWMwLTIyZmMtNDNjYy1hYTM4LTY5NjIyODQ1OGYzOCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkJPWCJdLCJ2YyI6IjIxMzg3ZTM2In0.2zYk8hnu1hlPu3OCtlLbUqaXqpzQEJVr0vCU_cihJ6f7lsKvqtTMNXiYUwxN9_HlskEP8jb-U3mGF_e-PHnS3w',
-            plugins: [Essentials, Paragraph, Bold, Italic, Font, SimpleUploadAdapter, Image, ImageUpload],
-            toolbar: {
-                items: [
-                    'undo', 'redo', '|', 'bold', 'italic', 'link', '|',
-                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor',
-                    'bulletedList', 'numberedList', '|',
-                    'imageUpload', '|',
-                    'undo', 'redo'
-                ]
-            },
-            simpleUpload: {
-                uploadUrl: '/upload',
-                withCredentials: false,
-            },
-            image: {
-                toolbar: [
-                    'imageTextAlternative',
-                    'imageStyle:full',
-                    'imageStyle:side'
-                ]
-            }
-        })
-        .then(editor => {
-            const toolbarContainer = document.querySelector('.document-editor__toolbar');
-            toolbarContainer.appendChild(editor.ui.view.toolbar.element);
-            window.editor = editor;
-        })
-        .catch(error => {
-            console.error('Error initializing CKEditor:', error);
-        });
-</script>
-<script>
-    // Reference to the checkbox and hidden input
-    const checkbox = document.getElementById('isDeleted');
-    const hiddenInput = document.getElementById('hiddenIsDeleted');
-    // Update hidden input value when checkbox state changes
-    checkbox.addEventListener('change', function () {
-        hiddenInput.value = this.checked ? 1 : 0;
-    });
-</script>
-<script>
-    function formatNumber(input) {
-        let value = input.value.replace(/\D/g, '');
-        input.value = new Intl.NumberFormat('vi-VN').format(value);
-    }
-</script>
+  <div class="viewed__component container rounded ps-5 pt-3 mt-5 youmightlike__component mb-5 pe-0 pb-5">
+    <p class="viewed__title ms-0 fs-2">Sản phẩm đã xem</p>
+    <div class="d-flex justify-content-between">
+      <div class="card-wrapper cardWrapper">
+        <div class="card" style="position: relative">
+          <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
+            <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+              width="24px" fill="#000000">
+              <path
+                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+            </svg>
+          </div>
+          <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..." />
+          <a href="../productDetail/productDetail.html">
+            <div class="card-body text-start">
+              <h5 class="card-title text-start">
+                Thắt Lưng Hai Mặt LV Heritage 35MM
+              </h5>
+              <p class="card-text text-start">100.000 VNĐ</p>
+            </div>
+          </a>
+        </div>
+        <div class="card" style="position: relative">
+          <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
+            <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+              width="24px" fill="#000000">
+              <path
+                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+            </svg>
+          </div>
+          <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..." />
+          <a href="../productDetail/productDetail.html">
+            <div class="card-body text-start">
+              <h5 class="card-title text-start">
+                Thắt Lưng Hai Mặt LV Heritage 35MM
+              </h5>
+              <p class="card-text text-start">100.000 VNĐ</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="card" style="position: relative">
+          <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
+            <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+              width="24px" fill="#000000">
+              <path
+                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+            </svg>
+          </div>
+          <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..." />
+          <a href="../productDetail/productDetail.html">
+            <div class="card-body text-start">
+              <h5 class="card-title text-start">
+                Thắt Lưng Hai Mặt LV Heritage 35MM
+              </h5>
+              <p class="card-text text-start">100.000 VNĐ</p>
+            </div>
+          </a>
+        </div>
+        <div class="card" style="position: relative">
+          <div style="position: absolute; top: 10px; right: 10px; z-index: 10">
+            <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+              width="24px" fill="#000000">
+              <path
+                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+            </svg>
+          </div>
+          <img src="../assets/images/victor_sample1.png" class="card-img-top" alt="..." />
+          <a href="../productDetail/productDetail.html">
+            <div class="card-body text-start">
+              <h5 class="card-title text-start">
+                Thắt Lưng Hai Mặt LV Heritage 35MM
+              </h5>
+              <p class="card-text text-start">100.000 VNĐ</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer"></footer>
+
+  <!-- Bootstrap CSS and JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="../productDetail/productDetail.js"></script>
+  <script src="../header footer/header.js"></script>
+  <script>
+    const footer = document.querySelector("#footer");
+    fetch("../header footer/footer.html")
+      .then((response) => response.text())
+      .then((html) => (footer.innerHTML = html));
+
+    const header = document.querySelector("#header");
+    fetch("../header footer/header.html")
+      .then((response) => response.text())
+      .then((html) => (header.innerHTML = html));
+  </script>
 </body>
+
 </html>

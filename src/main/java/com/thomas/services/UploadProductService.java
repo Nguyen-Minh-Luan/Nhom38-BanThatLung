@@ -242,14 +242,18 @@ public class UploadProductService {
         return list;
     }
 
-    public List<Belts> getAllProductsForDisplay() {
-        return productDao.getAllProductForDisplay();
-    }
 
+    public List<Belts> getAllProductsForDisplay() {
+        List<Belts> list = new ArrayList<>();
+        productDao.getAllProductForDisplay().forEach((key, value) -> {
+            list.add(value);
+        });
+        return list;
+    }
 
     public List<Belts> getDiscountProductsForDisplay() {
         List<Belts> list = new ArrayList<>();
-        for (Belts belt : productDao.getAllProductForDisplay()) {
+        for (Belts belt : getAllProductsForDisplay()) {
             if (belt.getDiscountPercent() != 0) {
                 list.add(belt);
             }
@@ -258,7 +262,7 @@ public class UploadProductService {
     }
 
     public List<Belts> getMostPopularProducts() {
-        List<Belts> list = productDao.getAllProductForDisplay();
+        List<Belts> list = getAllProductsForDisplay();
         list.sort(new Comparator<Belts>() {
             @Override
             public int compare(Belts o1, Belts o2) {
@@ -273,18 +277,10 @@ public class UploadProductService {
         return productDao.getNewArrivals();
     }
 
-    public List<Belts> getAllProducts() {
-        return productDao.getAllProducts();
-    }
 
     public Belts getBeltById(int beltId) {
         return productDao.getAllProducts().stream().filter(belts -> belts.getId() == beltId).findFirst().get();
     }
-
-    public List<String> getListImage() {
-        return getAllProductsForDisplay().get(0).getImage();
-    }
-
 
     public boolean isUserPurchased(int beltId, int userId) {
         return productDao.isUserPurchased(beltId, userId);
