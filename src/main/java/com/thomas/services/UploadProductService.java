@@ -290,5 +290,7 @@ public class UploadProductService {
         return productDao.isUserPurchased(beltId, userId);
     }
 
-
+    public List<String> getImageProductDetail(int beltId) {
+        return productDao.getImageProductDetail(beltId);
+    }
 }
