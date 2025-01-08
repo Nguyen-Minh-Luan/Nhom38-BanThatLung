@@ -165,252 +165,46 @@
                     <div class="carousel-inner carouselInner">
 
 
-
-
                         <div class="carousel-item active">
                             <div class="card-wrapper cardWrapper">
-                                <a href="frontend/productDetail/productDetail.jsp">
-                                    <div class="card" style="width: 14rem; height: 23.5rem">
-                                        <img
-                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/46/1.webp"
-                                                class="card-img-top"
-                                                alt="..."
-                                                style="height: 14rem"
-                                        />
-                                        <div class="card-body">
-                                            <h5 class="card-title">
-                                                <%
+                                <c:forEach var="a" items="${discountProductList}" begin="0" end="3">
+                                    <a href="frontend/productDetail/productDetail.jsp">
+                                        <div class="card" style="width: 14rem; height: 23.5rem">
+                                            <img
+                                                    src="${pageContext.request.contextPath}${a.mainImage}"
+                                                    class="card-img-top"
+                                                    alt="..."
+                                                    style="height: 14rem"
+                                            />
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                        ${a.name}
+                                                </h5>
+                                                <p class="card-text">${a.price} VNĐ</p>
+                                                <span style="color: rgb(168, 0, 0); font-size: 16px"
+                                                > ${a.discountPercent}%</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </a>
+                                </c:forEach>
 
-                                                %>
-                                            </h5>
-                                            <p class="card-text">935.000 VNĐ</p>
-                                            <span style="color: rgb(168, 0, 0); font-size: 16px"
-                                            >50%</span
-                                            >
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="frontend/productDetail/productDetail.jsp">
-                                    <div
-                                            class="card"
-                                            style="width: 14rem; height: 23.5rem; height: 23.5rem"
-                                    >
-                                        <img
-                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/58/formal-belt-in-brown-olive-qamila-blackberrys-clothing-2_1024x1024.webp"
-                                                class="card-img-top"
-                                                alt="..."
-                                                style="height: 14rem"
-                                        />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Thắt lưng nam da hoạ tiết</h5>
-                                            <p class="card-text">875.000 VNĐ</p>
-                                            <span style="color: rgb(168, 0, 0); font-size: 16px"
-                                            >50%</span
-                                            >
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="frontend/productDetail/productDetail.jsp">
-                                    <div class="card" style="width: 14rem; height: 23.5rem">
-                                        <img
-                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/43/1.webp"
-                                                class="card-img-top"
-                                                alt="..."
-                                                style="height: 14rem"
-                                        />
-                                        <div class="card-body">
-                                            <h5 class="card-title">
-                                                Thắt lưng da hoạ tiết - Urseth
-                                            </h5>
-                                            <p class="card-text">432.000 VNĐ</p>
-                                            <span style="color: rgb(168, 0, 0); font-size: 16px"
-                                            >50%</span
-                                            >
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="frontend/productDetail/productDetail.jsp">
-                                    <div class="card" style="width: 14rem; height: 23.5rem">
-                                        <img
-                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/41/1.webp"
-                                                class="card-img-top"
-                                                alt="..."
-                                                style="height: 14rem"
-                                        />
-                                        <div class="card-body">
-                                            <h5 class="card-title">
-                                                Thắt lưng da nâu trơn - Uberto
-                                            </h5>
-                                            <p class="card-text">983.000 VNĐ</p>
-                                            <span style="color: rgb(168, 0, 0); font-size: 16px"
-                                            >50%</span
-                                            >
-                                        </div>
-                                    </div>
-                                </a>
                             </div>
                         </div>
 
 
                         <div class="carousel-item">
                             <div class="card-wrapper cardWrapper">
-                                <a href="frontend/productDetail/productDetail.jsp">
-                                    <div class="card" style="width: 14rem; height: 23.5rem">
-                                        <img
-                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/40/1.webp"
-                                                class="card-img-top"
-                                                alt="..."
-                                                style="height: 14rem"
-                                        />
-                                        <div class="card-body">
-                                            <h5 class="card-title">
-                                                Thắt lưng da hai mặt đen - Unstorm
-                                            </h5>
-                                            <p class="card-text">799.000 VNĐ</p>
-                                            <span style="color: rgb(168, 0, 0); font-size: 16px"
-                                            >50%</span
-                                            >
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="frontend/productDetail/productDetail.jsp">
-                                    <div class="card" style="width: 14rem; height: 23.5rem">
-                                        <img
-                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/42/1.webp"
-                                                class="card-img-top"
-                                                alt="..."
-                                                style="height: 14rem"
-                                        />
-                                        <div class="card-body">
-                                            <h5 class="card-title">
-                                                Thắt lưng da hai mặt nâu đậm - Uliva
-                                            </h5>
-                                            <p class="card-text">849.000 VNĐ</p>
-                                            <span style="color: rgb(168, 0, 0); font-size: 16px"
-                                            >50%</span
-                                            >
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="frontend/productDetail/productDetail.jsp">
-                                    <div class="card" style="width: 14rem; height: 23.5rem">
-                                        <img
-                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/45/1.webp"
-                                                class="card-img-top"
-                                                alt="..."
-                                                style="height: 14rem"
-                                        />
-                                        <div class="card-body">
-                                            <h5 class="card-title">
-                                                Thắt lưng da đen tuyền có họa tiết - Uratak
-                                            </h5>
-                                            <p class="card-text">550.000 VNĐ</p>
-                                            <span style="color: rgb(168, 0, 0); font-size: 16px"
-                                            >50%</span
-                                            >
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="frontend/productDetail/productDetail.jsp">
-                                    <div class="card" style="width: 14rem; height: 23.5rem">
-                                        <img
-                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/44/1.webp"
-                                                class="card-img-top"
-                                                alt="..."
-                                                style="height: 14rem"
-                                        />
-                                        <div class="card-body">
-                                            <h5 class="card-title">
-                                                Thắt lưng da nâu nhạt có họa tiết - Urseal
-                                            </h5>
-                                            <p class="card-text">532.000 VNĐ</p>
-                                            <span style="color: rgb(168, 0, 0); font-size: 16px"
-                                            >50%</span
-                                            >
-                                        </div>
-                                    </div>
-                                </a>
+
+
+
+
                             </div>
                         </div>
 
                         <div class="carousel-item">
                             <div class="card-wrapper cardWrapper">
-                                <a href="frontend/productDetail/productDetail.jsp">
-                                    <div class="card" style="width: 14rem; height: 23.5rem">
-                                        <img
-                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/47/1.webp"
-                                                class="card-img-top"
-                                                alt="..."
-                                                style="height: 14rem"
-                                        />
-                                        <div class="card-body">
-                                            <h5 class="card-title">
-                                                Thắt lưng da hai mặt nâu đậm - Ulron
-                                            </h5>
-                                            <p class="card-text">405.000 VNĐ</p>
-                                            <span style="color: rgb(168, 0, 0); font-size: 16px"
-                                            >50%</span
-                                            >
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="frontend/productDetail/productDetail.jsp">
-                                    <div class="card" style="width: 14rem; height: 23.5rem">
-                                        <img
-                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/48/Leather_Wine_Solid_Belt_Uratak-BT000567E1-image1_1024x1024.webp"
-                                                class="card-img-top"
-                                                alt="..."
-                                                style="height: 14rem"
-                                        />
-                                        <div class="card-body">
-                                            <h5 class="card-title">
-                                                Thắt lưng da rượu vang có họa tiết - Uratak
-                                            </h5>
-                                            <p class="card-text">573.000 VNĐ</p>
-                                            <span style="color: rgb(168, 0, 0); font-size: 16px"
-                                            >50%</span
-                                            >
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="frontend/productDetail/productDetail.jsp">
-                                    <div class="card" style="width: 14rem; height: 23.5rem">
-                                        <img
-                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/49/Leather_Brown_Solid_Belt_Urraco-BT000555C1-image1_1024x1024.webp"
-                                                class="card-img-top"
-                                                alt="..."
-                                                style="height: 14rem"
-                                        />
-                                        <div class="card-body">
-                                            <h5 class="card-title">
-                                                Thắt lưng da nâu trơn - Urraco
-                                            </h5>
-                                            <p class="card-text">499.000 VNĐ</p>
-                                            <span style="color: rgb(168, 0, 0); font-size: 16px"
-                                            >50%</span
-                                            >
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="frontend/productDetail/productDetail.jsp">
-                                    <div class="card" style="width: 14rem; height: 23.5rem">
-                                        <img
-                                                src="${pageContext.request.contextPath}/assets/images/belts/Images/50/textured-leather-belt-in-black-new-grabirde-blackberrys-clothing-2_aed61a4c-e796-4446-bf5a-4396f427caf6_1024x1024.webp"
-                                                class="card-img-top"
-                                                alt="..."
-                                                style="height: 14rem"
-                                        />
-                                        <div class="card-body">
-                                            <h5 class="card-title">
-                                                Thắt lưng da đen họa tiết - New Grabirde
-                                            </h5>
-                                            <p class="card-text">660.000 VNĐ</p>
-                                            <span style="color: rgb(168, 0, 0); font-size: 16px"
-                                            >50%</span
-                                            >
-                                        </div>
-                                    </div>
-                                </a>
+
                             </div>
                         </div>
 

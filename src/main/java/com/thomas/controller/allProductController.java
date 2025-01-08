@@ -20,7 +20,6 @@ public class allProductController extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         List<Belts> beltsList = uploadProductService.getAllProductsForDisplay();
-        request.setAttribute("listBelt", beltsList);
         session.setAttribute("beltsList", beltsList);
         request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
 
