@@ -18,7 +18,7 @@ public class IndexServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UploadProductService uploadProductService = new UploadProductService();
-        List<Belts> allProduct = uploadProductService.getMostPopularProducts();
+        List<Belts> allProduct = uploadProductService.getDiscountProductsForDisplay();
 //        List<Belts> newArrivalsList = uploadProductService.getNewArrivals();
 //        List<Belts> mostPopular ;
 //        List<Belts> discount;

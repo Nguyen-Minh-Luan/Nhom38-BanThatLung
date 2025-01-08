@@ -255,7 +255,6 @@ public class UploadProductService {
         }
         return list;
     }
-
     public List<Belts> getMostPopularProducts() {
         List<Belts> list = productDao.getAllProductForDisplay();
         list.sort(new Comparator<Belts>() {
