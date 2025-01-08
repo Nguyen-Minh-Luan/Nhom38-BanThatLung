@@ -7,6 +7,7 @@ import com.thomas.dao.model.BeltCategory;
 import com.thomas.dao.model.Belts;
 import com.thomas.dao.model.Category;
 
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -255,6 +256,7 @@ public class UploadProductService {
         }
         return list;
     }
+
     public List<Belts> getMostPopularProducts() {
         List<Belts> list = productDao.getAllProductForDisplay();
         list.sort(new Comparator<Belts>() {
@@ -271,7 +273,22 @@ public class UploadProductService {
         return productDao.getNewArrivals();
     }
 
+    public List<Belts> getAllProducts() {
+        return productDao.getAllProducts();
+    }
+
+    public Belts getBeltById(int beltId) {
+        return productDao.getAllProducts().stream().filter(belts -> belts.getId() == beltId).findFirst().get();
+    }
+
+    public List<String> getListImage() {
+        return getAllProductsForDisplay().get(0).getImage();
+    }
+
+
     public boolean isUserPurchased(int beltId, int userId) {
         return productDao.isUserPurchased(beltId, userId);
     }
+
+
 }

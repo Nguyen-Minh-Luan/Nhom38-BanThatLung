@@ -168,7 +168,7 @@
                         <div class="carousel-item active">
                             <div class="card-wrapper cardWrapper">
                                 <c:forEach var="a" items="${discountProductList}" begin="0" end="3">
-                                    <a href="frontend/productDetail/productDetail.jsp">
+                                    <a href="productDetail?beltID=${a.id}">
                                         <div class="card" style="width: 14rem; height: 23.5rem">
                                             <img
                                                     src="${pageContext.request.contextPath}${a.mainImage}"
@@ -196,7 +196,7 @@
                         <div class="carousel-item">
                             <div class="card-wrapper cardWrapper">
                                 <c:forEach var="b" items="${discountProductList}" begin="4" end="7">
-                                    <a href="frontend/productDetail/productDetail.jsp">
+                                    <a href="productDetail?beltID=${b.id}">
                                         <div class="card" style="width: 14rem; height: 23.5rem">
                                             <img
                                                     src="${pageContext.request.contextPath}${b.mainImage}"
@@ -222,7 +222,7 @@
                         <div class="carousel-item">
                             <div class="card-wrapper cardWrapper">
                                 <c:forEach var="c" items="${discountProductList}" begin="8" end="11">
-                                    <a href="frontend/productDetail/productDetail.jsp">
+                                    <a href="productDetail?beltID=${c.id}">
                                         <div class="card" style="width: 14rem; height: 23.5rem">
                                             <img
                                                     src="${pageContext.request.contextPath}${c.mainImage}"
@@ -374,7 +374,7 @@
                             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                                 <c:forEach var="n" items="${newArrivalsList}" end="7">
                                     <div class="col product__col">
-                                        <a href="frontend/productDetail/productDetail.jsp"
+                                        <a href="productDetail?beltID=${n.id}"
                                            class="product__link text-decoration-none">
                                             <div class="card product__card border-0 shadow-sm"
                                                  style="width: 19rem; height: 28rem;">
@@ -417,24 +417,24 @@
                     <div class="row" id="list__product__row">
                         <div class="list__product__element">
                             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                                <c:forEach var="n" items="${newArrivalsList}" end="7">
+                                <c:forEach var="m" items="${mostPopularList}" end="7">
                                     <div class="col product__col">
-                                        <a href="frontend/productDetail/productDetail.jsp"
+                                        <a href="productDetail?beltID=${m.id}"
                                            class="product__link text-decoration-none">
                                             <div class="card product__card border-0 shadow-sm"
                                                  style="width: 19rem; height: 28rem;">
                                                 <div class="position-relative">
                                                     <img
-                                                            src="${pageContext.request.contextPath}${n.mainImage}"
+                                                            src="${pageContext.request.contextPath}${m.mainImage}"
                                                             class="card-img-top img-fluid product__image rounded"
-                                                            alt="${n.name}"
+                                                            alt="${m.name}"
                                                             style="height: 15rem; object-fit: cover;"
                                                     />
                                                     <span class="badge bg-danger position-absolute top-0 end-0 m-2">NEW</span>
                                                 </div>
                                                 <div class="card-body text-center">
-                                                    <h5 class="card-title product__title text-dark mb-2">${n.name}</h5>
-                                                    <p class="product__price text-primary fw-bold">${n.price} VND</p>
+                                                    <h5 class="card-title product__title text-dark mb-2">${m.name}</h5>
+                                                    <p class="product__price text-primary fw-bold">${m.price} VND</p>
                                                 </div>
                                             </div>
                                         </a>

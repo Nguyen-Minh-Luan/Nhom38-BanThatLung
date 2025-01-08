@@ -455,4 +455,21 @@ public class ProductDao {
             return beltsList;
         });
     }
+
+    public List<String> getImageProductDetail(int beltId) {
+        List<String> imageList = new ArrayList<>();
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT imagePath from imageEntry where beltId = :beltId AND imageType = 'description' ";
+            try (Handle h = handle) {
+                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
+                while (rs.next()) {
+                    String imagePath = rs.getString("imagePath");
+                    imageList.add(imagePath);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return imageList;
+        });
+    }
 }
