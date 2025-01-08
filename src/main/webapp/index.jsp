@@ -1,8 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.thomas.dao.model.Belts" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -532,30 +530,31 @@
                     <div class="row" id="list__product__row">
                         <div class="list__product__element">
                             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                                <%--                                <c:forEach var="n" items="${newArrivalsList}" end="7">--%>
-                                <div id="is_reloaded"></div>
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div class="belts position-relative" style="width: 19rem">
-                                            <span class="badge bg-danger position-absolute top-0 end-0 m-2">NEW</span>
-                                            <div class="product__image">
-                                                <img src="assets/images/homepage/465131741_18466090996040427_4498527421517500506_n 1.png"
-                                                     class="img-fluid"
-                                                     alt="Leather Belt"
-                                                     style="width: 19rem">
+                                <c:forEach var="n" items="${newArrivalsList}" end="7">
+                                    <div class="col product__col">
+                                        <a href="frontend/productDetail/productDetail.jsp"
+                                           class="product__link text-decoration-none">
+                                            <div class="card product__card border-0 shadow-sm"
+                                                 style="width: 19rem; height: 28rem;">
+                                                <div class="position-relative">
+                                                    <img
+                                                            src="${pageContext.request.contextPath}${n.mainImage}"
+                                                            class="card-img-top img-fluid product__image rounded"
+                                                            alt="${n.name}"
+                                                            style="height: 15rem; object-fit: cover;"
+                                                    />
+                                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">NEW</span>
+                                                </div>
+                                                <div class="card-body text-center">
+                                                    <h5 class="card-title product__title text-dark mb-2">${n.name}</h5>
+                                                    <p class="product__price text-primary fw-bold">${n.price} VND</p>
+                                                </div>
                                             </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    ${n.name}
-                                                </h5>
-                                                <p class="product__price">${n.price}VND</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <%--                                </c:forEach>--%>
-
-
+                                        </a>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                            <div class="text-center mt-4">
                                 <form action="newArrival2" method="get">
                                     <button name="seeMore" class="btn seeMore">Xem Thêm</button>
                                 </form>
@@ -563,6 +562,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <div
@@ -572,43 +572,43 @@
                     aria-labelledby="fill-tab-1"
             >
                 <div class="list__product container">
-                    <div class="row">
+                    <div class="row" id="list__product__row">
                         <div class="list__product__element">
-                            <div
-                                    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4"
-                            >
-                                <!-- Sản phẩm -->
-                                <div class="col product__col">
-                                    <a href="frontend/productDetail/productDetail.jsp">
-                                        <div
-                                                class="belts position-relative"
-                                                style="width: 19rem"
-                                        >
-                                            <div class="product__image">
-                                                <img
-                                                        src="assets/images/belts/Images/51/Textured_Leather_Belt_In_Wine_Tarak-BTPM0508E1ZA23FA-image1_1024x1024.webp"
-                                                        class="img-fluid"
-                                                        alt="Leather Belt"
-                                                        style="width: 19rem"
-                                                />
+                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                                <c:forEach var="n" items="${newArrivalsList}" end="7">
+                                    <div class="col product__col">
+                                        <a href="frontend/productDetail/productDetail.jsp"
+                                           class="product__link text-decoration-none">
+                                            <div class="card product__card border-0 shadow-sm"
+                                                 style="width: 19rem; height: 28rem;">
+                                                <div class="position-relative">
+                                                    <img
+                                                            src="${pageContext.request.contextPath}${n.mainImage}"
+                                                            class="card-img-top img-fluid product__image rounded"
+                                                            alt="${n.name}"
+                                                            style="height: 15rem; object-fit: cover;"
+                                                    />
+                                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">NEW</span>
+                                                </div>
+                                                <div class="card-body text-center">
+                                                    <h5 class="card-title product__title text-dark mb-2">${n.name}</h5>
+                                                    <p class="product__price text-primary fw-bold">${n.price} VND</p>
+                                                </div>
                                             </div>
-                                            <div class="product__title">
-                                                <h5 class="title">
-                                                    dây nịt
-                                                </h5>
-                                                <p class="product__price">1000VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <form action="mostPopular" method="get">
+                                        </a>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                            <div class="text-center mt-4">
+                                <form action="newArrival2" method="get">
                                     <button name="seeMore" class="btn seeMore">Xem Thêm</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
         </div>
