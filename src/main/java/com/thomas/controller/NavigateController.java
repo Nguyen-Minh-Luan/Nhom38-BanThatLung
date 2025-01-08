@@ -40,7 +40,26 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("beltsList", beltsList);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
-
+        if (type.equals("menCanvas")) {
+            beltsList = uploadProductService.getAllProductsForDisplay();
+            request.setAttribute("beltsList", beltsList);
+            request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
+        }
+        if (type.equals("womenLeather")) {
+            beltsList = uploadProductService.getAllProductsForDisplay();
+            request.setAttribute("beltsList", beltsList);
+            request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
+        }
+        if (type.equals("womenCanvas")) {
+            beltsList = uploadProductService.getAllProductsForDisplay();
+            request.setAttribute("beltsList", beltsList);
+            request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
+        }
+        if (type.equals("collection")) {
+            beltsList = uploadProductService.getAllProductsForDisplay();
+            request.setAttribute("beltsList", beltsList);
+            request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
+        }
     }
 
     @Override
