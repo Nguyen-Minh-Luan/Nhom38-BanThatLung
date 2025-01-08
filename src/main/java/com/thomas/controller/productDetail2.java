@@ -16,8 +16,11 @@ public class productDetail2 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UploadProductService uploadProductService = new UploadProductService();
+        String id = request.getParameter("beltID");
+        int beltId = Integer.parseInt(id);
+        List<String> listImage = uploadProductService.getImageProductDetail(beltId);
         List<Belts> beltsList = uploadProductService.getAllProductsForDisplay();
-//        request.setAttribute("belt", uploadProductService.getBeltById(beltId));
+        request.setAttribute("belt", uploadProductService.getBeltById(beltId));
         request.getRequestDispatcher("/frontend/productDetail/productDetail2.jsp").forward(request, response);
     }
 
