@@ -221,7 +221,27 @@
 
                         <div class="carousel-item">
                             <div class="card-wrapper cardWrapper">
-
+                                <c:forEach var="c" items="${discountProductList}" begin="8" end="11">
+                                    <a href="frontend/productDetail/productDetail.jsp">
+                                        <div class="card" style="width: 14rem; height: 23.5rem">
+                                            <img
+                                                    src="${pageContext.request.contextPath}${c.mainImage}"
+                                                    class="card-img-top"
+                                                    alt="..."
+                                                    style="height: 14rem"
+                                            />
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                        ${c.name}
+                                                </h5>
+                                                <p class="card-text">${c.price} VNĐ</p>
+                                                <span style="color: rgb(168, 0, 0); font-size: 16px"
+                                                > ${c.discountPercent}%</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </a>
+                                </c:forEach>
                             </div>
                         </div>
 
