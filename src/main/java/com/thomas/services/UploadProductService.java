@@ -210,20 +210,24 @@ public class UploadProductService {
         return allProducts.size();
     }
 
-    public List<Belts> getSortedListBelts(String type, List<Belts> list ) {
+    public List<Belts> getSortedListBelts(String type, List<Belts> list) {
         if ("default".equals(type)) {
-            return list ;
+            return list;
         }
         if ("increase".equals(type)) {
             list.sort(new Comparator<Belts>() {
                 @Override
-                public int compare(Belts o1, Belts o2) {return (int) (o1.getPrice() - o2.getPrice());}
+                public int compare(Belts o1, Belts o2) {
+                    return (int) (o1.getPrice() - o2.getPrice());
+                }
             });
         }
         if ("decrease".equals(type)) {
             list.sort(new Comparator<Belts>() {
                 @Override
-                public int compare(Belts o1, Belts o2) {return (int) (o2.getPrice() - o1.getPrice());}
+                public int compare(Belts o1, Belts o2) {
+                    return (int) (o2.getPrice() - o1.getPrice());
+                }
             });
         }
         if ("bestSeller".equals(type)) {
@@ -237,9 +241,32 @@ public class UploadProductService {
         return list;
     }
 
-    public List<Belts> getAllProductsForDisplaying() {
+    public List<Belts> getAllProductsForDisplay() {
         return productDao.getAllProductForDisplay();
     }
+
+
+    public List<Belts> getDiscountProductsForDisplay() {
+        List<Belts> list = new ArrayList<>();
+        for (Belts belt : productDao.getAllProductForDisplay()) {
+            if (belt.getDiscountPercent() != 0) {
+                list.add(belt);
+            }
+        }
+        return list;
+    }
+
+    public List<Belts> getMostPopularProducts() {
+        List<Belts> list = productDao.getAllProductForDisplay();
+        list.sort(new Comparator<Belts>() {
+            @Override
+            public int compare(Belts o1, Belts o2) {
+                return (int) o2.getViewCount() - o1.getViewCount();
+            }
+        });
+        return list;
+    }
+
 
     public List<Belts> getNewArrivals() {
         return productDao.getNewArrivals();

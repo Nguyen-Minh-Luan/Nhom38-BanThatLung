@@ -388,24 +388,31 @@ public class ProductDao {
     public List<Belts> getAllProductForDisplay() {
         List<Belts> beltsList = new ArrayList<>();
         return JDBIConnect.get().withHandle(handle -> {
-            String sql = "SELECT i.imagePath, b.id, b.name, b.price, b.gender , b.materialBelt , od.quantity " +
+            String sql = "SELECT b.id, b.name, bv.viewCount, bv.viewDate, b.description, b.price, b.gender, b.discountPercent, b.releaseDate , b.materialBelt , od.quantity, i.imagePath " +
                     "FROM belts b " +
                     "INNER JOIN imageentry i " +
                     "ON b.id = i.beltId " +
                     "INNER JOIN orderdetails od " +
                     "ON b.id = od.beltId " +
+                    "INNER JOIN beltviews bv " +
+                    "ON b.id = bv.beltId " +
                     "WHERE b.isDeleted = 0";
             try (Handle h = handle) {
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
                 while (rs.next()) {
                     Belts belt = new Belts();
-                    belt.setMainImage(rs.getString("imagePath"));
                     belt.setId(rs.getInt("id"));
                     belt.setName(rs.getString("name"));
+                    belt.setViewCount(rs.getInt("viewCount"));
+                    belt.setViewDate(rs.getDate("viewDate").toLocalDate());
+                    belt.setDescription(rs.getString("description"));
                     belt.setPrice(rs.getDouble("price"));
                     belt.setGender(rs.getString("gender"));
+                    belt.setDiscountPercent(rs.getDouble("discountPercent"));
+                    belt.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
                     belt.setMaterialBelt(rs.getString("materialBelt"));
                     belt.setTotalQuantity(rs.getInt("quantity"));
+                    belt.setMainImage(rs.getString("imagePath"));
                     beltsList.add(belt);
                 }
             } catch (SQLException e) {
@@ -414,6 +421,7 @@ public class ProductDao {
             return beltsList;
         });
     }
+
 
     public List<Belts> getBestSellerProducts() {
         List<Belts> beltsList = new ArrayList<>();

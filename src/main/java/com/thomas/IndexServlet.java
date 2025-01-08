@@ -18,10 +18,11 @@ public class IndexServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UploadProductService uploadProductService = new UploadProductService();
-        List<Belts> newArrivalsList = uploadProductService.getNewArrivals();
-        List<Belts> mostPopular ;
-        List<Belts> discount;
-        request.setAttribute("newArrivalsList", newArrivalsList);
+        List<Belts> allProduct = uploadProductService.getMostPopularProducts();
+//        List<Belts> newArrivalsList = uploadProductService.getNewArrivals();
+//        List<Belts> mostPopular ;
+//        List<Belts> discount;
+        request.setAttribute("newArrivalsList", allProduct);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 

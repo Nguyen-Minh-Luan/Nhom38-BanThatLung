@@ -163,6 +163,10 @@
             <div class="col-9">
                 <div id="carouselExampleControls2" class="carousel slide">
                     <div class="carousel-inner carouselInner">
+
+
+
+
                         <div class="carousel-item active">
                             <div class="card-wrapper cardWrapper">
                                 <a href="frontend/productDetail/productDetail.jsp">
@@ -175,7 +179,9 @@
                                         />
                                         <div class="card-body">
                                             <h5 class="card-title">
-                                                Thắt lưng nam da rắn màu nâu
+                                                <%
+
+                                                %>
                                             </h5>
                                             <p class="card-text">935.000 VNĐ</p>
                                             <span style="color: rgb(168, 0, 0); font-size: 16px"
@@ -244,6 +250,8 @@
                                 </a>
                             </div>
                         </div>
+
+
                         <div class="carousel-item">
                             <div class="card-wrapper cardWrapper">
                                 <a href="frontend/productDetail/productDetail.jsp">
@@ -324,6 +332,7 @@
                                 </a>
                             </div>
                         </div>
+
                         <div class="carousel-item">
                             <div class="card-wrapper cardWrapper">
                                 <a href="frontend/productDetail/productDetail.jsp">
@@ -404,6 +413,8 @@
                                 </a>
                             </div>
                         </div>
+
+
                     </div>
                     <button
                             class="carousel-control-prev"

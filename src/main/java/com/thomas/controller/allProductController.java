@@ -19,7 +19,7 @@ public class allProductController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
-        List<Belts> beltsList = uploadProductService.getAllProductsForDisplaying();
+        List<Belts> beltsList = uploadProductService.getAllProductsForDisplay();
         request.setAttribute("listBelt", beltsList);
         session.setAttribute("beltsList", beltsList);
         request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
