@@ -374,7 +374,7 @@
                             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                                 <c:forEach var="n" items="${newArrivalsList}" end="7">
                                     <div class="col product__col">
-                                        <a href="productDetail?beltID=${n.id}"
+                                        <a href="productDetails?beltId=${n.id}"
                                            class="product__link text-decoration-none">
                                             <div class="card product__card border-0 shadow-sm"
                                                  style="width: 19rem; height: 28rem;">
@@ -419,7 +419,7 @@
                             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                                 <c:forEach var="m" items="${mostPopularList}" end="7">
                                     <div class="col product__col">
-                                        <a href="productDetail?beltID=${m.id}"
+                                        <a href="productDetails?beltId=${m.id}"
                                            class="product__link text-decoration-none">
                                             <div class="card product__card border-0 shadow-sm"
                                                  style="width: 19rem; height: 28rem;">

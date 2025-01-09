@@ -37,7 +37,6 @@ public class productDetailsController extends HttpServlet {
         int totalReview = uploadReviewService.getTotalReviewsCount(beltId);
         List<String> descBeltImage = uploadProductService.getAllDescImage(beltId);
         List<Belts> randomBelts = uploadProductService.getRandomBelts();
-        List<String> listImage = uploadProductService.getProductImages(beltId);
         for (Belts b : randomBelts) {
             b.setImage(uploadProductService.getProductImages(b.getId()));
         }
