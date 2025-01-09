@@ -398,7 +398,7 @@ public class ProductDao {
                     "ON b.id = od.beltId " +
                     "INNER JOIN beltviews bv " +
                     "ON b.id = bv.beltId " +
-                    "WHERE b.isDeleted = 0";
+                    "WHERE b.isDeleted = 0 and i.imageType = 'main' ";
             try (Handle h = handle) {
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
                 while (rs.next()) {

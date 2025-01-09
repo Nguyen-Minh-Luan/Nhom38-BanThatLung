@@ -273,10 +273,6 @@ public class UploadProductService {
     }
 
 
-    public List<Belts> getNewArrivals() {
-        return productDao.getNewArrivals();
-    }
-
 
     public Belts getBeltById(int beltId) {
         return productDao.getAllProducts().stream().filter(belts -> belts.getId() == beltId).findFirst().get();

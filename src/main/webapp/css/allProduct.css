@@ -167,7 +167,12 @@ li {
 }
 
 /* Đảm bảo các sản phẩm có kích thước đồng nhất */
-.product {
+
+
+
+
+
+.product__col {
   width: 100%;
   max-width: 23.5rem;
   height: 100%;
@@ -206,7 +211,7 @@ li {
 }
 
 /* Hover hiệu ứng */
-.list__product .product:hover {
+.list__product .product__col:hover {
   transform: scale(1.01);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }

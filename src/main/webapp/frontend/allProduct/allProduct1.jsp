@@ -11,7 +11,6 @@ To change this template use File | Settings | File Templates.
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -320,22 +319,20 @@ To change this template use File | Settings | File Templates.
 <div class="list__product container-fluid">
     <div class="row" id="list__product__row">
         <div class="list__product__element">
+            <!-- Sản phẩm -->
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="list__product__row">
-                <!-- Sản phẩm -->
-                <c:forEach var="b" items="${listBelt}">
+                <c:forEach var="b" items="${beltsList}" end="15">
                     <div class="col product__col">
-                        <div id="is_reloaded"></div>
-                        <a href="../productDetail/productDetail.jsp">
-                            <div class="belts">
-                                <div class="product__image">
-                                    <img src="${pageContext.request.contextPath}/assets/images/product/Images/8/1.jpg"
-                                         class="img-fluid"
+                        <a href="${pageContext.request.contextPath}/productDetails?beltId=${b.id}"
+                           class="text-decoration-none">
+                            <div class="belts h-100 d-flex flex-column">
+                                <div class="ratio ratio-1x1">
+                                    <img src="${pageContext.request.contextPath}${b.mainImage}"
+                                         class="img-fluid object-fit-cover"
                                          alt="Leather Belt"/>
                                 </div>
-                                <div class="product__title">
-                                    <h4 class="title">
-                                            ${b.name}
-                                    </h4>
+                                <div class="product__title mt-auto text-center">
+                                    <h4 class="title">${b.name}</h4>
                                     <p class="product__price">${b.price}</p>
                                 </div>
                             </div>
@@ -343,6 +340,8 @@ To change this template use File | Settings | File Templates.
                     </div>
                 </c:forEach>
             </div>
+
+
         </div>
     </div>
 </div>
