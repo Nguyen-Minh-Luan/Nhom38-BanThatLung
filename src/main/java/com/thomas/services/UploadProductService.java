@@ -272,7 +272,16 @@ public class UploadProductService {
         return list;
     }
 
-
+    public List<Belts> getNewArrivals() {
+        List<Belts> list = getAllProductsForDisplay();
+        list.sort(new Comparator<Belts>() {
+            @Override
+            public int compare(Belts o1, Belts o2) {
+                return o2.getReleaseDate().compareTo(o1.getReleaseDate());
+            }
+        });
+        return list;
+    }
 
     public Belts getBeltById(int beltId) {
         return productDao.getAllProducts().stream().filter(belts -> belts.getId() == beltId).findFirst().get();
