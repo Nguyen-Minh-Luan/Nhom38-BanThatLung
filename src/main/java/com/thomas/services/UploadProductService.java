@@ -295,19 +295,13 @@ public class UploadProductService {
         return productDao.getImageProductDetail(beltId);
     }
 
-    public List<Belts> getMaleProducts() {
+    public List<Belts> getMaleOrFemaleProducts(String gender) {
         List<Belts> list = new ArrayList<>();
         for (Belts belt : getAllProductsForDisplay()) {
-            if (belt.getGender().equalsIgnoreCase("M")) {
+            if ("M".equalsIgnoreCase(gender) && belt.getGender().equalsIgnoreCase("M")) {
                 list.add(belt);
             }
-        }
-        return list;
-    }
-    public List<Belts> getFemaleProducts() {
-        List<Belts> list = new ArrayList<>();
-        for (Belts belt : getAllProductsForDisplay()) {
-            if (belt.getGender().equalsIgnoreCase("F")) {
+            if ("F".equalsIgnoreCase(gender) && belt.getGender().equalsIgnoreCase("F")) {
                 list.add(belt);
             }
         }
