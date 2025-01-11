@@ -298,7 +298,16 @@ public class UploadProductService {
     public List<Belts> getMaleProducts() {
         List<Belts> list = new ArrayList<>();
         for (Belts belt : getAllProductsForDisplay()) {
-            if (belt.getGender().equalsIgnoreCase("male")) {
+            if (belt.getGender().equalsIgnoreCase("M")) {
+                list.add(belt);
+            }
+        }
+        return list;
+    }
+    public List<Belts> getFemaleProducts() {
+        List<Belts> list = new ArrayList<>();
+        for (Belts belt : getAllProductsForDisplay()) {
+            if (belt.getGender().equalsIgnoreCase("F")) {
                 list.add(belt);
             }
         }
