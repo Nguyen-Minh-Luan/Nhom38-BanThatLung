@@ -294,4 +294,14 @@ public class UploadProductService {
     public List<String> getImageProductDetail(int beltId) {
         return productDao.getImageProductDetail(beltId);
     }
+
+    public List<Belts> getMaleProducts() {
+        List<Belts> list = new ArrayList<>();
+        for (Belts belt : getAllProductsForDisplay()) {
+            if (belt.getGender().equalsIgnoreCase("male")) {
+                list.add(belt);
+            }
+        }
+        return list;
+    }
 }
