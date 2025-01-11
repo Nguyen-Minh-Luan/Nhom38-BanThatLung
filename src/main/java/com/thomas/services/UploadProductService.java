@@ -295,7 +295,7 @@ public class UploadProductService {
         return productDao.getImageProductDetail(beltId);
     }
 
-    public List<Belts> getMaleOrFemaleProducts(String gender, String material) {
+    public List<Belts> getMaleOrFemaleAndMaterialProducts(String gender, String material) {
         List<Belts> list = new ArrayList<>();
         for (Belts belt : getAllProductsForDisplay()) {
             if (belt.getGender().equalsIgnoreCase(gender)) {

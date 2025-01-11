@@ -102,7 +102,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/frontend/menPage/menPage.jsp"
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/navigate?type=men"
                     >Tất cả thắt lưng nam</a
                     >
                 </li>
