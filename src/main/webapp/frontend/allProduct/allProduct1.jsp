@@ -16,7 +16,7 @@ To change this template use File | Settings | File Templates.
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Sản Phẩm</title>
+    <title>${title}</title>
     <link
             rel="shortcut icon"
             href="${pageContext.request.contextPath}/assets/icons/favicon.svg"
@@ -267,7 +267,7 @@ To change this template use File | Settings | File Templates.
 
 <!-- Product Header -->
 <div class="container">
-    <div class="belts-header display-4 text-center my-4">Sản Phẩm</div>
+    <div class="belts-header display-4 text-center my-4">${bigTitle}</div>
 </div>
 
 <!-- Filter and Sort -->

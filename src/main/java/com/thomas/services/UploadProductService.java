@@ -309,5 +309,7 @@ public class UploadProductService {
         }
         return list;
     }
+    public List<Belts> getCollection(){
 
+    }
 }

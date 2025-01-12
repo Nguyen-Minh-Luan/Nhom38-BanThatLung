@@ -112,7 +112,7 @@
                     >
                 </li>
                 <li>
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/frontend/menPage/menCanvas.jsp"
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/navigate?type=menCanvas"
                     >Thắt Lưng Vải Canvas Nam</a
                     >
                 </li>
@@ -130,13 +130,13 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/frontend/womenPage/womenPage.jsp"
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/navigate?type=women"
                     >Tất cả thắt lưng nữ</a
                     >
                 </li>
                 <li>
                     <a class="dropdown-item"
-                       href="${pageContext.request.contextPath}/frontend/womenPage/womenLeather.jsp"
+                       href="${pageContext.request.contextPath}/navigate?type=womenLeather"
                     >Thắt Lưng Da Nữ
                     </a>
                 </li>
