@@ -51,207 +51,68 @@ To change this template use File | Settings | File Templates.
 <div id="dimmer3" class="dimmer2"></div>
 <div id="overlay3" class="d-sm-flex overlay border" style="width: 20%">
     <div class="overlay__content w-100">
-        <div
-                class="overlay__header d-flex w-100 justify-content-center align-items-center mt-2"
-        >
+        <div class="overlay__header d-flex w-100 justify-content-center align-items-center mt-2">
             <h3 class="filter__header__title mb-0">THOMAS</h3>
             <button id="closeButton" class="btn ms-5">
                 <img src="../../assets/icons/close.svg"/>
             </button>
         </div>
-        <div
-                class="overlay__body d-flex align-items-left justify-content-between"
-                style="height: 500px"
-        >
+        <div class="overlay__body d-flex align-items-left justify-content-between" style="height: 500px">
             <div class="w-100">
-                <div class="accordion border-top-0 w-100" id="filterAccordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingPrice">
-                            <button
-                                    class="accordion-button collapsed"
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#collapsePrice"
-                                    aria-expanded="false"
-                                    aria-controls="collapsePrice"
-                            >
-                                Giá
-                            </button>
-                        </h2>
-                        <div
-                                id="collapsePrice"
-                                class="accordion-collapse collapse"
-                                aria-labelledby="headingPrice"
-                                data-bs-parent="#filterAccordion"
-                        >
-                            <div class="accordion-body">
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input
-                                            id="price1"
-                                            class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                            data-value="0-400000"
-                                            data-id="price-0-400000"
-                                            type="checkbox"
-                                    />
-                                    <p class="ms-2 mt-0 mb-0">400.000</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input
-                                            id="price1"
-                                            class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                            data-value="0-400000"
-                                            data-id="price-0-400000"
-                                            type="checkbox"
-                                    />
-                                    <p class="ms-2 mt-0 mb-0">400.000 - 600.000</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input
-                                            id="price1"
-                                            class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                            data-value="0-400000"
-                                            data-id="price-0-400000"
-                                            type="checkbox"
-                                    />
-                                    <p class="ms-2 mt-0 mb-0">600.000 - 900.000</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input
-                                            id="price1"
-                                            class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                            data-value="0-400000"
-                                            data-id="price-0-400000"
-                                            type="checkbox"
-                                    />
-                                    <p class="ms-2 mt-0 mb-0">> 900.000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingColor">
-                            <button
-                                    class="accordion-button collapsed"
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#collapseColor"
-                                    aria-expanded="false"
-                                    aria-controls="collapseColor"
-                            >
-                                Màu sắc
-                            </button>
-                        </h2>
-                        <div
-                                id="collapseColor"
-                                class="accordion-collapse collapse"
-                                aria-labelledby="headingColor"
-                                data-bs-parent="#filterAccordion"
-                        >
-                            <div class="accordion-body">
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input
-                                            id="color1"
-                                            class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                            type="checkbox"
-                                    />
-                                    <p class="ms-2 mt-0 mb-0">Trắng</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input
-                                            id="color1"
-                                            class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                            type="checkbox"
-                                    />
-                                    <p class="ms-2 mt-0 mb-0">Trắng</p>
-                                </div>
-                                <div
-                                        class="dropdown-item d-flex align-items-center custom_border_active"
+                <!-- Bắt đầu thẻ form -->
+                <form action="${pageContext.request.contextPath}/filter" method="get" class="w-100">
+                    <div class="accordion border-top-0 w-100" id="filterAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingPrice">
+                                <button
+                                        class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#collapsePrice"
+                                        aria-expanded="false"
+                                        aria-controls="collapsePrice"
                                 >
-                                    <input
-                                            id="color1"
-                                            class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                            type="checkbox"
-                                    />
-                                    <p class="ms-2 mt-0 mb-0">Đỏ</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input
-                                            id="color1"
-                                            class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                            type="checkbox"
-                                    />
-                                    <p class="ms-2 mt-0 mb-0">Vàng</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingSize">
-                            <button
-                                    class="accordion-button collapsed"
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#collapseSize"
-                                    aria-expanded="false"
-                                    aria-controls="collapseSize"
+                                    Giá
+                                </button>
+                            </h2>
+                            <div
+                                    id="collapsePrice"
+                                    class="accordion-collapse collapse"
+                                    aria-labelledby="headingPrice"
+                                    data-bs-parent="#filterAccordion"
                             >
-                                Kích cỡ
-                            </button>
-                        </h2>
-                        <div
-                                id="collapseSize"
-                                class="accordion-collapse collapse"
-                                aria-labelledby="headingSize"
-                                data-bs-parent="#filterAccordion"
-                        >
-                            <div class="accordion-body">
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input
-                                            id="size1"
-                                            class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                            type="checkbox"
-                                    />
-                                    <p class="ms-2 mt-0 mb-0">80</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input
-                                            id="size1"
-                                            class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                            type="checkbox"
-                                    />
-                                    <p class="ms-2 mt-0 mb-0">90</p>
-                                </div>
-                                <div
-                                        class="dropdown-item d-flex align-items-center custom_border_active"
-                                >
-                                    <input
-                                            id="size1"
-                                            class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                            type="checkbox"
-                                    />
-                                    <p class="ms-2 mt-0 mb-0">100</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input
-                                            id="size1"
-                                            class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                            type="checkbox"
-                                    />
-                                    <p class="ms-2 mt-0 mb-0">120</p>
+                                <div class="accordion-body">
+                                    <div class="dropdown-item d-flex align-items-center">
+                                        <input
+                                                id="price1"
+                                                name="minPrice"
+                                                class="filter-item border border-dark mb-0 mt-0"
+                                                type="text"
+                                                placeholder="Giá thấp nhất"
+                                        />
+                                        <p class="ms-2 mt-0 mb-0">đến</p>
+                                        <input
+                                                id="price2"
+                                                name="maxPrice"
+                                                class="filter-item border border-dark mb-0 mt-0"
+                                                type="text"
+                                                placeholder="Giá cao nhất"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="apply__container">
-                    <button class="apply__button">Áp dụng</button>
-                </div>
+                    <div class="apply__container mt-3">
+                        <button type="submit" class="apply__button">Áp dụng</button>
+                    </div>
+                </form>
+                <!-- Kết thúc thẻ form -->
             </div>
         </div>
     </div>
 </div>
+
 <header id="header"></header>
 <div class="breadcumb__container">
     <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">

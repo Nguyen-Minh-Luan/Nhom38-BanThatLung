@@ -465,6 +465,16 @@ public class ProductDao {
             return handle.createQuery(sql).bind("beltId", beltId).mapTo(String.class).list();
         });
     }
-
+//    public List<Belts> getCollectionProduct{
+//        return JDBIConnect.get().withHandle(handle -> {
+//            String sql = "SELECT b.id, b.name , b.price ,b.isDeleted , i.imagePath, i.imageType , c.`name` " +
+//                    "FROM belts b inner join imageentry i " +
+//                    "on b.id = i.beltId " +
+//                    "inner join collections c " +
+//                    "on b.id = c.beltId " +
+//                    "where b.isDeleted = 0 AND i.imageType = 'main'";
+//            return handle.ex
+//        });
+//    }
 
 }

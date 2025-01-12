@@ -309,7 +309,14 @@ public class UploadProductService {
         }
         return list;
     }
-    public List<Belts> getCollection(){
 
+    public List<Belts> filterProduct(List<Belts> list, double price1, double price2) {
+        List<Belts> filteredList = new ArrayList<>();
+        for (Belts belt : list) {
+            if (belt.getPrice() > price1 && belt.getPrice() < price2) {
+                filteredList.add(belt);
+            }
+        }
+        return list;
     }
 }

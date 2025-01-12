@@ -19,6 +19,7 @@ public class NavigateController extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         String type = request.getParameter("type");
+        request.setAttribute("type", type);
         List<Belts> beltsList;
         if (type.equals("all")) {
             String title = "Sản Phẩm";
@@ -50,7 +51,7 @@ public class NavigateController extends HttpServlet {
         if (type.equals("menLeather")) {
             String title = "Nam";
             String bigTitle = "Thắt Lưng Da Nam";
-            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "da");
+            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "leather");
             request.setAttribute("beltsList", beltsList);
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
