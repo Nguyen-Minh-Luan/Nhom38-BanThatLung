@@ -107,7 +107,7 @@
                     >
                 </li>
                 <li>
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/frontend/menPage/menLeather.jsp"
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/navigate?type=menLeather"
                     >Thắt Lưng Da Nam</a
                     >
                 </li>

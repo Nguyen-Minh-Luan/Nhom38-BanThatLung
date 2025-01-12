@@ -36,7 +36,7 @@ public class NavigateController extends HttpServlet {
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("menLeather")) {
-            beltsList = uploadProductService.getAllProductsForDisplay();
+            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "da");
             request.setAttribute("beltsList", beltsList);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
