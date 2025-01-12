@@ -310,13 +310,13 @@ public class UploadProductService {
         return list;
     }
 
-    public List<Belts> filterProduct(List<Belts> list, double price1, double price2) {
+    public List<Belts> filterProduct(List<Belts> list, double min, double max) {
         List<Belts> filteredList = new ArrayList<>();
         for (Belts belt : list) {
-            if (belt.getPrice() > price1 && belt.getPrice() < price2) {
+            if (belt.getPrice() > min && belt.getPrice() < max) {
                 filteredList.add(belt);
             }
         }
-        return list;
+        return filteredList;
     }
 }

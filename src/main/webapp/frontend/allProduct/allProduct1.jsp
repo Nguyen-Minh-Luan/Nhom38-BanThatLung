@@ -60,7 +60,7 @@ To change this template use File | Settings | File Templates.
         <div class="overlay__body d-flex align-items-left justify-content-between" style="height: 500px">
             <div class="w-100">
                 <!-- Bắt đầu thẻ form -->
-                <form action="${pageContext.request.contextPath}/filter" method="get" class="w-100">
+                <form action="filter" method="get" class="w-100">
                     <div class="accordion border-top-0 w-100" id="filterAccordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingPrice">
@@ -105,6 +105,7 @@ To change this template use File | Settings | File Templates.
                     </div>
                     <div class="apply__container mt-3">
                         <button type="submit" class="apply__button">Áp dụng</button>
+                        <input class="d-none" type="text" value="${type}" name="type">
                     </div>
                 </form>
                 <!-- Kết thúc thẻ form -->

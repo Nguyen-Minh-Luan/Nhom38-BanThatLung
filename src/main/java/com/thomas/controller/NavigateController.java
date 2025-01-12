@@ -19,7 +19,6 @@ public class NavigateController extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         String type = request.getParameter("type");
-        request.setAttribute("type", type);
         List<Belts> beltsList;
         if (type.equals("all")) {
             String title = "Sản Phẩm";
@@ -28,6 +27,8 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("beltsList", beltsList);
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
+            request.setAttribute("type", type);
+            session.setAttribute("allProductList", beltsList);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("men")) {
@@ -37,6 +38,8 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("beltsList", beltsList);
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
+            request.setAttribute("type", type);
+            session.setAttribute("menProductList", beltsList);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("women")) {
@@ -46,6 +49,8 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("beltsList", beltsList);
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
+            request.setAttribute("type", type);
+            session.setAttribute("womenProductList", beltsList);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("menLeather")) {
