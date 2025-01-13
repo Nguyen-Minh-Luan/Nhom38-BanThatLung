@@ -124,7 +124,7 @@ To change this template use File | Settings | File Templates.
     </nav>
 </div>
 <div class="banner">
-    <img src="${pageContext.request.contextPath}/assets/images/allProduct.png" alt="" style="width: 100%"/>
+    <img src="${pageContext.request.contextPath}${mainImage}" alt="" style="width: 100%"/>
 </div>
 
 <!-- Product Header -->

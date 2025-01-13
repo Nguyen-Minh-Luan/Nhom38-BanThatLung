@@ -154,12 +154,12 @@
         </li>
     </ul>
     <div class="header__icon__group col-3">
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Tìm kiếm..."/>
-            <button class="search-btn" onclick="toggleSearch()">
-                <i class="fa-solid fa-magnifying-glass fa-l"></i>
-            </button>
+        <div class="search__container">
+            <input type="text" class="search__input" placeholder="Tìm kiếm...">
+            <button class="search__button" type="submit"><i class="fa-solid fa-magnifying-glass fa-l"></i></button>
         </div>
+
+
         <c:if test="${sessionScope.auth!=null}">
             <a class="nav-item favorite"
                href="${pageContext.request.contextPath}/favorite?userId=${sessionScope.auth.id}">
