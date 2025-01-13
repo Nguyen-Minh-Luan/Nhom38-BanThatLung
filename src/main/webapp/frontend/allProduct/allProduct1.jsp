@@ -105,7 +105,7 @@ To change this template use File | Settings | File Templates.
                     </div>
                     <div class="apply__container mt-3">
                         <button type="submit" class="apply__button">Áp dụng</button>
-                        <input class="d-none" type="text" value="${type}" name="type">
+                        <%--                        <input class="d-none" type="text" value="${type}" name="type">--%>
                     </div>
                 </form>
                 <!-- Kết thúc thẻ form -->
@@ -162,7 +162,7 @@ To change this template use File | Settings | File Templates.
                         <label for="sortSelect" class="form-label mb-0 me-2">Sắp Xếp:</label>
                         <select
                                 id="sortSelect"
-                                name="descPriceAllProduct"
+                                name="descPrice"
                                 class="form-select form-select-sm"
                                 onchange="this.form.submit()"
                         >

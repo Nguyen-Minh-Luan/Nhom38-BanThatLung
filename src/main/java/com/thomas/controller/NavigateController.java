@@ -28,7 +28,7 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
-            session.setAttribute("allProductList", beltsList);
+            session.setAttribute("beltsList", beltsList);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("men")) {
@@ -39,27 +39,28 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
-            session.setAttribute("menProductList", beltsList);
+            session.setAttribute("beltsList", beltsList);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("women")) {
             String title = "Nữ";
             String bigTitle = "Thắt Lưng Nữ";
-            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("W", "all");
+            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "all");
             request.setAttribute("beltsList", beltsList);
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
-            session.setAttribute("womenProductList", beltsList);
+            session.setAttribute("beltsList", beltsList);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("menLeather")) {
             String title = "Nam";
             String bigTitle = "Thắt Lưng Da Nam";
-            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "leather");
+            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "da");
             request.setAttribute("beltsList", beltsList);
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
+            session.setAttribute("beltsList", beltsList);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("menCanvas")) {
@@ -67,25 +68,42 @@ public class NavigateController extends HttpServlet {
             String bigTitle = "Thắt lưng Canvas Nam";
             beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "canvas");
             request.setAttribute("beltsList", beltsList);
-            request.setAttribute("title", bigTitle);
+            request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
+            session.setAttribute("beltsList", beltsList);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("womenLeather")) {
-            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("W", "da");
+            String title = "Nữ Leather";
+            String bigTitle = "Thắt lưng Da Nữ";
+            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "da");
             request.setAttribute("beltsList", beltsList);
+            request.setAttribute("title", title);
+            request.setAttribute("bigTitle", bigTitle);
+            session.setAttribute("beltsList", beltsList);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("womenCanvas")) {
-            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("W", "canvas");
+            String title = "Nữ Canvas";
+            String bigTitle = "Thắt lưng Canvas Nữ";
+            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "canvas");
             request.setAttribute("beltsList", beltsList);
+            request.setAttribute("title", title);
+            request.setAttribute("bigTitle", bigTitle);
+            session.setAttribute("beltsList", beltsList);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("collection")) {
+            String title = "Bộ sưu tập";
+            String bigTitle = "Bộ sưu tập";
             beltsList = uploadProductService.getAllProductsForDisplay();
             request.setAttribute("beltsList", beltsList);
+            request.setAttribute("title", title);
+            request.setAttribute("bigTitle", bigTitle);
+            session.setAttribute("beltsList", beltsList);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
+
     }
 
     @Override

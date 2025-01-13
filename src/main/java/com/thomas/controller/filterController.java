@@ -16,43 +16,46 @@ public class filterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        String type = request.getParameter("type");
+        UploadProductService uploadProductService = new UploadProductService();
+//        String type = request.getParameter("type");
         double min = Double.parseDouble(request.getParameter("minPrice"));
         double max = Double.parseDouble(request.getParameter("maxPrice"));
-
-        UploadProductService uploadProductService = new UploadProductService();
-        if (type.equals("all")) {
-            List<Belts> filteredList = (List<Belts>) session.getAttribute("allProductList");
-            List<Belts> beltsList = uploadProductService.filterProduct(filteredList, min, max);
-            request.setAttribute("beltsList", beltsList);
-            request.setAttribute("type", type);
-        }
-        if (type.equals("men")) {
-            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "all"), min, max);
-            request.setAttribute("beltsList", beltsList);
-        }
-        if (type.equals("menLeather")) {
-            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "da"), min, max);
-            request.setAttribute("beltsList", beltsList);
-        }
-        if (type.equals("menCanvas")) {
-            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "canvas"), min, max);
-            request.setAttribute("beltsList", beltsList);
-        }
-        if (type.equals("women")) {
-            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("W", "all"), min, max);
-            request.setAttribute("beltsList", beltsList);
-        }
-        if (type.equals("womenLeather")) {
-            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("W", "da"), min, max);
-            request.setAttribute("beltsList", beltsList);
-        }
-        if (type.equals("womenCanvas")) {
-            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("W", "canvas"), min, max);
-            request.setAttribute("beltsList", beltsList);
-        }
-
+        session.getAttribute("beltsList");
+        List<Belts> filteredList = (List<Belts>) session.getAttribute("beltsList");
+        session.setAttribute("beltsList", uploadProductService.filterProduct(filteredList, min, max));
         request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
+//        if (type.equals("all")) {
+////            List<Belts> filteredList = (List<Belts>) session.getAttribute("beltsList");
+//            List<Belts> beltsList = uploadProductService.filterProduct(filteredList, min, max);
+//            request.setAttribute("allProductList", beltsList);
+//            request.setAttribute("type", type);
+//        }
+//        if (type.equals("men")) {
+//            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "all"), min, max);
+//            request.setAttribute("beltsList", beltsList);
+//        }
+//        if (type.equals("menLeather")) {
+//            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "da"), min, max);
+//            request.setAttribute("beltsList", beltsList);
+//        }
+//        if (type.equals("menCanvas")) {
+//            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "canvas"), min, max);
+//            request.setAttribute("beltsList", beltsList);
+//        }
+//        if (type.equals("women")) {
+//            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("W", "all"), min, max);
+//            request.setAttribute("beltsList", beltsList);
+//        }
+//        if (type.equals("womenLeather")) {
+//            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("W", "da"), min, max);
+//            request.setAttribute("beltsList", beltsList);
+//        }
+//        if (type.equals("womenCanvas")) {
+//            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("W", "canvas"), min, max);
+//            request.setAttribute("beltsList", beltsList);
+//        }
+
+//        request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
     }
 
     @Override
