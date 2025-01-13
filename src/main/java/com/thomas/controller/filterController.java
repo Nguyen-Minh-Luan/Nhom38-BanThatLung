@@ -25,7 +25,7 @@ public class filterController extends HttpServlet {
         session.setAttribute("beltsList", uploadProductService.filterProduct(filteredList, min, max));
         request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
 //        if (type.equals("all")) {
-////            List<Belts> filteredList = (List<Belts>) session.getAttribute("beltsList");
+//            List<Belts> filteredList = (List<Belts>) session.getAttribute("beltsList");
 //            List<Belts> beltsList = uploadProductService.filterProduct(filteredList, min, max);
 //            request.setAttribute("allProductList", beltsList);
 //            request.setAttribute("type", type);

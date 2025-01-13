@@ -151,7 +151,7 @@ To change this template use File | Settings | File Templates.
 
             <!-- Sort Column -->
             <div class="col-4 sort__column">
-                <form id="form" method="get" action="${pageContext.request.contextPath}/allProduct"
+                <form id="form" method="get" action="${pageContext.request.contextPath}/sort"
                       class="d-flex align-items-center">
                     <div class="sort__container">
                         <img
