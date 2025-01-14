@@ -19,7 +19,9 @@ public class searchController extends HttpServlet {
         String keyword = request.getParameter("keyword");
         request.setAttribute("keyword", keyword);
         List<Belts> beltsList = uploadProductService.searchProduct(keyword);
+        int totalProduct = beltsList.size();
         request.setAttribute("beltsList", beltsList);
+        request.setAttribute("totalProduct", totalProduct);
         request.setAttribute("mainImage", mainImage);
         request.getRequestDispatcher("frontend/allProduct/allProduct1.jsp").forward(request, response);
     }

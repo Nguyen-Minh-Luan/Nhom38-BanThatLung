@@ -102,17 +102,17 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/navigate?type=men"
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/navigate?type=men&page=1"
                     >Tất cả thắt lưng nam</a
                     >
                 </li>
                 <li>
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/navigate?type=menLeather"
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/navigate?type=menLeather&page=1"
                     >Thắt Lưng Da Nam</a
                     >
                 </li>
                 <li>
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/navigate?type=menCanvas"
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/navigate?type=menCanvas&page=1"
                     >Thắt Lưng Vải Canvas Nam</a
                     >
                 </li>
@@ -130,26 +130,26 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/navigate?type=women"
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/navigate?type=women&page=1"
                     >Tất cả thắt lưng nữ</a
                     >
                 </li>
                 <li>
                     <a class="dropdown-item"
-                       href="${pageContext.request.contextPath}/navigate?type=womenLeather"
+                       href="${pageContext.request.contextPath}/navigate?type=womenLeather&page=1"
                     >Thắt Lưng Da Nữ
                     </a>
                 </li>
                 <li>
                     <a class="dropdown-item"
-                       href="${pageContext.request.contextPath}/navigate?type=womenCanvas"
+                       href="${pageContext.request.contextPath}/navigate?type=womenCanvas&page=1"
                     >Thắt Lưng Vải Canvas Nữ</a
                     >
                 </li>
             </ul>
         </li>
         <li class="nav-item">
-            <a href="${pageContext.request.contextPath}/navigate?type=all" class="nav-link">Sản
+            <a href="${pageContext.request.contextPath}/navigate?type=all&page=1" class="nav-link">Sản
                 Phẩm</a>
         </li>
     </ul>

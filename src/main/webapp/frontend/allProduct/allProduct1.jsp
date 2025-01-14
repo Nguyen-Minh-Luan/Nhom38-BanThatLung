@@ -146,7 +146,7 @@ To change this template use File | Settings | File Templates.
 
             <!-- Quantity Column -->
             <div class="col-4 quantity__column">
-                <span>90</span> <span class="pix__text"> sản phẩm</span>
+                <span>${totalProduct}</span> <span class="pix__text"> sản phẩm</span>
             </div>
 
             <!-- Sort Column -->
@@ -183,7 +183,7 @@ To change this template use File | Settings | File Templates.
         <div class="list__product__element">
             <!-- Sản phẩm -->
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="list__product__row">
-                <c:forEach var="b" items="${beltsList}" end="15">
+                <c:forEach var="b" items="${beltsList}">
                     <div class="col product__col">
                         <a href="${pageContext.request.contextPath}/productDetails?beltId=${b.id}"
                            class="text-decoration-none">
@@ -212,34 +212,26 @@ To change this template use File | Settings | File Templates.
     <nav aria-label="Page__navigation__example" id="pagination__bar">
         <div class="container paginationWrapper">
             <ul class="pagination pagination__Ul">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item pageNumber active">
-                    <a class="page-link" href="./allProduct1.html">1</a>
-                </li>
-                <li class="page-item pageNumber">
-                    <a class="page-link" href="./allProduct1.html">2</a>
-                </li>
-                <li class="page-item pageNumber">
-                    <a class="page-link" href="./allProduct1.html">3</a>
-                </li>
-                <li class="page-item pageNumber">
-                    <a class="page-link" href="./allProduct1.html">...</a>
-                </li>
-                <li class="page-item pageNumber">
-                    <a class="page-link" href="./allProduct1.html">10</a>
-                </li>
-                <li class="page-item pageNumber">
-                    <a class="page-link" href="./allProduct1.html">11</a>
-                </li>
-                <li class="page-item pageNumber">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
+                <c:forEach var="o" begin="1" end="${totalPages}" step="1">
+                    <li class="page-item ${o == currentPage ? 'active' : ''}">
+                        <a class="page-link" href="${pageContext.request.contextPath}/navigate?type=${type}&page=${o}">${o}</a>
+                    </li>
+                </c:forEach>
+                <%--                <li class="page-item pageNumber">--%>
+                <%--                    <a class="page-link" href="./allProduct1.html">2</a>--%>
+                <%--                </li>--%>
+                <%--                <li class="page-item pageNumber">--%>
+                <%--                    <a class="page-link" href="./allProduct1.html">3</a>--%>
+                <%--                </li>--%>
+                <%--                <li class="page-item pageNumber">--%>
+                <%--                    <a class="page-link" href="./allProduct1.html">...</a>--%>
+                <%--                </li>--%>
+                <%--                <li class="page-item pageNumber">--%>
+                <%--                    <a class="page-link" href="./allProduct1.html">10</a>--%>
+                <%--                </li>--%>
+                <%--                <li class="page-item pageNumber">--%>
+                <%--                    <a class="page-link" href="./allProduct1.html">11</a>--%>
+                <%--                </li>--%>
             </ul>
         </div>
     </nav>
