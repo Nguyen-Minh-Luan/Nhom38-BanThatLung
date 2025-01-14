@@ -15,11 +15,12 @@ public class searchController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UploadProductService uploadProductService = new UploadProductService();
-        String mainImage = "";
+        String mainImage = "assets/images/Gray Minimalist New Collection Banner (1) 1.jpg";
         String keyword = request.getParameter("keyword");
         request.setAttribute("keyword", keyword);
-        List<Belts> beltsList = uploadProductService.searchPrroduct(keyword);
+        List<Belts> beltsList = uploadProductService.searchProduct(keyword);
         request.setAttribute("beltsList", beltsList);
+        request.setAttribute("mainImage", mainImage);
         request.getRequestDispatcher("frontend/allProduct/allProduct1.jsp").forward(request, response);
     }
 

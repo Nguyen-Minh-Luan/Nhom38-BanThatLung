@@ -397,7 +397,7 @@
                                 </c:forEach>
                             </div>
                             <div class="text-center mt-4">
-                                <form action="newArrival2" method="get">
+                                <form action="newArrival" method="get">
                                     <button name="seeMore" class="btn seeMore">Xem Thêm</button>
                                 </form>
                             </div>
@@ -442,7 +442,7 @@
                                 </c:forEach>
                             </div>
                             <div class="text-center mt-4">
-                                <form action="newArrival2" method="get">
+                                <form action="newArrival" method="get">
                                     <button name="seeMore" class="btn seeMore">Xem Thêm</button>
                                 </form>
                             </div>

@@ -74,7 +74,7 @@
     </a>
 
     <a
-            href=""
+            href="${pageContext.request.contextPath}/index.jsp"
             class="navbar-brand d-sm-block ms-sm-3 ms-5 mr-5 d-md-block d-lg-none"
             id="logo"
     >
@@ -86,7 +86,7 @@
             <a href="${pageContext.request.contextPath}/index.jsp" class="nav-link">Trang Chủ</a>
         </li>
         <li class="nav-item">
-            <a href="${pageContext.request.contextPath}/frontend/collectionPage/collectionsPage.jsp" class="nav-link"
+            <a href="${pageContext.request.contextPath}/navigate?type=collection" class="nav-link"
             >Bộ Sưu Tập</a
             >
         </li>

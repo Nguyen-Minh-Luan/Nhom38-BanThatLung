@@ -9,10 +9,7 @@ import com.thomas.dao.model.Category;
 
 import java.io.PrintWriter;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class UploadProductService {
     ProductDao productDao;
@@ -320,11 +317,15 @@ public class UploadProductService {
         return filteredList;
     }
 
-    public List<Belts> searchPrroduct(String keyword) {
+    public List<Belts> searchProduct(String keyword) {
         List<Belts> list = new ArrayList<>();
+
         for (Belts belt : getAllProductsForDisplay()) {
-            if (belt.getName().equalsIgnoreCase(keyword)) {
-                list.add(belt);
+            StringTokenizer st = new StringTokenizer(belt.getName(), " ");
+            while (st.hasMoreTokens()) {
+                if (st.nextToken().equalsIgnoreCase(keyword)) {
+                    list.add(belt);
+                }
             }
         }
         return list;
