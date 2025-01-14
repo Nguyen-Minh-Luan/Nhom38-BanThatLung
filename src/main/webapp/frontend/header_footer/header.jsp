@@ -154,10 +154,15 @@
         </li>
     </ul>
     <div class="header__icon__group col-3">
-        <div class="search__container">
-            <input type="text" class="search__input" placeholder="Tìm kiếm...">
-            <button class="search__button" type="submit"><i class="fa-solid fa-magnifying-glass fa-l"></i></button>
-        </div>
+        <form action="search" method="get">
+            <div class="search__container d-flex align-items-center">
+                <input name="keyword" type="text" class="form-control search__input" placeholder="Tìm kiếm..."
+                       style="max-width: 150px;">
+                <button class="btn btn-outline-secondary search__button ms-2" type="submit">
+                    <i class="fa-solid fa-magnifying-glass fa-l"></i>
+                </button>
+            </div>
+        </form>
 
 
         <c:if test="${sessionScope.auth!=null}">

@@ -46,42 +46,55 @@ header {
 }
 
 /* ------------------------------------------- */
-.search__container {
-  flex-grow: 1; /* Để thanh tìm kiếm tự động mở rộng */
-  display: flex;
-  align-items: center;
-  max-width: 500px;
-  margin-right: 5%;
-  margin-top: 10%;
-}
+/*.header__icon__group {*/
+/*  display: flex; !* Sử dụng Flexbox *!*/
+/*  align-items: center; !* Căn giữa các icon theo trục dọc *!*/
+/*  justify-content: space-between; !* Phân phối đều các icon *!*/
+/*  gap: 20px; !* Khoảng cách giữa các icon *!*/
+/*  width: 100%; !* Đảm bảo nhóm icon chiếm toàn bộ không gian *!*/
+/*  max-width: 200px; !* Giới hạn chiều rộng tối đa nếu cần *!*/
+/*}*/
 
-.search__input {
-  flex-grow: 1;
-  width: 100%;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-right: none;
-  border-radius: 20px 0px 0px 20px;
-  font-size: 16px;
-}
+/*!* Các icon chung *!*/
+/*.nav-item {*/
+/*  display: flex; !* Sử dụng Flexbox cho nội dung bên trong icon *!*/
+/*  align-items: center; !* Căn giữa nội dung bên trong *!*/
+/*  justify-content: center; !* Căn giữa nội dung theo chiều ngang *!*/
+/*}*/
 
-.search__button {
-  /*border-top: 1px solid #ddd;*/
-  /*border-bottom: 1px solid #ddd;*/
-  /*border-right: 1px solid #ddd;*/
-  /*border-left: none;*/
-  /*padding: 8px 15px;*/
-  /*background-color: white;*/
-  /*border-radius: 0 20px 20px 0;*/
-  /*cursor: pointer;*/
-  /*font-size: 16px;*/
-}
+/*!* Icon cụ thể *!*/
+/*.nav-icon {*/
+/*  width: 26px; !* Chiều rộng cố định của icon *!*/
+/*  height: 26px; !* Chiều cao cố định của icon *!*/
+/*  cursor: pointer; !* Thêm hiệu ứng con trỏ *!*/
+/*}*/
+
+/*!* Search container *!*/
+/*.search__container {*/
+/*  display: flex; !* Sử dụng Flexbox cho thanh tìm kiếm *!*/
+/*  align-items: center;*/
+/*  border: 1px solid #ddd;*/
+/*  border-radius: 20px;*/
+/*  overflow: hidden;*/
+/*  max-width: 150px; !* Giới hạn kích thước nếu cần *!*/
+/*}*/
+
+/*.search__input {*/
+/*  flex: 1; !* Để input chiếm toàn bộ không gian trống *!*/
+/*  padding: 6px 10px;*/
+/*  border: none;*/
+/*  outline: none;*/
+/*}*/
+
+/*.search__button {*/
+/*  background-color: #007bff;*/
+/*  color: #fff;*/
+/*  border: none;*/
+/*  padding: 6px 10px;*/
+/*  cursor: pointer;*/
+/*}*/
 /* ------------------------------------------- */
-.nav-icon {
-  margin-top: 6px;
-  width: 30px;
-  height: 30px;
-}
+
 
 .header__icon__group {
   display: flex;
@@ -94,10 +107,6 @@ header {
   transition: all 0.3s;
 }
 
-.header__icon__group .user {
-  margin-top: -1%;
-  margin-left: 20%;
-}
 
 .header__icon__group .user:hover {
   transform: scale(1.2);

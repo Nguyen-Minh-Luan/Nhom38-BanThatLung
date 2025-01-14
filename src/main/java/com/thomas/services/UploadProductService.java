@@ -320,5 +320,14 @@ public class UploadProductService {
         return filteredList;
     }
 
+    public List<Belts> searchPrroduct(String keyword) {
+        List<Belts> list = new ArrayList<>();
+        for (Belts belt : getAllProductsForDisplay()) {
+            if (belt.getName().equalsIgnoreCase(keyword)) {
+                list.add(belt);
+            }
+        }
+        return list;
+    }
 
 }
