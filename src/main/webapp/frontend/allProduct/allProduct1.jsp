@@ -189,7 +189,7 @@
                                 </div>
                                 <div class="product__title mt-auto text-center">
                                     <h4 class="title">${b.name}</h4>
-                                    <p class="product__price">${b.price}</p>
+                                    <p class="product__price">${b.price} VNĐ</p>
                                 </div>
                             </div>
                         </a>
