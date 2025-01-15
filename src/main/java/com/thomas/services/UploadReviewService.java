@@ -34,7 +34,7 @@ public class UploadReviewService {
 
     public void setProductName(Reviews reviews) {
         if (reviews != null) {
-            String reviewerName = reviewDao.findProductNameByReviewId(reviews.getBeltId());
+            String reviewerName = reviewDao.findProductNameByReviewId(reviews.getId());
             reviews.setBeltName(reviewerName);
         }
     }

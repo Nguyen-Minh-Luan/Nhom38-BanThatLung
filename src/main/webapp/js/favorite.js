@@ -8,6 +8,11 @@ $(document).ready(function () {
     $(".favorite-button").on('click', function () {
         const beltId = $(this).closest(".card").find(".beltId").val();
         const userId = $(this).closest(".card").find(".userId").val();
+        if(userId === ""){
+            $(".custom_toast_text").text("Bạn chưa đăng nhập")
+            $("#liveToast").removeClass("hide").addClass("show")
+            return;
+        }
         $("#liveToast").removeClass("hide").addClass("show")
         console.log(beltId);
         console.log(userId);
@@ -45,7 +50,12 @@ $(document).ready(function () {
 
         console.log(beltId);
         console.log(userId);
-
+        if(userId === ""){
+            $(".custom_toast_text").text("Bạn chưa đăng nhập")
+            $("#liveToast").removeClass("hide").addClass("show")
+            $button.html(originalContent).prop("disabled", false);
+            return;
+        }
         $.ajax({
             url: `/favorite`,
             type: "POST",

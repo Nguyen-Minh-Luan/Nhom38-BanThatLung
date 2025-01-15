@@ -254,7 +254,6 @@
                 </c:if>
             </div>
         </a>
-        <c:if test="${sessionScope.auth!=null}">
             <a class="nav-item cart" href="${pageContext.request.contextPath}/Cart">
                 <input type="hidden" class="userId" value="${sessionScope.auth.id}">
                 <img
@@ -263,9 +262,8 @@
                         alt=""
                         style="width: 26px; height: 26px"
                 />
-                <span id="cart_received" class="nav-item favorite__count">0</span>
+                <span id="cart_received" class="nav-item favorite__count">${cartSize!=null ?cartSize:0}</span>
             </a>
-        </c:if>
 
     </div>
 </nav>

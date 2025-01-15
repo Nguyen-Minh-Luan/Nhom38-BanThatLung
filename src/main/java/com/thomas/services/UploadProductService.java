@@ -164,7 +164,7 @@ public class UploadProductService {
         Collections.sort(newArrivalBelts, new Comparator<Belts>() {
             @Override
             public int compare(Belts o1, Belts o2) {
-                return o1.getCreatedDate().compareTo(o2.getCreatedDate());
+                return o2.getCreatedDate().compareTo(o1.getCreatedDate());
             }
         });
         return newArrivalBelts;

@@ -53,7 +53,7 @@ public class NavigateController extends HttpServlet {
             String bigTitle = "Thắt Lưng Nữ";
             String mainImage = "assets/images/banner/z6088271164002_95c694291ffaeb61697b3ab7fdaf8065.png";
             request.setAttribute("mainImage", mainImage);
-            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "all");
+            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("N", "all");
             int totalProduct = beltsList.size();
             request.setAttribute("totalProduct", totalProduct);
             request.setAttribute("beltsList", beltsList);

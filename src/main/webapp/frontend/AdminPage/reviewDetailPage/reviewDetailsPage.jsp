@@ -1,5 +1,4 @@
 <jsp:useBean id="beltName" scope="request" type="java.lang.String"/>
-<jsp:useBean id="reviews" scope="request" type="com.thomas.dao.model.Reviews"/>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -221,7 +220,7 @@
                                                 name="beltName"
                                                 type="text"
                                                 class="col form-control form-control-lg custom_design custom__border"
-                                                value="${reviews.reviewerName}"
+                                                value="${review.reviewerName}"
                                                 disabled
                                         />
                                     </div>
@@ -235,7 +234,7 @@
                                                 name="tags"
                                                 class="col form-control form-control-lg custom_design custom__border"
                                                 disabled
-                                        >${reviews.content}</textarea>
+                                        >${review.content}</textarea>
                                     </div>
                                     <div class="row mb-3">
                                         <p
@@ -248,7 +247,7 @@
                                                 type="number"
                                                 class="col form-control form-control-lg custom_design custom__border"
                                                 placeholder="Nhập tên sản phẩm"
-                                                value="${reviews.reviewerStar}"
+                                                value="${review.reviewerStar}"
                                                 disabled
 
                                         />
@@ -258,11 +257,11 @@
                                         <p
                                                 class="col-3 mb-0 d-flex justify-content-end align-items-center fs-5"
                                         >
-                                            Ngày reviews
+                                            Ngày review
                                         </p>
                                         <input name="releaseDate" type="date"
                                                class="col form-control form-control-lg custom_design custom__border"
-                                               value="${reviews.createdAt}"
+                                               value="${review.createdAt}"
                                                disabled
                                         />
                                     </div>

@@ -136,9 +136,20 @@
                                    value=" ${belt.price}">
                         </c:otherwise>
                     </c:choose>
-                    <button type="submit" href="" class="buyNow__button btn btn-dark w-100 mb-4">
-                        Mua Ngay
-                    </button>
+                    <c:choose>
+                        <c:when test="${sessionScope.auth==null}">
+                            <button type="submit" href="" class="buyNow__button btn btn-dark w-100 mb-4" disabled>
+                                Mua Ngay
+                            </button>
+                            <p class="p-0">Dăng nhập để mua sản phẩm</p>
+                        </c:when>
+                        <c:otherwise>
+                            <button type="submit" href="" class="buyNow__button btn btn-dark w-100 mb-4">
+                                Mua Ngay
+                            </button>
+                        </c:otherwise>
+                    </c:choose>
+
                 </form>
 
                 <button class="addToCart__button btn-white me-2 w-100 mb-3" id="liveToastBtn" type="button">
@@ -273,7 +284,7 @@
                 </div>
                 <div class="d-flex justify-content-end">
                     <c:choose>
-                        <c:when test="${sessionScope.auth.image != null}">
+                        <c:when test="${sessionScope.auth != null}">
                             <button type="submit" class="btn btn-dark me-4 p-2 px-3 mt-3">Gửi đánh giá</button>
                         </c:when>
                         <c:otherwise>
