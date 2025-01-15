@@ -19,7 +19,7 @@ public class sortController extends HttpServlet {
         UploadProductService uploadProductService = new UploadProductService();
         HttpSession session = request.getSession();
         String descPrice = request.getParameter("descPrice");
-        List<Belts> sortedList = (List<Belts>) session.getAttribute("beltsList");
+        List<Belts> sortedList = (List<Belts>) request.getAttribute("beltsList");
         pagingforPage(request,uploadProductService.getSortedListBelts(descPrice, sortedList));
         request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
 

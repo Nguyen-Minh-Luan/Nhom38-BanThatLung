@@ -19,12 +19,33 @@ public class filterController extends HttpServlet {
         HttpSession session = request.getSession();
         UploadProductService uploadProductService = new UploadProductService();
 
-//        String type = request.getParameter("type");
+        String type = session.getAttribute("type").toString();
+        request.setAttribute("type", type);
         double min = Double.parseDouble(request.getParameter("minPrice"));
         double max = Double.parseDouble(request.getParameter("maxPrice"));
-        session.getAttribute("beltsList");
-        List<Belts> filteredList = (List<Belts>) session.getAttribute("beltsList");
-        pagingforPage(request,uploadProductService.filterProduct(filteredList, min, max));
+        List<Belts> filteredList = new ArrayList<>();
+        if (type.equalsIgnoreCase("all")) {
+            filteredList = uploadProductService.getAllProductsForDisplay();
+        }
+        if (type.equalsIgnoreCase("men")) {
+            filteredList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "all");
+        }
+        if (type.equalsIgnoreCase("women")) {
+            filteredList = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "all");
+        }
+        if (type.equalsIgnoreCase("menLeather")) {
+            filteredList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "da");
+        }
+        if (type.equalsIgnoreCase("menCanvas")) {
+            filteredList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "canvas");
+        }
+        if (type.equalsIgnoreCase("womenLeather")) {
+            filteredList = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "da");
+        }
+        if (type.equalsIgnoreCase("menCanvas")) {
+            filteredList = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "canvas");
+        }
+        pagingforPage(request, uploadProductService.filterProduct(filteredList, min, max));
         request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
     }
 

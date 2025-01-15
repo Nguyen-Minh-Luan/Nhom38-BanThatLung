@@ -239,7 +239,11 @@ public class UploadProductService {
         return list;
     }
 
+    public List<Belts> getBestSellerProduct(String type, List<Belts> list) {
+        List<Belts> bestSellerList = new ArrayList<>();
 
+        return bestSellerList;
+    }
     public List<Belts> getAllProductsForDisplay() {
         List<Belts> list = new ArrayList<>();
         productDao.getAllProductForDisplay().forEach((key, value) -> {

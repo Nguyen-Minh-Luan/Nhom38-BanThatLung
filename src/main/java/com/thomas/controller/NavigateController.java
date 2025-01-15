@@ -28,8 +28,11 @@ public class NavigateController extends HttpServlet {
             String bigTitle = "Tất cả Sản Phẩm";
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
-            request.setAttribute("type", type);
+//            request.setAttribute("type", type);
+            session.setAttribute("type", type);
             request.setAttribute("mainImage", mainImage);
+            List<Belts> listBelt = uploadProductService.getAllProductsForDisplay();
+            request.setAttribute("listBelt",listBelt);
             pagingforPage(request, uploadProductService.getAllProductsForDisplay());
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
@@ -42,6 +45,7 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
             request.setAttribute("mainImage", mainImage);
+            request.setAttribute("listBelt",uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "all"));
             pagingforPage(request, uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "all"));
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
@@ -49,14 +53,11 @@ public class NavigateController extends HttpServlet {
             String title = "Nữ";
             String bigTitle = "Thắt Lưng Nữ";
             String mainImage = "assets/images/banner/z6088271164002_95c694291ffaeb61697b3ab7fdaf8065.png";
-            request.setAttribute("mainImage", mainImage);
-            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("N", "all");
-            int totalProduct = beltsList.size();
-            request.setAttribute("totalProduct", totalProduct);
-            request.setAttribute("beltsList", beltsList);
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
+            request.setAttribute("mainImage", mainImage);
+            request.setAttribute("listBelt",uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "all"));
             pagingforPage(request, uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "all"));
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
@@ -68,6 +69,7 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
+            request.setAttribute("listBelt",uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "da"));
             pagingforPage(request, uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "da"));
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
@@ -79,6 +81,7 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
+            request.setAttribute("listBelt",uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "canvas"));
             pagingforPage(request, uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "canvas"));
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
@@ -90,6 +93,7 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
+            request.setAttribute("listBelt",uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "da"));
             pagingforPage(request, uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "da"));
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
@@ -101,6 +105,7 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
+            request.setAttribute("listBelt",uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "canvas"));
             pagingforPage(request, uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "canvas"));
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
