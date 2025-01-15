@@ -92,7 +92,7 @@ public class ReviewDao {
             String productName = h.createQuery(sql)
                     .bind("reviewId", reviewId)
                     .mapTo(String.class)
-                    .findOnly();
+                    .findOne().orElse(null);
 
             return productName;
         });
@@ -149,9 +149,9 @@ public class ReviewDao {
             try (Connection conn = handle.getConnection();
                  PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-                stmt.setInt(1, beltId); // Set the beltId parameter
-                stmt.setInt(2, size); // Set the page size (limit)
-                stmt.setInt(3, offset); // Set the offset for pagination
+                stmt.setInt(1, beltId);
+                stmt.setInt(2, size);
+                stmt.setInt(3, offset);
 
                 try (ResultSet rs = stmt.executeQuery()) {
                     while (rs.next()) {

@@ -22,7 +22,7 @@ public class AdminFilter implements Filter {
         User user = (User) session.getAttribute("auth");
         System.out.println(user);
         if (user == null || user.getRole() < 1) {
-            req.sendRedirect("/login");
+            req.sendRedirect("/");
             return;
         }
 

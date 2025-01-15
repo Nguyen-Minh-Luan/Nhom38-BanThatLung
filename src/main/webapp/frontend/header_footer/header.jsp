@@ -32,7 +32,7 @@
                 >
                     <hr class="w-100 ms-2"/>
                     <li class="nav-item mx-3">
-                        <a href="${pageContext.request.contextPath}/index.jsp" class="nav-link text-dark"
+                        <a href="${pageContext.request.contextPath}/" class="nav-link text-dark"
                         >Home</a
                         >
                     </li>
@@ -83,7 +83,7 @@
 
     <ul class="navbar-nav col-6 navitem__group d-sm-none d-md-none d-lg-flex">
         <li class="nav-item">
-            <a href="${pageContext.request.contextPath}/index.jsp" class="nav-link">Trang Chủ</a>
+            <a href="${pageContext.request.contextPath}/" class="nav-link">Trang Chủ</a>
         </li>
         <li class="nav-item">
             <a href="${pageContext.request.contextPath}/navigate?type=collection" class="nav-link"
@@ -254,7 +254,6 @@
                 </c:if>
             </div>
         </a>
-        <c:if test="${sessionScope.auth!=null}">
             <a class="nav-item cart" href="${pageContext.request.contextPath}/Cart">
                 <input type="hidden" class="userId" value="${sessionScope.auth.id}">
                 <img
@@ -263,9 +262,8 @@
                         alt=""
                         style="width: 26px; height: 26px"
                 />
-                <span id="cart_received" class="nav-item favorite__count">0</span>
+                <span id="cart_received" class="nav-item favorite__count">${cartSize!=null ?cartSize:0}</span>
             </a>
-        </c:if>
 
     </div>
 </nav>

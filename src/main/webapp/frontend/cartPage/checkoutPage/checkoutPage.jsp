@@ -187,7 +187,7 @@
                 <p class="text-muted small mb-0">(bao gồm cả thuế)</p>
             </div>
             <c:choose>
-                <c:when test="${userAddresses == null || paymentMethods == null || paymentMethods.isEmpty()}">
+                <c:when test="${userAddresses == null || paymentMethods == null || paymentMethods.isEmpty()||sessionScope.auth==null}">
                     <button
                             class="btn btn-dark mt-4 fs-4 custom__btn w-100" disabled
                             id="openFormButtonPayment">

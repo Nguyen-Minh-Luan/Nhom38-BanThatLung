@@ -28,7 +28,6 @@ public class couponAdminController extends HttpServlet {
                     int couponId = Integer.parseInt(request.getParameter("couponId"));
                     Coupon coupon = uploadCouponService.getCoupon(couponId);
 
-                    // Respond with user data in JSON format
                     response.setContentType("application/json");
                     response.setCharacterEncoding("UTF-8");
 

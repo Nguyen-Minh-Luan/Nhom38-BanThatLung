@@ -127,7 +127,10 @@
         <div class="col-3 mb-5 ps-5" style="width: 450px">
             <div class="row custom_insert">
                 <c:choose>
-                    <c:when test="${empty sessionScope.cart}">
+                    <c:when test="${empty sessionScope.cart || sessionScope.auth==null}">
+                        <c:if test="${sessionScope.auth==null}">
+                            <p class="ps-0">Vui lòng đăng nhập để thanh toán</p>
+                        </c:if>
                         <a
                                 href="#"
                                 class="btn btn-dark px-3 py-2 fs-5 custom_button checkoutPage disabled fw-bold"

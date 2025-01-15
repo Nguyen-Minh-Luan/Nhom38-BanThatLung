@@ -21,23 +21,19 @@ public class ReviewController extends HttpServlet {
         int page = Integer.parseInt(request.getParameter("page"));
         int size = Integer.parseInt(request.getParameter("size"));
 
-        // Calculate offset based on the page and size
+        //offset để skip bao nhiêu row trong csdl
         int offset = (page - 1) * size;
 
-        // Fetch reviews from the database (this part depends on your database and ORM)
         List<Reviews> reviews = uploadReviewService.getReviewsByBeltIdPagination(beltId, offset, size);
         for (Reviews review : reviews) {
             uploadReviewService.setReviewerName(review);
         }
         int totalReviews = uploadReviewService.getTotalReviewsCount(beltId);
 
-        // Prepare the reviews HTML
         String reviewsHTML = generateReviewsHTML(reviews);
 
-        // Calculate total pages
         int totalPages = (int) Math.ceil((double) totalReviews / size);
 
-        // Return the data as JSON
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
         out.write("{");
@@ -47,7 +43,6 @@ public class ReviewController extends HttpServlet {
     }
 
     private String generateReviewsHTML(List<Reviews> reviews) {
-        // Generate the HTML for the reviews (similar to what you have in your JSP)
         StringBuilder html = new StringBuilder();
         for (Reviews review : reviews) {
             html.append("<div class='d-flex flex-column'>");
