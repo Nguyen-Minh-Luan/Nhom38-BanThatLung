@@ -244,6 +244,7 @@ public class UploadProductService {
 
         return bestSellerList;
     }
+
     public List<Belts> getAllProductsForDisplay() {
         List<Belts> list = new ArrayList<>();
         productDao.getAllProductForDisplay().forEach((key, value) -> {
@@ -275,10 +276,6 @@ public class UploadProductService {
         });
         return list;
     }
-
-
-
-
 
 
     public List<Belts> getNewArrivals() {
@@ -343,4 +340,11 @@ public class UploadProductService {
         return list;
     }
 
+    public List<Belts> getBeltByViewCountHomePage() {
+        List<Belts> beltProduct = productDao.getBeltsByViewCountHomePage();
+        for (Belts belt : beltProduct) {
+            belt.setImage(getProductImages(belt.getId()));
+        }
+        return beltProduct;
+    }
 }

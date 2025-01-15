@@ -21,7 +21,7 @@ public class IndexServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         UploadProductService uploadProductService = new UploadProductService();
         List<Belts> newArrivalsList = uploadProductService.getNewArrivals();
-        List<Belts> mostPopular = uploadProductService.getBeltByViewCount();
+        List<Belts> mostPopular = uploadProductService.getBeltByViewCountHomePage();
         List<Belts> discountProduct = uploadProductService.getDiscountProductsForDisplay();
         request.setAttribute("newArrivalsList", newArrivalsList);
         request.setAttribute("mostPopularList", mostPopular);

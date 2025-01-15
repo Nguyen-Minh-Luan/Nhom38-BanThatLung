@@ -425,7 +425,7 @@
                                                  style="width: 19rem; height: 28rem;">
                                                 <div class="position-relative">
                                                     <img
-                                                            src="${pageContext.request.contextPath}${m.mainImage}"
+                                                            src="${pageContext.request.contextPath}${m.image[0]}"
                                                             class="card-img-top img-fluid product__image rounded"
                                                             alt="${m.name}"
                                                             style="height: 15rem; object-fit: cover;"
