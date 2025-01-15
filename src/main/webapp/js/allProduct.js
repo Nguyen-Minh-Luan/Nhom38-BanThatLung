@@ -2,30 +2,25 @@ $(document).ready(function () {
     $(".filter__title").on("click", function () {
         $("#dimmer3").toggleClass("active");
         $("#overlay3").toggleClass("active");
-
     });
 
-    $(document).ready(function () {
-        $(".apply__button").on("click", function () {
-            $("#dimmer3").toggleClass("active");
-            $("#overlay3").toggleClass("active");
-
-        });
-    })
-
+    $(".apply__button").on("click", function () {
+        $("#dimmer3").toggleClass("active");
+        $("#overlay3").toggleClass("active");
+    });
 
     $(document).on("click", function (event) {
-        if (!$(event.target).closest("#overlay, #menuButton").length) {
-            $("#overlay").removeClass("active");
-            $("#dimmer").removeClass("active");
+        if (!$(event.target).closest("#overlay3, .filter__title").length) {
+            $("#overlay3").removeClass("active");
+            $("#dimmer3").removeClass("active");
         }
     });
-    $("#closeButton").click(function () {
-        console.log(1);
+
+    $("#closeButton").on("click", function () {
         $("#overlay3").removeClass("active");
         $("#dimmer3").removeClass("active");
     });
-})
+});
 
 
 // $.ajax({
