@@ -30,7 +30,7 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
             request.setAttribute("mainImage", mainImage);
-            pagingforPage(request,uploadProductService.getAllProductsForDisplay());
+            pagingforPage(request, uploadProductService.getAllProductsForDisplay());
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("men")) {
@@ -38,14 +38,11 @@ public class NavigateController extends HttpServlet {
             String bigTitle = "Thắt Lưng Nam";
             String mainImage = "assets/images/banner/z6088271164003_2200fec21842ecda09fe85ab32825a86.jpg";
             request.setAttribute("mainImage", mainImage);
-            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "all");
-            int totalProduct = beltsList.size();
-            request.setAttribute("totalProduct", totalProduct);
-            request.setAttribute("beltsList", beltsList);
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
-            session.setAttribute("beltsList", beltsList);
+            request.setAttribute("mainImage", mainImage);
+            pagingforPage(request, uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "all"));
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("women")) {
@@ -53,14 +50,10 @@ public class NavigateController extends HttpServlet {
             String bigTitle = "Thắt Lưng Nữ";
             String mainImage = "assets/images/banner/z6088271164002_95c694291ffaeb61697b3ab7fdaf8065.png";
             request.setAttribute("mainImage", mainImage);
-            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "all");
-            int totalProduct = beltsList.size();
-            request.setAttribute("totalProduct", totalProduct);
-            request.setAttribute("beltsList", beltsList);
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
-            session.setAttribute("beltsList", beltsList);
+            pagingforPage(request, uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "all"));
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("menLeather")) {
@@ -68,13 +61,10 @@ public class NavigateController extends HttpServlet {
             String bigTitle = "Thắt Lưng Da Nam";
             String mainImage = "assets/images/banner/z6088271164003_2200fec21842ecda09fe85ab32825a86.jpg";
             request.setAttribute("mainImage", mainImage);
-            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "da");
-            int totalProduct = beltsList.size();
-            request.setAttribute("totalProduct", totalProduct);
-            request.setAttribute("beltsList", beltsList);
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
-            session.setAttribute("beltsList", beltsList);
+            request.setAttribute("type", type);
+            pagingforPage(request, uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "da"));
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("menCanvas")) {
@@ -82,13 +72,10 @@ public class NavigateController extends HttpServlet {
             String bigTitle = "Thắt lưng Canvas Nam";
             String mainImage = "assets/images/banner/z6088271164003_2200fec21842ecda09fe85ab32825a86.jpg";
             request.setAttribute("mainImage", mainImage);
-            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "canvas");
-            int totalProduct = beltsList.size();
-            request.setAttribute("totalProduct", totalProduct);
-            request.setAttribute("beltsList", beltsList);
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
-            session.setAttribute("beltsList", beltsList);
+            request.setAttribute("type", type);
+            pagingforPage(request, uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "canvas"));
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("womenLeather")) {
@@ -96,13 +83,10 @@ public class NavigateController extends HttpServlet {
             String bigTitle = "Thắt lưng Da Nữ";
             String mainImage = "assets/images/banner/z6088271164002_95c694291ffaeb61697b3ab7fdaf8065.png";
             request.setAttribute("mainImage", mainImage);
-            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "da");
-            int totalProduct = beltsList.size();
-            request.setAttribute("totalProduct", totalProduct);
-            request.setAttribute("beltsList", beltsList);
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
-            session.setAttribute("beltsList", beltsList);
+            request.setAttribute("type", type);
+            pagingforPage(request, uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "da"));
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("womenCanvas")) {
@@ -110,13 +94,10 @@ public class NavigateController extends HttpServlet {
             String bigTitle = "Thắt lưng Canvas Nữ";
             String mainImage = "assets/images/banner/z6088271164002_95c694291ffaeb61697b3ab7fdaf8065.png";
             request.setAttribute("mainImage", mainImage);
-            beltsList = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "canvas");
-            int totalProduct = beltsList.size();
-            request.setAttribute("totalProduct", totalProduct);
-            request.setAttribute("beltsList", beltsList);
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
-            session.setAttribute("beltsList", beltsList);
+            request.setAttribute("type", type);
+            pagingforPage(request, uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "canvas"));
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("collection")) {

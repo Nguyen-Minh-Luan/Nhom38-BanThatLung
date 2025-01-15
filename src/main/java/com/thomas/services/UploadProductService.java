@@ -232,7 +232,7 @@ public class UploadProductService {
             list.sort(new Comparator<Belts>() {
                 @Override
                 public int compare(Belts o1, Belts o2) {
-                    return o2.getReleaseDate().compareTo(o1.getReleaseDate());
+                    return o2.getTotalQuantity() - o1.getTotalQuantity();
                 }
             });
         }
@@ -258,6 +258,9 @@ public class UploadProductService {
         return list;
     }
 
+
+    // nghiêng cứu lại
+
     public List<Belts> getMostPopularProducts() {
         List<Belts> list = getAllProductsForDisplay();
         list.sort(new Comparator<Belts>() {
@@ -268,6 +271,11 @@ public class UploadProductService {
         });
         return list;
     }
+
+
+
+
+
 
     public List<Belts> getNewArrivals() {
         List<Belts> list = getAllProductsForDisplay();
@@ -323,7 +331,7 @@ public class UploadProductService {
         for (Belts belt : getAllProductsForDisplay()) {
             StringTokenizer st = new StringTokenizer(belt.getName(), " ");
             while (st.hasMoreTokens()) {
-                if (st.nextToken().equalsIgnoreCase(keyword)) {
+                if (st.nextToken().equalsIgnoreCase(keyword) || belt.getMaterialBelt().equalsIgnoreCase(keyword)) {
                     list.add(belt);
                 }
             }

@@ -20,8 +20,9 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         UploadProductService uploadProductService = new UploadProductService();
+        List<Belts> allProduct = uploadProductService.getAllProductsForDisplay();
         List<Belts> newArrivalsList = uploadProductService.getNewArrivals();
-        List<Belts> mostPopular = uploadProductService.getMostPopularProducts();
+        List<Belts> mostPopular = uploadProductService.getBeltByViewCount();
         List<Belts> discountProduct = uploadProductService.getDiscountProductsForDisplay();
         request.setAttribute("newArrivalsList", newArrivalsList);
         request.setAttribute("mostPopularList", mostPopular);

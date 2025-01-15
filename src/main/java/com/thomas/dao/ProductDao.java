@@ -387,17 +387,52 @@ public class ProductDao {
         );
     }
 
+//    public Map<Integer, Belts> getAllProductForDisplay() {
+//        Map<Integer, Belts> beltsList = new HashMap<>();
+//        return JDBIConnect.get().withHandle(handle -> {
+//            String sql = "SELECT b.id, b.name, bv.viewCount, bv.viewDate, b.description, b.price, b.gender, b.discountPercent, b.releaseDate , b.materialBelt , od.quantity, i.imagePath " +
+//                    "FROM belts b " +
+//                    "INNER JOIN imageentry i " +
+//                    "ON b.id = i.beltId " +
+//                    "INNER JOIN orderdetails od " +
+//                    "ON b.id = od.beltId " +
+//                    "INNER JOIN beltviews bv " +
+//                    "ON b.id = bv.beltId " +
+//                    "WHERE b.isDeleted = 0 and i.imageType = 'main' ";
+//            try (Handle h = handle) {
+//                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
+//                while (rs.next()) {
+//                    Belts belt = new Belts();
+//                    belt.setId(rs.getInt("id"));
+//                    belt.setName(rs.getString("name"));
+//                    belt.setViewCount(rs.getInt("viewCount"));
+//                    belt.setViewDate(rs.getDate("viewDate").toLocalDate());
+//                    belt.setDescription(rs.getString("description"));
+//                    belt.setPrice(rs.getDouble("price"));
+//                    belt.setGender(rs.getString("gender"));
+//                    belt.setDiscountPercent(rs.getDouble("discountPercent"));
+//                    belt.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
+//                    belt.setMaterialBelt(rs.getString("materialBelt"));
+//                    belt.setTotalQuantity(rs.getInt("quantity"));
+//                    belt.setMainImage(rs.getString("imagePath"));
+//                    beltsList.put(belt.getId(), belt);
+//
+//                }
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//            return beltsList;
+//        });
+//    }
+
+
     public Map<Integer, Belts> getAllProductForDisplay() {
         Map<Integer, Belts> beltsList = new HashMap<>();
         return JDBIConnect.get().withHandle(handle -> {
-            String sql = "SELECT b.id, b.name, bv.viewCount, bv.viewDate, b.description, b.price, b.gender, b.discountPercent, b.releaseDate , b.materialBelt , od.quantity, i.imagePath " +
+            String sql = "SELECT b.id, b.name, b.description, b.price, b.gender, b.discountPercent, b.releaseDate , b.materialBelt, i.imagePath " +
                     "FROM belts b " +
                     "INNER JOIN imageentry i " +
                     "ON b.id = i.beltId " +
-                    "INNER JOIN orderdetails od " +
-                    "ON b.id = od.beltId " +
-                    "INNER JOIN beltviews bv " +
-                    "ON b.id = bv.beltId " +
                     "WHERE b.isDeleted = 0 and i.imageType = 'main' ";
             try (Handle h = handle) {
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
@@ -405,15 +440,11 @@ public class ProductDao {
                     Belts belt = new Belts();
                     belt.setId(rs.getInt("id"));
                     belt.setName(rs.getString("name"));
-                    belt.setViewCount(rs.getInt("viewCount"));
-                    belt.setViewDate(rs.getDate("viewDate").toLocalDate());
-                    belt.setDescription(rs.getString("description"));
                     belt.setPrice(rs.getDouble("price"));
                     belt.setGender(rs.getString("gender"));
                     belt.setDiscountPercent(rs.getDouble("discountPercent"));
                     belt.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
                     belt.setMaterialBelt(rs.getString("materialBelt"));
-                    belt.setTotalQuantity(rs.getInt("quantity"));
                     belt.setMainImage(rs.getString("imagePath"));
                     beltsList.put(belt.getId(), belt);
 
@@ -465,6 +496,9 @@ public class ProductDao {
             return handle.createQuery(sql).bind("beltId", beltId).mapTo(String.class).list();
         });
     }
+
+
+
 //    public List<Belts> getCollectionProduct{
 //        return JDBIConnect.get().withHandle(handle -> {
 //            String sql = "SELECT b.id, b.name , b.price ,b.isDeleted , i.imagePath, i.imageType , c.`name` " +
