@@ -23,6 +23,7 @@ public class filterController extends HttpServlet {
         request.setAttribute("type", type);
         double min = Double.parseDouble(request.getParameter("minPrice"));
         double max = Double.parseDouble(request.getParameter("maxPrice"));
+        String mainImage = "/assets/images/allProduct.png";
         List<Belts> filteredList = new ArrayList<>();
         if (type.equalsIgnoreCase("all")) {
             filteredList = uploadProductService.getAllProductsForDisplay();
@@ -45,6 +46,7 @@ public class filterController extends HttpServlet {
         if (type.equalsIgnoreCase("menCanvas")) {
             filteredList = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "canvas");
         }
+        request.setAttribute("mainImage", mainImage);
         pagingforPage(request, uploadProductService.filterProduct(filteredList, min, max));
         request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
     }

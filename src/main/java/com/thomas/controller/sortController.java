@@ -18,9 +18,34 @@ public class sortController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UploadProductService uploadProductService = new UploadProductService();
         HttpSession session = request.getSession();
+        String mainImage = "/assets/images/allProduct.png";
         String descPrice = request.getParameter("descPrice");
-        List<Belts> sortedList = (List<Belts>) request.getAttribute("beltsList");
-        pagingforPage(request,uploadProductService.getSortedListBelts(descPrice, sortedList));
+        String type = session.getAttribute("type").toString();
+        request.setAttribute("type", type);
+        List<Belts> sortedList = new ArrayList<>();
+        if (type.equalsIgnoreCase("all")) {
+            sortedList = uploadProductService.getAllProductsForDisplay();
+        }
+        if (type.equalsIgnoreCase("men")) {
+            sortedList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "all");
+        }
+        if (type.equalsIgnoreCase("women")) {
+            sortedList = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "all");
+        }
+        if (type.equalsIgnoreCase("menLeather")) {
+            sortedList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "da");
+        }
+        if (type.equalsIgnoreCase("menCanvas")) {
+            sortedList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "canvas");
+        }
+        if (type.equalsIgnoreCase("womenLeather")) {
+            sortedList = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "da");
+        }
+        if (type.equalsIgnoreCase("menCanvas")) {
+            sortedList = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "canvas");
+        }
+        request.setAttribute("mainImage", mainImage);
+        pagingforPage(request, uploadProductService.getSortedListBelts(descPrice, sortedList));
         request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
 
     }
@@ -28,6 +53,7 @@ public class sortController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
+
     public void pagingforPage(HttpServletRequest request, List<Belts> beltsList) {
         HttpSession session = request.getSession();
         int currentPage = 1;
