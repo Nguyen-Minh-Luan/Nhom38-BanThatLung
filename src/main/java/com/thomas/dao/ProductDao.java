@@ -497,6 +497,37 @@ public class ProductDao {
         });
     }
 
+    public List<Belts> getBeltsByViewCountHomePage() {
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT b.* FROM belts b " +
+                    "JOIN beltViews bv ON b.id = bv.beltId " +
+                    "ORDER BY bv.viewCount DESC ";
+
+            List<Belts> beltsList = new ArrayList<>();
+            try (Handle h = handle) {
+                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
+                while (rs.next()) {
+                    Belts belt = new Belts();
+                    belt.setId(rs.getInt("id"));
+                    belt.setName(rs.getString("name"));
+                    belt.setDescription(rs.getString("description"));
+                    belt.setPrice(rs.getDouble("price"));
+                    belt.setGender(rs.getString("gender"));
+                    belt.setStockQuantity(rs.getInt("stockQuantity"));
+                    belt.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
+                    belt.setCreateDate(rs.getDate("createdAt").toLocalDate());
+                    belt.setUpdatedDate(rs.getDate("updatedAt").toLocalDate());
+                    belt.setIsDeleted(rs.getInt("isDeleted"));
+                    belt.setDiscountPercent(rs.getDouble("discountPercent"));
+                    belt.setMaterialBelt(rs.getString("materialBelt"));
+                    beltsList.add(belt);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return beltsList;
+        });
+    }
 
     public List<Belts> getCollectionProduct() {
         List<Belts> beltsList = new ArrayList<>();

@@ -55,8 +55,8 @@
         <div class="overlay__body d-flex align-items-left justify-content-between" style="height: 500px">
             <div class="w-100">
                 <c:set var="filterUrlBase" value="${pageContext.request.contextPath}/navigate?type=${param.type}" />
-                <c:if test="${param.sort != null}">
-                    <c:set var="filterUrlBase" value="${filterUrlBase}&sort=${param.descPrice}" />
+                <c:if test="${param.descPrice != null}">
+                    <c:set var="filterUrlBase" value="${filterUrlBase}&descPrice=${param.descPrice}" />
                 </c:if>
 
                 <div class="accordion border-top-0 w-100" id="filterAccordion">
@@ -99,7 +99,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>`
                 <div class="apply__container mt-3 d-flex flex-column">
                     <!-- Các liên kết áp dụng -->
                     <c:forEach var="priceRange" items="${['100-500', '500-900']}">

@@ -20,6 +20,8 @@ public class newArrivalController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String descPrice = request.getParameter("descPrice");
         List<Belts> newArrivalBelts = uploadProductService.getNewArrivalProducts();
+        String minPrice = request.getParameter("minPrice");
+        String maxPrice = request.getParameter("maxPrice");
         if (descPrice != null && !descPrice.trim().isEmpty()) {
             switch (descPrice.trim()) {
                 case "increase":
@@ -35,6 +37,9 @@ public class newArrivalController extends HttpServlet {
                     }
                     break;
             }
+        }
+        if (minPrice != null && maxPrice != null) {
+            newArrivalBelts = uploadProductService.filterProduct(newArrivalBelts, Double.parseDouble(minPrice), Double.parseDouble(maxPrice));
         }
         int currentPage = 1;
         String pageParam = request.getParameter("page");

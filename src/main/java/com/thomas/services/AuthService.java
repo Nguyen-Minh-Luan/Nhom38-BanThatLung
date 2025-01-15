@@ -9,6 +9,7 @@ public class AuthService {
         User u = udao.findUserEmail(email);
         if (u != null && password != null && u.getIsActive() == 1 && u.getIsDeleted() == 0) {
             if (MD5Service.hashPassword(password).equals(u.getPassword())) {
+                u.setPassword(null);
                 return u;
             }
         }

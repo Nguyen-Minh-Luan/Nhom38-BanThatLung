@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,13 +33,14 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/newArrivalPage.css"/>
+    <script src="${pageContext.request.contextPath}/js/allProduct.js"></script>
 
 </head>
 
 <body>
 <jsp:include page="/frontend/header_footer/header.jsp"/>
 <div id="dimmer3" class="dimmer2"></div>
-<div id="overlay3" class="d-sm-flex overlay border" style="width: 20%;">
+<div id="overlay3" class="d-sm-flex overlay border" style="width: 20%">
     <div class="overlay__content w-100">
         <div class="overlay__header d-flex w-100 justify-content-center align-items-center mt-2">
             <h3 class="filter__header__title mb-0">THOMAS</h3>
@@ -48,129 +50,81 @@
         </div>
         <div class="overlay__body d-flex align-items-left justify-content-between" style="height: 500px">
             <div class="w-100">
+                <c:set var="filterUrlBase" value="${pageContext.request.contextPath}/newArrival"/>
+                <c:if test="${param.descPrice != null}">
+                    <c:set var="filterUrlBase" value="${filterUrlBase}?descPrice=${param.descPrice}"/>
+                </c:if>
+
                 <div class="accordion border-top-0 w-100" id="filterAccordion">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingPrice">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
+                            <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapsePrice"
+                                    aria-expanded="false"
+                                    aria-controls="collapsePrice"
+                            >
                                 Giá
                             </button>
                         </h2>
-                        <div id="collapsePrice" class="accordion-collapse collapse" aria-labelledby="headingPrice"
-                             data-bs-parent="#filterAccordion">
+                        <div
+                                id="collapsePrice"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="headingPrice"
+                                data-bs-parent="#filterAccordion"
+                        >
                             <div class="accordion-body">
                                 <div class="dropdown-item d-flex align-items-center">
-                                    <input id="price1"
-                                           class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                           data-value="0-400000" data-id="price-0-400000" type="checkbox"/>
-                                    <p class="ms-2 mt-0 mb-0">
-                                        400.000</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input id="price1"
-                                           class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                           data-value="0-400000" data-id="price-0-400000" type="checkbox"/>
-                                    <p class="ms-2 mt-0 mb-0">400.000 - 600.000</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input id="price1"
-                                           class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                           data-value="0-400000" data-id="price-0-400000" type="checkbox"/>
-                                    <p class="ms-2 mt-0 mb-0">600.000 - 900.000</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input id="price1"
-                                           class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                           data-value="0-400000" data-id="price-0-400000" type="checkbox"/>
-                                    <p class="ms-2 mt-0 mb-0">> 900.000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingColor">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseColor" aria-expanded="false" aria-controls="collapseColor">
-                                Màu sắc
-                            </button>
-                        </h2>
-                        <div id="collapseColor" class="accordion-collapse collapse" aria-labelledby="headingColor"
-                             data-bs-parent="#filterAccordion">
-                            <div class="accordion-body">
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input id="color1"
-                                           class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                           type="checkbox"/>
-                                    <p class="ms-2 mt-0 mb-0">Trắng</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input id="color1"
-                                           class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                           type="checkbox"/>
-                                    <p class="ms-2 mt-0 mb-0">Trắng</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center custom_border_active">
-                                    <input id="color1"
-                                           class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                           type="checkbox"/>
-                                    <p class="ms-2 mt-0 mb-0">Đỏ</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input id="color1"
-                                           class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                           type="checkbox"/>
-                                    <p class="ms-2 mt-0 mb-0">Vàng</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingSize">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseSize" aria-expanded="false" aria-controls="collapseSize">
-                                Kích cỡ
-                            </button>
-                        </h2>
-                        <div id="collapseSize" class="accordion-collapse collapse" aria-labelledby="headingSize"
-                             data-bs-parent="#filterAccordion">
-                            <div class="accordion-body">
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input id="size1"
-                                           class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                           type="checkbox"/>
-                                    <p class="ms-2 mt-0 mb-0">80</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input id="size1"
-                                           class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                           type="checkbox"/>
-                                    <p class="ms-2 mt-0 mb-0">90</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center custom_border_active">
-                                    <input id="size1"
-                                           class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                           type="checkbox"/>
-                                    <p class="ms-2 mt-0 mb-0">100</p>
-                                </div>
-                                <div class="dropdown-item d-flex align-items-center">
-                                    <input id="size1"
-                                           class="form-check-input filter-item border border-dark mb-0 mt-0"
-                                           type="checkbox"/>
-                                    <p class="ms-2 mt-0 mb-0">120</p>
+                                    <c:choose>
+                                        <c:when test="${param.minPrice != null || param.maxPrice != null}">
+                                            <a href="${filterUrlBase}&minPrice=100&maxPrice=500"
+                                               class="filter-item text-decoration-none">
+                                                Giá từ 100.000 VNĐ đến 500.000 VNĐ
+                                            </a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="${filterUrlBase}"
+                                               class="filter-item text-decoration-none">
+                                                Giá mặc định
+                                            </a>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="apply__container">
-                    <button class="apply__button">Áp dụng</button>
+                `
+                <div class="apply__container mt-3 d-flex flex-column">
+                    <!-- Các liên kết áp dụng -->
+                    <c:forEach var="priceRange" items="${['100-500', '500-900']}">
+                        <c:set var="minPrice" value="${fn:split(priceRange, '-')[0]}"/>
+                        <c:set var="maxPrice" value="${fn:split(priceRange, '-')[1]}"/>
+                        <c:choose>
+                            <c:when test="${param.descPrice!=null}">
+                                <a href="${filterUrlBase}&minPrice=${minPrice}&maxPrice=${maxPrice}"
+                                   class="apply__button text-decoration-none d-block mt-2 p-2">
+                                    Giá từ ${minPrice}.000 VNĐ đến ${maxPrice}.000 VNĐ
+                                </a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="${filterUrlBase}?minPrice=${minPrice}&maxPrice=${maxPrice}"
+                                   class="apply__button text-decoration-none d-block mt-2 p-2">
+                                    Giá từ ${minPrice}.000 VNĐ đến ${maxPrice}.000 VNĐ
+                                </a>
+                            </c:otherwise>
+                        </c:choose>
+
+                    </c:forEach>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
+
 <header id="header">
 
 </header>
@@ -212,15 +166,15 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item active" href="#">Mặc Định</a></li>
                             <li><a class="dropdown-item"
-                                   href="${pageContext.request.contextPath}/newArrival?page=${param.page}&descPrice=increase">Giá
+                                   href="${pageContext.request.contextPath}/newArrival?page=${param.page}&descPrice=increase${not empty param.minPrice ? '&minPrice='.concat(param.minPrice) : ''}${not empty param.maxPrice ? '&maxPrice='.concat(param.maxPrice) : ''}">Giá
                                 Tăng
                                 Dần</a></li>
                             <li><a class="dropdown-item"
-                                   href="${pageContext.request.contextPath}/newArrival?page=${param.page}&descPrice=decrease">Giá
+                                   href="${pageContext.request.contextPath}/newArrival?page=${param.page}&descPrice=decrease${not empty param.minPrice ? '&minPrice='.concat(param.minPrice) : ''}${not empty param.maxPrice ? '&maxPrice='.concat(param.maxPrice) : ''}">Giá
                                 Giảm
                                 Dần</a></li>
                             <li><a class="dropdown-item"
-                                   href="${pageContext.request.contextPath}/newArrival?page=${param.page}&descPrice=hotSelling">Bán
+                                   href="${pageContext.request.contextPath}/newArrival?page=${param.page}&descPrice=hotSelling${not empty param.minPrice ? '&minPrice='.concat(param.minPrice) : ''}${not empty param.maxPrice ? '&maxPrice='.concat(param.maxPrice) : ''}">Bán
                                 Chạy
                                 Nhất</a></li>
                         </ul>
@@ -265,7 +219,7 @@
                 <!-- Previous Button -->
                 <li class="page-item ${currentPage == 1 ? 'disabled' : ''}">
                     <a class="page-link"
-                       href="${pageContext.request.contextPath}/newArrival?page=${currentPage > 1 ? currentPage - 1 : 1}${not empty param.descPrice ? '&descPrice='.concat(param.descPrice) : ''}"
+                       href="${pageContext.request.contextPath}/newArrival?page=${currentPage > 1 ? currentPage - 1 : 1}${not empty param.descPrice ? '&descPrice='.concat(param.descPrice) : ''}${not empty param.minPrice ? '&minPrice='.concat(param.minPrice) : ''}${not empty param.maxPrice ? '&maxPrice='.concat(param.maxPrice) : ''}"
                     ${currentPage == 1 ? 'aria-disabled="true"' : ''}
                        aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
@@ -276,14 +230,14 @@
                 <c:forEach var="i" begin="1" end="${totalPages}" step="1">
                     <li class="page-item ${i == currentPage ? 'active' : ''}">
                         <a class="page-link"
-                           href="${pageContext.request.contextPath}/newArrival?page=${i}${not empty param.descPrice ? '&descPrice='.concat(param.descPrice) : ''}">${i}</a>
+                           href="${pageContext.request.contextPath}/newArrival?page=${i}${not empty param.descPrice ? '&descPrice='.concat(param.descPrice) : ''}${not empty param.minPrice ? '&minPrice='.concat(param.minPrice) : ''}${not empty param.maxPrice ? '&maxPrice='.concat(param.maxPrice) : ''}">${i}</a>
                     </li>
                 </c:forEach>
 
                 <!-- Next Button -->
                 <li class="page-item ${currentPage == totalPages ? 'disabled' : ''}">
                     <a class="page-link"
-                       href="${pageContext.request.contextPath}/newArrival?page=${currentPage < totalPages ? currentPage + 1 : totalPages}${not empty param.descPrice ? '&descPrice='.concat(param.descPrice) : ''}"
+                       href="${pageContext.request.contextPath}/newArrival?page=${currentPage < totalPages ? currentPage + 1 : totalPages}${not empty param.descPrice ? '&descPrice='.concat(param.descPrice) : ''}${not empty param.minPrice ? '&minPrice='.concat(param.minPrice) : ''}${not empty param.maxPrice ? '&maxPrice='.concat(param.maxPrice) : ''}"
                     ${currentPage == totalPages ? 'aria-disabled="true"' : ''}
                        aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>

@@ -19,6 +19,7 @@ public class confirmActiveController extends HttpServlet {
         boolean active = tokenService.activeUser(token);
         if (isValid && active) {
             request.setAttribute("active", 1);
+            request.setAttribute("messageRedirect", "Liên kết kích hoặc không hợp lệ");
         }
         if (message != null) {
             request.setAttribute("messageRedirect", message);
