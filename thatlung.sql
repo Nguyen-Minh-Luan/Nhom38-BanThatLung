@@ -101,7 +101,7 @@ CREATE TABLE imageEntry
 CREATE TABLE collections
 (
     id     INT AUTO_INCREMENT PRIMARY KEY,
-    name   VARCHAR(255) NOT NULL,
+    collectionName   VARCHAR(255) NOT NULL,
     beltId INT          NOT NULL,
     FOREIGN KEY (beltId) REFERENCES belts (id) ON DELETE CASCADE ON UPDATE CASCADE
 );

@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,131 +58,44 @@
     <div class="col-6 mt-5">
         <div class="row">
             <div class="cardWrapper">
-                <div class="card" style="position: relative">
-                    <div
-                            style="position: absolute; top: 10px; right: 10px; z-index: 10"
-                    >
-                        <svg
-                                class="custom_favorite_click"
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="24px"
-                                viewBox="0 -960 960 960"
-                                width="24px"
-                                fill="#000000"
-                        >
-                            <path
-                                    d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
-                            />
-                        </svg>
-                    </div>
-                    <img
-                            src="${pageContext.request.contextPath}/assets/images/victor_sample1.png"
-                            class="card-img-top"
-                            alt="..."
-                    />
-                    <a href="${pageContext.request.contextPath}/frontend/productDetail/productDetail.jsp">
-                        <div class="card-body text-start">
-                            <h5 class="card-title text-start">
-                                Thắt Lưng Hai Mặt LV Heritage 35MM
-                            </h5>
-                            <p class="card-text text-start">100.000 VNĐ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card" style="position: relative">
-                    <div
-                            style="position: absolute; top: 10px; right: 10px; z-index: 10"
-                    >
-                        <svg
-                                class="custom_favorite_click"
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="24px"
-                                viewBox="0 -960 960 960"
-                                width="24px"
-                                fill="#000000"
-                        >
-                            <path
-                                    d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
-                            />
-                        </svg>
-                    </div>
-                    <img
-                            src="${pageContext.request.contextPath}/assets/images/victor_sample1.png"
-                            class="card-img-top"
-                            alt="..."
-                    />
-                    <a href="../productDetail/productDetail.jsp">
-                        <div class="card-body text-start">
-                            <h5 class="card-title text-start">
-                                Thắt Lưng Hai Mặt LV Heritage 35MM
-                            </h5>
-                            <p class="card-text text-start">100.000 VNĐ</p>
-                        </div>
-                    </a>
-                </div>
 
-                <div class="card" style="position: relative">
-                    <div
-                            style="position: absolute; top: 10px; right: 10px; z-index: 10"
-                    >
-                        <svg
-                                class="custom_favorite_click"
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="24px"
-                                viewBox="0 -960 960 960"
-                                width="24px"
-                                fill="#000000"
+
+                <c:forEach var="i" items="${beltsList}" end="3">
+
+                    <div class="card" style="position: relative">
+                        <div
+                                style="position: absolute; top: 10px; right: 10px; z-index: 10"
                         >
-                            <path
-                                    d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
-                            />
-                        </svg>
-                    </div>
-                    <img
-                            src="${pageContext.request.contextPath}/assets/images/victor_sample1.png"
-                            class="card-img-top"
-                            alt="..."
-                    />
-                    <a href="../productDetail/productDetail.jsp">
-                        <div class="card-body text-start">
-                            <h5 class="card-title text-start">
-                                Thắt Lưng Hai Mặt LV Heritage 35MM
-                            </h5>
-                            <p class="card-text text-start">100.000 VNĐ</p>
+                            <svg
+                                    class="custom_favorite_click"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    height="24px"
+                                    viewBox="0 -960 960 960"
+                                    width="24px"
+                                    fill="#000000"
+                            >
+                                <path
+                                        d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+                                />
+                            </svg>
                         </div>
-                    </a>
-                </div>
-                <div class="card" style="position: relative">
-                    <div
-                            style="position: absolute; top: 10px; right: 10px; z-index: 10"
-                    >
-                        <svg
-                                class="custom_favorite_click"
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="24px"
-                                viewBox="0 -960 960 960"
-                                width="24px"
-                                fill="#000000"
-                        >
-                            <path
-                                    d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
-                            />
-                        </svg>
+                        <img
+                                src="${pageContext.request.contextPath}${i.mainImage}"
+                                class="card-img-top"
+                                alt="..."
+                        />
+                        <a href="${pageContext.request.contextPath}/productDetails?beltId=${i.id}">
+                            <div class="card-body text-start">
+                                <h5 class="card-title text-start">
+                                        ${i.name}
+                                </h5>
+                                <p class="card-text text-start">${i.price} VNĐ</p>
+                            </div>
+                        </a>
                     </div>
-                    <img
-                            src="${pageContext.request.contextPath}/assets/images/victor_sample1.png"
-                            class="card-img-top"
-                            alt="..."
-                    />
-                    <a href="../productDetail/productDetail.jsp">
-                        <div class="card-body text-start">
-                            <h5 class="card-title text-start">
-                                Thắt Lưng Hai Mặt LV Heritage 35MM
-                            </h5>
-                            <p class="card-text text-start">100.000 VNĐ</p>
-                        </div>
-                    </a>
-                </div>
+                </c:forEach>
+
+
             </div>
         </div>
         <section class="container ps-0 mt-5 pe-4 mb-5">
@@ -206,7 +121,7 @@
             </div>
             <div class="text-center mt-4">
                 <a
-                        href="${pageContext.request.contextPath}/frontend/collectionPage/collectionSection/collectionSection.jsp"
+                        href="${pageContext.request.contextPath}/navigate?type=collectionSection&collectionName=VICTOR"
                         class="btn btn-outline-dark see-more-btn w-100 fs-4"
                 >
                     XEM THÊM
@@ -229,131 +144,43 @@
 <div class="container d-flex">
     <div class="col-6 mt-5">
         <div class="cardWrapper">
-            <div class="card" style="position: relative">
-                <div
-                        style="position: absolute; top: 10px; right: 10px; z-index: 10"
-                >
-                    <svg
-                            class="custom_favorite_click"
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="24px"
-                            viewBox="0 -960 960 960"
-                            width="24px"
-                            fill="#000000"
-                    >
-                        <path
-                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
-                        />
-                    </svg>
-                </div>
-                <img
-                        src="${pageContext.request.contextPath}/assets/images/victor_sample1.png"
-                        class="card-img-top"
-                        alt="..."
-                />
-                <a href="../productDetail/productDetail.jsp">
-                    <div class="card-body text-start">
-                        <h5 class="card-title text-start">
-                            Thắt Lưng Hai Mặt LV Heritage 35MM
-                        </h5>
-                        <p class="card-text text-start">100.000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="card" style="position: relative">
-                <div
-                        style="position: absolute; top: 10px; right: 10px; z-index: 10"
-                >
-                    <svg
-                            class="custom_favorite_click"
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="24px"
-                            viewBox="0 -960 960 960"
-                            width="24px"
-                            fill="#000000"
-                    >
-                        <path
-                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
-                        />
-                    </svg>
-                </div>
-                <img
-                        src="${pageContext.request.contextPath}/assets/images/victor_sample1.png"
-                        class="card-img-top"
-                        alt="..."
-                />
-                <a href="../productDetail/productDetail.jsp">
-                    <div class="card-body text-start">
-                        <h5 class="card-title text-start">
-                            Thắt Lưng Hai Mặt LV Heritage 35MM
-                        </h5>
-                        <p class="card-text text-start">100.000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
 
-            <div class="card" style="position: relative">
-                <div
-                        style="position: absolute; top: 10px; right: 10px; z-index: 10"
-                >
-                    <svg
-                            class="custom_favorite_click"
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="24px"
-                            viewBox="0 -960 960 960"
-                            width="24px"
-                            fill="#000000"
+
+            <c:forEach var="j" items="${beltsList}" begin="4">
+                <div class="card" style="position: relative">
+                    <div
+                            style="position: absolute; top: 10px; right: 10px; z-index: 10"
                     >
-                        <path
-                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
-                        />
-                    </svg>
-                </div>
-                <img
-                        src="${pageContext.request.contextPath}/assets/images/victor_sample1.png"
-                        class="card-img-top"
-                        alt="..."
-                />
-                <a href="../productDetail/productDetail.jsp">
-                    <div class="card-body text-start">
-                        <h5 class="card-title text-start">
-                            Thắt Lưng Hai Mặt LV Heritage 35MM
-                        </h5>
-                        <p class="card-text text-start">100.000 VNĐ</p>
+                        <svg
+                                class="custom_favorite_click"
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="24px"
+                                viewBox="0 -960 960 960"
+                                width="24px"
+                                fill="#000000"
+                        >
+                            <path
+                                    d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+                            />
+                        </svg>
                     </div>
-                </a>
-            </div>
-            <div class="card" style="position: relative">
-                <div
-                        style="position: absolute; top: 10px; right: 10px; z-index: 10"
-                >
-                    <svg
-                            class="custom_favorite_click"
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="24px"
-                            viewBox="0 -960 960 960"
-                            width="24px"
-                            fill="#000000"
-                    >
-                        <path
-                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
-                        />
-                    </svg>
+                    <img
+                            src="${pageContext.request.contextPath}${j.mainImage}"
+                            class="card-img-top"
+                            alt="..."
+                    />
+                    <a href="${pageContext.request.contextPath}/productDetails?beltId=${j.id}">
+                        <div class="card-body text-start">
+                            <h5 class="card-title text-start">
+                                    ${j.name}
+                            </h5>
+                            <p class="card-text text-start">${j.name} VNĐ</p>
+                        </div>
+                    </a>
                 </div>
-                <img
-                        src="${pageContext.request.contextPath}/assets/images/victor_sample1.png"
-                        class="card-img-top"
-                        alt="..."
-                />
-                <a href="../productDetail/productDetail.jsp">
-                    <div class="card-body text-start">
-                        <h5 class="card-title text-start">
-                            Thắt Lưng Hai Mặt LV Heritage 35MM
-                        </h5>
-                        <p class="card-text text-start">100.000 VNĐ</p>
-                    </div>
-                </a>
-            </div>
+            </c:forEach>
+
+
         </div>
         <section class="container ps-0 mt-5 pe-4 mb-5">
             <div class="description-section">
@@ -379,7 +206,7 @@
             </div>
             <div class="text-center mt-4">
                 <a
-                        href="${pageContext.request.contextPath}/frontend/collectionPage/collectionSection/collectionSection.jsp"
+                        href="${pageContext.request.contextPath}/navigate?type=collectionSection&collectionName=EMO"
                         class="btn btn-outline-dark see-more-btn w-100 fs-4"
                 >
                     XEM THÊM

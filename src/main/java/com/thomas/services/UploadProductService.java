@@ -229,12 +229,16 @@ public class UploadProductService {
             });
         }
         if ("bestSeller".equals(type)) {
-            list.sort(new Comparator<Belts>() {
-                @Override
-                public int compare(Belts o1, Belts o2) {
-                    return o2.getTotalQuantity() - o1.getTotalQuantity();
+            List<Belts> temp = productDao.getHotSellingProducts();
+            List<Belts> result = new ArrayList<>();
+            for (Belts belt : list) {
+                for (Belts tempBelt : temp) {
+                    if (tempBelt.getId() == belt.getId()) {
+                        result.add(belt);
+                    }
                 }
-            });
+            }
+            return result;
         }
         return list;
     }
@@ -244,6 +248,7 @@ public class UploadProductService {
 
         return bestSellerList;
     }
+
     public List<Belts> getAllProductsForDisplay() {
         List<Belts> list = new ArrayList<>();
         productDao.getAllProductForDisplay().forEach((key, value) -> {
@@ -265,20 +270,16 @@ public class UploadProductService {
 
     // nghiêng cứu lại
 
-    public List<Belts> getMostPopularProducts() {
-        List<Belts> list = getAllProductsForDisplay();
-        list.sort(new Comparator<Belts>() {
-            @Override
-            public int compare(Belts o1, Belts o2) {
-                return (int) o2.getViewCount() - o1.getViewCount();
-            }
-        });
-        return list;
-    }
-
-
-
-
+//    public List<Belts> getMostPopularProducts() {
+//        List<Belts> list = getAllProductsForDisplay();
+//        list.sort(new Comparator<Belts>() {
+//            @Override
+//            public int compare(Belts o1, Belts o2) {
+//                return (int) o2.getViewCount() - o1.getViewCount();
+//            }
+//        });
+//        return list;
+//    }
 
 
     public List<Belts> getNewArrivals() {
@@ -343,4 +344,17 @@ public class UploadProductService {
         return list;
     }
 
+    public List<Belts> getCollection() {
+        return productDao.getCollectionProduct();
+    }
+
+    public List<Belts> getProductInCollection(String collectionName) {
+        List<Belts> list = new ArrayList<>();
+        for (Belts belt : productDao.getCollectionProduct()) {
+            if (belt.getCollectionOf().equalsIgnoreCase(collectionName)) {
+                list.add(belt);
+            }
+        }
+        return list;
+    }
 }

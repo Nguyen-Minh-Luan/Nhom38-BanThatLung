@@ -498,17 +498,31 @@ public class ProductDao {
     }
 
 
-
-//    public List<Belts> getCollectionProduct{
-//        return JDBIConnect.get().withHandle(handle -> {
-//            String sql = "SELECT b.id, b.name , b.price ,b.isDeleted , i.imagePath, i.imageType , c.`name` " +
-//                    "FROM belts b inner join imageentry i " +
-//                    "on b.id = i.beltId " +
-//                    "inner join collections c " +
-//                    "on b.id = c.beltId " +
-//                    "where b.isDeleted = 0 AND i.imageType = 'main'";
-//            return handle.ex
-//        });
-//    }
+    public List<Belts> getCollectionProduct() {
+        List<Belts> beltsList = new ArrayList<>();
+        return JDBIConnect.get().withHandle(handle -> {
+            String sql = "SELECT b.id, b.name , b.price , i.imagePath , c.collectionName " +
+                    "FROM belts b inner join imageentry i " +
+                    "on b.id = i.beltId " +
+                    "inner join collections c " +
+                    "on b.id = c.beltId " +
+                    "where b.isDeleted = 0 AND i.imageType = 'main'";
+            try (Handle h = handle) {
+                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
+                while (rs.next()) {
+                    Belts belt = new Belts();
+                    belt.setId(rs.getInt("id"));
+                    belt.setName(rs.getString("name"));
+                    belt.setPrice(rs.getDouble("price"));
+                    belt.setMainImage(rs.getString("imagePath"));
+                    belt.setCollectionOf(rs.getString("collectionName"));
+                    beltsList.add(belt);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return beltsList;
+        });
+    }
 
 }
