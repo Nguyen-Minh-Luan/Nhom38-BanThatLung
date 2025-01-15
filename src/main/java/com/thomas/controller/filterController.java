@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @WebServlet(name = "filterController", value = "/filter")
 public class filterController extends HttpServlet {
@@ -17,48 +18,48 @@ public class filterController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         UploadProductService uploadProductService = new UploadProductService();
+
 //        String type = request.getParameter("type");
         double min = Double.parseDouble(request.getParameter("minPrice"));
         double max = Double.parseDouble(request.getParameter("maxPrice"));
         session.getAttribute("beltsList");
         List<Belts> filteredList = (List<Belts>) session.getAttribute("beltsList");
-        session.setAttribute("beltsList", uploadProductService.filterProduct(filteredList, min, max));
+        pagingforPage(request,uploadProductService.filterProduct(filteredList, min, max));
         request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
-//        if (type.equals("all")) {
-//            List<Belts> filteredList = (List<Belts>) session.getAttribute("beltsList");
-//            List<Belts> beltsList = uploadProductService.filterProduct(filteredList, min, max);
-//            request.setAttribute("allProductList", beltsList);
-//            request.setAttribute("type", type);
-//        }
-//        if (type.equals("men")) {
-//            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "all"), min, max);
-//            request.setAttribute("beltsList", beltsList);
-//        }
-//        if (type.equals("menLeather")) {
-//            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "da"), min, max);
-//            request.setAttribute("beltsList", beltsList);
-//        }
-//        if (type.equals("menCanvas")) {
-//            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "canvas"), min, max);
-//            request.setAttribute("beltsList", beltsList);
-//        }
-//        if (type.equals("women")) {
-//            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("W", "all"), min, max);
-//            request.setAttribute("beltsList", beltsList);
-//        }
-//        if (type.equals("womenLeather")) {
-//            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("W", "da"), min, max);
-//            request.setAttribute("beltsList", beltsList);
-//        }
-//        if (type.equals("womenCanvas")) {
-//            List<Belts> beltsList = uploadProductService.filterProduct(uploadProductService.getMaleOrFemaleAndMaterialProducts("W", "canvas"), min, max);
-//            request.setAttribute("beltsList", beltsList);
-//        }
-
-//        request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    }
+
+    public void pagingforPage(HttpServletRequest request, List<Belts> beltsList) {
+        HttpSession session = request.getSession();
+        int currentPage = 1;
+        String pageParam = request.getParameter("page");
+        if (pageParam != null && !pageParam.trim().isEmpty()) {
+            try {
+                currentPage = Math.max(1, Integer.parseInt(pageParam.trim()));
+            } catch (NumberFormatException e) {
+                Logger.getLogger(getClass().getName()).warning("Invalid page parameter: " + pageParam);
+            }
+        }
+
+        int totalProduct = beltsList.size();
+        int itemPerPage = 12;
+        int totalPages = totalProduct / itemPerPage;
+        if (totalProduct % itemPerPage != 0) {
+            totalPages += 1;
+        }
+        currentPage = Math.min(currentPage, totalPages);
+        int startIndex = (currentPage - 1) * itemPerPage; // lấy sản phẩm tiếp theo trong danh sách
+        int endIndex = Math.min(startIndex + itemPerPage, totalProduct);
+        List<Belts> beltsForPage = startIndex < totalProduct // tạo ra 1 list mới để chứa những sản phẩm kế tiếp trong trang hiện tại
+                ? beltsList.subList(startIndex, endIndex)
+                : new ArrayList<>();
+
+        request.setAttribute("totalProduct", totalProduct);
+        request.setAttribute("totalPages", totalPages);
+        request.setAttribute("currentPage", currentPage);
+        session.setAttribute("beltsList", beltsForPage);
     }
 }
