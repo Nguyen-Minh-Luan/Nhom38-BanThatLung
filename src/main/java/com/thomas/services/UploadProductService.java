@@ -333,11 +333,8 @@ public class UploadProductService {
         List<Belts> list = new ArrayList<>();
 
         for (Belts belt : getAllProductsForDisplay()) {
-            StringTokenizer st = new StringTokenizer(belt.getName(), " ");
-            while (st.hasMoreTokens()) {
-                if (st.nextToken().equalsIgnoreCase(keyword) || belt.getMaterialBelt().equalsIgnoreCase(keyword)) {
-                    list.add(belt);
-                }
+            if (belt.getName().equals(keyword)) {
+                list.add(belt);
             }
         }
         return list;

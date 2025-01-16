@@ -26,7 +26,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css"/>
     <style>
-        <style>
+        <
+        style >
         .cardProduct {
             border-radius: 12px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -85,7 +86,6 @@
     </style>
 
 
-
     </style>
 </head>
 
@@ -136,35 +136,50 @@
 <div class="mostPopular__component">
     <p class="fs-3 fw-light my-5 text-center">Các sản phẩm trong bộ sưu tập</p>
     <div class="container">
-        <div class="row g-3">
 
 
-            <c:forEach var="n" items="${collectionList}">
-                <div class="product__column col-md-3 col-sm-6 ">
-                    <div class="cardProduct card h-100 ">
-                        <div style="position: absolute; top: 10px; right: 10px; z-index: 10;">
-                            <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg" height="24px"
-                                 viewBox="0 -960 960 960" width="24px" fill="#000000">
-                                <path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                            </svg>
+        <div
+                class="row mb-5"
+                id="list__product__row"
+        >
+            <div class="list__product__element">
+                <div
+                        class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4"
+                >
+                    <c:forEach var="n" items="${collectionList}">
+                        <div class="card p-0" style="position: relative">
+                            <input class="beltId" type="hidden" name="beltId" value="${n.id}">
+                            <input class="userId" type="hidden" name="userId" value="${sessionScope.auth.id}">
+                            <c:if test="${sessionScope.auth!=null}">
+                                <button class="btn bg-light favorite-button pt-2 px-2"
+                                        style="position: absolute; top: 10px; right: 10px; z-index: 10; border-radius: 50%; border: none;">
+                                    <svg class="custom_favorite_click" xmlns="http://www.w3.org/2000/svg"
+                                         height="24px"
+                                         viewBox="0 -960 960 960"
+                                         width="24px" fill="#000000">
+                                        <path
+                                                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                                    </svg>
+                                </button>
+                            </c:if>
+
+
+                            <img src="${pageContext.request.contextPath}${n.mainImage}" class="card-img-top"
+                                 alt="..."/>
+                            <a href="/productDetails?beltId=${n.id}">
+                                <div class="card-body text-start">
+                                    <h5 class="card-title text-start">
+                                            ${n.name}
+                                    </h5>
+                                    <p class="card-text text-start">${n.price} VNĐ
+                                    </p>
+                                </div>
+                            </a>
                         </div>
-                        <img src="${pageContext.request.contextPath}${n.mainImage}"
-                             class="cardImage card-img-top "
-                             alt="...">
-                        <a href="${pageContext.request.contextPath}/productDetails?beltId=${n.id}">
-                            <div class="cardInfo card-body text-start ">
-                                <h5 class="card-title">${n.name}</h5>
-                                <p class="card-text">${n.price} VNĐ</p>
-                            </div>
-                        </a>
-                    </div>
+                    </c:forEach>
                 </div>
-            </c:forEach>
-
-
+            </div>
         </div>
-
-
     </div>
 </div>
 

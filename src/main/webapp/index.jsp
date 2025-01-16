@@ -291,7 +291,7 @@
                 <div class="col column__1">
                     <div class="box emo">
                         <a
-                                href="frontend/collectionPage/collectionSection/VICTOR.jsp"
+                                href="${pageContext.request.contextPath}/navigate?type=collectionSection&collectionName=EMO"
                         >
                             <div></div>
                         </a>
@@ -305,7 +305,7 @@
                 <div class="col column__2">
                     <div class="box victor">
                         <a
-                                href="frontend/collectionPage/collectionSection/VICTOR.jsp"
+                                href="${pageContext.request.contextPath}/navigate?type=collectionSection&collectionName=VICTOR"
                         >
                             <div></div>
                         </a>
@@ -320,7 +320,7 @@
                 <div class="col-12 column__3">
                     <div class="longbox quietman">
                         <a
-                                href="frontend/collectionPage/collectionSection/VICTOR.jsp"
+                                href="${pageContext.request.contextPath}/navigate?type=collectionSection&collectionName=EMO"
                         >
                             <div></div>
                         </a>

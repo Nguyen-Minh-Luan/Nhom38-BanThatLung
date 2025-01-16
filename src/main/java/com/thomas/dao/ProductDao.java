@@ -606,7 +606,7 @@ public class ProductDao {
     }
 
 
-//    public List<Belts> getCollectionProduct{
+    //    public List<Belts> getCollectionProduct{
 //        return JDBIConnect.get().withHandle(handle -> {
 //            String sql = "SELECT b.id, b.name , b.price ,b.isDeleted , i.imagePath, i.imageType , c.`name` " +
 //                    "FROM belts b inner join imageentry i " +
@@ -623,8 +623,10 @@ public class ProductDao {
             String sql = "SELECT b.id, b.name , b.price , i.imagePath , c.collectionName " +
                     "FROM belts b inner join imageentry i " +
                     "on b.id = i.beltId " +
+                    "inner join collectiondetails cd " +
+                    "on b.id=cd.beltId " +
                     "inner join collections c " +
-                    "on b.id = c.beltId " +
+                    "on c.id=cd.collectionId " +
                     "where b.isDeleted = 0 AND i.imageType = 'main'";
             try (Handle h = handle) {
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
