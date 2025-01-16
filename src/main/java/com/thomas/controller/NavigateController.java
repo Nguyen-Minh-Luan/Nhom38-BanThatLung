@@ -161,16 +161,20 @@ public class NavigateController extends HttpServlet {
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
         if (type.equals("collection")) {
-            String title = "Bộ sưu tập";
-            String bigTitle = "Bộ sưu tập";
-            beltsList = uploadProductService.getAllProductsForDisplay();
-            int totalProduct = beltsList.size();
-            request.setAttribute("totalProduct", totalProduct);
+            beltsList = uploadProductService.getCollection();
             request.setAttribute("beltsList", beltsList);
-            request.setAttribute("title", title);
-            request.setAttribute("bigTitle", bigTitle);
-            session.setAttribute("beltsList", beltsList);
-            request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
+            request.getRequestDispatcher("/frontend/collectionPage/collectionsPage.jsp").forward(request, response);
+        }
+        if (type.equals("collectionSection")) {
+            String collectionName = request.getParameter("collectionName");
+            beltsList = uploadProductService.getProductInCollection(collectionName);
+            request.setAttribute("collectionList", beltsList);
+            if (collectionName.equalsIgnoreCase("VICTOR")) {
+                request.getRequestDispatcher("frontend/collectionPage/collectionSection/VICTOR.jsp").forward(request, response);
+            }
+            if (collectionName.equalsIgnoreCase("EMO")) {
+                request.getRequestDispatcher("frontend/collectionPage/collectionSection/EMO.jsp").forward(request, response);
+            }
         }
 
 

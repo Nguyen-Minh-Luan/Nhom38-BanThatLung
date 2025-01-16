@@ -55,32 +55,4 @@ a {
     height: 100%;
 }
 
-.mostPopular__title {
-    font-size: 27px;
-    font-weight: 300;
-    margin-top: 1%;
-}
-#carouselExampleControls3{
-    margin-bottom: 3rem;
-}
-#carouselExampleControls3 .card {
-    width: 19rem;
-}
-
-#carouselExampleControls3 .cardWrapper {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-.cardWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .card {
-    flex: 1 1 calc(20% - 25px); 
-    max-width: calc(20% - 25px); 
-    box-sizing: border-box;
-  }
   

@@ -24,7 +24,7 @@ public class sortController extends HttpServlet {
         request.setAttribute("type", type);
         List<Belts> sortedList = new ArrayList<>();
         if (type.equalsIgnoreCase("all")) {
-            sortedList = uploadProductService.getAllProductsForDisplay();
+            sortedList = uploadProductService.getSortedListBelts(type,uploadProductService.getAllProductsForDisplay());
         }
         if (type.equalsIgnoreCase("men")) {
             sortedList = uploadProductService.getMaleOrFemaleAndMaterialProducts("M", "all");
