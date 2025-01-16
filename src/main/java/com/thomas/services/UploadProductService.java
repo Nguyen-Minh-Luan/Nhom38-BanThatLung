@@ -228,17 +228,8 @@ public class UploadProductService {
                 }
             });
         }
-        if ("bestSeller".equals(type)) {
-            List<Belts> temp = productDao.getHotSellingProducts();
-            List<Belts> result = new ArrayList<>();
-            for (Belts belt : list) {
-                for (Belts tempBelt : temp) {
-                    if (tempBelt.getId() == belt.getId()) {
-                        result.add(belt);
-                    }
-                }
-            }
-            return result;
+        if ("bestSeller".equals(type)) {;
+            return productDao.getHotSellingProducts();
         }
         return list;
     }

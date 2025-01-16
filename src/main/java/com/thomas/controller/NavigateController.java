@@ -176,6 +176,21 @@ public class NavigateController extends HttpServlet {
                 request.getRequestDispatcher("frontend/collectionPage/collectionSection/EMO.jsp").forward(request, response);
             }
         }
+        if (type.equals("onsale")) {
+            String title = "Nữ Canvas";
+            String bigTitle = "Sản Phẩm Giảm Giá";
+            String mainImage = "assets/images/homepage/z6088271163993_ca5603db38e0ae9d411375a3aeb3ef65.jpg";
+            List <Belts> listBelt = uploadProductService.getDiscountProductsForDisplay();
+            if (minPrice != null && maxPrice != null) {
+                listBelt = uploadProductService.filterProduct(listBelt, Double.parseDouble(minPrice), Double.parseDouble(maxPrice));
+            }
+            if (sort != null) {
+                listBelt = uploadProductService.getSortedListBelts(sort, listBelt);
+            }
+            request.setAttribute("listBelt", listBelt);
+            pagingforPage(request, listBelt);
+            request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
+        }
 
 
     }

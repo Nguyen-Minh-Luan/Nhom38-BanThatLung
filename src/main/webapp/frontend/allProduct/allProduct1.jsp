@@ -224,25 +224,25 @@
                                 <c:choose>
                                     <c:when test="${param.minPrice != null && param.maxPrice != null}">
                                         <a class="dropdown-item"
-                                           href="${pageContext.request.contextPath}/navigate?type=${param.type}&page=${param.page}&descPrice=hotSelling&minPrice=${param.minPrice}&maxPrice=${param.maxPrice}">
+                                           href="${pageContext.request.contextPath}/navigate?type=${param.type}&page=${param.page}&descPrice=bestSeller&minPrice=${param.minPrice}&maxPrice=${param.maxPrice}">
                                             Bán Chạy Nhất
                                         </a>
                                     </c:when>
                                     <c:when test="${param.minPrice != null}">
                                         <a class="dropdown-item"
-                                           href="${pageContext.request.contextPath}/navigate?type=${param.type}&page=${param.page}&descPrice=hotSelling&minPrice=${param.minPrice}">
+                                           href="${pageContext.request.contextPath}/navigate?type=${param.type}&page=${param.page}&descPrice=bestSeller&minPrice=${param.minPrice}">
                                             Bán Chạy Nhất
                                         </a>
                                     </c:when>
                                     <c:when test="${param.maxPrice != null}">
                                         <a class="dropdown-item"
-                                           href="${pageContext.request.contextPath}/newArrival?type=${param.type}&page=${param.page}&descPrice=hotSelling&maxPrice=${param.maxPrice}">
+                                           href="${pageContext.request.contextPath}/newArrival?type=${param.type}&page=${param.page}&descPrice=bestSeller&maxPrice=${param.maxPrice}">
                                             Bán Chạy Nhất
                                         </a>
                                     </c:when>
                                     <c:otherwise>
                                         <a class="dropdown-item"
-                                           href="${pageContext.request.contextPath}/navigate?type=${param.type}&page=${param.page}&descPrice=hotSelling">
+                                           href="${pageContext.request.contextPath}/navigate?type=${param.type}&page=${param.page}&descPrice=bestSeller">
                                             Bán Chạy Nhất
                                         </a>
                                     </c:otherwise>
