@@ -324,7 +324,7 @@ public class UploadProductService {
         List<Belts> list = new ArrayList<>();
 
         for (Belts belt : getAllProductsForDisplay()) {
-            if (belt.getName().equals(keyword)) {
+            if (belt.getName().equalsIgnoreCase(keyword) || belt.getMaterialBelt().equalsIgnoreCase(keyword)) {
                 list.add(belt);
             }
         }
