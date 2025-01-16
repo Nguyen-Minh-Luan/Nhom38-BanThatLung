@@ -100,10 +100,10 @@ CREATE TABLE imageEntry
 
 CREATE TABLE collections
 (
-    id     INT AUTO_INCREMENT PRIMARY KEY,
-    collectionName   VARCHAR(255) NOT NULL,
-    beltId INT          NOT NULL,
-    FOREIGN KEY (beltId) REFERENCES belts (id) ON DELETE CASCADE ON UPDATE CASCADE
+    id                 INT AUTO_INCREMENT PRIMARY KEY,
+    name               VARCHAR(255) NOT NULL,
+    collectionDetailId INT          NOT NULL,
+    FOREIGN KEY (collectionDetailId) REFERENCES collectionDetails (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE favorites
@@ -179,3 +179,9 @@ CREATE TABLE beltViews
     viewCount INT default 1,
     CONSTRAINT unique_belt_view UNIQUE (beltId, viewDate)
 )
+CREATE TABLE collectionDetails
+(
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    description TEXT NOT NULL,
+    createdAt   DATETIME DEFAULT CURRENT_TIMESTAMP
+);

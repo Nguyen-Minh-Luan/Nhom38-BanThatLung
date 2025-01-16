@@ -1,6 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,13 +25,24 @@
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.0.0/ckeditor5.css">
 
     <!-- Custom styles for this template-->
     <link href="${pageContext.request.contextPath}/css/adminGeneral.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/css/sb-admin-2.min.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+    <style>
+        #suggestionList {
+            border: 1px solid #ccc;
+            background: white;
+            max-height: 200px;
+            overflow-y: auto;
+            cursor: pointer;
+        }
 
+        #suggestionList .list-group-item:hover {
+            background: #f0f0f0;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -65,6 +75,8 @@
         <hr class="sidebar-divider"/>
 
         <!-- Heading -->
+
+
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item active">
             <a
@@ -85,35 +97,41 @@
                     data-parent="#accordionSidebar"
             >
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/admin/table/users"
+                    <h6 class="collapse-header">Các đối tượng:</h6>
+                    <a
+                            class="collapse-item"
+                            href="${pageContext.request.contextPath}/admin/table/users"
                     >Người dùng</a
                     >
-                    <a class="collapse-item active"
+                    <a class="collapse-item"
                        href="${pageContext.request.contextPath}/admin/table/belts">Sản
                         phẩm</a>
-                    <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/admin/table/reviews"
+                    <a
+                            class="collapse-item"
+                            href="${pageContext.request.contextPath}/admin/table/reviews"
                     >Đánh giá</a
-                    >
-                    <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/admin/table/coupons"
-                    >Coupon</a
-                    >
-                    <a class="collapse-item"
-                       href="${pageContext.request.contextPath}/admin/table/orders"
-                    >Đơn hàng</a
                     >
                     <a
                             class="collapse-item"
+                            href="${pageContext.request.contextPath}/admin/table/coupons"
+                    >Coupon</a
+                    >
+                    <a
+                            class="collapse-item active"
+                            href="${pageContext.request.contextPath}/admin/table/orders"
+                    >Đơn hàng</a
+                    >
+                    <a
+                            class="collapse-item active"
                             href="${pageContext.request.contextPath}/admin/table/collections"
                     >Bộ sưu tập</a
                     >
                 </div>
             </div>
         </li>
+
         <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block"/>
+        <hr class="sidebar-divider"/>
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
@@ -126,20 +144,15 @@
             <nav
                     class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
             >
-                <form method="POST">
-                    <button
-                            type="submit"
-                            class="btn btn-white border border-dark"
-                            id="createButton"
-                            style="color: black"
+                <button
+                        class="btn btn-white border border-dark"
+                        style="color: black"
+                        data-bs-toggle="modal"
+                        data-bs-target="#createModal"
+                >
+                    Tạo 1 bộ sưu tập mới
+                </button>
 
-                    >
-                        Tạo 1 sản phẩm mới
-                    </button>
-                    <input type="hidden" name="message" value="create">
-                </form>
-
-                <input name="productId" id="productId" type="hidden"/>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown no-arrow d-sm-none">
                         <div
@@ -345,11 +358,11 @@
             </nav>
 
             <div class="container-fluid">
-                <h1 class="h3 mb-2 text-gray-800">Sản phẩm</h1>
+                <h1 class="h3 mb-2 text-gray-800">Đơn hàng</h1>
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">
-                            Tất cả sản phẩm
+                            Tất cả Đơn hàng
                         </h6>
                     </div>
                     <div class="card-body">
@@ -363,50 +376,38 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Tên sản phẩm</th>
-                                    <th>Ngày tạo</th>
-                                    <th>giá</th>
-                                    <th>% giảm giá</th>
-                                    <th>Chất liệu</th>
-                                    <th>Xóa</th>
+                                    <th>Tên Bộ sưu tập</th>
+                                    <th>Ngày Tạo</th>
                                     <th>Hành động</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Tên sản phẩm</th>
+                                    <th>Tên Bộ sưu tập</th>
                                     <th>Ngày tạo</th>
-                                    <th>giá</th>
-                                    <th>% giảm giá</th>
-                                    <th>Chất liệu</th>
-                                    <th>Xóa</th>
                                     <th>Hành động</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <jsp:useBean id="beltList" scope="request" type="java.util.List"/>
-                                <c:forEach var="belt" items="${beltList}">
-                                    <tr>
-                                        <td class="beltId">${belt.id}</td>
-                                        <td>${belt.name}</td>
-                                        <td>${belt.createdDate}</td>
-                                        <td>${belt.price} vnđ</td>
-                                        <td>${belt.discountPercent}</td>
-                                        <td>${belt.materialBelt}</td>
-                                        <td>${belt.isDeleted ==0 ? "Chưa xóa":"Xóa mềm"}</td>
-                                        <td class="text-center">
-                                            <input type="hidden" name="beltId" value="${belt.id}"/>
-                                            <input type="hidden" name="message" value="update"/>
-                                            <a href="${pageContext.request.contextPath}/admin/table/belts/createProduct?id=${belt.id}&message=update"
-                                               class="btn btn-dark fa-solid fa-pen-to-square"></a>
+                                <tr>
+                                    <c:forEach var="collection" items="${collections}">
+                                    <td class="orderId">${collection.id}</td>
+                                    <td>${collection.collectionName}</td>
+                                    <td>${collection.createAt}</td>
+                                    <td class="text-center">
+                                        <a
+                                                href="${pageContext.request.contextPath}/admin/table/collections/details?id=${collection.id}"
+                                                class="btn btn-dark fa-solid fa-pen-to-square"
 
-                                            <button
-                                                    class="btn btn-danger fa-solid fa-trash-can"
-                                                    data-bs-toggle="modal" data-bs-target="#removeModal"
-                                            ></button>
-                                        </td>
-                                    </tr>
+                                        ></a>
+                                        <button
+                                                class="btn btn-danger fa-solid fa-trash-can"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#removeModal"
+                                        ></button>
+                                    </td>
+                                </tr>
                                 </c:forEach>
                                 </tbody>
                             </table>
@@ -469,26 +470,117 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="removeModal" aria-hidden="true">
+
+    <div
+            class="modal fade"
+            id="removeModal"
+            tabindex="-1"
+            aria-labelledby="removeModal"
+            aria-hidden="true"
+    >
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="removeModal">Xóa sản phẩm</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Bạn có muốn xóa đơn hàng này?
+                    </h5>
+                    <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                    ></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body removeModalBody">
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <form class="deleteBtn" action="/admin/table/belts" method="post">
-                        <button type="submit" class="btn btn-danger">Xóa</button>
+                    <button
+                            type="button"
+                            class="btn btn-white border border-dark"
+                            data-bs-dismiss="modal"
+                            style="color: black"
+                    >
+                        Hủy
+                    </button>
+                    <form class="deleteBtn" method="POST" action="/admin/table/orders">
+                        <button
+                                type="submit"
+                                class="btn btn-dark"
+                                style="color: white; background-color: black"
+                        >
+                            Xóa vĩnh viễn
+                        </button>
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
+
+    <div
+            class="modal fade"
+            id="createModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+    >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="${pageContext.request.contextPath}/admin/table/collections" method="POST">
+                    <input type="hidden" name="message" value="create">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            Tạo 1 bộ sưu tập mới
+                        </h5>
+                        <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container mt-2">
+                            <input type="hidden" name="message" value="create">
+                            <div class="mb-3">
+                                <label for="collectionName" class="form-label">Tên của bộ sưu tập</label>
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        id="collectionName"
+                                        name="collectionName"
+                                        required
+                                        autocomplete="off"
+                                />
+                            </div>
+                            <div class="mb-3">
+                                <label for="createdDate" class="form-label"
+                                >Ngày tạo</label
+                                >
+                                <input
+                                        type="date"
+                                        class="form-control"
+                                        id="createdDate"
+                                        name="createdDate"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                        >
+                            Hủy
+                        </button>
+                        <button type="submit" class="btn btn-primary">Tạo</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
 
     <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -502,13 +594,20 @@
     <script src="${pageContext.request.contextPath}/js/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="${pageContext.request.contextPath}/js/allProductAdmin.js"></script>
     <script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/allOrder.js"></script>
 
     <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/dataTables.bootstrap4.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/datatable.js"></script>
+    <script>
+        const checkbox = document.getElementById('showActive');
+        const hiddenInput = document.querySelector('.isDeleted');
 
+        checkbox.addEventListener('change', function () {
+            hiddenInput.value = this.checked ? 1 : 0;
+        });
+    </script>
 </div>
 </body>
 </html>

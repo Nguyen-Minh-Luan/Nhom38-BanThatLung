@@ -146,7 +146,7 @@
         <div class="cardWrapper">
 
 
-            <c:forEach var="j" items="${beltsList}" begin="4">
+            <c:forEach var="j" items="${beltsList}" begin="4" end="8">
                 <div class="card" style="position: relative">
                     <div
                             style="position: absolute; top: 10px; right: 10px; z-index: 10"

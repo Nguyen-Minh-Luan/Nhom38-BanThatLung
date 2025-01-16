@@ -3,9 +3,8 @@ package com.thomas.services;
 import com.thomas.dao.BeltCategoryDao;
 import com.thomas.dao.CategoryDao;
 import com.thomas.dao.ProductDao;
-import com.thomas.dao.model.BeltCategory;
-import com.thomas.dao.model.Belts;
-import com.thomas.dao.model.Category;
+import com.thomas.dao.model.*;
+import com.thomas.dao.model.Collection;
 
 import java.io.PrintWriter;
 import java.time.LocalDate;
@@ -325,11 +324,8 @@ public class UploadProductService {
         List<Belts> list = new ArrayList<>();
 
         for (Belts belt : getAllProductsForDisplay()) {
-            StringTokenizer st = new StringTokenizer(belt.getName(), " ");
-            while (st.hasMoreTokens()) {
-                if (st.nextToken().equalsIgnoreCase(keyword) || belt.getMaterialBelt().equalsIgnoreCase(keyword)) {
-                    list.add(belt);
-                }
+            if (belt.getName().equals(keyword)) {
+                list.add(belt);
             }
         }
         return list;
@@ -355,5 +351,34 @@ public class UploadProductService {
             belt.setImage(getProductImages(belt.getId()));
         }
         return beltProduct;
+    }
+
+    public List<Collection> getCollections() {
+        return productDao.getAllCollections();
+    }
+
+    public void createCollection(String name) {
+        Collection collection = new Collection();
+        collection.setCollectionName(name);
+        collection.setCreateAt(LocalDate.now());
+        productDao.createCollection(collection);
+    }
+
+    public List<Belts> findCollectionProduct(String collectionId) {
+        List<Belts> allBeltCollectionDetail = productDao.findAllCollectionDetailsByCollectionId(collectionId);
+        return allBeltCollectionDetail;
+    }
+
+
+    public Collection getCollectionById(int collectionId) {
+        return productDao.getCollectionById(collectionId);
+    }
+
+    public void saveCollection(CollectionDetails cd) {
+        productDao.saveCollectionItem(cd);
+    }
+
+    public void deteleCollectionDetail(String orderItemId) {
+        productDao.deleteCollectionDetails(orderItemId);
     }
 }

@@ -2,7 +2,10 @@ package com.thomas.dao;
 
 import com.thomas.dao.db.JDBIConnect;
 import com.thomas.dao.model.Belts;
+import com.thomas.dao.model.Collection;
+import com.thomas.dao.model.CollectionDetails;
 import org.jdbi.v3.core.Handle;
+import org.jdbi.v3.core.Jdbi;
 
 import java.io.PrintWriter;
 import java.sql.ResultSet;
@@ -495,14 +498,101 @@ public class ProductDao {
         });
     }
 
+    public List<Collection> getAllCollections() {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "SELECT * FROM collections";
+            return h.createQuery(sql).mapToBean(Collection.class).list();
+        });
+    }
+
+    public Boolean createCollection(Collection collection) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "INSERT INTO collections (collectionName,createdAt) VALUES (:collectionName,:createdAt)";
+            return h.createUpdate(sql).bind("collectionName", collection.getCollectionName()).bind("createdAt", collection.getCreateAt()).execute() > 0;
+        });
+    }
+
+    public List<Belts> findAllBeltByCollectionId(String collectionId) {
+        String sql = "SELECT b.* FROM belts b JOIN collections c ON b.id=c.beltId WHERE c.id=:collectionId";
+        return JDBIConnect.get().withHandle(handle ->
+                handle.createQuery(sql)
+                        .bind("collectionId", collectionId)
+                        .map((rs, ctx) -> {
+                            Belts belts = new Belts();
+                            belts.setId(rs.getInt("id"));
+                            belts.setName(rs.getString("name"));
+                            belts.setDescription(rs.getString("description"));
+                            belts.setPrice(rs.getDouble("price"));
+                            belts.setGender(rs.getString("gender"));
+                            belts.setStockQuantity(rs.getInt("stockQuantity"));
+                            belts.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
+                            belts.setCreateDate(rs.getDate("createdAt").toLocalDate());
+                            belts.setUpdatedDate(rs.getDate("updatedAt").toLocalDate());
+                            belts.setIsDeleted(rs.getInt("isDeleted"));
+                            belts.setDiscountPercent(rs.getDouble("discountPercent"));
+                            belts.setMaterialBelt(rs.getString("materialBelt"));
+                            return belts;
+                        })
+                        .list()
+        );
+    }
+
+    public List<Belts> findAllCollectionDetailsByCollectionId(String collectionId) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "SELECT b.* FROM belts b JOIN collectiondetails cd ON b.id = cd.beltId JOIN collections c ON c.id = cd.collectionId WHERE c.id = :collectionId";
+            return h.createQuery(sql)
+                    .bind("collectionId", collectionId)
+                    .mapToBean(Belts.class)
+                    .list();
+        });
+    }
+
+    public Collection getCollectionById(int collectionId) {
+        return JDBIConnect.get().withHandle(h -> {
+            String sql = "SELECT * FROM collections WHERE id = :collectionId";
+            return h.createQuery(sql).bind("collectionId", collectionId).mapToBean(Collection.class).findFirst().orElse(null);
+        });
+    }
+
+    public void saveCollectionItem(CollectionDetails cd) {
+        JDBIConnect.get().withHandle(h -> {
+            String sql = "INSERT INTO collectiondetails (beltId,createdAt,collectionId) VALUES (:beltId,:createdAt,:collectionId)";
+            return h.createUpdate(sql).bind("beltId", cd.getBeltId())
+                    .bind("createdAt", cd.getCreatedAt())
+                    .bind("collectionId", cd.getCollectionId())
+                    .execute();
+        });
+    }
+
+    public void deleteCollectionDetails(String orderItemId) {
+        JDBIConnect.get().withHandle(h -> {
+            String sql = "Delete from collectiondetails where id = :orderItemId";
+            return h.createUpdate(sql).bind("orderItemId", orderItemId).execute();
+        });
+    }
+
+
+    //    public List<Belts> getCollectionProduct{
+//        return JDBIConnect.get().withHandle(handle -> {
+//            String sql = "SELECT b.id, b.name , b.price ,b.isDeleted , i.imagePath, i.imageType , c.`name` " +
+//                    "FROM belts b inner join imageentry i " +
+//                    "on b.id = i.beltId " +
+//                    "inner join collections c " +
+//                    "on b.id = c.beltId " +
+//                    "where b.isDeleted = 0 AND i.imageType = 'main'";
+//            return handle.ex
+//        });
+//    }
     public List<Belts> getCollectionProduct() {
         List<Belts> beltsList = new ArrayList<>();
         return JDBIConnect.get().withHandle(handle -> {
             String sql = "SELECT b.id, b.name , b.price , i.imagePath , c.collectionName " +
                     "FROM belts b inner join imageentry i " +
                     "on b.id = i.beltId " +
+                    "inner join collectiondetails cd " +
+                    "on b.id=cd.beltId " +
                     "inner join collections c " +
-                    "on b.id = c.beltId " +
+                    "on c.id=cd.collectionId " +
                     "where b.isDeleted = 0 AND i.imageType = 'main'";
             try (Handle h = handle) {
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
