@@ -354,13 +354,16 @@ public class ProductDao {
     public List<Belts> getHotSellingProducts() {
         List<Belts> beltsList = new ArrayList<>();
         return JDBIConnect.get().withHandle(handle -> {
-            String sql = "SELECT b.id, b.name, b.createdAt, SUM(od.quantity) AS totalQuantitySold " +
+            String sql = "SELECT b.id, b.name, b.price, " +
+                    "(SELECT i.imagePath FROM imageentry i WHERE i.beltId = b.id and i.imageType = 'main') AS imagePath, " +
+                    "b.createdAt, " +
+                    "SUM(od.quantity) AS totalQuantitySold " +
                     "FROM orderDetails od " +
                     "JOIN orders o ON od.orderId = o.id " +
                     "JOIN belts b ON od.beltId = b.id " +
                     "WHERE o.isDeleted = 0 AND b.stockQuantity > 0 AND b.isDeleted = 0 " +
-                    "GROUP BY b.id, b.name, b.createdAt " +
-                    "ORDER BY totalQuantitySold DESC LIMIT 5";
+                    "GROUP BY b.id, b.name, b.price, b.createdAt " +
+                    "ORDER BY totalQuantitySold DESC;";
 
             try (Handle h = handle) {
                 ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
@@ -390,43 +393,6 @@ public class ProductDao {
         );
     }
 
-//    public Map<Integer, Belts> getAllProductForDisplay() {
-//        Map<Integer, Belts> beltsList = new HashMap<>();
-//        return JDBIConnect.get().withHandle(handle -> {
-//            String sql = "SELECT b.id, b.name, bv.viewCount, bv.viewDate, b.description, b.price, b.gender, b.discountPercent, b.releaseDate , b.materialBelt , od.quantity, i.imagePath " +
-//                    "FROM belts b " +
-//                    "INNER JOIN imageentry i " +
-//                    "ON b.id = i.beltId " +
-//                    "INNER JOIN orderdetails od " +
-//                    "ON b.id = od.beltId " +
-//                    "INNER JOIN beltviews bv " +
-//                    "ON b.id = bv.beltId " +
-//                    "WHERE b.isDeleted = 0 and i.imageType = 'main' ";
-//            try (Handle h = handle) {
-//                ResultSet rs = h.getConnection().createStatement().executeQuery(sql);
-//                while (rs.next()) {
-//                    Belts belt = new Belts();
-//                    belt.setId(rs.getInt("id"));
-//                    belt.setName(rs.getString("name"));
-//                    belt.setViewCount(rs.getInt("viewCount"));
-//                    belt.setViewDate(rs.getDate("viewDate").toLocalDate());
-//                    belt.setDescription(rs.getString("description"));
-//                    belt.setPrice(rs.getDouble("price"));
-//                    belt.setGender(rs.getString("gender"));
-//                    belt.setDiscountPercent(rs.getDouble("discountPercent"));
-//                    belt.setReleaseDate(rs.getDate("releaseDate").toLocalDate());
-//                    belt.setMaterialBelt(rs.getString("materialBelt"));
-//                    belt.setTotalQuantity(rs.getInt("quantity"));
-//                    belt.setMainImage(rs.getString("imagePath"));
-//                    beltsList.put(belt.getId(), belt);
-//
-//                }
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//            return beltsList;
-//        });
-//    }
 
 
     public Map<Integer, Belts> getAllProductForDisplay() {

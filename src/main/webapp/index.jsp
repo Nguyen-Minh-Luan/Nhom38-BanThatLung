@@ -155,7 +155,7 @@
                         <span>Sản Phẩm Ưu Đãi</span>
                     </div>
                     <p>Chọn lựa những thiết kế hợp xu hướng nhất</p>
-                    <a class="button__More" href="frontend/allProduct/onsale.jsp">
+                    <a class="button__More" href="${pageContext.request.contextPath}/navigate?type=onsale">
                         <span>XEM THÊM</span>
                     </a>
                 </div>
@@ -320,7 +320,7 @@
                 <div class="col-12 column__3">
                     <div class="longbox quietman">
                         <a
-                                href="${pageContext.request.contextPath}/navigate?type=collectionSection&collectionName=EMO"
+                                href="${pageContext.request.contextPath}/navigate?type=collectionSection&collectionName=VICTOR"
                         >
                             <div></div>
                         </a>

@@ -97,7 +97,7 @@
             <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
             <li class="breadcrumb-item"><a href="#">Bộ Sưu Tập</a></li>
             <li class="breadcrumb-item active" aria-current="page">
-                VICTOR
+                EMO
             </li>
         </ol>
     </nav>
@@ -109,7 +109,7 @@
         <img src="${pageContext.request.contextPath}/assets/images/emo.jpg" alt="" style="width: 100%"/>
     </div>
     <p class="mt-4 fs-5">
-        VICTOR không chỉ là một cái tên, mà là một tuyên ngôn thời trang, nơi
+        EMO không chỉ là một cái tên, mà là một tuyên ngôn thời trang, nơi
         những nét đẹp của quá khứ được tái hiện một cách tinh tế và hiện đại.
         Hãy tưởng tượng sự kết hợp hoàn hảo giữa những chiếc túi xách và giày
         dép được thiết kế theo phong cách của những năm 60, với những chi tiết
