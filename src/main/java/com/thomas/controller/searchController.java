@@ -23,9 +23,7 @@ public class searchController extends HttpServlet {
         List<Belts> beltsList = uploadProductService.searchProduct(keyword);
         int totalProduct = beltsList.size();
         String message = "";
-
-//        request.setAttribute("beltsList", beltsList);
-
+        request.setAttribute("beltsList", beltsList);
         request.setAttribute("totalProduct", totalProduct);
         request.setAttribute("mainImage", mainImage);
         if (beltsList.size() == 0 || beltsList == null) {

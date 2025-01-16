@@ -15,10 +15,12 @@
             text-align: center;
             margin-top: 100px;
         }
+
         .error-icon {
             font-size: 80px;
             color: #dc3545;
         }
+
         .btn-back {
             margin-top: 20px;
         }
@@ -33,7 +35,7 @@
     <i class="fas fa-search error-icon"></i>
     <h2 class="mt-4">Không tìm thấy sản phẩm</h2>
     <p>Rất tiếc! Chúng tôi không tìm thấy sản phẩm nào phù hợp với từ khóa của bạn.</p>
-    <a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-primary btn-back">Quay lại trang chủ</a>
+    <a href="${pageContext.request.contextPath}/" class="btn btn-primary btn-back">Quay lại trang chủ</a>
 </div>
 
 <%-- Footer --%>

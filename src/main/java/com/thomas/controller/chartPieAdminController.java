@@ -17,6 +17,7 @@ public class chartPieAdminController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Belts> hotSellingProducts = uploadProductService.getHotSeliingProducts();
+        hotSellingProducts = hotSellingProducts.subList(hotSellingProducts.size() - 5, hotSellingProducts.size());
         String[] labels = new String[hotSellingProducts.size()];
         for (int i = 0; i < hotSellingProducts.size(); i++) {
             labels[i] = hotSellingProducts.get(i).getName();

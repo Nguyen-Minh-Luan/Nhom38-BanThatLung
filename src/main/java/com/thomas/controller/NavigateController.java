@@ -25,6 +25,7 @@ public class NavigateController extends HttpServlet {
         String maxPrice = request.getParameter("maxPrice");
         String sort = request.getParameter("descPrice");
         List<Belts> beltsList;
+        List<Belts> sortedList = null;
         if (type.equals("all")) {
             String title = "Sản Phẩm";
             String mainImage = "/assets/images/allProduct.png";
@@ -39,9 +40,21 @@ public class NavigateController extends HttpServlet {
                 listBelt = uploadProductService.filterProduct(listBelt, Double.parseDouble(minPrice), Double.parseDouble(maxPrice));
             }
             if (sort != null) {
-                listBelt = uploadProductService.getSortedListBelts(sort, listBelt);
+                sortedList = uploadProductService.getSortedListBelts(sort, listBelt);
+                for (int i = 0; i < sortedList.size(); i++) {
+                    for (int j = 0; j < listBelt.size(); j++) {
+                        if (sortedList.get(i).getName().equals(listBelt.get(j).getName())) {
+                            sortedList.get(i).setMainImage(listBelt.get(j).getMainImage());
+                        }
+                    }
+                }
             }
-            request.setAttribute("listBelt", listBelt);
+            if (sortedList != null) {
+                request.setAttribute("listBelt", sortedList);
+
+            } else {
+                request.setAttribute("listBelt", listBelt);
+            }
             pagingforPage(request, listBelt);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
@@ -59,9 +72,21 @@ public class NavigateController extends HttpServlet {
                 listBelt = uploadProductService.filterProduct(listBelt, Double.parseDouble(minPrice), Double.parseDouble(maxPrice));
             }
             if (sort != null) {
-                listBelt = uploadProductService.getSortedListBelts(sort, listBelt);
+                sortedList = uploadProductService.getSortedListBelts(sort, listBelt);
+                for (int i = 0; i < sortedList.size(); i++) {
+                    for (int j = 0; j < listBelt.size(); j++) {
+                        if (sortedList.get(i).getName().equals(listBelt.get(j).getName())) {
+                            sortedList.get(i).setMainImage(listBelt.get(j).getMainImage());
+                        }
+                    }
+                }
             }
-            request.setAttribute("listBelt", listBelt);
+            if (sortedList != null) {
+                request.setAttribute("listBelt", sortedList);
+
+            } else {
+                request.setAttribute("listBelt", listBelt);
+            }
             pagingforPage(request, listBelt);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
@@ -73,14 +98,26 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
             request.setAttribute("mainImage", mainImage);
-            List<Belts> listBelt = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "all");
+            List<Belts> listBelt = uploadProductService.getMaleOrFemaleAndMaterialProducts("N", "all");
             if (minPrice != null && maxPrice != null) {
                 listBelt = uploadProductService.filterProduct(listBelt, Double.parseDouble(minPrice), Double.parseDouble(maxPrice));
             }
             if (sort != null) {
-                listBelt = uploadProductService.getSortedListBelts(sort, listBelt);
+                sortedList = uploadProductService.getSortedListBelts(sort, listBelt);
+                for (int i = 0; i < sortedList.size(); i++) {
+                    for (int j = 0; j < listBelt.size(); j++) {
+                        if (sortedList.get(i).getName().equals(listBelt.get(j).getName())) {
+                            sortedList.get(i).setMainImage(listBelt.get(j).getMainImage());
+                        }
+                    }
+                }
             }
-            request.setAttribute("listBelt", listBelt);
+            if (sortedList != null) {
+                request.setAttribute("listBelt", sortedList);
+
+            } else {
+                request.setAttribute("listBelt", listBelt);
+            }
             pagingforPage(request, listBelt);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
@@ -97,7 +134,20 @@ public class NavigateController extends HttpServlet {
                 listBelt = uploadProductService.filterProduct(listBelt, Double.parseDouble(minPrice), Double.parseDouble(maxPrice));
             }
             if (sort != null) {
-                listBelt = uploadProductService.getSortedListBelts(sort, listBelt);
+                sortedList = uploadProductService.getSortedListBelts(sort, listBelt);
+                for (int i = 0; i < sortedList.size(); i++) {
+                    for (int j = 0; j < listBelt.size(); j++) {
+                        if (sortedList.get(i).getName().equals(listBelt.get(j).getName())) {
+                            sortedList.get(i).setMainImage(listBelt.get(j).getMainImage());
+                        }
+                    }
+                }
+            }
+            if (sortedList != null) {
+                request.setAttribute("listBelt", sortedList);
+
+            } else {
+                request.setAttribute("listBelt", listBelt);
             }
             request.setAttribute("listBelt", listBelt);
             pagingforPage(request, listBelt);
@@ -116,7 +166,20 @@ public class NavigateController extends HttpServlet {
                 listBelt = uploadProductService.filterProduct(listBelt, Double.parseDouble(minPrice), Double.parseDouble(maxPrice));
             }
             if (sort != null) {
-                listBelt = uploadProductService.getSortedListBelts(sort, listBelt);
+                sortedList = uploadProductService.getSortedListBelts(sort, listBelt);
+                for (int i = 0; i < sortedList.size(); i++) {
+                    for (int j = 0; j < listBelt.size(); j++) {
+                        if (sortedList.get(i).getName().equals(listBelt.get(j).getName())) {
+                            sortedList.get(i).setMainImage(listBelt.get(j).getMainImage());
+                        }
+                    }
+                }
+            }
+            if (sortedList != null) {
+                request.setAttribute("listBelt", sortedList);
+
+            } else {
+                request.setAttribute("listBelt", listBelt);
             }
             request.setAttribute("listBelt", listBelt);
             pagingforPage(request, listBelt);
@@ -130,12 +193,25 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
-            List<Belts> listBelt = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "da");
+            List<Belts> listBelt = uploadProductService.getMaleOrFemaleAndMaterialProducts("N", "da");
             if (minPrice != null && maxPrice != null) {
                 listBelt = uploadProductService.filterProduct(listBelt, Double.parseDouble(minPrice), Double.parseDouble(maxPrice));
             }
             if (sort != null) {
-                listBelt = uploadProductService.getSortedListBelts(sort, listBelt);
+                sortedList = uploadProductService.getSortedListBelts(sort, listBelt);
+                for (int i = 0; i < sortedList.size(); i++) {
+                    for (int j = 0; j < listBelt.size(); j++) {
+                        if (sortedList.get(i).getName().equals(listBelt.get(j).getName())) {
+                            sortedList.get(i).setMainImage(listBelt.get(j).getMainImage());
+                        }
+                    }
+                }
+            }
+            if (sortedList != null) {
+                request.setAttribute("listBelt", sortedList);
+
+            } else {
+                request.setAttribute("listBelt", listBelt);
             }
             request.setAttribute("listBelt", listBelt);
             pagingforPage(request, listBelt);
@@ -149,14 +225,26 @@ public class NavigateController extends HttpServlet {
             request.setAttribute("title", title);
             request.setAttribute("bigTitle", bigTitle);
             request.setAttribute("type", type);
-            List<Belts> listBelt = uploadProductService.getMaleOrFemaleAndMaterialProducts("F", "canvas");
+            List<Belts> listBelt = uploadProductService.getMaleOrFemaleAndMaterialProducts("N", "canvas");
             if (minPrice != null && maxPrice != null) {
                 listBelt = uploadProductService.filterProduct(listBelt, Double.parseDouble(minPrice), Double.parseDouble(maxPrice));
             }
             if (sort != null) {
-                listBelt = uploadProductService.getSortedListBelts(sort, listBelt);
+                sortedList = uploadProductService.getSortedListBelts(sort, listBelt);
+                for (int i = 0; i < sortedList.size(); i++) {
+                    for (int j = 0; j < listBelt.size(); j++) {
+                        if (sortedList.get(i).getName().equals(listBelt.get(j).getName())) {
+                            sortedList.get(i).setMainImage(listBelt.get(j).getMainImage());
+                        }
+                    }
+                }
             }
-            request.setAttribute("listBelt", listBelt);
+            if (sortedList != null) {
+                request.setAttribute("listBelt", sortedList);
+
+            } else {
+                request.setAttribute("listBelt", listBelt);
+            }
             pagingforPage(request, listBelt);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }
@@ -180,14 +268,26 @@ public class NavigateController extends HttpServlet {
             String title = "Nữ Canvas";
             String bigTitle = "Sản Phẩm Giảm Giá";
             String mainImage = "assets/images/homepage/z6088271163993_ca5603db38e0ae9d411375a3aeb3ef65.jpg";
-            List <Belts> listBelt = uploadProductService.getDiscountProductsForDisplay();
+            List<Belts> listBelt = uploadProductService.getDiscountProductsForDisplay();
             if (minPrice != null && maxPrice != null) {
                 listBelt = uploadProductService.filterProduct(listBelt, Double.parseDouble(minPrice), Double.parseDouble(maxPrice));
             }
             if (sort != null) {
-                listBelt = uploadProductService.getSortedListBelts(sort, listBelt);
+                sortedList = uploadProductService.getSortedListBelts(sort, listBelt);
+                for (int i = 0; i < sortedList.size(); i++) {
+                    for (int j = 0; j < listBelt.size(); j++) {
+                        if (sortedList.get(i).getName().equals(listBelt.get(j).getName())) {
+                            sortedList.get(i).setMainImage(listBelt.get(j).getMainImage());
+                        }
+                    }
+                }
             }
-            request.setAttribute("listBelt", listBelt);
+            if (sortedList != null) {
+                request.setAttribute("listBelt", sortedList);
+
+            } else {
+                request.setAttribute("listBelt", listBelt);
+            }
             pagingforPage(request, listBelt);
             request.getRequestDispatcher("/frontend/allProduct/allProduct1.jsp").forward(request, response);
         }

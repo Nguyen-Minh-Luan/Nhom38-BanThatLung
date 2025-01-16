@@ -227,8 +227,12 @@ public class UploadProductService {
                 }
             });
         }
-        if ("bestSeller".equals(type)) {;
-            return productDao.getHotSellingProducts();
+        if ("bestSeller".equals(type)) {
+            List<Belts> beltsList = productDao.getHotSellingProducts();
+            for (Belts belt : beltsList) {
+                belt.setImage(productDao.getProductImages(belt.getId()));
+            }
+            return beltsList;
         }
         return list;
     }

@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/general.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css"/>
+    <script src="${pageContext.request.contextPath}/js/favorite.js"></script>
+
     <style>
         <
         style >
