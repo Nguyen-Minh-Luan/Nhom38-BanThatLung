@@ -13,6 +13,8 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @WebServlet(name = "userViewOrderController", value = "/viewOrders")
@@ -42,6 +44,13 @@ public class userViewOrderController extends HttpServlet {
             }
             order.setShippingDate();
         }
+        Collections.sort(userOrders, new Comparator<Order>() {
+
+            @Override
+            public int compare(Order o1, Order o2) {
+                return o2.getOrderDate().compareTo(o1.getOrderDate());
+            }
+        });
         request.setAttribute("orders", userOrders);
         request.getRequestDispatcher("/frontend/userInfoPage/orderView/ordersView.jsp").forward(request, response);
     }

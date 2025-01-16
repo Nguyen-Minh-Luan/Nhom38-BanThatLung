@@ -117,7 +117,7 @@
                     >Coupon</a
                     >
                     <a
-                            class="collapse-item active"
+                            class="collapse-item"
                             href="${pageContext.request.contextPath}/admin/table/orders"
                     >Đơn hàng</a
                     >
@@ -482,7 +482,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
-                        Bạn có muốn xóa đơn hàng này?
+                        Bạn có muốn xóa bộ sưu tập này ?
                     </h5>
                     <button
                             type="button"
@@ -503,7 +503,7 @@
                     >
                         Hủy
                     </button>
-                    <form class="deleteBtn" method="POST" action="/admin/table/orders">
+                    <form class="deleteBtn" method="POST" action="/admin/table/collections">
                         <button
                                 type="submit"
                                 class="btn btn-dark"
@@ -595,7 +595,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="${pageContext.request.contextPath}/js/sb-admin-2.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/allOrder.js"></script>
+    <script src="${pageContext.request.contextPath}/js/allCollections.js"></script>
 
     <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/dataTables.bootstrap4.min.js"></script>

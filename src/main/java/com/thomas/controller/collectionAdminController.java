@@ -26,6 +26,9 @@ public class collectionAdminController extends HttpServlet {
         if (message.equals("create")) {
             String name = request.getParameter("collectionName");
             uploadProductService.createCollection(name);
+        } else if (message.equals("delete")) {
+            int id = Integer.parseInt(request.getParameter("orderId"));
+            uploadProductService.deleteCollections(id);
         }
         response.sendRedirect("/admin/table/collections");
     }

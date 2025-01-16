@@ -67,12 +67,17 @@ public class UploadUserService {
         return userDao.updateUserPassword(user);
     }
 
-    public boolean updateEmail(HttpServletRequest request, String email, int userId) {
+    public boolean updateEmail(HttpServletRequest request, String email, int userId, String password) {
         User user = userDao.findUserById(userId);
-        user.setEmail(email);
-        HttpSession session = request.getSession();
-        session.setAttribute("auth", user);
-        return userDao.updateUser(user);
+        if (MD5Service.hashPassword(password).equals(user.getPassword())) {
+            user.setEmail(email);
+            HttpSession session = request.getSession();
+            session.setAttribute("auth", user);
+            return userDao.updateUser(user);
+
+        } else {
+            return false;
+        }
     }
 
     public void updateImagePath(HttpServletRequest request, int userId, String mainImage) {

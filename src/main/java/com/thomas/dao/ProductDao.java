@@ -646,4 +646,10 @@ public class ProductDao {
         });
     }
 
+    public void deleteCollection(int id) {
+        JDBIConnect.get().withHandle(h -> {
+            String sql = "DELETE FROM collections WHERE id = :id";
+            return h.createUpdate(sql).bind("id", id).execute();
+        });
+    }
 }

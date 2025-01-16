@@ -106,7 +106,7 @@
                     >Đánh giá</a
                     >
                     <a
-                            class="collapse-itema"
+                            class="collapse-item"
                             href="${pageContext.request.contextPath}/frontend/AdminPage/couponManagement/couponManagement.jsp"
                     >Coupon</a
                     >
@@ -114,6 +114,11 @@
                             class="collapse-item"
                             href="${pageContext.request.contextPath}/frontend/AdminPage/orderManagement/orderManagement.jsp"
                     >Đơn hàng</a
+                    >
+                    <a
+                            class="collapse-item"
+                            href="${pageContext.request.contextPath}/admin/table/collections"
+                    >Bộ sưu tập</a
                     >
                 </div>
             </div>
@@ -174,7 +179,7 @@
         <div id="content">
 
             <div class="container-fluid px-0">
-                <h1 class="title-create-edit mb-2 mt-5 ml-5">Xem chi tiết đơn hàng</h1>
+                <h1 class="title-create-edit mb-2 mt-5 ml-5">Xem chi tiết bộ sưu tập</h1>
                 <div class="d-flex w-100 ml-5">
                     <div class="col-11 bg-light">
                         <div class="d-flex flex-column">

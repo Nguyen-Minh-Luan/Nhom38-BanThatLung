@@ -106,6 +106,11 @@
                        href="${pageContext.request.contextPath}/admin/table/orders"
                     >Đơn hàng</a
                     >
+                    <a
+                            class="collapse-item"
+                            href="${pageContext.request.contextPath}/admin/table/collections"
+                    >Bộ sưu tập</a
+                    >
                 </div>
             </div>
         </li>

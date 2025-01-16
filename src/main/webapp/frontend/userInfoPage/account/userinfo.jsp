@@ -123,6 +123,7 @@
             <div class="d-flex flex-column m-2" style="width: 90%">
                 <p class="mb-1 mt-2 custom_size--16">Mật khẩu</p>
                 <input
+                        name="password"
                         type="password"
                         class="form-control form-control-md custom__border custom custom-lg-input custom_size--16 custom_design currentPassword"
                         placeholder="Nhập mật khẩu"
@@ -134,6 +135,9 @@
                         type="password"
                         class="form-control form-control-md custom__border custom-lg-input custom_size--16 custom_design currentPasswordRetype"
                 />
+                <c:if test="${not empty missmatchPassword}">
+                    <p class="text-danger mt-2 ms-2 custom_size--16 mb-0">${missmatchPassword}</p>
+                </c:if>
             </div>
             <div class="d-flex mt-3 mb-5 ms-2">
                 <button class="btn btn-dark px-3 py-2 custom__btn ms-2">
@@ -160,7 +164,7 @@
                 <p class="mb-1 mt-2 ms-2 custom_size--16">Mật khẩu hiện tại</p>
                 <input
                         type="password"
-                        class="form-control form-control-md custom__border custom-lg-input ms-2 custom_design custom_size--16 currentPassword"
+                        class="form-control form-control-md custom__border custom-lg-input ms-2 custom_design custom_size--16 currentPass"
                         placeholder="Mật khẩu hiện tại"
                         required
                 />
@@ -171,6 +175,7 @@
             <div class="d-flex flex-column ms-2" style="width: 90%">
                 <p class="mb-1 mt-2 ms-2 custom_size--16">Mật khẩu mới</p>
                 <input
+                        id="newPassword"
                         type="password"
                         class="form-control form-control-md custom__border custom-lg-input ms-2 custom_design custom_size--16 newPassword"
                         placeholder="Nhập mật khẩu mới"
@@ -203,7 +208,8 @@
 
         $("#updatePasswordForm").submit(function (e) {
             $("#updatePassword").val($(".newPassword").val());
-            $("#currentPassword").val($(".currentPassword").val());
+            $("#currentPassword").val($(".currentPass").val());
+
         });
         $("#emailUpdate").submit(function (e) {
             $("#newEmail").val($("#currentEmail").val());

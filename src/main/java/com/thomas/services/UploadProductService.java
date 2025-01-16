@@ -390,4 +390,8 @@ public class UploadProductService {
     public void deteleCollectionDetail(String orderItemId) {
         productDao.deleteCollectionDetails(orderItemId);
     }
+
+    public void deleteCollections(int id) {
+        productDao.deleteCollection(id);
+    }
 }

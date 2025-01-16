@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -128,6 +129,10 @@
             <h2 class="mt-4 mb-4 fw-light">Các đơn hàng mà bạn đã đặt</h2>
             <c:forEach var="order" items="${orders}">
                 <div class="border rounded p-3 container-sm mb-2">
+                    <fmt:parseDate value="${order.orderDate}" pattern="yyyy-MM-dd" var="formattedDate"/>
+                    <h2 class="ms-1 fw-light custom_size--19">
+                        Ngày đặt hàng: <fmt:formatDate value="${formattedDate}" pattern="dd-MM-yyyy"/>
+                    </h2>
                     <h2 class="ms-1 fw-light custom_size--19">Order#${order.id}</h2>
                     <h2 class="ms-1 fw-light custom_size--16">
                         Tổng tiền: ${order.orderTotal} vnđ

@@ -29,12 +29,16 @@ public class userInfoController extends HttpServlet {
                 response.sendRedirect("/userInfo");
             } else {
                 request.setAttribute("errorMessage", "Sai mật khẩu!");
-                request.getRequestDispatcher("/frontend/userInfoPage/account/userinfo.jsp").forward(request, response);
+                request.getRequestDispatcher("/userInfo").forward(request, response);
             }
         } else if (message.equals("updateEmail")) {
+            String password = request.getParameter("password");
             String email = request.getParameter("newEmail");
-            if (uploadUserService.updateEmail(request, email, userId)) {
+            if (uploadUserService.updateEmail(request, email, userId, password)) {
                 response.sendRedirect("/userInfo");
+            } else {
+                request.setAttribute("missmatchPassword", "Sai mật khẩu!");
+                request.getRequestDispatcher("/userInfo").forward(request, response);
             }
         }
     }
